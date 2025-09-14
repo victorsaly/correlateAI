@@ -70,7 +70,7 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
 
     const animate = () => {
       // Clear with a more transparent trail for smoother motion
-      ctx.fillStyle = 'rgba(12, 12, 12, 0.08)';
+      ctx.fillStyle = 'rgba(2, 6, 23, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       time += 0.016;
@@ -126,27 +126,29 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
           particle.baseY = -50;
         }
 
-        // Animate particle properties
-        particle.opacity = 0.3 + Math.sin(time + index * 0.1) * 0.4;
-        particle.size = 2 + Math.sin(time * 2 + index * 0.2) * 1.5;
-        particle.hue = 200 + Math.sin(time * 0.5 + index * 0.3) * 60;
+        // Animate particle properties with AI-style colors
+        particle.opacity = 0.4 + Math.sin(time + index * 0.1) * 0.3;
+        particle.size = 2.5 + Math.sin(time * 2 + index * 0.2) * 1.5;
+        particle.hue = 180 + Math.sin(time * 0.5 + index * 0.3) * 80; // Cyan to purple range
 
-        // Create dynamic gradient for each particle
+        // Create dynamic gradient for each particle with AI colors
         const gradient = ctx.createRadialGradient(
           particle.x, particle.y, 0,
-          particle.x, particle.y, particle.size * 6
+          particle.x, particle.y, particle.size * 8
         );
         
-        gradient.addColorStop(0, `hsla(${particle.hue}, 80%, 70%, ${particle.opacity * 0.8})`);
-        gradient.addColorStop(0.4, `hsla(${particle.hue + 20}, 70%, 60%, ${particle.opacity * 0.5})`);
-        gradient.addColorStop(1, `hsla(${particle.hue}, 60%, 50%, 0)`);
+        // Enhanced AI-style gradient with cyan-purple theme
+        gradient.addColorStop(0, `hsla(${particle.hue}, 90%, 75%, ${particle.opacity * 0.9})`);
+        gradient.addColorStop(0.3, `hsla(${particle.hue + 30}, 80%, 65%, ${particle.opacity * 0.7})`);
+        gradient.addColorStop(0.7, `hsla(${particle.hue + 60}, 70%, 55%, ${particle.opacity * 0.4})`);
+        gradient.addColorStop(1, `hsla(${particle.hue}, 60%, 45%, 0)`);
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(particle.x, particle.y, particle.size * 6, 0, Math.PI * 2);
+        ctx.arc(particle.x, particle.y, particle.size * 8, 0, Math.PI * 2);
         ctx.fill();
 
-        // Draw flowing connections
+        // Draw flowing AI-neural network style connections
         particles.forEach((otherParticle, otherIndex) => {
           if (index !== otherIndex && index > otherIndex) {
             const dx = particle.x - otherParticle.x;
@@ -154,17 +156,19 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
             const distance = Math.sqrt(dx * dx + dy * dy);
             
             if (distance < 120) {
-              const opacity = (120 - distance) / 120 * 0.3;
+              const opacity = (120 - distance) / 120 * 0.4;
               const gradient = ctx.createLinearGradient(
                 particle.x, particle.y, 
                 otherParticle.x, otherParticle.y
               );
               
-              gradient.addColorStop(0, `hsla(${particle.hue}, 70%, 60%, ${opacity})`);
-              gradient.addColorStop(1, `hsla(${otherParticle.hue}, 70%, 60%, ${opacity})`);
+              // Neural network style connections with cyan-purple gradient
+              gradient.addColorStop(0, `hsla(${particle.hue}, 80%, 70%, ${opacity})`);
+              gradient.addColorStop(0.5, `hsla(${(particle.hue + otherParticle.hue) / 2}, 85%, 65%, ${opacity * 1.2})`);
+              gradient.addColorStop(1, `hsla(${otherParticle.hue}, 80%, 70%, ${opacity})`);
               
               ctx.strokeStyle = gradient;
-              ctx.lineWidth = 0.5 + opacity * 2;
+              ctx.lineWidth = 1 + opacity * 2;
               ctx.beginPath();
               ctx.moveTo(particle.x, particle.y);
               ctx.lineTo(otherParticle.x, otherParticle.y);
@@ -174,20 +178,21 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
         });
       });
 
-      // Add flowing background waves
+      // Add flowing background waves with AI-style deep colors
       const waveGradient = ctx.createLinearGradient(
         0, 0, 
         canvas.width, canvas.height
       );
       
-      const wave1 = 0.03 + Math.sin(time * 0.8) * 0.02;
-      const wave2 = 0.02 + Math.cos(time * 1.2) * 0.015;
-      const wave3 = 0.04 + Math.sin(time * 0.5) * 0.025;
+      const wave1 = 0.04 + Math.sin(time * 0.8) * 0.03;
+      const wave2 = 0.03 + Math.cos(time * 1.2) * 0.025;
+      const wave3 = 0.05 + Math.sin(time * 0.5) * 0.035;
       
-      waveGradient.addColorStop(0, `hsla(240, 60%, 25%, ${wave1})`);
-      waveGradient.addColorStop(0.3, `hsla(260, 70%, 35%, ${wave2})`);
-      waveGradient.addColorStop(0.7, `hsla(280, 60%, 30%, ${wave2})`);
-      waveGradient.addColorStop(1, `hsla(220, 50%, 20%, ${wave3})`);
+      waveGradient.addColorStop(0, `hsla(200, 70%, 20%, ${wave1})`);   // Deep cyan
+      waveGradient.addColorStop(0.25, `hsla(220, 80%, 25%, ${wave2})`); // Blue
+      waveGradient.addColorStop(0.5, `hsla(260, 70%, 30%, ${wave2})`);  // Purple  
+      waveGradient.addColorStop(0.75, `hsla(280, 60%, 25%, ${wave1})`); // Deep purple
+      waveGradient.addColorStop(1, `hsla(190, 60%, 15%, ${wave3})`);    // Dark teal
       
       ctx.fillStyle = waveGradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
@@ -211,8 +216,8 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
       ref={canvasRef}
       className={`fixed top-0 left-0 w-full h-full -z-10 ${className}`}
       style={{ 
-        background: 'radial-gradient(ellipse at center, #1a1a2e 0%, #0c0c0c 50%, #000000 100%)',
-        filter: 'contrast(1.2) brightness(1.1)'
+        background: 'radial-gradient(ellipse at center, #0F172A 0%, #020617 50%, #000000 100%)',
+        filter: 'contrast(1.3) brightness(1.2) saturate(1.1)'
       }}
     />
   );

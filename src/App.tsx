@@ -413,38 +413,43 @@ function App() {
   return (
     <div className="min-h-screen relative">
       <SwirlBackground />
-      <div className="relative z-10 p-4 bg-black/5 backdrop-blur-[1px] min-h-screen">
-        <div className="max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-8">
+      <div className="relative z-10 p-4 min-h-screen">
+        <div className="max-w-6xl mx-auto bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8">
         <header className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
+              <Database size={24} className="text-white" />
+            </div>
+            <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
               CorrelateAI Pro
             </h1>
-            <div className="px-3 py-1 bg-gradient-to-r from-blue-500 to-purple-500 text-white text-xs font-semibold rounded-full">
-              AI-Generated App
+            <div className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25">
+              AI-Powered
             </div>
           </div>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Discover surprising correlations in real economic data using AI-powered analysis. 
-            Built entirely with artificial intelligence using authentic data from Federal Reserve & World Bank APIs.
+          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Discover surprising correlations in real economic data using advanced AI analysis. 
+            Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.
           </p>
-          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-muted-foreground">
-            <Database size={16} className="text-blue-500" />
-            <span>Real data from</span>
-            <span className="font-semibold text-blue-600">FRED API</span>
+          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-400">
+            <Database size={16} className="text-cyan-400" />
+            <span>Powered by</span>
+            <span className="font-semibold text-cyan-400">FRED API</span>
             <span>+</span>
-            <span className="font-semibold text-green-600">World Bank API</span>
+            <span className="font-semibold text-blue-400">World Bank API</span>
+            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-2"></div>
+            <span className="text-green-400 font-medium">Live Data</span>
           </div>
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6">
-            <TabsTrigger value="generator">Generate</TabsTrigger>
-            <TabsTrigger value="favorites">
+          <TabsList className="grid w-full grid-cols-3 mb-6 bg-gray-700/50 border border-gray-600/50">
+            <TabsTrigger value="generator" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">Generate</TabsTrigger>
+            <TabsTrigger value="favorites" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
               Favorites ({favorites?.length || 0})
             </TabsTrigger>
-            <TabsTrigger value="story">
-              How It Was Made
+            <TabsTrigger value="story" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
+              AI Development Story
             </TabsTrigger>
           </TabsList>
           
@@ -452,25 +457,25 @@ function App() {
             <div className="flex flex-col gap-4 items-center justify-center">
               
               {/* Controls Row */}
-              <div className="flex flex-col sm:flex-row gap-4 items-center">
+              <div className="flex items-center gap-4 justify-center">
                 <div className="flex items-center gap-2">
-                  <Funnel size={18} className="text-muted-foreground" />
+                  <Funnel size={18} className="text-cyan-400" />
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="w-48">
+                    <SelectTrigger className="w-48 bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700">
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="all">All Categories</SelectItem>
-                      <SelectItem value="economics">💰 Economics & Finance</SelectItem>
-                      <SelectItem value="social">👥 Social & Demographics</SelectItem>
-                      <SelectItem value="finance">📊 Finance & Markets</SelectItem>
-                      <SelectItem value="demographics">👨‍👩‍👧‍👦 Demographics</SelectItem>
-                      <SelectItem value="technology">💻 Technology</SelectItem>
-                      <SelectItem value="environment">🌍 Environment</SelectItem>
-                      <SelectItem value="health">❤️ Health</SelectItem>
-                      <SelectItem value="education">🎓 Education</SelectItem>
-                      <SelectItem value="trade">🌐 Trade & International</SelectItem>
-                      <SelectItem value="commodities">🛢️ Commodities</SelectItem>
+                    <SelectContent className="bg-gray-800 border-gray-600">
+                      <SelectItem value="all" className="text-gray-200 hover:bg-gray-700">All Categories</SelectItem>
+                      <SelectItem value="economics" className="text-gray-200 hover:bg-gray-700">💰 Economics & Finance</SelectItem>
+                      <SelectItem value="social" className="text-gray-200 hover:bg-gray-700">👥 Social & Demographics</SelectItem>
+                      <SelectItem value="finance" className="text-gray-200 hover:bg-gray-700">📊 Finance & Markets</SelectItem>
+                      <SelectItem value="demographics" className="text-gray-200 hover:bg-gray-700">👨‍👩‍👧‍👦 Demographics</SelectItem>
+                      <SelectItem value="technology" className="text-gray-200 hover:bg-gray-700">💻 Technology</SelectItem>
+                      <SelectItem value="environment" className="text-gray-200 hover:bg-gray-700">🌍 Environment</SelectItem>
+                      <SelectItem value="health" className="text-gray-200 hover:bg-gray-700">❤️ Health</SelectItem>
+                      <SelectItem value="education" className="text-gray-200 hover:bg-gray-700">🎓 Education</SelectItem>
+                      <SelectItem value="trade" className="text-gray-200 hover:bg-gray-700">🌐 Trade & International</SelectItem>
+                      <SelectItem value="commodities" className="text-gray-200 hover:bg-gray-700">🛢️ Commodities</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
@@ -479,17 +484,17 @@ function App() {
                   onClick={generateNew}
                   disabled={isGenerating}
                   size="lg"
-                  className="px-8"
+                  className="px-8 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25"
                 >
                   {isGenerating ? (
                     <>
                       <ArrowClockwise className="animate-spin mr-2" size={18} />
-                      Fetching Real Data...
+                      Analyzing Real Data...
                     </>
                   ) : (
                     <>
                       <ArrowClockwise className="mr-2" size={18} />
-                      Generate New Correlation
+                      Generate AI Correlation
                     </>
                   )}
                 </Button>
@@ -501,11 +506,11 @@ function App() {
           
           <TabsContent value="favorites" className="space-y-6">
             {!favorites || favorites.length === 0 ? (
-              <Card className="text-center py-12">
+              <Card className="text-center py-12 bg-gray-800/50 border-gray-700/50">
                 <CardContent>
-                  <Heart size={48} className="mx-auto text-muted-foreground mb-4" />
-                  <h3 className="text-lg font-semibold mb-2">No favorites yet</h3>
-                  <p className="text-muted-foreground">
+                  <Heart size={48} className="mx-auto text-gray-500 mb-4" />
+                  <h3 className="text-lg font-semibold mb-2 text-gray-200">No favorites yet</h3>
+                  <p className="text-gray-400">
                     Generate correlations and save your favorites!
                   </p>
                 </CardContent>
@@ -762,23 +767,23 @@ function App() {
         </div>
       
       {/* Footer */}
-      <footer className="mt-16 border-t border-white/20 bg-white/80 backdrop-blur-md">
+      <footer className="mt-16 border-t border-gray-700/50 bg-gray-800/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Developer Profile */}
             <div className="flex items-center gap-6">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl">
+              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-cyan-500/25">
                 VS
               </div>
               <div>
-                <h3 className="text-xl font-semibold text-gray-900">Victor Saly</h3>
-                <p className="text-gray-600 font-medium">AI Developer & Data Science Engineer</p>
+                <h3 className="text-xl font-semibold text-gray-100">Victor Saly</h3>
+                <p className="text-gray-300 font-medium">AI Developer & Data Science Engineer</p>
                 <div className="flex flex-col gap-1 mt-2">
                   <a 
                     href="https://www.linkedin.com/in/victorsaly/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-2"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -789,7 +794,7 @@ function App() {
                     href="https://victorsaly.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-2"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -802,11 +807,11 @@ function App() {
 
             {/* AI Development Approach */}
             <div className="text-center lg:text-right max-w-md">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mb-3">
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-gray-700">100% AI-Generated Application</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-700/50 rounded-full mb-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-sm font-medium text-gray-200">100% AI-Generated Application</span>
               </div>
-              <p className="text-sm text-gray-600 leading-relaxed">
+              <p className="text-sm text-gray-400 leading-relaxed">
                 Built entirely through AI-assisted development using advanced language models. 
                 This application demonstrates the power of AI in creating professional-grade 
                 data visualization and correlation analysis tools.
@@ -815,7 +820,7 @@ function App() {
           </div>
 
           {/* Bottom Section */}
-          <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+          <div className="mt-8 pt-6 border-t border-gray-700/50 text-center">
             <p className="text-sm text-gray-500">
               © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from FRED API & World Bank API.
             </p>
@@ -831,54 +836,55 @@ function App() {
   // CorrelationCard component moved outside to prevent re-render issues
   function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
     return (
-      <Card className="w-full" ref={isShareable ? shareCardRef : undefined}>
+      <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
         <CardHeader>
           <div className="flex justify-between items-start">
             <div className="flex-1">
-              <CardTitle className="text-xl font-semibold flex items-center gap-2">
-                <TrendUp size={20} />
+              <CardTitle className="text-xl font-semibold flex items-center gap-2 text-gray-100">
+                <TrendUp size={20} className="text-cyan-400" />
                 {correlation.title}
               </CardTitle>
-              <CardDescription className="mt-2">{correlation.description}</CardDescription>
+              <CardDescription className="mt-2 text-gray-300">{correlation.description}</CardDescription>
             </div>
             <div className="flex items-center gap-2 ml-4">
               <Button
                 variant="ghost"
                 size="sm"
+                className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100"
                 onClick={() => toggleFavorite(correlation)}
               >
                 <Heart 
                   size={18} 
                   weight={isFavorited(correlation.id) ? "fill" : "regular"}
-                  className={isFavorited(correlation.id) ? "text-red-500" : ""}
+                  className={isFavorited(correlation.id) ? "text-red-400" : ""}
                 />
               </Button>
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100">
                     <Share size={18} />
                   </Button>
                 </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48">
-                  <DropdownMenuItem onClick={() => shareToTwitter(correlation)}>
+                <DropdownMenuContent align="end" className="w-48 bg-gray-800 border-gray-700">
+                  <DropdownMenuItem onClick={() => shareToTwitter(correlation)} className="text-gray-200 hover:bg-gray-700">
                     <TwitterLogo size={16} className="mr-2" />
                     Share on Twitter
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => shareToLinkedIn(correlation)}>
+                  <DropdownMenuItem onClick={() => shareToLinkedIn(correlation)} className="text-gray-200 hover:bg-gray-700">
                     <LinkedinLogo size={16} className="mr-2" />
                     Share on LinkedIn
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => shareToFacebook(correlation)}>
+                  <DropdownMenuItem onClick={() => shareToFacebook(correlation)} className="text-gray-200 hover:bg-gray-700">
                     <FacebookLogo size={16} className="mr-2" />
                     Share on Facebook
                   </DropdownMenuItem>
-                  <Separator />
-                  <DropdownMenuItem onClick={() => downloadAsImage(correlation)}>
+                  <Separator className="bg-gray-600" />
+                  <DropdownMenuItem onClick={() => downloadAsImage(correlation)} className="text-gray-200 hover:bg-gray-700">
                     <Download size={16} className="mr-2" />
                     Download as Image
                   </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation))}>
+                  <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation))} className="text-gray-200 hover:bg-gray-700">
                     <Copy size={16} className="mr-2" />
                     Copy Share Text
                   </DropdownMenuItem>
@@ -888,13 +894,13 @@ function App() {
           </div>
           
           <div className="flex gap-2 mt-4 flex-wrap">
-            <Badge variant="secondary">
+            <Badge variant="secondary" className="bg-cyan-900/50 text-cyan-300 border-cyan-700/50">
               r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
             </Badge>
-            <Badge variant="outline">
+            <Badge variant="outline" className="border-gray-600 text-gray-300">
               R² = {correlation.rSquared.toFixed(3)}
             </Badge>
-            <Badge variant={correlation.isRealData ? "default" : "secondary"} className="text-xs">
+            <Badge variant={correlation.isRealData ? "default" : "secondary"} className={correlation.isRealData ? "bg-purple-900/50 text-purple-300 border-purple-700/50" : "bg-gray-700/50 text-gray-300 border-gray-600/50"}>
               {correlation.isRealData ? (
                 <>
                   <Database size={12} className="mr-1" />
@@ -910,19 +916,20 @@ function App() {
           </div>
         </CardHeader>
         
-        <CardContent>
+        <CardContent className="bg-gray-900/30 rounded-lg">
           <div className="h-64 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={correlation.data}>
-                <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-                <XAxis dataKey="year" stroke="#64748b" />
-                <YAxis yAxisId="left" orientation="left" stroke="#3b82f6" />
-                <YAxis yAxisId="right" orientation="right" stroke="#f97316" />
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                <XAxis dataKey="year" stroke="#9CA3AF" />
+                <YAxis yAxisId="left" orientation="left" stroke="#06B6D4" />
+                <YAxis yAxisId="right" orientation="right" stroke="#A855F7" />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'white', 
-                    border: '1px solid #e2e8f0',
-                    borderRadius: '8px'
+                    backgroundColor: '#1F2937', 
+                    border: '1px solid #374151',
+                    borderRadius: '8px',
+                    color: '#F3F4F6'
                   }}
                   formatter={(value, name) => [
                     typeof value === 'number' ? value.toFixed(1) : value,
@@ -934,37 +941,38 @@ function App() {
                   yAxisId="left"
                   type="monotone" 
                   dataKey="value1" 
-                  stroke="#3b82f6" 
-                  strokeWidth={2}
-                  dot={{ fill: '#3b82f6', strokeWidth: 2, r: 3 }}
+                  stroke="#06B6D4" 
+                  strokeWidth={3}
+                  dot={{ fill: '#06B6D4', strokeWidth: 2, r: 4 }}
                   animationDuration={1200}
                 />
                 <Line 
                   yAxisId="right"
                   type="monotone" 
                   dataKey="value2" 
-                  stroke="#f97316" 
-                  strokeWidth={2}
-                  dot={{ fill: '#f97316', strokeWidth: 2, r: 3 }}
+                  stroke="#A855F7" 
+                  strokeWidth={3}
+                  dot={{ fill: '#A855F7', strokeWidth: 2, r: 4 }}
                   animationDuration={1200}
                 />
               </LineChart>
             </ResponsiveContainer>
           </div>
           
-          <div className="mt-6 p-4 bg-muted/30 rounded-lg">
+          <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
             <div className="flex items-center gap-2 mb-2">
-              <BookOpen size={16} />
-              <span className="text-sm font-medium">Citation</span>
+              <BookOpen size={16} className="text-cyan-400" />
+              <span className="text-sm font-medium text-gray-200">Citation</span>
               <Button
                 variant="ghost"
                 size="sm"
+                className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200"
                 onClick={() => copyToClipboard(`${correlation.citation}. ${correlation.title}. ${correlation.journal}, ${correlation.year}.`)}
               >
                 <Copy size={14} />
               </Button>
             </div>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm text-gray-400">
               {correlation.citation}. "{correlation.title}." <em>{correlation.journal}</em>, {correlation.year}.
             </p>
           </div>
