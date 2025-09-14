@@ -271,7 +271,8 @@ function App() {
     setShareCardRef(ref)
   }, [])
 
-  const CorrelationCard = useCallback(({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
+  // Remove useCallback wrapper from CorrelationCard component to prevent infinite re-renders
+  const CorrelationCard = ({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
     <Card className="w-full" ref={isShareable ? shareCardRefCallback : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
@@ -400,7 +401,7 @@ function App() {
         </div>
       </CardContent>
     </Card>
-  ), [toggleFavorite, isFavorited, shareToTwitter, shareToLinkedIn, shareToFacebook, downloadAsImage, copyToClipboard, generateShareText, shareCardRefCallback])
+  )
 
   return (
     <div className="min-h-screen bg-background p-4">
