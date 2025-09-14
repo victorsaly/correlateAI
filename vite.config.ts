@@ -22,4 +22,48 @@ export default defineConfig({
       '@': resolve(projectRoot, 'src')
     }
   },
+  server: {
+    proxy: {
+      '/api/fred': {
+        target: 'https://api.stlouisfed.org',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/fred/, '/fred'),
+        secure: false,
+        configure: (proxy, options) => {
+          proxy.on('error', (err, req, res) => {
+            console.log('proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            console.log('Sending Request to the Target:', req.method, req.url);
+          });
+          proxy.on('proxyRes', (proxyRes, req, res) => {
+            console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
+          });
+        },
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; FRED-API-Client/1.0)'
+        }
+      },
+      '/api/worldbank': {
+        target: 'https://api.worldbank.org',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api\/worldbank/, ''),
+        secure: false,
+        configure: (proxy, options) => {
+          proxy.on('error', (err, req, res) => {
+            console.log('WorldBank proxy error', err);
+          });
+          proxy.on('proxyReq', (proxyReq, req, res) => {
+            console.log('Sending WorldBank Request:', req.method, req.url);
+          });
+          proxy.on('proxyRes', (proxyRes, req, res) => {
+            console.log('WorldBank Response:', proxyRes.statusCode, req.url);
+          });
+        },
+        headers: {
+          'User-Agent': 'Mozilla/5.0 (compatible; WorldBank-API-Client/1.0)'
+        }
+      }
+    }
+  }
 });
