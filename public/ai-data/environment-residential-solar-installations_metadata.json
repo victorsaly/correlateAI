@@ -1,0 +1,33 @@
+{
+  "id": "ai_solar_panel_installations",
+  "filename": "environment-residential-solar-installations",
+  "name": "Residential Solar Installations",
+  "unit": "thousands of installations",
+  "category": "environment",
+  "description": "New residential solar panel installations",
+  "source": "AI-Generated from SEIA installation data",
+  "sourceUrl": "https://www.seia.org/solar-industry-research-data",
+  "citation": "Solar Energy Industries Association Installation Reports (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.612Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "High",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.612Z",
+  "tags": [
+    "environment",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

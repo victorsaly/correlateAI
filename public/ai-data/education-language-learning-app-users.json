@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_language_learning_apps",
+    "name": "Language Learning App Users",
+    "unit": "millions of active users",
+    "category": "education",
+    "description": "Monthly active users of language learning apps",
+    "source": "AI-Generated from language learning trends",
+    "sourceUrl": "https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents",
+    "citation": "Modern Language Association Technology in Language Learning (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "education-language-learning-app-users"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 37.8,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2015,
+      "value": 46.8,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2016,
+      "value": 55.93,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2017,
+      "value": 63.98,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2018,
+      "value": 72.45,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2019,
+      "value": 82.7,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2020,
+      "value": 89.97,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2021,
+      "value": 98.29,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2022,
+      "value": 108.47,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2023,
+      "value": 118.44,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    },
+    {
+      "year": 2024,
+      "value": 125.01,
+      "generatedAt": "2025-09-14T21:22:42.629Z"
+    }
+  ]
+}

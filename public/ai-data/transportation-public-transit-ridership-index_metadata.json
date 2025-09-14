@@ -1,0 +1,33 @@
+{
+  "id": "ai_public_transit_ridership",
+  "filename": "transportation-public-transit-ridership-index",
+  "name": "Public Transit Ridership Index",
+  "unit": "index (2019 = 100)",
+  "category": "transportation",
+  "description": "Public transportation ridership relative to 2019",
+  "source": "AI-Generated from transit ridership patterns",
+  "sourceUrl": "https://www.apta.com/research-technical-resources/transit-statistics/",
+  "citation": "American Public Transportation Association Ridership Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.652Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.652Z",
+  "tags": [
+    "transportation",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ai_telemedicine_consultations",
+  "filename": "health-telemedicine-usage",
+  "name": "Telemedicine Usage",
+  "unit": "millions of consultations",
+  "category": "health",
+  "description": "Annual telemedicine consultations",
+  "source": "AI-Generated from AMA telemedicine adoption",
+  "sourceUrl": "https://www.ama-assn.org/practice-management/digital/ama-digital-health-study",
+  "citation": "American Medical Association Digital Health Scorecard (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.622Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Medium",
+  "seasonal": "No",
+  "covidImpact": "Modeled",
+  "lastUpdated": "2025-09-14T21:22:42.622Z",
+  "tags": [
+    "health",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_local_food_market_share",
+    "name": "Local Food Market Share",
+    "unit": "percent of food sales",
+    "category": "food",
+    "description": "Local food sales as percentage of total food market",
+    "source": "AI-Generated from local food movement data",
+    "sourceUrl": "https://www.nass.usda.gov/Publications/Highlights/2016/LocalFoodsMarketingPractices/",
+    "citation": "USDA Local Food Marketing Practices Survey (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "food-local-food-market-share"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 11.24,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2015,
+      "value": 15.58,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2016,
+      "value": 16.82,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2017,
+      "value": 17.66,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2018,
+      "value": 22.59,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2019,
+      "value": 27.79,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2020,
+      "value": 27.92,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2021,
+      "value": 27.72,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2022,
+      "value": 33.88,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2023,
+      "value": 39.86,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    },
+    {
+      "year": 2024,
+      "value": 39.03,
+      "generatedAt": "2025-09-14T21:22:42.656Z"
+    }
+  ]
+}

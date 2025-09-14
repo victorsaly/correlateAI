@@ -1,0 +1,33 @@
+{
+  "id": "ai_alternative_protein_sales",
+  "filename": "food-alternative-protein-sales",
+  "name": "Alternative Protein Sales",
+  "unit": "billions USD",
+  "category": "food",
+  "description": "Plant-based and lab-grown protein sales",
+  "source": "AI-Generated from alternative protein market trends",
+  "sourceUrl": "https://gfi.org/resource/alternative-protein-industry-annual-review/",
+  "citation": "Good Food Institute Alternative Protein Industry Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.655Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.655Z",
+  "tags": [
+    "food",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

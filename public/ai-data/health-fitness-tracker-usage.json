@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_fitness_tracker_adoption",
+    "name": "Fitness Tracker Usage",
+    "unit": "percent of adults",
+    "category": "health",
+    "description": "Percentage of adults using fitness trackers",
+    "source": "AI-Generated from fitness technology studies",
+    "sourceUrl": "https://www.heart.org/en/news/2021/09/14/fitness-trackers-may-not-boost-weight-loss-but-research-continues",
+    "citation": "American Heart Association Fitness Technology Survey (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "health-fitness-tracker-usage"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 18.83,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2015,
+      "value": 25.31,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2016,
+      "value": 31.55,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2017,
+      "value": 37.63,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2018,
+      "value": 44.06,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2019,
+      "value": 49.78,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2020,
+      "value": 55.92,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2021,
+      "value": 62.68,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2022,
+      "value": 68.7,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2023,
+      "value": 74.8,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    },
+    {
+      "year": 2024,
+      "value": 80.87,
+      "generatedAt": "2025-09-14T21:22:42.621Z"
+    }
+  ]
+}

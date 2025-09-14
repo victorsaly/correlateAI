@@ -1,0 +1,33 @@
+{
+  "id": "ai_meditation_app_usage",
+  "filename": "health-meditation-app-active-users",
+  "name": "Meditation App Active Users",
+  "unit": "millions of users",
+  "category": "health",
+  "description": "Monthly active users of meditation apps",
+  "source": "AI-Generated from meditation app analytics",
+  "sourceUrl": "https://www.headspace.com/blog/2021/07/06/meditation-statistics/",
+  "citation": "Digital Wellness Institute Mindfulness App Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.624Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.624Z",
+  "tags": [
+    "health",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

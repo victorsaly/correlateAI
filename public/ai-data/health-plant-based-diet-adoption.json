@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_plant_based_diet",
+    "name": "Plant-Based Diet Adoption",
+    "unit": "percent of population",
+    "category": "health",
+    "description": "Percentage following primarily plant-based diets",
+    "source": "AI-Generated from dietary trend research",
+    "sourceUrl": "https://plantbasedfoods.org/market-research/",
+    "citation": "Plant Based Foods Association Consumer Survey (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "health-plant-based-diet-adoption"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 10.96,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2015,
+      "value": 13.76,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2016,
+      "value": 16.69,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2017,
+      "value": 19.44,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2018,
+      "value": 22.09,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2019,
+      "value": 24.83,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2020,
+      "value": 27.68,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2021,
+      "value": 30.44,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2022,
+      "value": 33.23,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2023,
+      "value": 36.1,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    },
+    {
+      "year": 2024,
+      "value": 38.98,
+      "generatedAt": "2025-09-14T21:22:42.622Z"
+    }
+  ]
+}

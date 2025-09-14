@@ -13,8 +13,9 @@
     },
     "scripts": {
         "dev": "vite",
-        "build": "npm run prefetch && tsc -b --noCheck && vite build",
+        "build": "npm run prefetch && npm run generate-ai && tsc -b --noCheck && vite build",
         "prefetch": "node scripts/prefetch-data.js",
+        "generate-ai": "node scripts/generate-ai-datasets-enhanced.js",
         "lint": "eslint .",
         "preview": "vite preview",
         "security-audit": "./scripts/security-audit.sh",

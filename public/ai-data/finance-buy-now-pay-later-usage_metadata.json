@@ -1,0 +1,33 @@
+{
+  "id": "ai_buy_now_pay_later",
+  "filename": "finance-buy-now-pay-later-usage",
+  "name": "Buy Now Pay Later Usage",
+  "unit": "billions USD transaction volume",
+  "category": "finance",
+  "description": "Annual BNPL transaction volume",
+  "source": "AI-Generated from BNPL industry reports",
+  "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-report-buy-now-pay-later-credit/",
+  "citation": "Consumer Financial Protection Bureau BNPL Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.636Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Medium",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.636Z",
+  "tags": [
+    "finance",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

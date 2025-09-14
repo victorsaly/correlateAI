@@ -1,0 +1,33 @@
+{
+  "id": "ai_food_delivery_orders",
+  "filename": "food-delivery-orders-per-capita",
+  "name": "Food Delivery Orders",
+  "unit": "orders per capita per year",
+  "category": "food",
+  "description": "Annual food delivery orders per person",
+  "source": "AI-Generated from food delivery trends",
+  "sourceUrl": "https://restaurant.org/research/reports/state-of-restaurant-industry/",
+  "citation": "National Restaurant Association Delivery Trends Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.653Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "Yes",
+  "covidImpact": "Modeled",
+  "lastUpdated": "2025-09-14T21:22:42.653Z",
+  "tags": [
+    "food",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

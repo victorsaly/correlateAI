@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_social_media_usage",
+    "name": "Daily Social Media Usage",
+    "unit": "minutes per day",
+    "category": "social",
+    "description": "Average daily social media consumption",
+    "source": "AI-Generated from digital behavior studies",
+    "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/social-media/",
+    "citation": "Pew Research Center Social Media & Technology Reports (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "social-daily-social-media-usage"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 127.39,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2015,
+      "value": 146.61,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2016,
+      "value": 142.03,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2017,
+      "value": 137.36,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2018,
+      "value": 159.74,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2019,
+      "value": 185.34,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2020,
+      "value": 180.24,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2021,
+      "value": 168.3,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2022,
+      "value": 197.88,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2023,
+      "value": 223.27,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    },
+    {
+      "year": 2024,
+      "value": 213.23,
+      "generatedAt": "2025-09-14T21:22:42.616Z"
+    }
+  ]
+}

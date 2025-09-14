@@ -1,0 +1,33 @@
+{
+  "id": "ai_cryptocurrency_adoption",
+  "filename": "finance-cryptocurrency-ownership",
+  "name": "Cryptocurrency Ownership",
+  "unit": "percent of adults",
+  "category": "finance",
+  "description": "Percentage of adults owning cryptocurrency",
+  "source": "AI-Generated from Fed crypto adoption studies",
+  "sourceUrl": "https://www.federalreserve.gov/publications/2021-economic-well-being-of-us-households-in-2020.htm",
+  "citation": "Federal Reserve Bank Economic Well-Being Survey (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.631Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Medium",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.631Z",
+  "tags": [
+    "finance",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

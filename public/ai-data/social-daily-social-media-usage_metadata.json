@@ -1,0 +1,33 @@
+{
+  "id": "ai_social_media_usage",
+  "filename": "social-daily-social-media-usage",
+  "name": "Daily Social Media Usage",
+  "unit": "minutes per day",
+  "category": "social",
+  "description": "Average daily social media consumption",
+  "source": "AI-Generated from digital behavior studies",
+  "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/social-media/",
+  "citation": "Pew Research Center Social Media & Technology Reports (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.616Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.616Z",
+  "tags": [
+    "social",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

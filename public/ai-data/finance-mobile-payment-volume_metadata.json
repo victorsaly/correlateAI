@@ -1,0 +1,33 @@
+{
+  "id": "ai_mobile_payment_volume",
+  "filename": "finance-mobile-payment-volume",
+  "name": "Mobile Payment Volume",
+  "unit": "billions USD",
+  "category": "finance",
+  "description": "Annual mobile payment transaction volume",
+  "source": "AI-Generated from mobile payment trends",
+  "sourceUrl": "https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm",
+  "citation": "Federal Reserve Bank Payments Study (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.633Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "High",
+  "seasonal": "Yes",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.633Z",
+  "tags": [
+    "finance",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_ride_share_trips",
+    "name": "Ride Share Trip Volume",
+    "unit": "billions of trips",
+    "category": "transportation",
+    "description": "Annual ride sharing service trips",
+    "source": "AI-Generated from ride share market data",
+    "sourceUrl": "https://www.bts.gov/browse-statistical-products-and-data/surveys/national-household-travel-survey",
+    "citation": "Bureau of Transportation Statistics Shared Mobility (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "transportation-ride-share-trip-volume"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 4.58,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2015,
+      "value": 7.06,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2016,
+      "value": 8.2,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2017,
+      "value": 9,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2018,
+      "value": 11.8,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2019,
+      "value": 14.95,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2020,
+      "value": 15.41,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2021,
+      "value": 15.51,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2022,
+      "value": 18.93,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2023,
+      "value": 22.9,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2024,
+      "value": 22.68,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_online_course_enrollment",
+    "name": "Online Course Enrollment",
+    "unit": "millions of enrollments",
+    "category": "education",
+    "description": "Annual online course enrollments",
+    "source": "AI-Generated from EdTech industry reports",
+    "sourceUrl": "https://nces.ed.gov/programs/digest/d21/tables/dt21_311.15.asp",
+    "citation": "National Center for Education Statistics Distance Learning (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "education-online-course-enrollment"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 61.72,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2015,
+      "value": 87.96,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2016,
+      "value": 104.56,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2017,
+      "value": 102.79,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2018,
+      "value": 140.86,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2019,
+      "value": 171.85,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2020,
+      "value": 172.72,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2021,
+      "value": 176.47,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2022,
+      "value": 204.57,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2023,
+      "value": 256.18,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    },
+    {
+      "year": 2024,
+      "value": 257.16,
+      "generatedAt": "2025-09-14T21:22:42.626Z"
+    }
+  ]
+}

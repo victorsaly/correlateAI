@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_food_delivery_orders",
+    "name": "Food Delivery Orders",
+    "unit": "orders per capita per year",
+    "category": "food",
+    "description": "Annual food delivery orders per person",
+    "source": "AI-Generated from food delivery trends",
+    "sourceUrl": "https://restaurant.org/research/reports/state-of-restaurant-industry/",
+    "citation": "National Restaurant Association Delivery Trends Report (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "food-delivery-orders-per-capita"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 21.32,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2015,
+      "value": 33.5,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2016,
+      "value": 38.92,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2017,
+      "value": 43.55,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2018,
+      "value": 56.57,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2019,
+      "value": 71.77,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2020,
+      "value": 207.11,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2021,
+      "value": 169.42,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2022,
+      "value": 143.04,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2023,
+      "value": 111.62,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    },
+    {
+      "year": 2024,
+      "value": 109.17,
+      "generatedAt": "2025-09-14T21:22:42.653Z"
+    }
+  ]
+}

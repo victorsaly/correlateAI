@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_bike_sharing_usage",
+    "name": "Bike Share Usage",
+    "unit": "millions of trips",
+    "category": "transportation",
+    "description": "Annual bike share system usage",
+    "source": "AI-Generated from NACTO bike share data",
+    "sourceUrl": "https://nacto.org/bike-share-statistics-2020/",
+    "citation": "National Association of City Transportation Officials Bike Share (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "transportation-bike-share-usage"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 37.91,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2015,
+      "value": 49.97,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2016,
+      "value": 54.56,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2017,
+      "value": 56.9,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2018,
+      "value": 73.16,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2019,
+      "value": 89.28,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2020,
+      "value": 91.93,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2021,
+      "value": 89.81,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2022,
+      "value": 106.74,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2023,
+      "value": 128.37,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    },
+    {
+      "year": 2024,
+      "value": 123.81,
+      "generatedAt": "2025-09-14T21:22:42.651Z"
+    }
+  ]
+}

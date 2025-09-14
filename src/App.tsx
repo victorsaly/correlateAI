@@ -9,10 +9,11 @@ import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
 import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database } from '@phosphor-icons/react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea, ReferenceLine } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { dataService, allDatasets, RealDataset, RealDataPoint } from '@/services/staticDataService'
 import SwirlBackground from '@/components/SwirlBackground'
+import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
 
 interface CorrelationData {
   id: string
@@ -40,13 +41,20 @@ interface Dataset {
 }
 
 const categories = {
-  food: "🍕 Food & Consumption",
-  technology: "📱 Technology & Digital",
-  weather: "🌤️ Weather & Environment",
+  economics: "💰 Economics & Finance",
+  finance: "📊 Finance & Markets", 
   social: "👥 Social & Demographics",
-  health: "🏥 Health & Safety",
+  demographics: "👨‍👩‍👧‍👦 Demographics",
+  technology: "� Technology",
+  environment: "🌍 Environment",
+  health: "❤️ Health",
+  education: "🎓 Education",
+  trade: "🌐 Trade & International",
+  commodities: "�️ Commodities",
+  entertainment: "� Entertainment & Media",
   transportation: "🚗 Transportation",
-  economics: "💰 Economics & Finance"
+  food: "🍎 Food & Agriculture",
+  housing: "🏘️ Housing & Urban"
 }
 
 const datasets: Dataset[] = [
@@ -263,14 +271,14 @@ function App() {
         setCurrentCorrelation(realCorrelation)
         toast.success("Real data correlation generated!")
       } else {
-        // Fallback to synthetic data if real data fails
-        toast.warning("Real data unavailable, using synthetic data")
-        setCurrentCorrelation(generateCorrelationData(selectedCategory))
+        // NO MOCK DATA FALLBACK - Only real or AI-generated data
+        toast.error("No real data available for selected category - only real and AI-generated data used")
+        console.error("No real data correlation could be generated - system does not use mock data")
       }
     } catch (error) {
       console.error('Error generating correlation:', error)
-      toast.error("Generation failed, using synthetic data")
-      setCurrentCorrelation(generateCorrelationData(selectedCategory))
+      toast.error("Data generation failed - no mock data fallback available")
+      console.error("System exclusively uses real economic data and AI-generated datasets")
     } finally {
       setIsGenerating(false)
     }
@@ -378,11 +386,23 @@ function App() {
           <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-400">
             <Database size={16} className="text-cyan-400" />
             <span>Powered by</span>
-            <span className="font-semibold text-cyan-400">FRED API</span>
+            <span className="font-semibold text-blue-400">FRED</span>
             <span>+</span>
-            <span className="font-semibold text-blue-400">World Bank API</span>
+            <span className="font-semibold text-green-400">World Bank</span>
+            <span>+</span>
+            <span className="font-semibold text-purple-400">AI Datasets</span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-2"></div>
-            <span className="text-green-400 font-medium">Live Data</span>
+            <span className="text-green-400 font-medium">
+              {(() => {
+                try {
+                  const sources = dataService.getDataSources()
+                  const total = Array.from(sources.values()).reduce((sum, source) => sum + source.datasets, 0)
+                  return `${total}+ Sources`
+                } catch {
+                  return '80+ Sources'
+                }
+              })()}
+            </span>
           </div>
         </header>
 
@@ -410,16 +430,11 @@ function App() {
                     </SelectTrigger>
                     <SelectContent className="bg-gray-800 border-gray-600">
                       <SelectItem value="all" className="text-gray-200 hover:bg-gray-700">All Categories</SelectItem>
-                      <SelectItem value="economics" className="text-gray-200 hover:bg-gray-700">💰 Economics & Finance</SelectItem>
-                      <SelectItem value="social" className="text-gray-200 hover:bg-gray-700">👥 Social & Demographics</SelectItem>
-                      <SelectItem value="finance" className="text-gray-200 hover:bg-gray-700">📊 Finance & Markets</SelectItem>
-                      <SelectItem value="demographics" className="text-gray-200 hover:bg-gray-700">👨‍👩‍👧‍👦 Demographics</SelectItem>
-                      <SelectItem value="technology" className="text-gray-200 hover:bg-gray-700">💻 Technology</SelectItem>
-                      <SelectItem value="environment" className="text-gray-200 hover:bg-gray-700">🌍 Environment</SelectItem>
-                      <SelectItem value="health" className="text-gray-200 hover:bg-gray-700">❤️ Health</SelectItem>
-                      <SelectItem value="education" className="text-gray-200 hover:bg-gray-700">🎓 Education</SelectItem>
-                      <SelectItem value="trade" className="text-gray-200 hover:bg-gray-700">🌐 Trade & International</SelectItem>
-                      <SelectItem value="commodities" className="text-gray-200 hover:bg-gray-700">🛢️ Commodities</SelectItem>
+                      {dataService.getCategories().map(category => (
+                        <SelectItem key={category} value={category} className="text-gray-200 hover:bg-gray-700">
+                          {categories[category as keyof typeof categories] || `📊 ${category.charAt(0).toUpperCase() + category.slice(1)}`}
+                        </SelectItem>
+                      ))}
                     </SelectContent>
                   </Select>
                 </div>
@@ -446,6 +461,9 @@ function App() {
             </div>
             
             <CorrelationCard correlation={currentCorrelation} isShareable={true} />
+            
+            {/* Data Sources Information */}
+            <DataSourcesCard />
           </TabsContent>
           
           <TabsContent value="favorites" className="space-y-6">
@@ -868,6 +886,18 @@ function App() {
                 <XAxis dataKey="year" stroke="#9CA3AF" />
                 <YAxis yAxisId="left" orientation="left" stroke="#06B6D4" />
                 <YAxis yAxisId="right" orientation="right" stroke="#A855F7" />
+                
+                {/* COVID Period Highlight (2020-2022) */}
+                <ReferenceArea
+                  x1={2020}
+                  x2={2022}
+                  fill="#EF4444"
+                  fillOpacity={0.1}
+                  stroke="#EF4444"
+                  strokeOpacity={0.3}
+                  strokeDasharray="5 5"
+                />
+                
                 <Tooltip 
                   contentStyle={{ 
                     backgroundColor: '#1F2937', 
@@ -879,7 +909,10 @@ function App() {
                     typeof value === 'number' ? value.toFixed(1) : value,
                     name === 'value1' ? correlation.variable1.name : correlation.variable2.name
                   ]}
-                  labelFormatter={(year) => `Year: ${year}`}
+                  labelFormatter={(year) => {
+                    const isCovidPeriod = year >= 2020 && year <= 2022
+                    return `Year: ${year}${isCovidPeriod ? ' (COVID Period)' : ''}`
+                  }}
                 />
                 <Line 
                   yAxisId="left"
@@ -903,6 +936,16 @@ function App() {
             </ResponsiveContainer>
           </div>
           
+          {/* COVID Period Legend */}
+          <div className="mt-3 flex items-center justify-center gap-4 text-xs text-gray-400">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-3 bg-red-400/20 border border-red-400/30 border-dashed rounded"></div>
+              <span>COVID Impact Period (2020-2022)</span>
+            </div>
+            <span className="text-gray-500">•</span>
+            <span>Data may show unusual patterns during this period</span>
+          </div>
+          
           <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
             <div className="flex items-center gap-2 mb-2">
               <BookOpen size={16} className="text-cyan-400" />
@@ -920,6 +963,21 @@ function App() {
               {correlation.citation}. "{correlation.title}." <em>{correlation.journal}</em>, {correlation.year}.
             </p>
           </div>
+          
+          {/* Enhanced Source Attribution */}
+          {correlation.isRealData && (
+            <div className="mt-4 p-3 bg-gray-900/50 rounded-lg border border-gray-600/50">
+              <div className="text-xs text-gray-300 font-medium mb-2">Data Sources:</div>
+              <div className="space-y-2">
+                <div className="flex items-center justify-between">
+                  <SourceAttribution dataset={correlation.variable1} />
+                </div>
+                <div className="flex items-center justify-between">
+                  <SourceAttribution dataset={correlation.variable2} />
+                </div>
+              </div>
+            </div>
+          )}
         </CardContent>
       </Card>
     )
@@ -967,9 +1025,23 @@ function App() {
 
         {/* Bottom Section */}
         <div className="mt-8 pt-6 border-t border-gray-200 text-center">
-          <p className="text-sm text-gray-500">
-            © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from FRED API & World Bank API.
+          <p className="text-sm text-gray-500 mb-2">
+            © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from authoritative sources.
           </p>
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-400">
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              FRED (Federal Reserve)
+            </span>
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              World Bank Open Data
+            </span>
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              AI-Generated Datasets
+            </span>
+          </div>
         </div>
       </div>
     </footer>

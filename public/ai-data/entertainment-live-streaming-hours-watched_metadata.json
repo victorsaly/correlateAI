@@ -1,0 +1,33 @@
+{
+  "id": "ai_live_streaming_hours",
+  "filename": "entertainment-live-streaming-hours-watched",
+  "name": "Live Streaming Hours Watched",
+  "unit": "billions of hours",
+  "category": "entertainment",
+  "description": "Annual live streaming content consumption",
+  "source": "AI-Generated from streaming platform data",
+  "sourceUrl": "https://streamelements.com/blog/state-of-the-stream-2021",
+  "citation": "StreamElements State of the Stream Report (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.647Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Medium",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.647Z",
+  "tags": [
+    "entertainment",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

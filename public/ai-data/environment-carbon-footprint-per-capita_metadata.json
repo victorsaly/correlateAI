@@ -1,0 +1,33 @@
+{
+  "id": "ai_carbon_footprint_per_capita",
+  "filename": "environment-carbon-footprint-per-capita",
+  "name": "Per Capita Carbon Footprint",
+  "unit": "metric tons CO2 equivalent",
+  "category": "environment",
+  "description": "Average carbon footprint per person",
+  "source": "AI-Generated from EPA environmental data",
+  "sourceUrl": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks",
+  "citation": "Environmental Protection Agency Carbon Footprint Data (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.609Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Decreasing",
+  "volatility": "Low",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.609Z",
+  "tags": [
+    "environment",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

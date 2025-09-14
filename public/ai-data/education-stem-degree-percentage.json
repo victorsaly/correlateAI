@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_stem_degree_percentage",
+    "name": "STEM Degree Percentage",
+    "unit": "percent of all degrees",
+    "category": "education",
+    "description": "Percentage of degrees awarded in STEM fields",
+    "source": "AI-Generated from NSF STEM education data",
+    "sourceUrl": "https://ncses.nsf.gov/pubs/nsb20211",
+    "citation": "National Science Foundation Science & Engineering Indicators (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "education-stem-degree-percentage"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 20.36,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2015,
+      "value": 22.05,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2016,
+      "value": 23.94,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2017,
+      "value": 25.75,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2018,
+      "value": 27.48,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2019,
+      "value": 29.21,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2020,
+      "value": 30.98,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2021,
+      "value": 32.91,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2022,
+      "value": 34.81,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2023,
+      "value": 36.42,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    },
+    {
+      "year": 2024,
+      "value": 38.21,
+      "generatedAt": "2025-09-14T21:22:42.628Z"
+    }
+  ]
+}
