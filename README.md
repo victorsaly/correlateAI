@@ -84,6 +84,27 @@ Visit `http://localhost:5000` to explore correlations!
 2. **Add to .env**: `VITE_FRED_API_KEY=your_key_here`
 3. **World Bank API**: No key required (public access)
 
+## 🚀 Deployment
+
+### Custom Domain Setup
+This project is pre-configured for deployment at **CorrelateAI.victorsaly.com**:
+
+🔧 **[DNS Setup Guide](./DNS_SETUP_GUIDE.md)** - Complete instructions for configuring your subdomain
+
+### GitHub Pages (Automated)
+Deploy your own instance:
+
+1. **Fork this repository**
+2. **Add GitHub Secret**: `VITE_FRED_API_KEY` with your FRED API key
+3. **Configure DNS**: Follow the DNS setup guide above
+4. **Enable GitHub Pages**: Settings → Pages → GitHub Actions
+5. **Push to main**: Automatic deployment triggered
+
+📖 **[Complete Deployment Guide](./DEPLOYMENT_GUIDE.md)** - Detailed deployment instructions
+
+### Live Demo
+🌐 **[CorrelateAI Pro Live](https://CorrelateAI.victorsaly.com)** - See the app in action!
+
 ## 🎨 Features Showcase
 
 ### Data Correlation Analysis

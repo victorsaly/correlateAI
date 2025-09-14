@@ -37,13 +37,31 @@ if (!FRED_API_KEY) {
   console.error('FRED API key not found. Please add VITE_FRED_API_KEY to your .env file')
 }
 
-// Helper function to build FRED API URLs (using proxy to avoid CORS issues)
-const buildFredUrl = (seriesId: string) => 
-  `/api/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
+// Detect if running in development or production
+const isDevelopment = import.meta.env.DEV
 
-// Helper function to build World Bank API URLs (completely free, no key needed)
-const buildWorldBankUrl = (indicator: string, country: string = 'US') =>
-  `/api/worldbank/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
+// Helper function to build FRED API URLs 
+// Development: Use Vite proxy to avoid CORS issues
+// Production: Direct API calls (GitHub Pages doesn't support proxies)
+const buildFredUrl = (seriesId: string) => {
+  if (isDevelopment) {
+    return `/api/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
+  } else {
+    // Production: Direct API call (FRED allows CORS from browsers)
+    return `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
+  }
+}
+
+// Helper function to build World Bank API URLs 
+// World Bank API supports CORS, so we can call directly in both dev and prod
+const buildWorldBankUrl = (indicator: string, country: string = 'US') => {
+  if (isDevelopment) {
+    return `/api/worldbank/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
+  } else {
+    // Production: Direct API call
+    return `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
+  }
+}
 
 // COMPREHENSIVE REAL DATA SOURCES - ALL FREE APIs
 export const realDatasets: RealDataset[] = [
