@@ -441,7 +441,6 @@ class StaticDataService {
     this.validateDataAvailability(dataset)
     
     console.log(`📂 Loading ${dataset.isAIGenerated ? 'AI' : 'real'} data for: ${dataset.name}`)
-    console.log(`🔗 Source: ${dataset.source} ${dataset.sourceUrl ? `(${dataset.sourceUrl})` : ''}`)
 
     if (this.cache.has(dataset.id)) {
       console.log(`📋 Using cached data for: ${dataset.name}`)
@@ -454,7 +453,8 @@ class StaticDataService {
       // For AI datasets, try enhanced filename format first
       let response
       if (dataset.isAIGenerated && dataset.filename) {
-        response = await fetch(`/${folder}/${dataset.filename}.json`)
+        // filename already includes .json extension
+        response = await fetch(`/${folder}/${dataset.filename}`)
         if (!response.ok) {
           // Fallback to ID-based filename
           response = await fetch(`/${folder}/${dataset.id}.json`)
@@ -613,8 +613,23 @@ class StaticDataService {
       return [availableDatasets[0], availableDatasets[1]]
     }
 
-    const shuffled = [...filteredDatasets].sort(() => Math.random() - 0.5)
-    return [shuffled[0], shuffled[1]]
+    // Proper Fisher-Yates shuffle for true randomization
+    const shuffled = [...filteredDatasets]
+    for (let i = shuffled.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+    }
+    
+    // Ensure we get two different datasets
+    let first = shuffled[0]
+    let second = shuffled[1]
+    
+    // If they're the same, try to get a different second dataset
+    if (first.id === second.id && shuffled.length > 2) {
+      second = shuffled[2]
+    }
+    
+    return [first, second]
   }
 
   // Get datasets by type

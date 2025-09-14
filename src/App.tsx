@@ -8,8 +8,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database } from '@phosphor-icons/react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea, ReferenceLine } from 'recharts'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info } from '@phosphor-icons/react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { dataService, allDatasets, RealDataset, RealDataPoint } from '@/services/staticDataService'
 import SwirlBackground from '@/components/SwirlBackground'
@@ -189,9 +189,8 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
 // Generate correlation using real data from APIs
 async function generateRealDataCorrelation(selectedCategory?: string): Promise<CorrelationData | null> {
   try {
-    const [dataset1, dataset2] = dataService.getRandomDatasets(selectedCategory)
-    
-    // Use the public generateCorrelation method that handles everything
+    const categoryToPass = selectedCategory === 'all' ? undefined : selectedCategory
+    const [dataset1, dataset2] = dataService.getRandomDatasets(categoryToPass)    // Use the public generateCorrelation method that handles everything
     const result = await dataService.generateCorrelation(dataset1, dataset2)
     
     // Combine data1 and data2 into the format expected by CorrelationData
@@ -883,19 +882,34 @@ function App() {
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={correlation.data}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
-                <XAxis dataKey="year" stroke="#9CA3AF" />
-                <YAxis yAxisId="left" orientation="left" stroke="#06B6D4" />
-                <YAxis yAxisId="right" orientation="right" stroke="#A855F7" />
+                <XAxis 
+                  dataKey="year" 
+                  stroke="#9CA3AF"
+                  label={{ value: 'Year', position: 'insideBottom', offset: -5, style: { textAnchor: 'middle', fill: '#9CA3AF', fontSize: '12px' } }}
+                />
+                <YAxis 
+                  yAxisId="left" 
+                  orientation="left" 
+                  stroke="#06B6D4"
+                  label={{ value: correlation.variable1.unit, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#06B6D4', fontSize: '11px' } }}
+                />
+                <YAxis 
+                  yAxisId="right" 
+                  orientation="right" 
+                  stroke="#A855F7"
+                  label={{ value: correlation.variable2.unit, angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: '#A855F7', fontSize: '11px' } }}
+                />
                 
                 {/* COVID Period Highlight (2020-2022) */}
                 <ReferenceArea
                   x1={2020}
                   x2={2022}
                   fill="#EF4444"
-                  fillOpacity={0.1}
+                  fillOpacity={0.15}
                   stroke="#EF4444"
-                  strokeOpacity={0.3}
-                  strokeDasharray="5 5"
+                  strokeOpacity={0.6}
+                  strokeWidth={2}
+                  strokeDasharray="8 4"
                 />
                 
                 <Tooltip 
@@ -903,15 +917,29 @@ function App() {
                     backgroundColor: '#1F2937', 
                     border: '1px solid #374151',
                     borderRadius: '8px',
-                    color: '#F3F4F6'
+                    color: '#F3F4F6',
+                    fontSize: '12px'
                   }}
-                  formatter={(value, name) => [
-                    typeof value === 'number' ? value.toFixed(1) : value,
-                    name === 'value1' ? correlation.variable1.name : correlation.variable2.name
-                  ]}
+                  formatter={(value, name) => {
+                    const variable = name === 'value1' ? correlation.variable1 : correlation.variable2
+                    return [
+                      `${typeof value === 'number' ? value.toFixed(1) : value} ${variable.unit}`,
+                      variable.name
+                    ]
+                  }}
                   labelFormatter={(year) => {
                     const isCovidPeriod = year >= 2020 && year <= 2022
-                    return `Year: ${year}${isCovidPeriod ? ' (COVID Period)' : ''}`
+                    if (isCovidPeriod) {
+                      return (
+                        <div>
+                          <div style={{ fontWeight: 'bold', color: '#EF4444' }}>Year {year} - COVID Period</div>
+                          <div style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '2px' }}>
+                            Data may show pandemic-related anomalies
+                          </div>
+                        </div>
+                      )
+                    }
+                    return `Year ${year}`
                   }}
                 />
                 <Line 
@@ -936,14 +964,40 @@ function App() {
             </ResponsiveContainer>
           </div>
           
-          {/* COVID Period Legend */}
-          <div className="mt-3 flex items-center justify-center gap-4 text-xs text-gray-400">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-3 bg-red-400/20 border border-red-400/30 border-dashed rounded"></div>
-              <span>COVID Impact Period (2020-2022)</span>
+          {/* Chart Legend and COVID Period Information */}
+          <div className="mt-4 space-y-3">
+            {/* Axis Information */}
+            <div className="flex items-center justify-center gap-6 text-xs text-gray-400">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-0.5 bg-cyan-400"></div>
+                <span>{correlation.variable1.name} ({correlation.variable1.unit})</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-0.5 bg-purple-400"></div>
+                <span>{correlation.variable2.name} ({correlation.variable2.unit})</span>
+              </div>
             </div>
-            <span className="text-gray-500">•</span>
-            <span>Data may show unusual patterns during this period</span>
+            
+            {/* COVID Period Legend */}
+            <div className="flex items-center justify-center gap-4 text-xs bg-red-50/10 p-2 rounded border border-red-400/20">
+              <div className="flex items-center gap-2">
+                <div className="w-8 h-4 bg-red-400/20 border-l-2 border-r-2 border-red-500 border-dashed rounded-sm flex items-center justify-center">
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                </div>
+                <span className="text-red-400 font-medium">COVID-19 Impact Period</span>
+                <span className="text-gray-300 font-mono bg-gray-800 px-2 py-0.5 rounded text-xs border">2020 → 2022</span>
+              </div>
+            </div>
+            
+            {/* Explanation */}
+            <div className="flex items-start justify-center gap-2 text-xs text-gray-500 max-w-lg mx-auto">
+              <Info size={14} className="text-yellow-400 mt-0.5 flex-shrink-0" />
+              <p className="text-center">
+                The <span className="text-red-400 font-medium">highlighted red area (2020-2022)</span> shows the COVID-19 pandemic period. 
+                Economic and social data during these years may show unusual patterns due to lockdowns, 
+                policy changes, and behavioral shifts. Correlations in this period should be interpreted carefully.
+              </p>
+            </div>
           </div>
           
           <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
