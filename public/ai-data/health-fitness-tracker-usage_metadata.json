@@ -1,0 +1,33 @@
+{
+  "id": "ai_fitness_tracker_adoption",
+  "filename": "health-fitness-tracker-usage",
+  "name": "Fitness Tracker Usage",
+  "unit": "percent of adults",
+  "category": "health",
+  "description": "Percentage of adults using fitness trackers",
+  "source": "AI-Generated from fitness technology studies",
+  "sourceUrl": "https://www.heart.org/en/news/2021/09/14/fitness-trackers-may-not-boost-weight-loss-but-research-continues",
+  "citation": "American Heart Association Fitness Technology Survey (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.621Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Low",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.621Z",
+  "tags": [
+    "health",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

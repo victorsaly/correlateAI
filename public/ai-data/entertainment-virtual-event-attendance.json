@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_virtual_event_attendance",
+    "name": "Virtual Event Attendance",
+    "unit": "millions of attendees",
+    "category": "entertainment",
+    "description": "Annual virtual event attendance",
+    "source": "AI-Generated from virtual event trends",
+    "sourceUrl": "https://www.eventscouncil.org/Research",
+    "citation": "Event Industry Council Virtual Event Study (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "entertainment-virtual-event-attendance"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 70.5,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2015,
+      "value": 100.05,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2016,
+      "value": 130.93,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2017,
+      "value": 168.93,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2018,
+      "value": 179.21,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2019,
+      "value": 207.76,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2020,
+      "value": 1000.75,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2021,
+      "value": 837.71,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2022,
+      "value": 566.38,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2023,
+      "value": 336.25,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    },
+    {
+      "year": 2024,
+      "value": 346.82,
+      "generatedAt": "2025-09-14T21:22:42.646Z"
+    }
+  ]
+}

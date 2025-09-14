@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_ev_sales",
+    "name": "Electric Vehicle Sales",
+    "unit": "thousands of units",
+    "category": "technology",
+    "description": "Annual electric vehicle sales in the US",
+    "source": "AI-Generated from EV market data",
+    "sourceUrl": "https://www.energy.gov/eere/vehicles/electric-vehicle-basics",
+    "citation": "Electric Vehicle Association & DOT Statistics (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "technology-electric-vehicle-sales"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 71.14,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2015,
+      "value": 95.17,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2016,
+      "value": 127.4,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2017,
+      "value": 146.25,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2018,
+      "value": 171.88,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2019,
+      "value": 210.27,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2020,
+      "value": 212.4,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2021,
+      "value": 238.84,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2022,
+      "value": 290.18,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2023,
+      "value": 308.64,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    },
+    {
+      "year": 2024,
+      "value": 318.91,
+      "generatedAt": "2025-09-14T21:22:42.602Z"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_ai_patent_filings",
+    "name": "AI Patent Applications",
+    "unit": "number of patents",
+    "category": "technology",
+    "description": "Annual AI-related patent applications filed",
+    "source": "AI-Generated from USPTO patterns",
+    "sourceUrl": "https://www.uspto.gov/web/offices/ac/ido/oeip/taf/reports.htm",
+    "citation": "US Patent & Trademark Office AI Classification (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "technology-ai-patent-applications"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 5584.4,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2015,
+      "value": 7021.8,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2016,
+      "value": 7385.28,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2017,
+      "value": 6218.11,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2018,
+      "value": 10752.99,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2019,
+      "value": 2717.82,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2020,
+      "value": 6091.53,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2021,
+      "value": 3724.67,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2022,
+      "value": 7780.68,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2023,
+      "value": 13746.93,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    },
+    {
+      "year": 2024,
+      "value": 7715.65,
+      "generatedAt": "2025-09-14T21:22:42.603Z"
+    }
+  ]
+}

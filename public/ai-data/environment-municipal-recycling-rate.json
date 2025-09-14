@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_recycling_rate",
+    "name": "Municipal Recycling Rate",
+    "unit": "percent of waste recycled",
+    "category": "environment",
+    "description": "Percentage of municipal waste that gets recycled",
+    "source": "AI-Generated from EPA recycling statistics",
+    "sourceUrl": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling",
+    "citation": "Environmental Protection Agency Waste Management Data (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "environment-municipal-recycling-rate"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 34.19,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2015,
+      "value": 36.29,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2016,
+      "value": 38.09,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2017,
+      "value": 39.9,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2018,
+      "value": 41.42,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2019,
+      "value": 43.38,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2020,
+      "value": 44.95,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2021,
+      "value": 46.86,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2022,
+      "value": 48.56,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2023,
+      "value": 50.2,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    },
+    {
+      "year": 2024,
+      "value": 52.27,
+      "generatedAt": "2025-09-14T21:22:42.610Z"
+    }
+  ]
+}

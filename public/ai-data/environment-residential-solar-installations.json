@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_solar_panel_installations",
+    "name": "Residential Solar Installations",
+    "unit": "thousands of installations",
+    "category": "environment",
+    "description": "New residential solar panel installations",
+    "source": "AI-Generated from SEIA installation data",
+    "sourceUrl": "https://www.seia.org/solar-industry-research-data",
+    "citation": "Solar Energy Industries Association Installation Reports (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "environment-residential-solar-installations"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 184.32,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2015,
+      "value": 245.66,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2016,
+      "value": 267.46,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2017,
+      "value": 247.31,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2018,
+      "value": 326.12,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2019,
+      "value": 445.16,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2020,
+      "value": 387.1,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2021,
+      "value": 422.8,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2022,
+      "value": 454.44,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2023,
+      "value": 567.79,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    },
+    {
+      "year": 2024,
+      "value": 571.99,
+      "generatedAt": "2025-09-14T21:22:42.612Z"
+    }
+  ]
+}

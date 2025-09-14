@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_renewable_energy_capacity",
+    "name": "Renewable Energy Capacity",
+    "unit": "gigawatts",
+    "category": "environment",
+    "description": "Installed renewable energy generation capacity",
+    "source": "AI-Generated from EIA renewable trends",
+    "sourceUrl": "https://www.eia.gov/renewable/",
+    "citation": "Energy Information Administration Renewable Energy Reports (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "environment-renewable-energy-capacity"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 200.95,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2015,
+      "value": 234.99,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2016,
+      "value": 243.37,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2017,
+      "value": 285.21,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2018,
+      "value": 286.93,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2019,
+      "value": 325.43,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2020,
+      "value": 345.36,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2021,
+      "value": 351.31,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2022,
+      "value": 397.01,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2023,
+      "value": 410.11,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    },
+    {
+      "year": 2024,
+      "value": 443.71,
+      "generatedAt": "2025-09-14T21:22:42.608Z"
+    }
+  ]
+}

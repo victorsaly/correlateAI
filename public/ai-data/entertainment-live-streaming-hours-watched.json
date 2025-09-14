@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_live_streaming_hours",
+    "name": "Live Streaming Hours Watched",
+    "unit": "billions of hours",
+    "category": "entertainment",
+    "description": "Annual live streaming content consumption",
+    "source": "AI-Generated from streaming platform data",
+    "sourceUrl": "https://streamelements.com/blog/state-of-the-stream-2021",
+    "citation": "StreamElements State of the Stream Report (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "entertainment-live-streaming-hours-watched"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 39.32,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2015,
+      "value": 66.93,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2016,
+      "value": 92.11,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2017,
+      "value": 120.33,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2018,
+      "value": 143.13,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2019,
+      "value": 165.57,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2020,
+      "value": 186.56,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2021,
+      "value": 213.95,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2022,
+      "value": 243.02,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2023,
+      "value": 266.93,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    },
+    {
+      "year": 2024,
+      "value": 295.68,
+      "generatedAt": "2025-09-14T21:22:42.647Z"
+    }
+  ]
+}

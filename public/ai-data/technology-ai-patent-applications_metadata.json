@@ -1,0 +1,33 @@
+{
+  "id": "ai_ai_patent_filings",
+  "filename": "technology-ai-patent-applications",
+  "name": "AI Patent Applications",
+  "unit": "number of patents",
+  "category": "technology",
+  "description": "Annual AI-related patent applications filed",
+  "source": "AI-Generated from USPTO patterns",
+  "sourceUrl": "https://www.uspto.gov/web/offices/ac/ido/oeip/taf/reports.htm",
+  "citation": "US Patent & Trademark Office AI Classification (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.603Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "High",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.603Z",
+  "tags": [
+    "technology",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

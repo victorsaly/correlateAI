@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_podcast_listenership",
+    "name": "Podcast Listener Percentage",
+    "unit": "percent of population",
+    "category": "entertainment",
+    "description": "Percentage of population listening to podcasts monthly",
+    "source": "AI-Generated from podcast industry analytics",
+    "sourceUrl": "https://www.edisonresearch.com/the-podcast-consumer-2021/",
+    "citation": "Edison Research Podcast Consumer Study (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "entertainment-podcast-listener-percentage"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 26.96,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2015,
+      "value": 35.09,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2016,
+      "value": 42.94,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2017,
+      "value": 51.21,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2018,
+      "value": 59.58,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2019,
+      "value": 67.89,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2020,
+      "value": 76.93,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2021,
+      "value": 83.51,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2022,
+      "value": 92.26,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2023,
+      "value": 99.12,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    },
+    {
+      "year": 2024,
+      "value": 108.1,
+      "generatedAt": "2025-09-14T21:22:42.644Z"
+    }
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "ai_vertical_farming_production",
+  "filename": "environment-vertical-farming-production",
+  "name": "Vertical Farming Production",
+  "unit": "millions of pounds",
+  "category": "environment",
+  "description": "Annual vertical farming produce output",
+  "source": "AI-Generated from vertical farming industry data",
+  "sourceUrl": "https://vertical-farming.net/industry-reports/",
+  "citation": "Association for Vertical Farming Industry Reports (2014-2024)",
+  "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
+  "isAIGenerated": true,
+  "aiGeneratedAt": "2025-09-14T21:22:42.613Z",
+  "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
+  "updateFrequency": "Generated once during build process",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2024",
+  "dataPoints": 11,
+  "trend": "Increasing",
+  "volatility": "Medium",
+  "seasonal": "No",
+  "covidImpact": "None",
+  "lastUpdated": "2025-09-14T21:22:42.613Z",
+  "tags": [
+    "environment",
+    "ai-generated",
+    "synthetic",
+    "economic-indicator",
+    "non-seasonal",
+    "with-source-url"
+  ],
+  "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+}

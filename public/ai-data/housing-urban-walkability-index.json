@@ -1,0 +1,72 @@
+{
+  "metadata": {
+    "id": "ai_walkability_index",
+    "name": "Urban Walkability Index",
+    "unit": "index score 0-100",
+    "category": "housing",
+    "description": "Average walkability score of major cities",
+    "source": "AI-Generated from urban development patterns",
+    "sourceUrl": "https://www.walkscore.com/methodology.shtml",
+    "citation": "Walk Score Urban Walkability Research (2014-2024)",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "filename": "housing-urban-walkability-index"
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 60.34,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2015,
+      "value": 62.27,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2016,
+      "value": 63.28,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2017,
+      "value": 65.1,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2018,
+      "value": 68.15,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2019,
+      "value": 69.95,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2020,
+      "value": 71.23,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2021,
+      "value": 73.35,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2022,
+      "value": 75.19,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2023,
+      "value": 77.16,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    },
+    {
+      "year": 2024,
+      "value": 79.1,
+      "generatedAt": "2025-09-14T21:22:42.660Z"
+    }
+  ]
+}
