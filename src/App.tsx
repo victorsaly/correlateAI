@@ -267,8 +267,12 @@ function App() {
 
   const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
 
+  const shareCardRefCallback = useCallback((ref: HTMLDivElement | null) => {
+    setShareCardRef(ref)
+  }, [])
+
   const CorrelationCard = useCallback(({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
-    <Card className="w-full" ref={isShareable ? setShareCardRef : undefined}>
+    <Card className="w-full" ref={isShareable ? shareCardRefCallback : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
           <div className="flex-1">
@@ -396,7 +400,7 @@ function App() {
         </div>
       </CardContent>
     </Card>
-  ), [toggleFavorite, isFavorited, shareToTwitter, shareToLinkedIn, shareToFacebook, downloadAsImage, copyToClipboard, generateShareText])
+  ), [toggleFavorite, isFavorited, shareToTwitter, shareToLinkedIn, shareToFacebook, downloadAsImage, copyToClipboard, generateShareText, shareCardRefCallback])
 
   return (
     <div className="min-h-screen bg-background p-4">
