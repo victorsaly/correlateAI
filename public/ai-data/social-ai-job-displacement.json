@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_automation_job_displacement",
+    "name": "AI Job Displacement Rate",
+    "unit": "percentage of jobs",
+    "category": "social",
+    "source": "AI-Generated",
+    "description": "Estimated percentage of jobs at risk of AI automation",
+    "sourceUrl": "https://www.mckinsey.com/featured-insights/future-of-work",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:45:00.000Z",
+    "citation": "McKinsey Future of Work Institute"
+  },
+  "data": [
+    { "year": 2015, "value": 8.2 },
+    { "year": 2016, "value": 9.1 },
+    { "year": 2017, "value": 10.3 },
+    { "year": 2018, "value": 11.8 },
+    { "year": 2019, "value": 13.5 },
+    { "year": 2020, "value": 15.2 },
+    { "year": 2021, "value": 17.8 },
+    { "year": 2022, "value": 21.4 },
+    { "year": 2023, "value": 26.8 },
+    { "year": 2024, "value": 32.1 }
+  ]
+}

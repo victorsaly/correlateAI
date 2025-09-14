@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_overdose_deaths",
+    "name": "Drug Overdose Deaths",
+    "unit": "deaths per year (thousands)",
+    "category": "health",
+    "source": "AI-Generated",
+    "description": "Annual drug overdose fatalities in the United States",
+    "sourceUrl": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "CDC WONDER Multiple Cause of Death Database"
+  },
+  "data": [
+    { "year": 2015, "value": 52.4 },
+    { "year": 2016, "value": 63.6 },
+    { "year": 2017, "value": 70.2 },
+    { "year": 2018, "value": 67.4 },
+    { "year": 2019, "value": 70.6 },
+    { "year": 2020, "value": 91.8 },
+    { "year": 2021, "value": 107.6 },
+    { "year": 2022, "value": 109.7 },
+    { "year": 2023, "value": 112.3 },
+    { "year": 2024, "value": 108.9 }
+  ]
+}

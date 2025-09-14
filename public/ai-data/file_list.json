@@ -135,6 +135,42 @@
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
   },
   {
+    "filename": "social-coffee-consumption.json",
+    "id": "ai_coffee_consumption",
+    "name": "Coffee Consumption Per Capita",
+    "category": "social",
+    "sourceUrl": "https://www.ncausa.org/Research-Trends/Market-Research/NCA-Research",
+    "description": "Average daily coffee consumption per person in the US",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "social-pet-ownership.json",
+    "id": "ai_pet_ownership",
+    "name": "Pet Ownership Rate",
+    "category": "social",
+    "sourceUrl": "https://www.americanpetproducts.org/press_industrytrends.asp",
+    "description": "Percentage of US households that own at least one pet",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "social-tattoo-percentage.json",
+    "id": "ai_tattoo_percentage",
+    "name": "Population with Tattoos",
+    "category": "social",
+    "sourceUrl": "https://www.pewresearch.org/social-trends/",
+    "description": "Percentage of US adults who have at least one tattoo",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "social-dating-app-usage.json",
+    "id": "ai_dating_app_usage",
+    "name": "Dating App Usage",
+    "category": "social",
+    "sourceUrl": "https://www.pewresearch.org/internet/2020/02/06/the-virtues-and-downsides-of-online-dating/",
+    "description": "Percentage of US adults who have used dating apps",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
     "filename": "health-fitness-tracker-usage.json",
     "id": "ai_fitness_tracker_adoption",
     "name": "Fitness Tracker Usage",
@@ -178,6 +214,60 @@
     "sourceUrl": "https://mental.jmir.org/",
     "description": "Annual mental health app downloads",
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
+  },
+  {
+    "filename": "health-mortality-rate-by-age.json",
+    "id": "ai_mortality_rate_by_age",
+    "name": "Mortality Rate by Age Group",
+    "category": "health",
+    "sourceUrl": "https://www.cdc.gov/nchs/nvss/deaths.htm",
+    "description": "Annual mortality rates across different age demographics",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "health-drug-overdose-deaths.json",
+    "id": "ai_overdose_deaths",
+    "name": "Drug Overdose Deaths",
+    "category": "health",
+    "sourceUrl": "https://www.cdc.gov/nchs/nvss/vsrr/drug-overdose-data.htm",
+    "description": "Annual drug overdose fatalities in the United States",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "health-suicide-rate.json",
+    "id": "ai_suicide_rate",
+    "name": "Suicide Rate",
+    "category": "health",
+    "sourceUrl": "https://www.cdc.gov/suicide/facts/index.html",
+    "description": "Annual suicide rates in the United States",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "health-prescription-drug-spending.json",
+    "id": "ai_prescription_drug_spending",
+    "name": "Prescription Drug Spending",
+    "category": "health",
+    "sourceUrl": "https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports",
+    "description": "Annual prescription drug expenditure in the US",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "health-organ-transplants.json",
+    "id": "ai_organ_transplants",
+    "name": "Organ Transplant Procedures",
+    "category": "health",
+    "sourceUrl": "https://unos.org/data-reports/",
+    "description": "Annual organ transplant procedures performed in the US",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "health-sleep-hours-average.json",
+    "id": "ai_sleep_hours_average",
+    "name": "Average Sleep Hours",
+    "category": "health",
+    "sourceUrl": "https://www.cdc.gov/sleep/data_statistics.html",
+    "description": "Average nightly sleep duration for US adults",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
   },
   {
     "filename": "education-online-course-enrollment.json",
@@ -270,6 +360,15 @@
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
   },
   {
+    "filename": "finance-lottery-spending.json",
+    "id": "ai_lottery_spending",
+    "name": "Lottery Spending Per Capita",
+    "category": "finance",
+    "sourceUrl": "https://www.census.gov/topics/income-poverty/wealth.html",
+    "description": "Annual lottery ticket spending per person in the US",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
     "filename": "entertainment-streaming-service-subscriptions.json",
     "id": "ai_streaming_subscriptions",
     "name": "Streaming Service Subscriptions",
@@ -313,6 +412,33 @@
     "sourceUrl": "https://streamelements.com/blog/state-of-the-stream-2021",
     "description": "Annual live streaming content consumption",
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
+  },
+  {
+    "filename": "entertainment-netflix-subscribers.json",
+    "id": "ai_netflix_subscribers",
+    "name": "Netflix Global Subscribers",
+    "category": "entertainment",
+    "sourceUrl": "https://ir.netflix.net/financials/quarterly-earnings",
+    "description": "Netflix global subscriber count by year",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "entertainment-netflix-content-hours.json",
+    "id": "ai_netflix_content_hours",
+    "name": "Netflix Content Hours Watched",
+    "category": "entertainment",
+    "sourceUrl": "https://about.netflix.com/en/news",
+    "description": "Annual hours of content consumed on Netflix globally",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
+    "filename": "entertainment-binge-watching-percentage.json",
+    "id": "ai_binge_watching_percentage",
+    "name": "Binge Watching Percentage",
+    "category": "entertainment",
+    "sourceUrl": "https://www.nielsen.com/insights/2021/streaming-stats/",
+    "description": "Percentage of streaming users who binge-watch content",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
   },
   {
     "filename": "transportation-ride-share-trip-volume.json",
@@ -405,6 +531,15 @@
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
   },
   {
+    "filename": "food-pizza-consumption.json",
+    "id": "ai_pizza_consumption",
+    "name": "Pizza Consumption Per Capita",
+    "category": "food",
+    "sourceUrl": "https://www.usda.gov/topics/food-nutrition/food-consumption-expenditures",
+    "description": "Annual pizza consumption per person in the US",
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z"
+  },
+  {
     "filename": "housing-co-living-space-occupancy.json",
     "id": "ai_co_living_spaces",
     "name": "Co-living Space Occupancy",
@@ -430,5 +565,23 @@
     "sourceUrl": "https://www.walkscore.com/methodology.shtml",
     "description": "Average walkability score of major cities",
     "aiGeneratedAt": "2025-09-14T21:22:42.598Z"
+  },
+  {
+    "filename": "technology-chatgpt-usage.json",
+    "id": "ai_chatgpt_usage",
+    "name": "ChatGPT Usage Statistics",
+    "category": "technology",
+    "sourceUrl": "https://openai.com/research/",
+    "description": "Monthly active users of ChatGPT and similar AI chatbots",
+    "aiGeneratedAt": "2025-09-14T22:45:00.000Z"
+  },
+  {
+    "filename": "social-ai-job-displacement.json",
+    "id": "ai_automation_job_displacement",
+    "name": "AI Job Displacement Rate",
+    "category": "social",
+    "sourceUrl": "https://www.mckinsey.com/featured-insights/future-of-work",
+    "description": "Estimated percentage of jobs at risk of AI automation",
+    "aiGeneratedAt": "2025-09-14T22:45:00.000Z"
   }
 ]

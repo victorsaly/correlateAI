@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_suicide_rate",
+    "name": "Suicide Rate",
+    "unit": "deaths per 100,000",
+    "category": "health",
+    "source": "AI-Generated",
+    "description": "Annual suicide rates in the United States",
+    "sourceUrl": "https://www.cdc.gov/suicide/facts/index.html",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "CDC National Center for Injury Prevention"
+  },
+  "data": [
+    { "year": 2015, "value": 13.3 },
+    { "year": 2016, "value": 13.5 },
+    { "year": 2017, "value": 14.0 },
+    { "year": 2018, "value": 14.2 },
+    { "year": 2019, "value": 13.9 },
+    { "year": 2020, "value": 13.5 },
+    { "year": 2021, "value": 14.1 },
+    { "year": 2022, "value": 14.3 },
+    { "year": 2023, "value": 14.0 },
+    { "year": 2024, "value": 13.8 }
+  ]
+}

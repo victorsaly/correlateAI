@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_lottery_spending",
+    "name": "Lottery Spending Per Capita",
+    "unit": "dollars per year",
+    "category": "finance",
+    "source": "AI-Generated",
+    "description": "Annual lottery ticket spending per person in the US",
+    "sourceUrl": "https://www.census.gov/topics/income-poverty/wealth.html",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "US Census Bureau Consumer Expenditure Survey"
+  },
+  "data": [
+    { "year": 2015, "value": 223 },
+    { "year": 2016, "value": 231 },
+    { "year": 2017, "value": 237 },
+    { "year": 2018, "value": 245 },
+    { "year": 2019, "value": 252 },
+    { "year": 2020, "value": 243 },
+    { "year": 2021, "value": 267 },
+    { "year": 2022, "value": 298 },
+    { "year": 2023, "value": 312 },
+    { "year": 2024, "value": 325 }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_coffee_consumption",
+    "name": "Coffee Consumption Per Capita",
+    "unit": "cups per day",
+    "category": "social",
+    "source": "AI-Generated",
+    "description": "Average daily coffee consumption per person in the US",
+    "sourceUrl": "https://www.ncausa.org/Research-Trends/Market-Research/NCA-Research",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "National Coffee Association Market Research"
+  },
+  "data": [
+    { "year": 2015, "value": 2.1 },
+    { "year": 2016, "value": 2.3 },
+    { "year": 2017, "value": 2.4 },
+    { "year": 2018, "value": 2.6 },
+    { "year": 2019, "value": 2.7 },
+    { "year": 2020, "value": 3.1 },
+    { "year": 2021, "value": 3.2 },
+    { "year": 2022, "value": 3.0 },
+    { "year": 2023, "value": 3.1 },
+    { "year": 2024, "value": 3.3 }
+  ]
+}

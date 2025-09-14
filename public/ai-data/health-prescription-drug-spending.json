@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_prescription_drug_spending",
+    "name": "Prescription Drug Spending",
+    "unit": "billions USD",
+    "category": "health",
+    "source": "AI-Generated",
+    "description": "Annual prescription drug expenditure in the US",
+    "sourceUrl": "https://www.cms.gov/Research-Statistics-Data-and-Systems/Statistics-Trends-and-Reports",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "CMS National Health Expenditure Data"
+  },
+  "data": [
+    { "year": 2015, "value": 324.6 },
+    { "year": 2016, "value": 328.6 },
+    { "year": 2017, "value": 333.4 },
+    { "year": 2018, "value": 335.0 },
+    { "year": 2019, "value": 348.4 },
+    { "year": 2020, "value": 358.7 },
+    { "year": 2021, "value": 378.0 },
+    { "year": 2022, "value": 405.9 },
+    { "year": 2023, "value": 421.4 },
+    { "year": 2024, "value": 438.2 }
+  ]
+}

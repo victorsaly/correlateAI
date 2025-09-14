@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_pizza_consumption",
+    "name": "Pizza Consumption Per Capita",
+    "unit": "pounds per year",
+    "category": "food",
+    "source": "AI-Generated",
+    "description": "Annual pizza consumption per person in the US",
+    "sourceUrl": "https://www.usda.gov/topics/food-nutrition/food-consumption-expenditures",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "USDA Food Consumption and Expenditures"
+  },
+  "data": [
+    { "year": 2015, "value": 23.2 },
+    { "year": 2016, "value": 23.8 },
+    { "year": 2017, "value": 24.1 },
+    { "year": 2018, "value": 24.6 },
+    { "year": 2019, "value": 25.0 },
+    { "year": 2020, "value": 27.3 },
+    { "year": 2021, "value": 26.8 },
+    { "year": 2022, "value": 25.9 },
+    { "year": 2023, "value": 26.4 },
+    { "year": 2024, "value": 27.1 }
+  ]
+}

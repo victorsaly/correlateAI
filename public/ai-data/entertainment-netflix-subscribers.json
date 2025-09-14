@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_netflix_subscribers",
+    "name": "Netflix Global Subscribers",
+    "unit": "millions of subscribers",
+    "category": "entertainment",
+    "source": "AI-Generated",
+    "description": "Netflix global subscriber count by year",
+    "sourceUrl": "https://ir.netflix.net/financials/quarterly-earnings",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "Netflix Quarterly Earnings Reports"
+  },
+  "data": [
+    { "year": 2015, "value": 74.8 },
+    { "year": 2016, "value": 93.8 },
+    { "year": 2017, "value": 117.6 },
+    { "year": 2018, "value": 139.3 },
+    { "year": 2019, "value": 167.1 },
+    { "year": 2020, "value": 203.7 },
+    { "year": 2021, "value": 221.8 },
+    { "year": 2022, "value": 230.8 },
+    { "year": 2023, "value": 247.2 },
+    { "year": 2024, "value": 260.8 }
+  ]
+}

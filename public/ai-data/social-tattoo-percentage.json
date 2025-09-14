@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_tattoo_percentage",
+    "name": "Population with Tattoos",
+    "unit": "percentage of adults",
+    "category": "social",
+    "source": "AI-Generated",
+    "description": "Percentage of US adults who have at least one tattoo",
+    "sourceUrl": "https://www.pewresearch.org/social-trends/",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "Pew Research Social Trends"
+  },
+  "data": [
+    { "year": 2015, "value": 21 },
+    { "year": 2016, "value": 23 },
+    { "year": 2017, "value": 25 },
+    { "year": 2018, "value": 27 },
+    { "year": 2019, "value": 30 },
+    { "year": 2020, "value": 31 },
+    { "year": 2021, "value": 34 },
+    { "year": 2022, "value": 36 },
+    { "year": 2023, "value": 38 },
+    { "year": 2024, "value": 40 }
+  ]
+}

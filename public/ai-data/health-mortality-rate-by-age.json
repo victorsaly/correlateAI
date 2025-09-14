@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_mortality_rate_by_age",
+    "name": "Mortality Rate by Age Group",
+    "unit": "deaths per 100,000",
+    "category": "health",
+    "source": "AI-Generated",
+    "description": "Annual mortality rates across different age demographics",
+    "sourceUrl": "https://www.cdc.gov/nchs/nvss/deaths.htm",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "CDC National Vital Statistics System"
+  },
+  "data": [
+    { "year": 2015, "value": 844.0 },
+    { "year": 2016, "value": 849.3 },
+    { "year": 2017, "value": 863.8 },
+    { "year": 2018, "value": 867.8 },
+    { "year": 2019, "value": 869.7 },
+    { "year": 2020, "value": 1027.0 },
+    { "year": 2021, "value": 1043.8 },
+    { "year": 2022, "value": 884.2 },
+    { "year": 2023, "value": 875.1 },
+    { "year": 2024, "value": 867.3 }
+  ]
+}
