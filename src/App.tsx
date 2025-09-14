@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen } from '@phosphor-icons/react'
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast } from 'sonner'
 
@@ -15,26 +16,88 @@ interface CorrelationData {
   correlation: number
   rSquared: number
   data: Array<{ year: number; value1: number; value2: number }>
-  variable1: { name: string; unit: string }
-  variable2: { name: string; unit: string }
+  variable1: Dataset
+  variable2: Dataset
   citation: string
   journal: string
   year: number
 }
 
-const datasets = [
-  { name: "Ice cream sales", unit: "thousands of gallons", baseValue: 150, trend: 0.05, seasonal: true },
-  { name: "Drowning deaths", unit: "fatalities", baseValue: 45, trend: 0.02, seasonal: true },
-  { name: "Divorce rate in Maine", unit: "per 1,000", baseValue: 5.2, trend: -0.03, seasonal: false },
-  { name: "Margarine consumption", unit: "lbs per capita", baseValue: 8.2, trend: -0.08, seasonal: false },
-  { name: "Cat ownership", unit: "cats per household", baseValue: 1.3, trend: 0.04, seasonal: false },
-  { name: "Rat infestations", unit: "reports per 1,000 homes", baseValue: 12, trend: 0.06, seasonal: true },
-  { name: "Apple sales", unit: "millions sold", baseValue: 280, trend: -0.02, seasonal: true },
-  { name: "Lightning strikes", unit: "incidents", baseValue: 400, trend: 0.01, seasonal: true },
-  { name: "Netflix subscriptions", unit: "millions", baseValue: 45, trend: 0.15, seasonal: false },
-  { name: "Bicycle accidents", unit: "reported incidents", baseValue: 890, trend: 0.03, seasonal: true },
-  { name: "Coffee shop density", unit: "shops per sq mile", baseValue: 2.1, trend: 0.07, seasonal: false },
-  { name: "Pigeon population", unit: "birds per block", baseValue: 18, trend: 0.02, seasonal: true },
+interface Dataset {
+  name: string
+  unit: string
+  baseValue: number
+  trend: number
+  seasonal: boolean
+  category: string
+}
+
+const categories = {
+  food: "🍕 Food & Consumption",
+  technology: "📱 Technology & Digital",
+  weather: "🌤️ Weather & Environment",
+  social: "👥 Social & Demographics",
+  health: "🏥 Health & Safety",
+  transportation: "🚗 Transportation",
+  economics: "💰 Economics & Finance"
+}
+
+const datasets: Dataset[] = [
+  // Food & Consumption
+  { name: "Ice cream sales", unit: "thousands of gallons", baseValue: 150, trend: 0.05, seasonal: true, category: "food" },
+  { name: "Margarine consumption", unit: "lbs per capita", baseValue: 8.2, trend: -0.08, seasonal: false, category: "food" },
+  { name: "Apple sales", unit: "millions sold", baseValue: 280, trend: -0.02, seasonal: true, category: "food" },
+  { name: "Coffee consumption", unit: "cups per capita", baseValue: 412, trend: 0.03, seasonal: false, category: "food" },
+  { name: "Pizza deliveries", unit: "millions per month", baseValue: 3.2, trend: 0.08, seasonal: true, category: "food" },
+  { name: "Organic food sales", unit: "billions USD", baseValue: 47, trend: 0.12, seasonal: false, category: "food" },
+
+  // Technology & Digital
+  { name: "Netflix subscriptions", unit: "millions", baseValue: 45, trend: 0.15, seasonal: false, category: "technology" },
+  { name: "Smartphone sales", unit: "millions sold", baseValue: 1350, trend: 0.05, seasonal: true, category: "technology" },
+  { name: "WiFi hotspots", unit: "per sq mile", baseValue: 2.8, trend: 0.18, seasonal: false, category: "technology" },
+  { name: "Social media posts", unit: "billions per day", baseValue: 4.2, trend: 0.22, seasonal: false, category: "technology" },
+  { name: "Video game sales", unit: "millions of units", baseValue: 2800, trend: 0.07, seasonal: true, category: "technology" },
+  { name: "Data usage", unit: "GB per person", baseValue: 8.5, trend: 0.25, seasonal: false, category: "technology" },
+
+  // Weather & Environment
+  { name: "Lightning strikes", unit: "incidents", baseValue: 400, trend: 0.01, seasonal: true, category: "weather" },
+  { name: "Sunscreen sales", unit: "millions of bottles", baseValue: 95, trend: 0.04, seasonal: true, category: "weather" },
+  { name: "Umbrella purchases", unit: "thousands sold", baseValue: 850, trend: 0.02, seasonal: true, category: "weather" },
+  { name: "Air conditioning usage", unit: "kWh per household", baseValue: 2100, trend: 0.06, seasonal: true, category: "weather" },
+  { name: "Beach visitors", unit: "millions annually", baseValue: 68, trend: 0.03, seasonal: true, category: "weather" },
+  { name: "Solar panel installations", unit: "per 1,000 homes", baseValue: 12, trend: 0.15, seasonal: false, category: "weather" },
+
+  // Social & Demographics
+  { name: "Divorce rate in Maine", unit: "per 1,000", baseValue: 5.2, trend: -0.03, seasonal: false, category: "social" },
+  { name: "Cat ownership", unit: "cats per household", baseValue: 1.3, trend: 0.04, seasonal: false, category: "social" },
+  { name: "Dog park visits", unit: "visits per capita", baseValue: 24, trend: 0.06, seasonal: true, category: "social" },
+  { name: "Book club memberships", unit: "per 1,000 residents", baseValue: 8.5, trend: -0.02, seasonal: false, category: "social" },
+  { name: "Dating app downloads", unit: "millions per month", baseValue: 6.2, trend: 0.09, seasonal: false, category: "social" },
+  { name: "Yoga class attendance", unit: "students per class", baseValue: 18, trend: 0.07, seasonal: false, category: "social" },
+
+  // Health & Safety
+  { name: "Drowning deaths", unit: "fatalities", baseValue: 45, trend: 0.02, seasonal: true, category: "health" },
+  { name: "Rat infestations", unit: "reports per 1,000 homes", baseValue: 12, trend: 0.06, seasonal: true, category: "health" },
+  { name: "Emergency room visits", unit: "per 1,000 people", baseValue: 340, trend: 0.02, seasonal: true, category: "health" },
+  { name: "Flu vaccinations", unit: "millions administered", baseValue: 175, trend: 0.03, seasonal: true, category: "health" },
+  { name: "Gym memberships", unit: "per 1,000 residents", baseValue: 185, trend: 0.04, seasonal: false, category: "health" },
+  { name: "Sleep medication sales", unit: "millions of prescriptions", baseValue: 55, trend: 0.08, seasonal: false, category: "health" },
+
+  // Transportation
+  { name: "Bicycle accidents", unit: "reported incidents", baseValue: 890, trend: 0.03, seasonal: true, category: "transportation" },
+  { name: "Uber rides", unit: "millions per month", baseValue: 320, trend: 0.12, seasonal: false, category: "transportation" },
+  { name: "Gas station visits", unit: "per capita monthly", baseValue: 8.2, trend: -0.05, seasonal: false, category: "transportation" },
+  { name: "Electric vehicle sales", unit: "thousands sold", baseValue: 245, trend: 0.28, seasonal: false, category: "transportation" },
+  { name: "Public transit ridership", unit: "millions per month", baseValue: 450, trend: -0.02, seasonal: true, category: "transportation" },
+  { name: "Parking ticket revenue", unit: "millions USD", baseValue: 85, trend: 0.04, seasonal: false, category: "transportation" },
+
+  // Economics & Finance
+  { name: "Credit card applications", unit: "millions per month", baseValue: 12, trend: 0.05, seasonal: false, category: "economics" },
+  { name: "Stock market volatility", unit: "VIX index", baseValue: 18, trend: 0.02, seasonal: false, category: "economics" },
+  { name: "Cryptocurrency trades", unit: "millions per day", baseValue: 2.8, trend: 0.15, seasonal: false, category: "economics" },
+  { name: "Real estate transactions", unit: "thousands per month", baseValue: 520, trend: -0.03, seasonal: true, category: "economics" },
+  { name: "Student loan debt", unit: "thousands USD average", baseValue: 37, trend: 0.06, seasonal: false, category: "economics" },
+  { name: "Coffee shop density", unit: "shops per sq mile", baseValue: 2.1, trend: 0.07, seasonal: false, category: "economics" },
 ]
 
 const journals = [
@@ -45,11 +108,17 @@ const journals = [
   "Quarterly Journal of Dubious Findings"
 ]
 
-function generateCorrelationData(): CorrelationData {
-  const var1 = datasets[Math.floor(Math.random() * datasets.length)]
-  let var2 = datasets[Math.floor(Math.random() * datasets.length)]
+function generateCorrelationData(selectedCategory?: string): CorrelationData {
+  let availableDatasets = datasets
+  
+  if (selectedCategory && selectedCategory !== 'all') {
+    availableDatasets = datasets.filter(d => d.category === selectedCategory)
+  }
+  
+  const var1 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
+  let var2 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
   while (var2 === var1) {
-    var2 = datasets[Math.floor(Math.random() * datasets.length)]
+    var2 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
   }
 
   const correlation = (Math.random() * 1.8 - 0.9) // -0.9 to 0.9
@@ -104,11 +173,12 @@ function App() {
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(generateCorrelationData)
   const [favorites, setFavorites, deleteFavorites] = useKV<CorrelationData[]>("favorite-correlations", [])
   const [isGenerating, setIsGenerating] = useState(false)
+  const [selectedCategory, setSelectedCategory] = useState<string>('all')
 
   const generateNew = async () => {
     setIsGenerating(true)
     await new Promise(resolve => setTimeout(resolve, 800)) // Simulate processing
-    setCurrentCorrelation(generateCorrelationData())
+    setCurrentCorrelation(generateCorrelationData(selectedCategory))
     setIsGenerating(false)
     toast.success("New correlation generated!")
   }
@@ -159,12 +229,15 @@ function App() {
           </Button>
         </div>
         
-        <div className="flex gap-2 mt-4">
+        <div className="flex gap-2 mt-4 flex-wrap">
           <Badge variant="secondary">
             r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
           </Badge>
           <Badge variant="outline">
             R² = {correlation.rSquared.toFixed(3)}
+          </Badge>
+          <Badge variant="secondary" className="text-xs">
+            {categories[correlation.variable1.category as keyof typeof categories]}
           </Badge>
         </div>
       </CardHeader>
@@ -252,7 +325,24 @@ function App() {
           </TabsList>
           
           <TabsContent value="generator" className="space-y-6">
-            <div className="flex justify-center">
+            <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
+              <div className="flex items-center gap-2">
+                <Funnel size={18} className="text-muted-foreground" />
+                <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                  <SelectTrigger className="w-48">
+                    <SelectValue placeholder="Select category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    <SelectItem value="all">All Categories</SelectItem>
+                    {Object.entries(categories).map(([key, label]) => (
+                      <SelectItem key={key} value={key}>
+                        {label}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+              </div>
+              
               <Button 
                 onClick={generateNew}
                 disabled={isGenerating}
