@@ -656,6 +656,11 @@ class StaticDataService {
     }
   }
 
+  // Get total dataset count
+  getTotalDatasetCount(): number {
+    return this.combinedDatasets.length
+  }
+
   // Get data sources with attribution
   getDataSources() {
     const sources = new Map<string, { 

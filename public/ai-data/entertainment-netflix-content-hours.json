@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_netflix_content_hours",
+    "name": "Netflix Content Hours Watched",
+    "unit": "billions of hours",
+    "category": "entertainment",
+    "source": "AI-Generated",
+    "description": "Annual hours of content consumed on Netflix globally",
+    "sourceUrl": "https://about.netflix.com/en/news",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "Netflix Global Engagement Report"
+  },
+  "data": [
+    { "year": 2015, "value": 42.5 },
+    { "year": 2016, "value": 62.3 },
+    { "year": 2017, "value": 89.1 },
+    { "year": 2018, "value": 115.7 },
+    { "year": 2019, "value": 142.3 },
+    { "year": 2020, "value": 203.9 },
+    { "year": 2021, "value": 189.4 },
+    { "year": 2022, "value": 165.2 },
+    { "year": 2023, "value": 183.9 },
+    { "year": 2024, "value": 197.8 }
+  ]
+}

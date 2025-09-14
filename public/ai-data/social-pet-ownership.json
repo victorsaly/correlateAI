@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_pet_ownership",
+    "name": "Pet Ownership Rate",
+    "unit": "percentage of households",
+    "category": "social",
+    "source": "AI-Generated",
+    "description": "Percentage of US households that own at least one pet",
+    "sourceUrl": "https://www.americanpetproducts.org/press_industrytrends.asp",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "American Pet Products Association Survey"
+  },
+  "data": [
+    { "year": 2015, "value": 65 },
+    { "year": 2016, "value": 68 },
+    { "year": 2017, "value": 68 },
+    { "year": 2018, "value": 67 },
+    { "year": 2019, "value": 67 },
+    { "year": 2020, "value": 70 },
+    { "year": 2021, "value": 71 },
+    { "year": 2022, "value": 72 },
+    { "year": 2023, "value": 74 },
+    { "year": 2024, "value": 75 }
+  ]
+}

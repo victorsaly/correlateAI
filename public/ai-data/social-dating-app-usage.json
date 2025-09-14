@@ -1,0 +1,26 @@
+{
+  "metadata": {
+    "id": "ai_dating_app_usage",
+    "name": "Dating App Usage",
+    "unit": "percentage of adults",
+    "category": "social",
+    "source": "AI-Generated",
+    "description": "Percentage of US adults who have used dating apps",
+    "sourceUrl": "https://www.pewresearch.org/internet/2020/02/06/the-virtues-and-downsides-of-online-dating/",
+    "isAIGenerated": true,
+    "aiGeneratedAt": "2025-09-14T22:30:00.000Z",
+    "citation": "Pew Research Internet & Technology"
+  },
+  "data": [
+    { "year": 2015, "value": 15 },
+    { "year": 2016, "value": 18 },
+    { "year": 2017, "value": 22 },
+    { "year": 2018, "value": 27 },
+    { "year": 2019, "value": 30 },
+    { "year": 2020, "value": 35 },
+    { "year": 2021, "value": 41 },
+    { "year": 2022, "value": 38 },
+    { "year": 2023, "value": 42 },
+    { "year": 2024, "value": 45 }
+  ]
+}

@@ -230,6 +230,8 @@ function App() {
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const shareCardRef = useRef<HTMLDivElement>(null)
+  const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
+  const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
   
   // Favorites using localStorage only
   const [favorites, setFavorites] = useState<CorrelationData[]>([])
@@ -244,6 +246,38 @@ function App() {
     } catch (e) {
       console.warn('localStorage error:', e)
       setFavorites([])
+    }
+  }, [])
+
+  // Load total dataset count dynamically
+  useEffect(() => {
+    const loadDatasetCount = async () => {
+      try {
+        // Give the service time to initialize if needed
+        await new Promise(resolve => setTimeout(resolve, 100))
+        const count = dataService.getTotalDatasetCount()
+        const stats = dataService.getDatasetStats()
+        setTotalDatasetCount(count)
+        setDatasetStats(stats)
+      } catch (error) {
+        console.warn('Failed to load dataset count:', error)
+        setTotalDatasetCount(80) // Fallback value
+        setDatasetStats(null)
+      }
+    }
+    
+    loadDatasetCount()
+  }, [])
+
+  // Function to refresh dataset count (can be called when datasets are updated)
+  const refreshDatasetCount = useCallback(() => {
+    try {
+      const count = dataService.getTotalDatasetCount()
+      const stats = dataService.getDatasetStats()
+      setTotalDatasetCount(count)
+      setDatasetStats(stats)
+    } catch (error) {
+      console.warn('Failed to refresh dataset count:', error)
     }
   }, [])
 
@@ -391,17 +425,25 @@ function App() {
             <span>+</span>
             <span className="font-semibold text-purple-400">AI Datasets</span>
             <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-2"></div>
-            <span className="text-green-400 font-medium">
-              {(() => {
-                try {
-                  const sources = dataService.getDataSources()
-                  const total = Array.from(sources.values()).reduce((sum, source) => sum + source.datasets, 0)
-                  return `${total}+ Sources`
-                } catch {
-                  return '80+ Sources'
-                }
-              })()}
-            </span>
+            {datasetStats ? (
+              <div className="flex items-center gap-2 text-sm">
+                <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets`}>
+                  {datasetStats.total} Sources
+                </span>
+                <span className="text-gray-500">•</span>
+                <span className="text-blue-400 font-medium" title="Real economic data from FRED & World Bank">
+                  {datasetStats.real} Real
+                </span>
+                <span className="text-gray-500">•</span>
+                <span className="text-purple-400 font-medium" title="AI-generated datasets">
+                  {datasetStats.ai} AI
+                </span>
+              </div>
+            ) : (
+              <span className="text-green-400 font-medium">
+                {totalDatasetCount > 0 ? `${totalDatasetCount}+ Sources` : '80+ Sources'}
+              </span>
+            )}
           </div>
         </header>
 
