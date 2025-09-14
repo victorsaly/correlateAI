@@ -183,64 +183,21 @@ async function generateRealDataCorrelation(selectedCategory?: string): Promise<C
   try {
     const [dataset1, dataset2] = dataService.getRandomDatasets(selectedCategory)
     
-    // Fetch real data for both datasets
-    const [data1, data2] = await Promise.all([
-      dataService.fetchDataset(dataset1),
-      dataService.fetchDataset(dataset2)
-    ])
-
-    if (data1.length < 3 || data2.length < 3) {
-      console.warn('Not enough real data, falling back to synthetic')
-      return null
-    }
-
-    // Calculate actual correlation
-    const correlation = dataService.calculateCorrelation(data1, data2)
-    const rSquared = Math.pow(Math.abs(correlation), 2)
-
-    // Find common years and create chart data
-    const commonYears = data1
-      .filter(d1 => data2.some(d2 => d2.year === d1.year))
-      .map(d => d.year)
-      .sort()
-
-    const chartData = commonYears.map(year => ({
-      year,
-      value1: data1.find(d => d.year === year)!.value,
-      value2: data2.find(d => d.year === year)!.value
-    }))
-
-    const direction = correlation > 0 ? "increase" : "decrease"
-    const strongCorr = Math.abs(correlation) > 0.6
-    const corrMagnitude = Math.abs(correlation) > 0.7 ? 'strong' : 
-                         Math.abs(correlation) > 0.4 ? 'moderate' : 'weak'
-
-    const realDescriptions = [
-      `A ${corrMagnitude} ${correlation > 0 ? 'positive' : 'negative'} correlation exists between ${dataset1.name.toLowerCase()} and ${dataset2.name.toLowerCase()}`,
-      `Analysis of ${dataset1.source} data shows ${dataset1.name.toLowerCase()} ${correlation > 0 ? 'correlates positively' : 'correlates negatively'} with ${dataset2.name.toLowerCase()}`,
-      `Real-world data indicates ${dataset1.name.toLowerCase()} and ${dataset2.name.toLowerCase()} ${correlation > 0 ? 'trend together' : 'move in opposite directions'}`
-    ]
-
-    // Real academic-style citations
-    const realJournals = [
-      "Journal of Economic Analysis",
-      "American Economic Review",
-      "Federal Reserve Economic Data Bulletin",
-      "Quarterly Review of Economics and Finance",
-      "International Journal of Statistics"
-    ]
-
+    // Use the public generateCorrelation method that handles everything
+    const result = await dataService.generateCorrelation(dataset1, dataset2)
+    
+    // Convert the result to match our CorrelationData interface
     return {
       id: Math.random().toString(36).substr(2, 9),
       title: `${dataset1.name} vs ${dataset2.name}`,
-      description: realDescriptions[Math.floor(Math.random() * realDescriptions.length)],
-      correlation: Math.round(correlation * 1000) / 1000,
-      rSquared: Math.round(rSquared * 1000) / 1000,
-      data: chartData,
+      description: result.description,
+      correlation: Math.round(result.correlation * 1000) / 1000,
+      rSquared: Math.round(Math.pow(Math.abs(result.correlation), 2) * 1000) / 1000,
+      data: result.data,
       variable1: dataset1,
       variable2: dataset2,
       citation: `Federal Reserve Economic Data (${new Date().getFullYear()})`,
-      journal: realJournals[Math.floor(Math.random() * realJournals.length)],
+      journal: "Federal Reserve Economic Data Bulletin",
       year: new Date().getFullYear(),
       isRealData: true,
       dataSource: dataset1.source
