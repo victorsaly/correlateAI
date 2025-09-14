@@ -6,10 +6,10 @@
     "description": "AI-powered economic data correlation analysis tool",
     "author": "Victor Saly <victor@victorsaly.com>",
     "license": "MIT",
-    "homepage": "https://correlateai.victorsaly.com",
+    "homepage": "https://victorsaly.github.io/correlateAI/",
     "repository": {
         "type": "git",
-        "url": "https://github.com/victorsaly/random-data-correlat.git"
+        "url": "https://github.com/victorsaly/correlateAI.git"
     },
     "scripts": {
         "dev": "vite",

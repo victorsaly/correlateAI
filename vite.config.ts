@@ -10,8 +10,8 @@ export default defineConfig(({ mode }) => {
   const isProduction = mode === 'production'
   
   return {
-    // Set base path for custom domain (root path) or GitHub Pages fallback
-    base: isProduction ? '/' : '/',
+    // Set base path for GitHub Pages deployment
+    base: isProduction ? '/correlateAI/' : '/',
     
     plugins: [
       react(),
