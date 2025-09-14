@@ -1,13 +1,31 @@
 # CorrelateAI Pro 🤖📊
 
-> **A professional data correlation analysis tool built entirely through AI-assisted development**
+> **A professional data correlation analysis tool built entirely through AI-assisted develop4. **Push to main**: Automatic deployment triggered
+
+📖 **[Complete GitHub Setup Guide](./docs/github-setup.md)** - Detailed deployment instructionst**
 
 [![AI-Generated](https://img.shields.io/badge/Built%20with-AI%20Assistance-purple?style=flat-square&logo=openai)](https://github.com/victorsaly)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Latest-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Data Sources](https://img.shields.io/badge/Real%20Data-31%20Sources-green?style=flat-square&logo=databricks)](https://fred.stlouisfed.org/)
+[![Security](https://img.shields.io/badge/Security-Audit%20Passed-brightgreen?style=flat-square&logo=shield)](./scripts/security-audit.sh)
 
 **Discover surprising correlations in real economic data using AI-powered analysis.**
+
+## 🚀 Quick Start (5 Minutes)
+
+### Secure Setup
+1. **Get FREE API Key**: [FRED Registration](https://fred.stlouisfed.org/docs/api/api_key.html)
+2. **Copy environment**: `cp .env.example .env` 
+3. **Add API key**: Edit `.env` with your key
+4. **Run**: `npm install && npm run dev`
+
+### GitHub Deployment
+1. **Add GitHub Secret**: `VITE_FRED_API_KEY` in repository settings
+2. **Push to main**: Automatic deployment to GitHub Pages
+3. **Security Check**: Run `./scripts/security-audit.sh`
+
+📋 **[Complete Setup Guides](#-documentation)**
 
 ## ✨ What Makes This Special?
 
@@ -89,7 +107,7 @@ Visit `http://localhost:5000` to explore correlations!
 ### Custom Domain Setup
 This project is pre-configured for deployment at **CorrelateAI.victorsaly.com**:
 
-🔧 **[DNS Setup Guide](./DNS_SETUP_GUIDE.md)** - Complete instructions for configuring your subdomain
+� **[Complete Setup in GitHub Guide](./docs/github-setup.md)** - Includes custom domain configuration
 
 ### GitHub Pages (Automated)
 Deploy your own instance:
@@ -140,6 +158,27 @@ This project showcases a new paradigm in software development:
 - **AI Code Generation**: Complex TypeScript/React components
 - **Intelligent Integration**: APIs, state management, and UI consistency
 - **Quality Assurance**: Type-safe code with professional standards
+
+## 📚 Documentation
+
+### 🔒 Security & Setup
+- **[Quick Start & Security](./docs/quick-start.md)** - 5-minute secure setup
+- **[API Setup Guide](./docs/api-setup.md)** - Detailed API configuration
+- **[GitHub Setup Guide](./docs/github-setup.md)** - Repository & deployment
+- **[Security Checklist](./docs/security-checklist.md)** - Security verification steps
+
+### 🛠️ Development & Deployment
+- **[Project Structure](./docs/project-structure.md)** - Understanding the codebase
+- **[Security Audit Script](./scripts/security-audit.sh)** - Automated security checking
+
+### 🔐 Security Features
+- ✅ **API Keys Protected** - Environment variables only
+- ✅ **GitHub Secrets** - Encrypted deployment keys
+- ✅ **Automated Auditing** - Built-in security verification
+- ✅ **CORS Handling** - Development proxy configured
+- ✅ **Git Protection** - Sensitive data never committed
+
+**Run Security Check**: `./scripts/security-audit.sh`
 
 ## 👨‍💻 About the Developer
 

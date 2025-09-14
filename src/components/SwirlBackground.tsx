@@ -73,7 +73,7 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
       ctx.fillStyle = 'rgba(2, 6, 23, 0.1)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-      time += 0.016;
+      time += 0.008;
 
       particles.forEach((particle, index) => {
         // Mouse interaction - particles are attracted to mouse
@@ -89,16 +89,16 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
         }
 
         // Flowing motion with sine waves
-        const flowX = Math.sin(time + particle.baseX * 0.01) * 2;
-        const flowY = Math.cos(time * 0.7 + particle.baseY * 0.01) * 1.5;
+        const flowX = Math.sin(time + particle.baseX * 0.01) * 1;
+        const flowY = Math.cos(time * 0.5 + particle.baseY * 0.01) * 0.8;
         
         // Update velocity with flow and some random drift
-        particle.vx += (flowX - particle.vx) * 0.05;
-        particle.vy += (flowY - particle.vy) * 0.05;
+        particle.vx += (flowX - particle.vx) * 0.02;
+        particle.vy += (flowY - particle.vy) * 0.02;
         
         // Add some randomness
-        particle.vx += (Math.random() - 0.5) * 0.1;
-        particle.vy += (Math.random() - 0.5) * 0.1;
+        particle.vx += (Math.random() - 0.5) * 0.05;
+        particle.vy += (Math.random() - 0.5) * 0.05;
         
         // Apply velocity
         particle.x += particle.vx;
@@ -128,8 +128,8 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
 
         // Animate particle properties with AI-style colors
         particle.opacity = 0.4 + Math.sin(time + index * 0.1) * 0.3;
-        particle.size = 2.5 + Math.sin(time * 2 + index * 0.2) * 1.5;
-        particle.hue = 180 + Math.sin(time * 0.5 + index * 0.3) * 80; // Cyan to purple range
+        particle.size = 2.5 + Math.sin(time * 1.2 + index * 0.2) * 1.5;
+        particle.hue = 180 + Math.sin(time * 0.3 + index * 0.3) * 80; // Cyan to purple range
 
         // Create dynamic gradient for each particle with AI colors
         const gradient = ctx.createRadialGradient(
@@ -184,9 +184,9 @@ const SwirlBackground: React.FC<SwirlBackgroundProps> = ({ className = '' }) => 
         canvas.width, canvas.height
       );
       
-      const wave1 = 0.04 + Math.sin(time * 0.8) * 0.03;
-      const wave2 = 0.03 + Math.cos(time * 1.2) * 0.025;
-      const wave3 = 0.05 + Math.sin(time * 0.5) * 0.035;
+      const wave1 = 0.04 + Math.sin(time * 0.4) * 0.03;
+      const wave2 = 0.03 + Math.cos(time * 0.6) * 0.025;
+      const wave3 = 0.05 + Math.sin(time * 0.25) * 0.035;
       
       waveGradient.addColorStop(0, `hsla(200, 70%, 20%, ${wave1})`);   // Deep cyan
       waveGradient.addColorStop(0.25, `hsla(220, 80%, 25%, ${wave2})`); // Blue

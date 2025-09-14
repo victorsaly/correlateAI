@@ -1,5 +1,4 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
-import { useKV } from '@github/spark/hooks'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
@@ -258,55 +257,33 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const shareCardRef = useRef<HTMLDivElement>(null)
   
-  // KV store with fallback to localStorage
-  const [kvFavorites, setKvFavorites] = useKV<CorrelationData[]>("favorite-correlations", [])
+  // Favorites using localStorage only
   const [favorites, setFavorites] = useState<CorrelationData[]>([])
-  const [kvError, setKvError] = useState(false)
 
-  // Handle KV errors and fallback to localStorage
+  // Load favorites from localStorage on component mount
   useEffect(() => {
     try {
-      if (kvFavorites) {
-        setFavorites(kvFavorites)
-        setKvError(false)
+      const stored = localStorage.getItem('favorite-correlations')
+      if (stored) {
+        setFavorites(JSON.parse(stored))
       }
-    } catch (error) {
-      console.warn('KV store error, falling back to localStorage:', error)
-      setKvError(true)
-      // Load from localStorage as fallback
-      try {
-        const stored = localStorage.getItem('favorite-correlations')
-        if (stored) {
-          setFavorites(JSON.parse(stored))
-        }
-      } catch (e) {
-        console.warn('localStorage error:', e)
-        setFavorites([])
-      }
+    } catch (e) {
+      console.warn('localStorage error:', e)
+      setFavorites([])
     }
-  }, [kvFavorites])
+  }, [])
 
-  // Save to both KV and localStorage for reliability
+  // Save to localStorage
   const saveFavorites = useCallback((newFavorites: CorrelationData[]) => {
     setFavorites(newFavorites)
     
-    // Try to save to KV store
-    if (!kvError) {
-      try {
-        setKvFavorites(newFavorites)
-      } catch (error) {
-        console.warn('KV save failed, using localStorage:', error)
-        setKvError(true)
-      }
-    }
-    
-    // Always save to localStorage as backup
+    // Save to localStorage
     try {
       localStorage.setItem('favorite-correlations', JSON.stringify(newFavorites))
     } catch (error) {
       console.warn('localStorage save failed:', error)
     }
-  }, [setKvFavorites, kvError])
+  }, [])
 
   const generateNew = useCallback(async () => {
     setIsGenerating(true)
