@@ -267,13 +267,9 @@ function App() {
 
   const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
 
-  const shareCardRefCallback = useCallback((ref: HTMLDivElement | null) => {
-    setShareCardRef(ref)
-  }, [])
-
   // Remove useCallback wrapper from CorrelationCard component to prevent infinite re-renders
   const CorrelationCard = ({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
-    <Card className="w-full" ref={isShareable ? shareCardRefCallback : undefined}>
+    <Card className="w-full" ref={isShareable ? setShareCardRef : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
           <div className="flex-1">
