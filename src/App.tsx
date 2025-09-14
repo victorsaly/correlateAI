@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo, useCallback } from 'react'
 import { useKV } from '@github/spark/hooks'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -172,21 +172,21 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
 }
 
 function App() {
-  const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(generateCorrelationData)
+  const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
   const [favorites, setFavorites, deleteFavorites] = useKV<CorrelationData[]>("favorite-correlations", [])
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [shareCardRef, setShareCardRef] = useState<HTMLDivElement | null>(null)
 
-  const generateNew = async () => {
+  const generateNew = useCallback(async () => {
     setIsGenerating(true)
     await new Promise(resolve => setTimeout(resolve, 800)) // Simulate processing
     setCurrentCorrelation(generateCorrelationData(selectedCategory))
     setIsGenerating(false)
     toast.success("New correlation generated!")
-  }
+  }, [selectedCategory])
 
-  const toggleFavorite = (correlation: CorrelationData) => {
+  const toggleFavorite = useCallback((correlation: CorrelationData) => {
     setFavorites(current => {
       if (!current) current = []
       const exists = current.find(fav => fav.id === correlation.id)
@@ -198,43 +198,43 @@ function App() {
         return [...current, correlation]
       }
     })
-  }
+  }, [setFavorites])
 
-  const copyToClipboard = (text: string) => {
+  const copyToClipboard = useCallback((text: string) => {
     navigator.clipboard.writeText(text)
     toast.success("Citation copied to clipboard!")
-  }
+  }, [])
 
-  const generateShareText = (correlation: CorrelationData) => {
+  const generateShareText = useCallback((correlation: CorrelationData) => {
     const corrType = Math.abs(correlation.correlation) > 0.7 ? "strong" : 
                      Math.abs(correlation.correlation) > 0.4 ? "moderate" : "weak"
     const direction = correlation.correlation > 0 ? "positive" : "negative"
     
     return `🔍 Fascinating ${corrType} ${direction} correlation discovered!\n\n${correlation.title}\nr = ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}\n\n${correlation.description}\n\n#SpuriousCorrelations #DataScience #Statistics`
-  }
+  }, [])
 
-  const shareToTwitter = (correlation: CorrelationData) => {
+  const shareToTwitter = useCallback((correlation: CorrelationData) => {
     const text = generateShareText(correlation)
     const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
     window.open(url, '_blank', 'width=600,height=400')
     toast.success("Opening Twitter share dialog!")
-  }
+  }, [generateShareText])
 
-  const shareToLinkedIn = (correlation: CorrelationData) => {
+  const shareToLinkedIn = useCallback((correlation: CorrelationData) => {
     const text = generateShareText(correlation)
     const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(text)}`
     window.open(url, '_blank', 'width=600,height=600')
     toast.success("Opening LinkedIn share dialog!")
-  }
+  }, [generateShareText])
 
-  const shareToFacebook = (correlation: CorrelationData) => {
+  const shareToFacebook = useCallback((correlation: CorrelationData) => {
     const text = generateShareText(correlation)
     const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`
     window.open(url, '_blank', 'width=600,height=400')
     toast.success("Opening Facebook share dialog!")
-  }
+  }, [generateShareText])
 
-  const downloadAsImage = async (correlation: CorrelationData) => {
+  const downloadAsImage = useCallback(async (correlation: CorrelationData) => {
     if (!shareCardRef) {
       toast.error("Share card not found. Try again in a moment.")
       return
@@ -263,11 +263,11 @@ function App() {
       console.error('Error generating image:', error)
       toast.error("Failed to download image. Please try again.")
     }
-  }
+  }, [shareCardRef])
 
-  const isFavorited = (id: string) => favorites?.some(fav => fav.id === id) || false
+  const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
 
-  const CorrelationCard = ({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
+  const CorrelationCard = useCallback(({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
     <Card className="w-full" ref={isShareable ? setShareCardRef : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
@@ -396,7 +396,7 @@ function App() {
         </div>
       </CardContent>
     </Card>
-  )
+  ), [toggleFavorite, isFavorited, shareToTwitter, shareToLinkedIn, shareToFacebook, downloadAsImage, copyToClipboard, generateShareText])
 
   return (
     <div className="min-h-screen bg-background p-4">
