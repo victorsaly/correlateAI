@@ -37,6 +37,10 @@
   - Purpose: Build personal value and allow users to return to interesting findings
   - Success criteria: Persistent storage across sessions, easy to add/remove favorites
 
+- **Social Media Sharing**: Users can share correlations across social platforms and download images
+  - Purpose: Viral spread of educational content and increased engagement
+  - Success criteria: One-click sharing to Twitter, LinkedIn, Facebook with optimized text and downloadable card images
+
 - **Academic Citations**: Each correlation includes fake but realistic academic citations
   - Purpose: Parody real research while emphasizing the fictional nature
   - Success criteria: Citations look authentic but are clearly satirical
@@ -90,11 +94,12 @@
   - Select dropdown for category filtering - allows precise control
   - Badges for statistical measures - highlights key numerical information
   - Buttons with clear action-oriented labels
+  - Dropdown menu for sharing options - organizes social media and export actions
 
 - **Component Customization**: Standard shadcn styling with slight radius adjustments (0.625rem) for modern feel
 - **Component States**: Clear hover and focus states for all interactive elements
-- **Icon Selection**: Phosphor icons for consistency - trend icons for charts, heart for favorites, filter for categories
-- **Component Hierarchy**: Primary actions (Generate) are prominent, secondary actions (Save, Copy) are subtle but accessible
+- **Icon Selection**: Phosphor icons for consistency - trend icons for charts, heart for favorites, filter for categories, share and social media icons for export features
+- **Component Hierarchy**: Primary actions (Generate) are prominent, secondary actions (Save, Copy) are subtle but accessible, sharing actions organized in dropdown menu
 - **Spacing System**: Consistent 4, 6, 8px spacing using Tailwind classes
 - **Mobile Adaptation**: Stack controls vertically on small screens, maintain chart readability
 
@@ -116,9 +121,9 @@
 - **Technical Constraints**: Chart rendering performance with multiple datasets
 
 ## Implementation Considerations
-- **Scalability Needs**: Dataset expansion, additional correlation types, sharing features
-- **Testing Focus**: Correlation algorithm accuracy, chart rendering, category filtering
-- **Critical Questions**: Are correlations convincing but obviously fictional? Do users understand the educational purpose?
+- **Scalability Needs**: Dataset expansion, additional correlation types, enhanced sharing features with custom branding
+- **Testing Focus**: Correlation algorithm accuracy, chart rendering, category filtering, social media sharing functionality, image export quality
+- **Critical Questions**: Are correlations convincing but obviously fictional? Do users understand the educational purpose? Do shared correlations maintain educational context?
 
 ## Reflection
-This approach uniquely combines entertainment with education, using humor and professional presentation to teach an important statistical concept. The themed categories make the tool more engaging while maintaining educational value. The solution is exceptional because it makes learning about statistical fallacies genuinely enjoyable.
+This approach uniquely combines entertainment with education, using humor and professional presentation to teach an important statistical concept. The themed categories make the tool more engaging while maintaining educational value. The new social sharing features amplify the educational message by making correlations easily shareable while maintaining their educational context. The solution is exceptional because it makes learning about statistical fallacies genuinely enjoyable and viral.

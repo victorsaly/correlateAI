@@ -5,7 +5,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel } from '@phosphor-icons/react'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Separator } from '@/components/ui/separator'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast } from 'sonner'
 
@@ -174,6 +176,7 @@ function App() {
   const [favorites, setFavorites, deleteFavorites] = useKV<CorrelationData[]>("favorite-correlations", [])
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [shareCardRef, setShareCardRef] = useState<HTMLDivElement | null>(null)
 
   const generateNew = async () => {
     setIsGenerating(true)
@@ -202,10 +205,70 @@ function App() {
     toast.success("Citation copied to clipboard!")
   }
 
+  const generateShareText = (correlation: CorrelationData) => {
+    const corrType = Math.abs(correlation.correlation) > 0.7 ? "strong" : 
+                     Math.abs(correlation.correlation) > 0.4 ? "moderate" : "weak"
+    const direction = correlation.correlation > 0 ? "positive" : "negative"
+    
+    return `🔍 Fascinating ${corrType} ${direction} correlation discovered!\n\n${correlation.title}\nr = ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}\n\n${correlation.description}\n\n#SpuriousCorrelations #DataScience #Statistics`
+  }
+
+  const shareToTwitter = (correlation: CorrelationData) => {
+    const text = generateShareText(correlation)
+    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'width=600,height=400')
+    toast.success("Opening Twitter share dialog!")
+  }
+
+  const shareToLinkedIn = (correlation: CorrelationData) => {
+    const text = generateShareText(correlation)
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'width=600,height=600')
+    toast.success("Opening LinkedIn share dialog!")
+  }
+
+  const shareToFacebook = (correlation: CorrelationData) => {
+    const text = generateShareText(correlation)
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`
+    window.open(url, '_blank', 'width=600,height=400')
+    toast.success("Opening Facebook share dialog!")
+  }
+
+  const downloadAsImage = async (correlation: CorrelationData) => {
+    if (!shareCardRef) {
+      toast.error("Share card not found. Try again in a moment.")
+      return
+    }
+
+    try {
+      // Dynamic import to avoid bundling issues
+      const html2canvas = (await import('html2canvas')).default
+      
+      const canvas = await html2canvas(shareCardRef, {
+        backgroundColor: '#ffffff',
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        height: shareCardRef.offsetHeight,
+        width: shareCardRef.offsetWidth
+      })
+      
+      const link = document.createElement('a')
+      link.download = `correlation-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.png`
+      link.href = canvas.toDataURL('image/png')
+      link.click()
+      
+      toast.success("Correlation card downloaded!")
+    } catch (error) {
+      console.error('Error generating image:', error)
+      toast.error("Failed to download image. Please try again.")
+    }
+  }
+
   const isFavorited = (id: string) => favorites?.some(fav => fav.id === id) || false
 
-  const CorrelationCard = ({ correlation }: { correlation: CorrelationData }) => (
-    <Card className="w-full">
+  const CorrelationCard = ({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
+    <Card className="w-full" ref={isShareable ? setShareCardRef : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
           <div className="flex-1">
@@ -215,18 +278,50 @@ function App() {
             </CardTitle>
             <CardDescription className="mt-2">{correlation.description}</CardDescription>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
-            onClick={() => toggleFavorite(correlation)}
-            className="ml-4"
-          >
-            <Heart 
-              size={18} 
-              weight={isFavorited(correlation.id) ? "fill" : "regular"}
-              className={isFavorited(correlation.id) ? "text-red-500" : ""}
-            />
-          </Button>
+          <div className="flex items-center gap-2 ml-4">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={() => toggleFavorite(correlation)}
+            >
+              <Heart 
+                size={18} 
+                weight={isFavorited(correlation.id) ? "fill" : "regular"}
+                className={isFavorited(correlation.id) ? "text-red-500" : ""}
+              />
+            </Button>
+            
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm">
+                  <Share size={18} />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-48">
+                <DropdownMenuItem onClick={() => shareToTwitter(correlation)}>
+                  <TwitterLogo size={16} className="mr-2" />
+                  Share on Twitter
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => shareToLinkedIn(correlation)}>
+                  <LinkedinLogo size={16} className="mr-2" />
+                  Share on LinkedIn
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => shareToFacebook(correlation)}>
+                  <FacebookLogo size={16} className="mr-2" />
+                  Share on Facebook
+                </DropdownMenuItem>
+                <Separator />
+                <DropdownMenuItem onClick={() => downloadAsImage(correlation)}>
+                  <Download size={16} className="mr-2" />
+                  Download as Image
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation))}>
+                  <Copy size={16} className="mr-2" />
+                  Copy Share Text
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
+          </div>
         </div>
         
         <div className="flex gap-2 mt-4 flex-wrap">
@@ -363,7 +458,7 @@ function App() {
               </Button>
             </div>
             
-            <CorrelationCard correlation={currentCorrelation} />
+            <CorrelationCard correlation={currentCorrelation} isShareable={true} />
           </TabsContent>
           
           <TabsContent value="favorites" className="space-y-6">
