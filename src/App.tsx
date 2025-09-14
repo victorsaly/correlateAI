@@ -178,10 +178,6 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [shareCardRef, setShareCardRef] = useState<HTMLDivElement | null>(null)
 
-  const shareCardRefCallback = useCallback((node: HTMLDivElement | null) => {
-    setShareCardRef(node)
-  }, [])
-
   const generateNew = useCallback(async () => {
     setIsGenerating(true)
     await new Promise(resolve => setTimeout(resolve, 800)) // Simulate processing
@@ -273,7 +269,7 @@ function App() {
 
   // Remove useCallback wrapper from CorrelationCard component to prevent infinite re-renders
   const CorrelationCard = ({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) => (
-    <Card className="w-full" ref={isShareable ? shareCardRefCallback : undefined}>
+    <Card className="w-full" ref={isShareable ? setShareCardRef : undefined}>
       <CardHeader>
         <div className="flex justify-between items-start">
           <div className="flex-1">
