@@ -40,16 +40,27 @@ if (!FRED_API_KEY) {
 // Detect if running in development or production
 const isDevelopment = import.meta.env.DEV
 
+// CORS proxy services for production (fallback system)
+const CORS_PROXIES = [
+  'https://api.allorigins.win/get?url=',
+  'https://corsproxy.io/?',
+  'https://api.codetabs.com/v1/proxy?quest='
+]
+
+// Helper function to try multiple CORS proxies
+const buildProxiedUrl = (originalUrl: string): string[] => {
+  return CORS_PROXIES.map(proxy => `${proxy}${encodeURIComponent(originalUrl)}`)
+}
+
 // Helper function to build FRED API URLs 
 // Development: Use Vite proxy to avoid CORS issues
-// Production: Use CORS proxy since FRED doesn't support browser CORS
+// Production: Use CORS proxy with fallbacks since FRED doesn't support browser CORS
 const buildFredUrl = (seriesId: string) => {
   if (isDevelopment) {
     return `/api/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
   } else {
-    // Production: Use CORS proxy since FRED doesn't allow browser requests
-    const fredUrl = `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
-    return `https://api.allorigins.win/get?url=${encodeURIComponent(fredUrl)}`
+    // Production: Return original URL for proxying
+    return `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
   }
 }
 
@@ -59,9 +70,8 @@ const buildWorldBankUrl = (indicator: string, country: string = 'US') => {
   if (isDevelopment) {
     return `/api/worldbank/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
   } else {
-    // Production: Use CORS proxy for consistency
-    const wbUrl = `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
-    return `https://api.allorigins.win/get?url=${encodeURIComponent(wbUrl)}`
+    // Production: Return original URL for proxying
+    return `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
   }
 }
 
@@ -390,39 +400,82 @@ class DataService {
 
   async fetchDataset(dataset: RealDataset): Promise<RealDataPoint[]> {
     console.log(`Fetching real data for: ${dataset.name}`)
-    console.log(`URL: ${dataset.fetchUrl}`)
 
     if (this.cache.has(dataset.id)) {
       console.log(`Using cached data for: ${dataset.name}`)
       return this.cache.get(dataset.id)!
     }
 
+    // In development, use direct proxy URLs
+    if (isDevelopment) {
+      return this.fetchFromUrl(dataset.fetchUrl, dataset)
+    }
+
+    // In production, try multiple CORS proxies with fallback
+    const proxiedUrls = buildProxiedUrl(dataset.fetchUrl)
+    console.log(`Trying ${proxiedUrls.length} CORS proxies for: ${dataset.name}`)
+
+    for (let i = 0; i < proxiedUrls.length; i++) {
+      const proxiedUrl = proxiedUrls[i]
+      console.log(`Attempt ${i + 1}/${proxiedUrls.length}: ${proxiedUrl}`)
+      
+      try {
+        const result = await this.fetchFromUrl(proxiedUrl, dataset, true)
+        console.log(`✅ Success with proxy ${i + 1} for ${dataset.name}`)
+        return result
+      } catch (error) {
+        console.warn(`❌ Proxy ${i + 1} failed for ${dataset.name}:`, error)
+        
+        // If this is the last proxy, throw the error
+        if (i === proxiedUrls.length - 1) {
+          throw new Error(`All CORS proxies failed for ${dataset.name}. Last error: ${error}`)
+        }
+        
+        // Otherwise, continue to next proxy
+        console.log(`Trying next proxy...`)
+      }
+    }
+    
+    // This should never be reached due to the throw in the loop, but TypeScript needs it
+    throw new Error(`No CORS proxies configured for ${dataset.name}`)
+  }
+
+  private async fetchFromUrl(url: string, dataset: RealDataset, isProxied = false): Promise<RealDataPoint[]> {
     try {
-      const response = await fetch(dataset.fetchUrl)
+      const response = await fetch(url)
       
       if (!response.ok) {
         console.error(`HTTP ${response.status}: ${response.statusText}`)
         throw new Error(`HTTP error! status: ${response.status} - ${response.statusText}`)
       }
 
-      const data = await response.json()
+      let data = await response.json()
       
       // Handle CORS proxy response in production
-      let apiData = data
-      if (!isDevelopment && data.contents) {
+      if (isProxied && data.contents) {
         console.log('Unwrapping CORS proxy response')
-        apiData = JSON.parse(data.contents)
+        data = JSON.parse(data.contents)
+      } else if (isProxied && data.body) {
+        // Some proxies use 'body' instead of 'contents'
+        console.log('Unwrapping CORS proxy response (body format)')
+        data = JSON.parse(data.body)
+      } else if (isProxied && typeof data === 'string') {
+        // Some proxies return raw string
+        console.log('Parsing raw proxy response')
+        data = JSON.parse(data)
       }
       
-      console.log(`Raw API response for ${dataset.name}:`, apiData)
+      console.log(`Raw API response for ${dataset.name}:`, data)
 
       let transformedData: RealDataPoint[] = []
 
       // Handle different API response formats
       if (dataset.source === 'FRED') {
-        transformedData = this.transformFredData(apiData)
+        transformedData = this.transformFredData(data)
       } else if (dataset.source === 'WorldBank') {
-        transformedData = this.transformWorldBankData(apiData)
+        transformedData = this.transformWorldBankData(data)
+      } else {
+        throw new Error(`Unknown data source: ${dataset.source}`)
       }
 
       // Filter to get annual data from 2014-2024
