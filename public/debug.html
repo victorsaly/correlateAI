@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CorrelateAI Debug</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            max-width: 800px; 
+            margin: 40px auto; 
+            padding: 20px; 
+            background: #0f172a; 
+            color: #e2e8f0;
+        }
+        .test { 
+            background: #1e293b; 
+            padding: 15px; 
+            margin: 10px 0; 
+            border-radius: 8px; 
+            border-left: 4px solid #06b6d4;
+        }
+        .success { border-left-color: #10b981; }
+        .error { border-left-color: #ef4444; }
+        button { 
+            background: #06b6d4; 
+            color: white; 
+            border: none; 
+            padding: 10px 20px; 
+            border-radius: 6px; 
+            margin: 10px 5px; 
+            cursor: pointer;
+        }
+        button:hover { background: #0891b2; }
+        #results { white-space: pre-wrap; }
+    </style>
+</head>
+<body>
+    <h1>🔍 CorrelateAI Deployment Diagnostics</h1>
+    
+    <div class="test">
+        <h3>✅ Static File Serving</h3>
+        <p>This page loaded successfully from: <code id="current-url"></code></p>
+    </div>
+    
+    <div class="test">
+        <h3>🌐 Environment Check</h3>
+        <p><strong>Location:</strong> <span id="location"></span></p>
+        <p><strong>User Agent:</strong> <span id="user-agent"></span></p>
+        <p><strong>Protocol:</strong> <span id="protocol"></span></p>
+    </div>
+    
+    <div class="test">
+        <h3>📡 API Connectivity Test</h3>
+        <button onclick="testFredAPI()">Test FRED API</button>
+        <button onclick="testWorldBankAPI()">Test World Bank API</button>
+        <button onclick="testMainApp()">Test Main App</button>
+        <div id="api-results"></div>
+    </div>
+    
+    <div class="test">
+        <h3>📊 Test Results</h3>
+        <div id="results">Click buttons above to run tests...</div>
+    </div>
+
+    <script>
+        // Basic environment info
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('location').textContent = window.location.origin;
+        document.getElementById('user-agent').textContent = navigator.userAgent.substring(0, 100) + '...';
+        document.getElementById('protocol').textContent = window.location.protocol;
+
+        function log(message) {
+            const results = document.getElementById('results');
+            const timestamp = new Date().toLocaleTimeString();
+            results.textContent += `[${timestamp}] ${message}\n`;
+            console.log(message);
+        }
+
+        async function testFredAPI() {
+            log('🔄 Testing FRED API connection...');
+            try {
+                // Test with a simple GDP series call
+                const url = 'https://api.stlouisfed.org/fred/series/observations?series_id=GDP&api_key=missing&file_type=json&limit=1';
+                const response = await fetch(url);
+                const data = await response.text();
+                
+                if (response.ok) {
+                    log('✅ FRED API is reachable');
+                } else {
+                    log(`⚠️  FRED API responded with ${response.status}: ${data.substring(0, 200)}`);
+                }
+            } catch (error) {
+                log(`❌ FRED API connection failed: ${error.message}`);
+            }
+        }
+
+        async function testWorldBankAPI() {
+            log('🔄 Testing World Bank API connection...');
+            try {
+                const url = 'https://api.worldbank.org/v2/country/US/indicator/NY.GDP.MKTP.CD?format=json&date=2023&per_page=1';
+                const response = await fetch(url);
+                const data = await response.json();
+                
+                if (response.ok && Array.isArray(data)) {
+                    log('✅ World Bank API is working');
+                } else {
+                    log(`⚠️  World Bank API issue: ${JSON.stringify(data).substring(0, 200)}`);
+                }
+            } catch (error) {
+                log(`❌ World Bank API connection failed: ${error.message}`);
+            }
+        }
+
+        function testMainApp() {
+            log('🔄 Testing main application...');
+            try {
+                if (window.location.pathname === '/debug.html') {
+                    log('✅ Debug page accessible');
+                    log('🔄 Attempting to load main app...');
+                    
+                    // Test if main index.html exists
+                    fetch('/index.html')
+                        .then(response => {
+                            if (response.ok) {
+                                log('✅ Main index.html is accessible');
+                                log('💡 Try visiting the root URL: ' + window.location.origin);
+                            } else {
+                                log(`❌ Main index.html returned ${response.status}`);
+                            }
+                        })
+                        .catch(error => {
+                            log(`❌ Cannot access main app: ${error.message}`);
+                        });
+                } else {
+                    log('❌ Unexpected path: ' + window.location.pathname);
+                }
+            } catch (error) {
+                log(`❌ Main app test failed: ${error.message}`);
+            }
+        }
+
+        // Auto-run basic tests on load
+        log('🚀 CorrelateAI Diagnostics Started');
+        log('📍 Current URL: ' + window.location.href);
+        
+        // Test basic functionality
+        setTimeout(() => {
+            testWorldBankAPI();
+        }, 1000);
+    </script>
+</body>
+</html>
