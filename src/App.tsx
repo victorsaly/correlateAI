@@ -11,7 +11,7 @@ import { Label } from '@/components/ui/label'
 import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
-import { dataService, realDatasets, allDatasets, RealDataset, RealDataPoint } from '@/services/dataService'
+import { dataService, allDatasets, RealDataset, RealDataPoint } from '@/services/staticDataService'
 import SwirlBackground from '@/components/SwirlBackground'
 
 interface CorrelationData {
@@ -186,21 +186,31 @@ async function generateRealDataCorrelation(selectedCategory?: string): Promise<C
     // Use the public generateCorrelation method that handles everything
     const result = await dataService.generateCorrelation(dataset1, dataset2)
     
+    // Combine data1 and data2 into the format expected by CorrelationData
+    const combinedData = result.data1.map(d1 => {
+      const d2 = result.data2.find(d => d.year === d1.year)
+      return {
+        year: d1.year,
+        value1: d1.value,
+        value2: d2?.value || 0
+      }
+    }).filter(d => d.value2 !== 0) // Only include years with data for both datasets
+    
     // Convert the result to match our CorrelationData interface
     return {
       id: Math.random().toString(36).substr(2, 9),
       title: `${dataset1.name} vs ${dataset2.name}`,
       description: result.description,
       correlation: Math.round(result.correlation * 1000) / 1000,
-      rSquared: Math.round(Math.pow(Math.abs(result.correlation), 2) * 1000) / 1000,
-      data: result.data,
+      rSquared: Math.round(result.rSquared * 1000) / 1000,
+      data: combinedData,
       variable1: dataset1,
       variable2: dataset2,
-      citation: `Federal Reserve Economic Data (${new Date().getFullYear()})`,
-      journal: "Federal Reserve Economic Data Bulletin",
+      citation: `${dataset1.source} & ${dataset2.source} (${new Date().getFullYear()})`,
+      journal: "Economic Data Analysis",
       year: new Date().getFullYear(),
       isRealData: true,
-      dataSource: dataset1.source
+      dataSource: `${dataset1.source}, ${dataset2.source}`
     }
   } catch (error) {
     console.error('Failed to generate real data correlation:', error)
