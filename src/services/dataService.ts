@@ -42,24 +42,26 @@ const isDevelopment = import.meta.env.DEV
 
 // Helper function to build FRED API URLs 
 // Development: Use Vite proxy to avoid CORS issues
-// Production: Direct API calls (GitHub Pages doesn't support proxies)
+// Production: Use CORS proxy since FRED doesn't support browser CORS
 const buildFredUrl = (seriesId: string) => {
   if (isDevelopment) {
     return `/api/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
   } else {
-    // Production: Direct API call (FRED allows CORS from browsers)
-    return `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
+    // Production: Use CORS proxy since FRED doesn't allow browser requests
+    const fredUrl = `https://api.stlouisfed.org/fred/series/observations?series_id=${seriesId}&api_key=${FRED_API_KEY}&file_type=json&frequency=a&observation_start=2014-01-01`
+    return `https://api.allorigins.win/get?url=${encodeURIComponent(fredUrl)}`
   }
 }
 
 // Helper function to build World Bank API URLs 
-// World Bank API supports CORS, so we can call directly in both dev and prod
+// World Bank API supports CORS in development but not consistently in production
 const buildWorldBankUrl = (indicator: string, country: string = 'US') => {
   if (isDevelopment) {
     return `/api/worldbank/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
   } else {
-    // Production: Direct API call
-    return `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
+    // Production: Use CORS proxy for consistency
+    const wbUrl = `https://api.worldbank.org/v2/country/${country}/indicator/${indicator}?format=json&date=2014:2024&per_page=1000`
+    return `https://api.allorigins.win/get?url=${encodeURIComponent(wbUrl)}`
   }
 }
 
@@ -404,15 +406,23 @@ class DataService {
       }
 
       const data = await response.json()
-      console.log(`Raw API response for ${dataset.name}:`, data)
+      
+      // Handle CORS proxy response in production
+      let apiData = data
+      if (!isDevelopment && data.contents) {
+        console.log('Unwrapping CORS proxy response')
+        apiData = JSON.parse(data.contents)
+      }
+      
+      console.log(`Raw API response for ${dataset.name}:`, apiData)
 
       let transformedData: RealDataPoint[] = []
 
       // Handle different API response formats
       if (dataset.source === 'FRED') {
-        transformedData = this.transformFredData(data)
+        transformedData = this.transformFredData(apiData)
       } else if (dataset.source === 'WorldBank') {
-        transformedData = this.transformWorldBankData(data)
+        transformedData = this.transformWorldBankData(apiData)
       }
 
       // Filter to get annual data from 2014-2024
