@@ -13,6 +13,7 @@ import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { dataService, realDatasets, allDatasets, RealDataset, RealDataPoint } from '@/services/dataService'
+import SwirlBackground from '@/components/SwirlBackground'
 
 interface CorrelationData {
   id: string
@@ -410,8 +411,10 @@ function App() {
   const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
 
   return (
-    <div className="min-h-screen bg-background p-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen relative">
+      <SwirlBackground />
+      <div className="relative z-10 p-4 bg-black/5 backdrop-blur-[1px] min-h-screen">
+        <div className="max-w-6xl mx-auto bg-white/95 backdrop-blur-sm rounded-2xl shadow-2xl border border-white/20 p-8">
         <header className="text-center mb-8">
           <div className="flex items-center justify-center gap-3 mb-4">
             <h1 className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
@@ -756,10 +759,10 @@ function App() {
             </div>
           </TabsContent>
         </Tabs>
-      </div>
+        </div>
       
       {/* Footer */}
-      <footer className="mt-16 border-t border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+      <footer className="mt-16 border-t border-white/20 bg-white/80 backdrop-blur-md">
         <div className="max-w-6xl mx-auto px-6 py-12">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             {/* Developer Profile */}
@@ -821,6 +824,7 @@ function App() {
       </footer>
       
       <Toaster />
+      </div>
     </div>
   )
 
