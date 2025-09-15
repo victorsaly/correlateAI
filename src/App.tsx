@@ -949,6 +949,16 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
+            {/* Skip Button - Top Right */}
+            <div className="flex justify-end mb-2">
+              <button
+                onClick={onComplete}
+                className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors px-3 py-1 rounded-md hover:bg-gray-700/30"
+              >
+                Skip intro
+              </button>
+            </div>
+
             {/* Fixed Header */}
             <div className="text-center mb-4 sm:mb-6">
               <div className="flex justify-center mb-2 sm:mb-3 scale-75 sm:scale-100">
@@ -1008,12 +1018,6 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
                 {/* Right side: Navigation buttons */}
                 <div className="flex items-center gap-1 sm:gap-2">
-                  <button
-                    onClick={onComplete}
-                    className="text-xs text-gray-400 hover:text-gray-300 transition-colors"
-                  >
-                    Skip intro
-                  </button>
                   <div className="flex gap-0.5 sm:gap-1">
                     <button
                       onClick={() => {
