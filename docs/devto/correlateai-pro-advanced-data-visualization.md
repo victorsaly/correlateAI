@@ -1,5 +1,5 @@
 ---
-title: "I Built a Professional Data Visualization App in 2 Working Sessions Using Only AI — Here's What I Learned"
+title: "I Built a Professional Data Visualization App in 2 Days Using Only AI — Here's What I Learned"
 published: false
 description: "The future of development is here. I went from idea to production-ready app in just 2 working sessions over 2 days using AI assistants. No manual coding required."
 tags: ai, development, startup, productivity
@@ -8,11 +8,11 @@ canonical_url: https://correlateai.victorsaly.com
 series: AI Development
 ---
 
-# I Built a Professional Data Visualization App in 2 Working Sessions Using Only AI — Here's What I Learned
+# I Built a Professional Data Visualization App in 2 Days Using Only AI — Here's What I Learned
 
 *What if I told you that the future of software development isn't about learning more programming languages, but about learning how to have better conversations with AI?*
 
-Four hours ago, I had an idea. Now, I have a live, production-ready web application serving real users.
+Two days ago, I had an idea. Now, I have a live, production-ready web application serving real users.
 
 **🌐 [See CorrelateAI Live →](https://correlateai.victorsaly.com)**
 
@@ -42,7 +42,7 @@ I decided to test the limits of AI-assisted development. My challenge:
 **The Goal:**
 Create something genuinely useful that people would actually want to use.
 
-## Hour 1: The Foundation That Changed Everything ⚡
+## Day 1: The Foundation That Changed Everything ⚡
 
 *"Build me a React app that can find correlations between datasets"*
 
@@ -56,7 +56,7 @@ Within minutes, I had:
 
 **The Magic Moment:** Watching AI generate not just code, but *good* code. Type-safe interfaces, proper error handling, accessibility considerations — all the things that usually take experienced developers time to get right.
 
-## Hour 2: When AI Became My Co-Founder 🚀
+## Day 1: When AI Became My Co-Founder 🚀
 
 This is where things got interesting. I started having more strategic conversations with Claude:
 
@@ -89,7 +89,7 @@ One conversation about "making this presentation-ready" resulted in:
 - Contextual tooltips and guidance
 - Accessibility-first design principles
 
-## Hour 3: The Complexity Challenge 🧩
+## Day 2: The Complexity Challenge 🧩
 
 This is where traditional development usually breaks down. Feature interactions, edge cases, performance optimization — the stuff that turns simple ideas into complex engineering problems.
 
@@ -99,7 +99,7 @@ When I told Claude about performance issues with large datasets, it suggested vi
 
 **The Breakthrough Moment:** Realizing that AI doesn't just write code — it thinks through problems the way senior developers do. It considers edge cases, suggests optimizations, and even writes the error handling I would have forgotten.
 
-## Hour 4: Production Reality Check ✅
+## Day 2: Production Reality Check ✅
 
 *"This is great for a demo, but will it actually work in production?"*
 
@@ -111,9 +111,9 @@ That question to Claude triggered a comprehensive production readiness review:
 - **📊 Analytics integration**: User behavior tracking and performance monitoring
 - **🚀 Deployment pipeline**: Automated CI/CD with GitHub Actions
 
-Four hours later, I had a live application at [correlateai.victorsaly.com](https://correlateai.victorsaly.com).
+Two working sessions later, I had a live application at [correlateai.victorsaly.com](https://correlateai.victorsaly.com).
 
-## What I Actually Built (In Just 2 Working Sessions) 🎉
+## What I Actually Built (In Just 2 Days) 🎉
 
 **CorrelateAI** isn't just a demo — it's a full-featured platform:
 
@@ -184,7 +184,7 @@ This led to interface innovations I never would have considered on my own.
 Let me put this in perspective:
 
 **Traditional Development Timeline:**
-- Project setup: 2-4 hours
+- Project setup: 1-2 days
 - Basic functionality: 1-2 days  
 - Professional UI: 2-3 days
 - Export features: 1 day

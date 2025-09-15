@@ -945,7 +945,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
         <div className="w-full h-full">
           {/* Main Slide Content - Card with Margin */}
           <div 
-            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10"
+            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
@@ -972,9 +972,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
               </p>
             </div>
 
-            {/* Transitioning Content Container - Flex Grow */}
-            <div className="flex-1 flex items-center justify-center mb-4 sm:mb-6">
-              <div className={`w-full max-w-4xl transition-all duration-500 ${
+            {/* Transitioning Content Container - Flex Grow with Scroll */}
+            <div className="flex-1 flex items-start justify-center mb-4 sm:mb-6 overflow-y-auto overscroll-y-contain">
+              <div className={`w-full max-w-4xl py-4 transition-all duration-500 ${
                 isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
               }`}>
                 {currentSlideData.content}
