@@ -11,6 +11,7 @@ import { Label } from '@/components/ui/label'
 import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
 import { toast, Toaster } from 'sonner'
+import { useIsMobile } from '@/hooks/use-mobile'
 import { dataService, allDatasets, RealDataset, RealDataPoint } from '@/services/staticDataService'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
@@ -232,6 +233,7 @@ function App() {
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
+  const isMobile = useIsMobile()
   
   // Favorites using localStorage only
   const [favorites, setFavorites] = useState<CorrelationData[]>([])
@@ -398,75 +400,81 @@ function App() {
   return (
     <div className="min-h-screen relative">
       <SwirlBackground />
-      <div className="relative z-10 p-4 min-h-screen">
-        <div className="max-w-6xl mx-auto bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8">
-        <header className="text-center mb-8">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
-              <Database size={24} className="text-white" />
+      <div className="relative z-10 p-2 sm:p-4 min-h-screen">
+        <div className="max-w-6xl mx-auto bg-gray-800/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8">
+        <header className="text-center mb-6 sm:mb-8">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
+              <Database size={isMobile ? 20 : 24} className="text-white" />
             </div>
-            <h1 className="text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              CorrelateAI Pro
+            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+              {isMobile ? "CorrelateAI" : "CorrelateAI Pro"}
             </h1>
-            <div className="px-3 py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25">
+            <div className="px-2 py-1 sm:px-3 sm:py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25">
               AI-Powered
             </div>
           </div>
-          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4 sm:px-0">
             Discover surprising correlations in real economic data using advanced AI analysis. 
             Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.
           </p>
-          <div className="flex items-center justify-center gap-2 mt-4 text-sm text-gray-400">
-            <Database size={16} className="text-cyan-400" />
-            <span>Powered by</span>
-            <span className="font-semibold text-blue-400">FRED</span>
-            <span>+</span>
-            <span className="font-semibold text-green-400">World Bank</span>
-            <span>+</span>
-            <span className="font-semibold text-purple-400">AI Datasets</span>
-            <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse ml-2"></div>
-            {datasetStats ? (
-              <div className="flex items-center gap-2 text-sm">
-                <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets`}>
-                  {datasetStats.total} Sources
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
+            <div className="flex items-center gap-2">
+              <Database size={14} className="text-cyan-400" />
+              <span>Powered by</span>
+              <span className="font-semibold text-blue-400">FRED</span>
+              <span>+</span>
+              <span className="font-semibold text-green-400">World Bank</span>
+              <span>+</span>
+              <span className="font-semibold text-purple-400">AI Datasets</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+              {datasetStats ? (
+                <div className="flex items-center gap-2 text-xs sm:text-sm">
+                  <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets`}>
+                    {datasetStats.total} Sources
+                  </span>
+                  <span className="text-gray-500">•</span>
+                  <span className="text-blue-400 font-medium" title="Real economic data from FRED & World Bank">
+                    {datasetStats.real} Real
+                  </span>
+                  <span className="text-gray-500">•</span>
+                  <span className="text-purple-400 font-medium" title="AI-generated datasets">
+                    {datasetStats.ai} AI
+                  </span>
+                </div>
+              ) : (
+                <span className="text-green-400 font-medium">
+                  {totalDatasetCount > 0 ? `${totalDatasetCount}+ Sources` : '80+ Sources'}
                 </span>
-                <span className="text-gray-500">•</span>
-                <span className="text-blue-400 font-medium" title="Real economic data from FRED & World Bank">
-                  {datasetStats.real} Real
-                </span>
-                <span className="text-gray-500">•</span>
-                <span className="text-purple-400 font-medium" title="AI-generated datasets">
-                  {datasetStats.ai} AI
-                </span>
-              </div>
-            ) : (
-              <span className="text-green-400 font-medium">
-                {totalDatasetCount > 0 ? `${totalDatasetCount}+ Sources` : '80+ Sources'}
-              </span>
-            )}
+              )}
+            </div>
           </div>
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className="grid w-full grid-cols-3 mb-6 bg-gray-700/50 border border-gray-600/50">
-            <TabsTrigger value="generator" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">Generate</TabsTrigger>
+          <TabsList className={`grid w-full grid-cols-3 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'text-sm' : ''}`}>
+            <TabsTrigger value="generator" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
+              {isMobile ? "Generate" : "Generate"}
+            </TabsTrigger>
             <TabsTrigger value="favorites" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
-              Favorites ({favorites?.length || 0})
+              {isMobile ? `❤ (${favorites?.length || 0})` : `Favorites (${favorites?.length || 0})`}
             </TabsTrigger>
             <TabsTrigger value="story" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
-              AI Development Story
+              {isMobile ? "Story" : "AI Development Story"}
             </TabsTrigger>
           </TabsList>
           
-          <TabsContent value="generator" className="space-y-6">
+          <TabsContent value="generator" className="space-y-4 sm:space-y-6">
             <div className="flex flex-col gap-4 items-center justify-center">
               
-              {/* Controls Row */}
-              <div className="flex items-center gap-4 justify-center">
-                <div className="flex items-center gap-2">
+              {/* Controls Row - Mobile-optimized */}
+              <div className={`flex ${isMobile ? 'flex-col gap-3' : 'items-center gap-4'} justify-center w-full max-w-lg`}>
+                <div className="flex items-center gap-2 justify-center">
                   <Funnel size={18} className="text-cyan-400" />
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className="w-48 bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700">
+                    <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
                     <SelectContent className="bg-gray-800 border-gray-600">
@@ -483,18 +491,18 @@ function App() {
                 <Button 
                   onClick={generateNew}
                   disabled={isGenerating}
-                  size="lg"
-                  className="px-8 bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25"
+                  size={isMobile ? "lg" : "lg"}
+                  className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25 text-sm sm:text-base`}
                 >
                   {isGenerating ? (
                     <>
                       <ArrowClockwise className="animate-spin mr-2" size={18} />
-                      Analyzing Real Data...
+                      {isMobile ? "Analyzing..." : "Analyzing Real Data..."}
                     </>
                   ) : (
                     <>
                       <ArrowClockwise className="mr-2" size={18} />
-                      Generate AI Correlation
+                      {isMobile ? "Generate AI Correlation" : "Generate AI Correlation"}
                     </>
                   )}
                 </Button>
@@ -507,19 +515,19 @@ function App() {
             <DataSourcesCard />
           </TabsContent>
           
-          <TabsContent value="favorites" className="space-y-6">
+          <TabsContent value="favorites" className="space-y-4 sm:space-y-6">
             {!favorites || favorites.length === 0 ? (
-              <Card className="text-center py-12 bg-gray-800/50 border-gray-700/50">
+              <Card className="text-center py-8 sm:py-12 bg-gray-800/50 border-gray-700/50">
                 <CardContent>
-                  <Heart size={48} className="mx-auto text-gray-500 mb-4" />
-                  <h3 className="text-lg font-semibold mb-2 text-gray-200">No favorites yet</h3>
-                  <p className="text-gray-400">
+                  <Heart size={isMobile ? 40 : 48} className="mx-auto text-gray-500 mb-4" />
+                  <h3 className={`${isMobile ? 'text-base' : 'text-lg'} font-semibold mb-2 text-gray-200`}>No favorites yet</h3>
+                  <p className={`text-gray-400 ${isMobile ? 'text-sm px-4' : ''}`}>
                     Generate correlations and save your favorites!
                   </p>
                 </CardContent>
               </Card>
             ) : (
-              <div className="space-y-6">
+              <div className="space-y-4 sm:space-y-6">
                 {favorites.map(correlation => (
                   <CorrelationCard key={correlation.id} correlation={correlation} />
                 ))}
@@ -527,38 +535,40 @@ function App() {
             )}
           </TabsContent>
           
-          <TabsContent value="story" className="space-y-8">
+          <TabsContent value="story" className="space-y-6 sm:space-y-8">
             <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-12">
-                <h2 className="text-3xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4">
+              <div className="text-center mb-8 sm:mb-12">
+                <h2 className={`${isMobile ? 'text-xl' : 'text-3xl'} font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent mb-4`}>
                   How CorrelateAI Pro Was Built
                 </h2>
-                <p className="text-lg text-muted-foreground">
-                  A complete AI-assisted development journey from idea to deployment in 2 hours
+                <p className={`${isMobile ? 'text-base px-4' : 'text-lg'} text-muted-foreground`}>
+                  {isMobile ? "AI-assisted development in 2 hours" : "A complete AI-assisted development journey from idea to deployment in 2 hours"}
                 </p>
               </div>
 
-              {/* Timeline Steps */}
-              <div className="space-y-12">
+              {/* Timeline Steps - Mobile-optimized */}
+              <div className="space-y-8 sm:space-y-12">
                 
                 {/* Step 1: GitHub Spark */}
                 <Card className="border-2 border-blue-200 bg-gradient-to-r from-blue-50 to-blue-100">
-                  <CardHeader>
+                  <CardHeader className={`${isMobile ? 'p-4' : ''}`}>
                     <div className="flex items-center gap-3 mb-2">
-                      <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
-                      <h3 className="text-xl font-semibold">The Spark (0-30 minutes)</h3>
+                      <div className={`${isMobile ? 'w-6 h-6' : 'w-8 h-8'} bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold`}>1</div>
+                      <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold`}>
+                        {isMobile ? "The Spark (30 min)" : "The Spark (0-30 minutes)"}
+                      </h3>
                     </div>
-                    <p className="text-muted-foreground">Started with GitHub Spark - AI prototype generation</p>
+                    <p className={`text-muted-foreground ${isMobile ? 'text-sm' : ''}`}>Started with GitHub Spark - AI prototype generation</p>
                   </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="bg-white p-4 rounded-lg border">
-                      <h4 className="font-semibold mb-2">💡 Original Prompt:</h4>
-                      <p className="text-sm italic">"I want to create a tool that compares random datasets and finds interesting correlations between them."</p>
+                  <CardContent className={`space-y-4 ${isMobile ? 'p-4 pt-0' : ''}`}>
+                    <div className="bg-white p-3 sm:p-4 rounded-lg border">
+                      <h4 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : ''}`}>💡 Original Prompt:</h4>
+                      <p className={`italic ${isMobile ? 'text-xs' : 'text-sm'}`}>"I want to create a tool that compares random datasets and finds interesting correlations between them."</p>
                     </div>
-                    <div className="grid md:grid-cols-2 gap-4">
+                    <div className={`grid ${isMobile ? 'grid-cols-1 gap-3' : 'md:grid-cols-2 gap-4'}`}>
                       <div>
-                        <h4 className="font-semibold mb-2">⚡ AI Generated:</h4>
-                        <ul className="text-sm space-y-1">
+                        <h4 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : ''}`}>⚡ AI Generated:</h4>
+                        <ul className={`space-y-1 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                           <li>• Complete React + TypeScript app</li>
                           <li>• Vite build configuration</li>
                           <li>• Correlation algorithms</li>
@@ -567,8 +577,8 @@ function App() {
                         </ul>
                       </div>
                       <div>
-                        <h4 className="font-semibold mb-2">🎯 Result:</h4>
-                        <p className="text-sm">Working prototype with interactive data visualization in minutes, not hours.</p>
+                        <h4 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : ''}`}>🎯 Result:</h4>
+                        <p className={`${isMobile ? 'text-xs' : 'text-sm'}`}>Working prototype with interactive data visualization in minutes, not hours.</p>
                       </div>
                     </div>
                   </CardContent>
@@ -769,24 +779,24 @@ function App() {
         </Tabs>
         </div>
       
-      {/* Footer */}
-      <footer className="mt-16 border-t border-gray-700/50 bg-gray-800/80 backdrop-blur-md">
-        <div className="max-w-6xl mx-auto px-6 py-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+      {/* Footer - Mobile-optimized */}
+      <footer className="mt-12 sm:mt-16 border-t border-gray-700/50 bg-gray-800/80 backdrop-blur-md">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8 sm:py-12">
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-6 sm:gap-8">
             {/* Developer Profile */}
-            <div className="flex items-center gap-6">
-              <div className="w-20 h-20 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl shadow-lg shadow-cyan-500/25">
+            <div className={`flex ${isMobile ? 'flex-col text-center' : 'flex-row'} items-center gap-4 sm:gap-6`}>
+              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-r from-cyan-500 to-purple-600 flex items-center justify-center text-white font-bold text-lg sm:text-2xl shadow-lg shadow-cyan-500/25">
                 VS
               </div>
-              <div>
-                <h3 className="text-xl font-semibold text-gray-100">Victor Saly</h3>
-                <p className="text-gray-300 font-medium">AI Developer & Data Science Engineer</p>
-                <div className="flex flex-col gap-1 mt-2">
+              <div className={`${isMobile ? 'text-center' : ''}`}>
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-100">Victor Saly</h3>
+                <p className="text-gray-300 font-medium text-sm sm:text-base">AI Developer & Data Science Engineer</p>
+                <div className={`flex ${isMobile ? 'flex-col items-center gap-1' : 'flex-col gap-1'} mt-2`}>
                   <a 
                     href="https://www.linkedin.com/in/victorsaly/" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2 text-sm"
                   >
                     <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                       <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
@@ -797,7 +807,7 @@ function App() {
                     href="https://victorsaly.com" 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2 text-sm"
                   >
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
@@ -808,13 +818,13 @@ function App() {
               </div>
             </div>
 
-            {/* AI Development Approach */}
-            <div className="text-center lg:text-right max-w-md">
-              <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-700/50 rounded-full mb-3">
+            {/* AI Development Approach - Mobile-optimized */}
+            <div className={`text-center ${isMobile ? 'max-w-full' : 'lg:text-right max-w-md'}`}>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-700/50 rounded-full mb-3">
                 <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-sm font-medium text-gray-200">100% AI-Generated Application</span>
+                <span className="text-xs sm:text-sm font-medium text-gray-200">100% AI-Generated Application</span>
               </div>
-              <p className="text-sm text-gray-400 leading-relaxed">
+              <p className={`text-xs sm:text-sm text-gray-400 leading-relaxed ${isMobile ? 'px-2' : ''}`}>
                 Built entirely through AI-assisted development using advanced language models. 
                 This application demonstrates the power of AI in creating professional-grade 
                 data visualization and correlation analysis tools.
@@ -822,11 +832,25 @@ function App() {
             </div>
           </div>
 
-          {/* Bottom Section */}
-          <div className="mt-8 pt-6 border-t border-gray-700/50 text-center">
-            <p className="text-sm text-gray-500">
+          {/* Bottom Section - Mobile-optimized */}
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700/50 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 mb-2">
               © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from FRED API & World Bank API.
             </p>
+            <div className={`flex ${isMobile ? 'flex-col gap-2' : 'items-center justify-center gap-4'} text-xs text-gray-400`}>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                FRED (Federal Reserve)
+              </span>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                World Bank Open Data
+              </span>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                AI-Generated Datasets
+              </span>
+            </div>
           </div>
         </div>
       </footer>
@@ -840,24 +864,26 @@ function App() {
   function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
     return (
       <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
-        <CardHeader>
+        <CardHeader className={`${isMobile ? 'p-4 pb-2' : ''}`}>
           <div className="flex justify-between items-start">
             <div className="flex-1">
-              <CardTitle className="text-xl font-semibold flex items-center gap-2 text-gray-100">
-                <TrendUp size={20} className="text-cyan-400" />
+              <CardTitle className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold flex items-center gap-2 text-gray-100`}>
+                <TrendUp size={isMobile ? 18 : 20} className="text-cyan-400" />
                 {correlation.title}
               </CardTitle>
-              <CardDescription className="mt-2 text-gray-300">{correlation.description}</CardDescription>
+              <CardDescription className={`mt-2 text-gray-300 ${isMobile ? 'text-sm' : ''}`}>
+                {correlation.description}
+              </CardDescription>
             </div>
-            <div className="flex items-center gap-2 ml-4">
+            <div className="flex items-center gap-1 sm:gap-2 ml-2 sm:ml-4">
               <Button
                 variant="ghost"
                 size="sm"
-                className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100"
+                className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 p-2"
                 onClick={() => toggleFavorite(correlation)}
               >
                 <Heart 
-                  size={18} 
+                  size={isMobile ? 16 : 18} 
                   weight={isFavorited(correlation.id) ? "fill" : "regular"}
                   className={isFavorited(correlation.id) ? "text-red-400" : ""}
                 />
@@ -865,8 +891,8 @@ function App() {
               
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100">
-                    <Share size={18} />
+                  <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 p-2">
+                    <Share size={isMobile ? 16 : 18} />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48 bg-gray-800 border-gray-700">
@@ -896,7 +922,7 @@ function App() {
             </div>
           </div>
           
-          <div className="flex gap-2 mt-4 flex-wrap">
+          <div className={`flex gap-1 sm:gap-2 mt-4 flex-wrap ${isMobile ? 'text-xs' : ''}`}>
             <Badge variant="secondary" className="bg-cyan-900/50 text-cyan-300 border-cyan-700/50">
               r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
             </Badge>
@@ -906,40 +932,48 @@ function App() {
             <Badge variant={correlation.isRealData ? "default" : "secondary"} className={correlation.isRealData ? "bg-purple-900/50 text-purple-300 border-purple-700/50" : "bg-gray-700/50 text-gray-300 border-gray-600/50"}>
               {correlation.isRealData ? (
                 <>
-                  <Database size={12} className="mr-1" />
-                  {correlation.dataSource} Real Data
+                  <Database size={10} className="mr-1" />
+                  {isMobile ? "Real Data" : `${correlation.dataSource} Real Data`}
                 </>
               ) : (
                 <>
-                  <Database size={12} className="mr-1" />
-                  {categories[(correlation.variable1 as Dataset).category as keyof typeof categories]}
+                  <Database size={10} className="mr-1" />
+                  {isMobile ? "Synthetic" : categories[(correlation.variable1 as Dataset).category as keyof typeof categories]}
                 </>
               )}
             </Badge>
           </div>
         </CardHeader>
         
-        <CardContent className="bg-gray-900/30 rounded-lg">
-          <div className="h-64 w-full">
+        <CardContent className={`bg-gray-900/30 rounded-lg ${isMobile ? 'p-3' : ''}`}>
+          <div className={`${isMobile ? 'h-56' : 'h-64'} w-full`}>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={correlation.data}>
+              <LineChart data={correlation.data} margin={isMobile ? { top: 5, right: 15, left: 15, bottom: 25 } : undefined}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis 
                   dataKey="year" 
                   stroke="#9CA3AF"
-                  label={{ value: 'Year', position: 'insideBottom', offset: -5, style: { textAnchor: 'middle', fill: '#9CA3AF', fontSize: '12px' } }}
+                  fontSize={isMobile ? 10 : 12}
+                  tick={{ fontSize: isMobile ? 10 : 12 }}
+                  label={{ value: 'Year', position: 'insideBottom', offset: -5, style: { textAnchor: 'middle', fill: '#9CA3AF', fontSize: isMobile ? '10px' : '12px' } }}
                 />
                 <YAxis 
                   yAxisId="left" 
                   orientation="left" 
                   stroke="#06B6D4"
-                  label={{ value: correlation.variable1.unit, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#06B6D4', fontSize: '11px' } }}
+                  fontSize={isMobile ? 9 : 11}
+                  tick={{ fontSize: isMobile ? 9 : 11 }}
+                  width={isMobile ? 40 : 60}
+                  label={!isMobile ? { value: correlation.variable1.unit, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#06B6D4', fontSize: '11px' } } : undefined}
                 />
                 <YAxis 
                   yAxisId="right" 
                   orientation="right" 
                   stroke="#A855F7"
-                  label={{ value: correlation.variable2.unit, angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: '#A855F7', fontSize: '11px' } }}
+                  fontSize={isMobile ? 9 : 11}
+                  tick={{ fontSize: isMobile ? 9 : 11 }}
+                  width={isMobile ? 40 : 60}
+                  label={!isMobile ? { value: correlation.variable2.unit, angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: '#A855F7', fontSize: '11px' } } : undefined}
                 />
                 
                 {/* COVID Period Highlight (2020-2022) */}
@@ -960,13 +994,14 @@ function App() {
                     border: '1px solid #374151',
                     borderRadius: '8px',
                     color: '#F3F4F6',
-                    fontSize: '12px'
+                    fontSize: isMobile ? '11px' : '12px',
+                    padding: isMobile ? '8px' : '12px'
                   }}
                   formatter={(value, name) => {
                     const variable = name === 'value1' ? correlation.variable1 : correlation.variable2
                     return [
                       `${typeof value === 'number' ? value.toFixed(1) : value} ${variable.unit}`,
-                      variable.name
+                      isMobile ? variable.name.substring(0, 20) + (variable.name.length > 20 ? '...' : '') : variable.name
                     ]
                   }}
                   labelFormatter={(year) => {
@@ -975,9 +1010,11 @@ function App() {
                       return (
                         <div>
                           <div style={{ fontWeight: 'bold', color: '#EF4444' }}>Year {year} - COVID Period</div>
-                          <div style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '2px' }}>
-                            Data may show pandemic-related anomalies
-                          </div>
+                          {!isMobile && (
+                            <div style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '2px' }}>
+                              Data may show pandemic-related anomalies
+                            </div>
+                          )}
                         </div>
                       )
                     }
@@ -989,8 +1026,8 @@ function App() {
                   type="monotone" 
                   dataKey="value1" 
                   stroke="#06B6D4" 
-                  strokeWidth={3}
-                  dot={{ fill: '#06B6D4', strokeWidth: 2, r: 4 }}
+                  strokeWidth={isMobile ? 2 : 3}
+                  dot={{ fill: '#06B6D4', strokeWidth: 2, r: isMobile ? 3 : 4 }}
                   animationDuration={1200}
                 />
                 <Line 
@@ -998,72 +1035,96 @@ function App() {
                   type="monotone" 
                   dataKey="value2" 
                   stroke="#A855F7" 
-                  strokeWidth={3}
-                  dot={{ fill: '#A855F7', strokeWidth: 2, r: 4 }}
+                  strokeWidth={isMobile ? 2 : 3}
+                  dot={{ fill: '#A855F7', strokeWidth: 2, r: isMobile ? 3 : 4 }}
                   animationDuration={1200}
                 />
               </LineChart>
             </ResponsiveContainer>
           </div>
           
-          {/* Chart Legend and COVID Period Information */}
-          <div className="mt-4 space-y-3">
+          {/* Chart Legend and COVID Period Information - Mobile-optimized */}
+          <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3">
             {/* Axis Information */}
-            <div className="flex items-center justify-center gap-6 text-xs text-gray-400">
+            <div className={`flex items-center justify-center gap-3 sm:gap-6 text-xs text-gray-400 ${isMobile ? 'flex-col gap-2' : ''}`}>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-0.5 bg-cyan-400"></div>
-                <span>{correlation.variable1.name} ({correlation.variable1.unit})</span>
+                <span className={`${isMobile ? 'text-center' : ''}`}>
+                  {isMobile ? 
+                    `${correlation.variable1.name.substring(0, 15)}${correlation.variable1.name.length > 15 ? '...' : ''}` : 
+                    `${correlation.variable1.name} (${correlation.variable1.unit})`
+                  }
+                </span>
               </div>
               <div className="flex items-center gap-2">
                 <div className="w-3 h-0.5 bg-purple-400"></div>
-                <span>{correlation.variable2.name} ({correlation.variable2.unit})</span>
+                <span className={`${isMobile ? 'text-center' : ''}`}>
+                  {isMobile ? 
+                    `${correlation.variable2.name.substring(0, 15)}${correlation.variable2.name.length > 15 ? '...' : ''}` : 
+                    `${correlation.variable2.name} (${correlation.variable2.unit})`
+                  }
+                </span>
               </div>
             </div>
             
-            {/* COVID Period Legend */}
-            <div className="flex items-center justify-center gap-4 text-xs bg-red-50/10 p-2 rounded border border-red-400/20">
+            {/* COVID Period Legend - Simplified for mobile */}
+            <div className={`flex items-center justify-center gap-2 sm:gap-4 text-xs bg-red-50/10 p-2 rounded border border-red-400/20 ${isMobile ? 'flex-col text-center' : ''}`}>
               <div className="flex items-center gap-2">
-                <div className="w-8 h-4 bg-red-400/20 border-l-2 border-r-2 border-red-500 border-dashed rounded-sm flex items-center justify-center">
+                <div className="w-6 sm:w-8 h-4 bg-red-400/20 border-l-2 border-r-2 border-red-500 border-dashed rounded-sm flex items-center justify-center">
                   <div className="w-1 h-1 bg-red-500 rounded-full"></div>
                 </div>
-                <span className="text-red-400 font-medium">COVID-19 Impact Period</span>
-                <span className="text-gray-300 font-mono bg-gray-800 px-2 py-0.5 rounded text-xs border">2020 → 2022</span>
+                <span className="text-red-400 font-medium text-xs">
+                  {isMobile ? "COVID-19 Period" : "COVID-19 Impact Period"}
+                </span>
+                <span className="text-gray-300 font-mono bg-gray-800 px-1 sm:px-2 py-0.5 rounded text-xs border">
+                  2020-2022
+                </span>
               </div>
             </div>
             
-            {/* Explanation */}
-            <div className="flex items-start justify-center gap-2 text-xs text-gray-500 max-w-lg mx-auto">
-              <Info size={14} className="text-yellow-400 mt-0.5 flex-shrink-0" />
-              <p className="text-center">
-                The <span className="text-red-400 font-medium">highlighted red area (2020-2022)</span> shows the COVID-19 pandemic period. 
-                Economic and social data during these years may show unusual patterns due to lockdowns, 
-                policy changes, and behavioral shifts. Correlations in this period should be interpreted carefully.
-              </p>
-            </div>
+            {/* Explanation - Simplified for mobile */}
+            {!isMobile && (
+              <div className="flex items-start justify-center gap-2 text-xs text-gray-500 max-w-lg mx-auto">
+                <Info size={14} className="text-yellow-400 mt-0.5 flex-shrink-0" />
+                <p className="text-center">
+                  The <span className="text-red-400 font-medium">highlighted red area (2020-2022)</span> shows the COVID-19 pandemic period. 
+                  Economic and social data during these years may show unusual patterns due to lockdowns, 
+                  policy changes, and behavioral shifts. Correlations in this period should be interpreted carefully.
+                </p>
+              </div>
+            )}
+            
+            {/* Mobile COVID explanation - condensed */}
+            {isMobile && (
+              <div className="text-xs text-gray-500 text-center px-2">
+                <Info size={12} className="text-yellow-400 inline mr-1" />
+                Red area shows COVID-19 period with potential data anomalies (2020-2022)
+              </div>
+            )}
           </div>
           
-          <div className="mt-6 p-4 bg-gray-800/50 rounded-lg border border-gray-700/50">
+          <div className={`mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-800/50 rounded-lg border border-gray-700/50`}>
             <div className="flex items-center gap-2 mb-2">
-              <BookOpen size={16} className="text-cyan-400" />
-              <span className="text-sm font-medium text-gray-200">Citation</span>
+              <BookOpen size={isMobile ? 14 : 16} className="text-cyan-400" />
+              <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-gray-200`}>Citation</span>
               <Button
                 variant="ghost"
                 size="sm"
-                className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200"
+                className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 p-1"
                 onClick={() => copyToClipboard(`${correlation.citation}. ${correlation.title}. ${correlation.journal}, ${correlation.year}.`)}
               >
-                <Copy size={14} />
+                <Copy size={isMobile ? 12 : 14} />
               </Button>
             </div>
-            <p className="text-sm text-gray-400">
+            <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-400`}>
               {correlation.citation}. "{correlation.title}." <em>{correlation.journal}</em>, {correlation.year}.
             </p>
           </div>
           
-          {/* Enhanced Source Attribution */}
+          {/* Enhanced Source Attribution - Mobile-optimized */}
           {correlation.isRealData && (
-            <div className="mt-4 p-3 bg-gray-900/50 rounded-lg border border-gray-600/50">
-              <div className="text-xs text-gray-300 font-medium mb-2">Data Sources:</div>
+            <div className={`mt-4 p-2 sm:p-3 bg-gray-900/50 rounded-lg border border-gray-600/50`}>
+              <div className={`${isMobile ? 'text-xs' : 'text-xs'} text-gray-300 font-medium mb-2`}>Data Sources:</div>
               <div className="space-y-2">
                 <div className="flex items-center justify-between">
                   <SourceAttribution dataset={correlation.variable1} />
