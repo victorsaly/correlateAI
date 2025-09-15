@@ -1,8 +1,8 @@
 # CorrelateAI Pro 🤖📊
 
-> **A professional data correlation analysis tool built entirely through AI-assisted develop4. **Push to main**: Automatic deployment triggered
+> **A professional data correlation analysis tool built entirely through AI-assisted development**
 
-📖 **[Complete GitHub Setup Guide](./docs/github-setup.md)** - Detailed deployment instructionst**
+📖 **[Complete GitHub Setup Guide](./docs/github-setup.md)** - Detailed deployment instructions
 
 [![AI-Generated](https://img.shields.io/badge/Built%20with-AI%20Assistance-purple?style=flat-square&logo=openai)](https://github.com/victorsaly)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
