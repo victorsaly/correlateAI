@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.apta.com/research-technical-resources/transit-statistics/",
     "citation": "American Public Transportation Association Ridership Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
     "filename": "transportation-public-transit-ridership-index"
   },
   "data": [
     {
       "year": 2014,
-      "value": 87.05,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 86.21,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2015,
-      "value": 100.82,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 98.04,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2016,
-      "value": 93.73,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 93.34,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2017,
-      "value": 87.79,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 88.02,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2018,
-      "value": 97.15,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 100.48,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2019,
-      "value": 113.45,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 113.07,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2020,
-      "value": 105.25,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 104.32,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2021,
-      "value": 95.74,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 96.39,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2022,
-      "value": 110.79,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 111.24,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2023,
-      "value": 125.34,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 122.46,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     },
     {
       "year": 2024,
-      "value": 118.08,
-      "generatedAt": "2025-09-14T21:22:42.652Z"
+      "value": 115.23,
+      "generatedAt": "2025-09-15T07:21:45.002Z"
     }
   ]
 }

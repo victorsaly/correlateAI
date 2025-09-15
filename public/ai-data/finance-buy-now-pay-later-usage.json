@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-report-buy-now-pay-later-credit/",
     "citation": "Consumer Financial Protection Bureau BNPL Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
     "filename": "finance-buy-now-pay-later-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 36.69,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 39.68,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2015,
-      "value": 69.95,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 73.13,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2016,
-      "value": 92.41,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 88.16,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2017,
-      "value": 108.84,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 109.64,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2018,
-      "value": 149.87,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 133.45,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2019,
-      "value": 188.88,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 182.51,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2020,
-      "value": 202.56,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 193.39,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2021,
-      "value": 206.55,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 198.67,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2022,
-      "value": 229.94,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 238.45,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2023,
-      "value": 309.86,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 292.49,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     },
     {
       "year": 2024,
-      "value": 292.96,
-      "generatedAt": "2025-09-14T21:22:42.636Z"
+      "value": 309.71,
+      "generatedAt": "2025-09-15T07:21:44.918Z"
     }
   ]
 }

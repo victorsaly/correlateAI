@@ -9,64 +9,64 @@
     "sourceUrl": "https://streamelements.com/blog/state-of-the-stream-2021",
     "citation": "StreamElements State of the Stream Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
     "filename": "entertainment-live-streaming-hours-watched"
   },
   "data": [
     {
       "year": 2014,
-      "value": 39.32,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 39.15,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2015,
-      "value": 66.93,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 61.37,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2016,
-      "value": 92.11,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 88.23,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2017,
-      "value": 120.33,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 113.52,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2018,
-      "value": 143.13,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 137.89,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2019,
-      "value": 165.57,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 170.77,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2020,
-      "value": 186.56,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 188.96,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2021,
-      "value": 213.95,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 216.35,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2022,
-      "value": 243.02,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 239.64,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2023,
-      "value": 266.93,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 263.31,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     },
     {
       "year": 2024,
-      "value": 295.68,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 305.49,
+      "generatedAt": "2025-09-15T07:21:44.984Z"
     }
   ]
 }

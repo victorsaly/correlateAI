@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.bts.gov/browse-statistical-products-and-data/surveys/national-household-travel-survey",
     "citation": "Bureau of Transportation Statistics Shared Mobility (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
     "filename": "transportation-ride-share-trip-volume"
   },
   "data": [
     {
       "year": 2014,
-      "value": 4.58,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 4.6,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2015,
       "value": 7.06,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2016,
       "value": 8.2,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2017,
-      "value": 9,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 9.03,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2018,
-      "value": 11.8,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 11.81,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2019,
-      "value": 14.95,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 15.01,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2020,
-      "value": 15.41,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 15.37,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2021,
-      "value": 15.51,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 15.53,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2022,
-      "value": 18.93,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 19.06,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2023,
-      "value": 22.9,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 22.93,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     },
     {
       "year": 2024,
-      "value": 22.68,
-      "generatedAt": "2025-09-14T21:22:42.647Z"
+      "value": 22.51,
+      "generatedAt": "2025-09-15T07:21:44.992Z"
     }
   ]
 }

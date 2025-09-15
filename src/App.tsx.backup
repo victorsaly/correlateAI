@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Zap, Check, Target, External, Lightning, Rocket } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -635,7 +635,7 @@ function App() {
                       <div className={`grid ${isMobile ? 'grid-cols-1 gap-3' : 'md:grid-cols-2 gap-6'}`}>
                         <div className="bg-gradient-to-br from-green-50 to-emerald-50 p-4 rounded-xl border border-green-200">
                           <div className="flex items-center gap-2 mb-3">
-                            <Lightning size={16} className="text-green-600" />
+                            <Zap size={16} className="text-green-600" />
                             <h4 className={`font-semibold ${isMobile ? 'text-sm' : ''} text-green-800`}>⚡ AI Generated in Minutes:</h4>
                           </div>
                           <ul className={`space-y-2 ${isMobile ? 'text-xs' : 'text-sm'} text-green-700`}>
@@ -660,7 +660,7 @@ function App() {
                             onClick={() => window.open('https://spark.github.com', '_blank')}
                             className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                           >
-                            <ArrowSquareOut size={12} className="mr-1" />
+                            <External size={12} className="mr-1" />
                             Try GitHub Spark
                           </Button>
                         </div>
@@ -1019,7 +1019,7 @@ function App() {
                       variant="outline"
                       className="border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white"
                     >
-                      <ArrowSquareOut size={16} className="mr-2" />
+                      <External size={16} className="mr-2" />
                       Learn More About AI Development
                     </Button>
                   </div>
@@ -1027,6 +1027,60 @@ function App() {
 
               </div>
             </div>
+          </TabsContent>
+        </Tabs>
+        </div>
+      
+      {/* Footer - Mobile-optimized */}
+      <footer className="mt-12 sm:mt-16 border-t border-gray-700/50 bg-gray-800/80 backdrop-blur-md">
+                    </div>
+                    <div>
+                      <div className="font-semibold">Technical Docs</div>
+                      <div className="text-xs text-muted-foreground">Architecture details</div>
+                    </div>
+                  </a>
+                  <a 
+                    href="https://github.com/victorsaly/random-data-correlat" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-3 p-4 bg-white rounded-lg border hover:border-purple-300 transition-colors"
+                  >
+                    <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                      💻
+                    </div>
+                    <div>
+                      <div className="font-semibold">GitHub Repo</div>
+                      <div className="text-xs text-muted-foreground">Source code</div>
+                    </div>
+                  </a>
+                </div>
+              </div>
+
+              {/* Call to Action */}
+              <div className="text-center mt-12">
+                <h3 className="text-xl font-semibold mb-4">Experience AI-Assisted Development</h3>
+                <p className="text-muted-foreground mb-6">
+                  This entire application demonstrates what's possible when human creativity meets AI capability.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center">
+                  <Button 
+                    onClick={() => copyToClipboard(window.location.href)}
+                    variant="outline" 
+                    className="px-6"
+                  >
+                    <Share size={16} className="mr-2" />
+                    Share This Story
+                  </Button>
+                  <Button 
+                    onClick={() => window.open('https://victorsaly.com', '_blank')}
+                    className="px-6 bg-gradient-to-r from-blue-500 to-purple-500 hover:from-blue-600 hover:to-purple-600"
+                  >
+                    <TrendUp size={16} className="mr-2" />
+                    Learn More About AI Development
+                  </Button>
+                </div>
+              </div>
+
             </div>
           </TabsContent>
         </Tabs>
@@ -1045,55 +1099,65 @@ function App() {
                 <h3 className="text-lg sm:text-xl font-semibold text-gray-100">Victor Saly</h3>
                 <p className="text-gray-300 font-medium text-sm sm:text-base">AI Developer & Data Science Engineer</p>
                 <div className={`flex ${isMobile ? 'flex-col items-center gap-1' : 'flex-col gap-1'} mt-2`}>
-                  <div className="flex items-center gap-4">
-                    <a 
-                      href="https://victorsaly.com" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors mobile-footer-link"
-                    >
-                      🌐 Portfolio
-                    </a>
-                    <a 
-                      href="https://github.com/victorsaly" 
-                      target="_blank" 
-                      rel="noopener noreferrer" 
-                      className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors mobile-footer-link"
-                    >
-                      💻 GitHub
-                    </a>
-                  </div>
-                  <p className="text-xs text-gray-400 mt-1">Building the future with AI assistance</p>
+                  <a 
+                    href="https://www.linkedin.com/in/victorsaly/" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2 text-sm"
+                  >
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                    LinkedIn Profile
+                  </a>
+                  <a 
+                    href="https://victorsaly.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-cyan-400 hover:text-cyan-300 font-medium inline-flex items-center gap-2 text-sm"
+                  >
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
+                    victorsaly.com
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Quick Stats */}
-            <div className={`${isMobile ? 'w-full' : ''}`}>
-              <div className={`grid ${isMobile ? 'grid-cols-2 gap-4' : 'grid-cols-3 gap-6'} text-center`}>
-                <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">31</div>
-                  <div className="text-xs sm:text-sm text-gray-300">Data Sources</div>
-                </div>
-                <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-purple-400">2h</div>
-                  <div className="text-xs sm:text-sm text-gray-300">Dev Time</div>
-                </div>
-                {!isMobile && (
-                  <div className="bg-gray-700/50 rounded-lg p-4 backdrop-blur-sm">
-                    <div className="text-2xl font-bold text-green-400">∞</div>
-                    <div className="text-sm text-gray-300">Insights</div>
-                  </div>
-                )}
+            {/* AI Development Approach - Mobile-optimized */}
+            <div className={`text-center ${isMobile ? 'max-w-full' : 'lg:text-right max-w-md'}`}>
+              <div className="inline-flex items-center gap-2 px-3 sm:px-4 py-2 bg-gradient-to-r from-purple-900/50 to-cyan-900/50 border border-purple-700/50 rounded-full mb-3">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs sm:text-sm font-medium text-gray-200">100% AI-Generated Application</span>
               </div>
+              <p className={`text-xs sm:text-sm text-gray-400 leading-relaxed ${isMobile ? 'px-2' : ''}`}>
+                Built entirely through AI-assisted development using advanced language models. 
+                This application demonstrates the power of AI in creating professional-grade 
+                data visualization and correlation analysis tools.
+              </p>
             </div>
           </div>
 
-          {/* Copyright */}
-          <div className="mt-8 pt-6 border-t border-gray-700/30 text-center">
-            <p className="text-xs sm:text-sm text-gray-400">
-              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic economic data.
+          {/* Bottom Section - Mobile-optimized */}
+          <div className="mt-6 sm:mt-8 pt-4 sm:pt-6 border-t border-gray-700/50 text-center">
+            <p className="text-xs sm:text-sm text-gray-500 mb-2">
+              © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from FRED API & World Bank API.
             </p>
+            <div className={`flex ${isMobile ? 'flex-col gap-2' : 'items-center justify-center gap-4'} text-xs text-gray-400`}>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+                FRED (Federal Reserve)
+              </span>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                World Bank Open Data
+              </span>
+              <span className="flex items-center justify-center gap-1">
+                <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+                AI-Generated Datasets
+              </span>
+            </div>
           </div>
         </div>
       </footer>
@@ -1102,207 +1166,384 @@ function App() {
       </div>
     </div>
   )
-}
 
-function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
-  const isMobile = useIsMobile()
-  const shareCardRef = useRef<HTMLDivElement>(null)
-  
-  const getCorrelationColor = (correlation: number) => {
-    const abs = Math.abs(correlation)
-    if (abs >= 0.8) return 'text-red-600 font-bold'
-    if (abs >= 0.6) return 'text-orange-500 font-semibold'
-    if (abs >= 0.4) return 'text-yellow-600 font-semibold'
-    return 'text-gray-500'
-  }
-
-  const getCorrelationStrength = (correlation: number) => {
-    const abs = Math.abs(correlation)
-    if (abs >= 0.7) return 'Very Strong'
-    if (abs >= 0.5) return 'Strong'
-    if (abs >= 0.3) return 'Moderate'
-    return 'Weak'
-  }
-
-  const copyToClipboard = useCallback((text: string) => {
-    navigator.clipboard.writeText(text)
-    toast.success("Citation copied to clipboard!")
-  }, [])
-
-  const shareCard = useCallback((correlation: CorrelationData) => {
-    const text = `Interesting correlation: ${correlation.title} (r=${correlation.correlation > 0 ? '+' : ''}${correlation.correlation})`
-    if (navigator.share) {
-      navigator.share({
-        title: 'CorrelateAI Pro Discovery',
-        text: text,
-        url: window.location.href
-      })
-    } else {
-      copyToClipboard(text)
-    }
-  }, [copyToClipboard])
-
-  const showCorrelationDetails = useCallback((correlation: CorrelationData) => {
-    toast.info(`Viewing details for ${correlation.title}`)
-  }, [])
-
-  return (
-    <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
-      <CardHeader className={`${isMobile ? 'p-3 pb-3' : ''}`}>
-        <div className={`flex justify-between ${isMobile ? 'flex-col gap-3' : 'items-start'}`}>
-          <div>
-            <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'}`}>
-              <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
-                <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-                  <Heart size={16} className="text-white" />
+  // CorrelationCard component moved outside to prevent re-render issues
+  function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
+    return (
+      <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
+        <CardHeader className={`${isMobile ? 'p-3 pb-3' : ''}`}>
+          <div className={`flex justify-between ${isMobile ? 'flex-col gap-3' : 'items-start'}`}>
+            <div className="flex-1">
+              <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'}`}>
+                <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
+                  <TrendUp size={isMobile ? 20 : 20} className="text-cyan-400 flex-shrink-0" />
+                  <span className={`${isMobile ? 'leading-5 break-words hyphens-auto' : ''}`} style={isMobile ? {wordWrap: 'break-word', wordBreak: 'break-word'} : {}}>
+                    {correlation.title}
+                  </span>
                 </div>
-                <span className={`${isMobile ? 'text-sm' : ''}`}>
-                  {correlation.title}
+              </CardTitle>
+              <CardDescription className={`${isMobile ? 'mt-3 text-sm leading-relaxed' : 'mt-2'} text-gray-300`}>
+                <span className={`${isMobile ? 'break-words hyphens-auto' : ''}`} style={isMobile ? {wordWrap: 'break-word', wordBreak: 'break-word'} : {}}>
+                  {correlation.description}
+                </span>
+              </CardDescription>
+            </div>
+            <div className={`flex items-center ${isMobile ? 'gap-2 self-start justify-start mt-1' : 'gap-1 sm:gap-2 ml-2 sm:ml-4'}`}>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
+                onClick={() => toggleFavorite(correlation)}
+                title="Add to Favorites"
+              >
+                <Heart 
+                  size={isMobile ? 18 : 18} 
+                  weight={isFavorited(correlation.id) ? "fill" : "regular"}
+                  className={isFavorited(correlation.id) ? "text-red-400" : ""}
+                />
+              </Button>
+              
+              {/* Prominent Social Share Buttons */}
+              <div className={`flex items-center ${isMobile ? 'gap-2' : 'gap-1'}`}>
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={`hover:bg-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 text-blue-400 hover:text-blue-200 transition-all duration-300 hover:scale-105 border border-transparent hover:border-blue-500/30 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
+                  onClick={() => shareToLinkedIn(correlation)}
+                  title="Share on LinkedIn"
+                >
+                  <LinkedinLogo size={isMobile ? 18 : 18} weight="fill" />
+                </Button>
+                
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className={`hover:bg-gray-900/60 hover:shadow-lg hover:shadow-gray-900/30 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 border border-transparent hover:border-gray-600/40 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
+                  onClick={() => shareToTwitter(correlation)}
+                  title="Share on X (Twitter)"
+                >
+                  <TwitterLogo size={isMobile ? 18 : 18} weight="fill" />
+                </Button>
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className={`hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
+                      title="More sharing options"
+                    >
+                      <Share size={isMobile ? 16 : 16} />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-44 bg-gray-800 border-gray-700">
+                    <DropdownMenuItem onClick={() => shareToFacebook(correlation)} className="text-gray-200 hover:bg-gray-700">
+                      <FacebookLogo size={14} className="mr-2" />
+                      Facebook
+                    </DropdownMenuItem>
+                    <Separator className="bg-gray-600" />
+                    <DropdownMenuItem onClick={() => downloadAsImage(correlation)} className="text-gray-200 hover:bg-gray-700">
+                      <Download size={14} className="mr-2" />
+                      Download Image
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation).long)} className="text-gray-200 hover:bg-gray-700">
+                      <Copy size={14} className="mr-2" />
+                      Copy Text
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
+            </div>
+          </div>
+          
+          <div className={`flex ${isMobile ? 'flex-col gap-3 mt-4' : 'gap-1 sm:gap-2 mt-4 flex-wrap'} ${isMobile ? 'text-xs' : ''}`}>
+            <div className={`flex gap-2 flex-wrap ${isMobile ? 'items-start' : 'items-center'}`}>
+              <Badge variant="secondary" className="bg-cyan-900/50 text-cyan-300 border-cyan-700/50">
+                r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
+              </Badge>
+              <Badge variant="outline" className="border-gray-600 text-gray-300">
+                R² = {correlation.rSquared.toFixed(3)}
+              </Badge>
+              <Badge variant={correlation.isRealData ? "default" : "secondary"} className={correlation.isRealData ? "bg-purple-900/50 text-purple-300 border-purple-700/50" : "bg-gray-700/50 text-gray-300 border-gray-600/50"}>
+                {correlation.isRealData ? (
+                  <>
+                    <Database size={10} className="mr-1" />
+                    {isMobile ? "Real Data" : `${correlation.dataSource} Real Data`}
+                  </>
+                ) : (
+                  <>
+                    <Database size={10} className="mr-1" />
+                    {isMobile ? "Synthetic" : categories[(correlation.variable1 as Dataset).category as keyof typeof categories]}
+                  </>
+                )}
+              </Badge>
+            </div>
+          </div>
+        </CardHeader>
+        
+        <CardContent className={`bg-gray-900/30 rounded-lg ${isMobile ? 'p-3' : ''}`}>
+          <div className={`${isMobile ? 'h-56' : 'h-64'} w-full`}>
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart 
+                data={correlation.data} 
+                margin={isMobile ? { top: 8, right: 20, left: 20, bottom: 35 } : { top: 5, right: 15, left: 15, bottom: 25 }}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
+                <XAxis 
+                  dataKey="year" 
+                  stroke="#9CA3AF"
+                  fontSize={isMobile ? 10 : 12}
+                  tick={{ fontSize: isMobile ? 10 : 12 }}
+                  label={{ value: 'Year', position: 'insideBottom', offset: -5, style: { textAnchor: 'middle', fill: '#9CA3AF', fontSize: isMobile ? '10px' : '12px' } }}
+                />
+                <YAxis 
+                  yAxisId="left" 
+                  orientation="left" 
+                  stroke="#06B6D4"
+                  fontSize={isMobile ? 9 : 11}
+                  tick={{ fontSize: isMobile ? 9 : 11 }}
+                  width={isMobile ? 40 : 60}
+                  label={!isMobile ? { value: correlation.variable1.unit, angle: -90, position: 'insideLeft', style: { textAnchor: 'middle', fill: '#06B6D4', fontSize: '11px' } } : undefined}
+                />
+                <YAxis 
+                  yAxisId="right" 
+                  orientation="right" 
+                  stroke="#A855F7"
+                  fontSize={isMobile ? 9 : 11}
+                  tick={{ fontSize: isMobile ? 9 : 11 }}
+                  width={isMobile ? 40 : 60}
+                  label={!isMobile ? { value: correlation.variable2.unit, angle: 90, position: 'insideRight', style: { textAnchor: 'middle', fill: '#A855F7', fontSize: '11px' } } : undefined}
+                />
+                
+                {/* COVID Period Highlight (2020-2022) */}
+                <ReferenceArea
+                  x1={2020}
+                  x2={2022}
+                  fill="#EF4444"
+                  fillOpacity={0.15}
+                  stroke="#EF4444"
+                  strokeOpacity={0.6}
+                  strokeWidth={2}
+                  strokeDasharray="8 4"
+                />
+                
+                <Tooltip 
+                  contentStyle={{ 
+                    backgroundColor: '#1F2937', 
+                    border: '1px solid #374151',
+                    borderRadius: '8px',
+                    color: '#F3F4F6',
+                    fontSize: isMobile ? '11px' : '12px',
+                    padding: isMobile ? '8px' : '12px'
+                  }}
+                  formatter={(value, name) => {
+                    const variable = name === 'value1' ? correlation.variable1 : correlation.variable2
+                    return [
+                      `${typeof value === 'number' ? value.toFixed(1) : value} ${variable.unit}`,
+                      isMobile ? variable.name.substring(0, 20) + (variable.name.length > 20 ? '...' : '') : variable.name
+                    ]
+                  }}
+                  labelFormatter={(year) => {
+                    const isCovidPeriod = year >= 2020 && year <= 2022
+                    if (isCovidPeriod) {
+                      return (
+                        <div>
+                          <div style={{ fontWeight: 'bold', color: '#EF4444' }}>Year {year} - COVID Period</div>
+                          {!isMobile && (
+                            <div style={{ fontSize: '11px', color: '#9CA3AF', marginTop: '2px' }}>
+                              Data may show pandemic-related anomalies
+                            </div>
+                          )}
+                        </div>
+                      )
+                    }
+                    return `Year ${year}`
+                  }}
+                />
+                <Line 
+                  yAxisId="left"
+                  type="monotone" 
+                  dataKey="value1" 
+                  stroke="#06B6D4" 
+                  strokeWidth={isMobile ? 2 : 3}
+                  dot={{ fill: '#06B6D4', strokeWidth: 2, r: isMobile ? 3 : 4 }}
+                  animationDuration={1200}
+                />
+                <Line 
+                  yAxisId="right"
+                  type="monotone" 
+                  dataKey="value2" 
+                  stroke="#A855F7" 
+                  strokeWidth={isMobile ? 2 : 3}
+                  dot={{ fill: '#A855F7', strokeWidth: 2, r: isMobile ? 3 : 4 }}
+                  animationDuration={1200}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          
+          {/* Chart Legend and COVID Period Information - Mobile-optimized */}
+          <div className="mt-3 sm:mt-4 space-y-2 sm:space-y-3">
+            {/* Axis Information */}
+            <div className={`flex items-center justify-center gap-3 sm:gap-6 text-xs text-gray-400 ${isMobile ? 'flex-col gap-2' : ''}`}>
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-0.5 bg-cyan-400"></div>
+                <span className={`${isMobile ? 'text-center' : ''}`}>
+                  {isMobile ? 
+                    `${correlation.variable1.name.substring(0, 15)}${correlation.variable1.name.length > 15 ? '...' : ''}` : 
+                    `${correlation.variable1.name} (${correlation.variable1.unit})`
+                  }
                 </span>
               </div>
-              <Badge 
-                variant="secondary" 
-                className={`${getCorrelationColor(correlation.correlation)} ${isMobile ? 'text-xs' : ''} ${
-                  Math.abs(correlation.correlation) >= 0.7 ? 'animate-pulse' : ''
-                }`}
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-0.5 bg-purple-400"></div>
+                <span className={`${isMobile ? 'text-center' : ''}`}>
+                  {isMobile ? 
+                    `${correlation.variable2.name.substring(0, 15)}${correlation.variable2.name.length > 15 ? '...' : ''}` : 
+                    `${correlation.variable2.name} (${correlation.variable2.unit})`
+                  }
+                </span>
+              </div>
+            </div>
+            
+            {/* COVID Period Legend - Simplified for mobile */}
+            <div className={`flex items-center justify-center gap-2 sm:gap-4 text-xs bg-red-50/10 p-2 rounded border border-red-400/20 ${isMobile ? 'flex-col text-center' : ''}`}>
+              <div className="flex items-center gap-2">
+                <div className="w-6 sm:w-8 h-4 bg-red-400/20 border-l-2 border-r-2 border-red-500 border-dashed rounded-sm flex items-center justify-center">
+                  <div className="w-1 h-1 bg-red-500 rounded-full"></div>
+                </div>
+                <span className="text-red-400 font-medium text-xs">
+                  {isMobile ? "COVID-19 Period" : "COVID-19 Impact Period"}
+                </span>
+                <span className="text-gray-300 font-mono bg-gray-800 px-1 sm:px-2 py-0.5 rounded text-xs border">
+                  2020-2022
+                </span>
+              </div>
+            </div>
+            
+            {/* Explanation - Simplified for mobile */}
+            {!isMobile && (
+              <div className="flex items-start justify-center gap-2 text-xs text-gray-500 max-w-lg mx-auto">
+                <Info size={14} className="text-yellow-400 mt-0.5 flex-shrink-0" />
+                <p className="text-center">
+                  The <span className="text-red-400 font-medium">highlighted red area (2020-2022)</span> shows the COVID-19 pandemic period. 
+                  Economic and social data during these years may show unusual patterns due to lockdowns, 
+                  policy changes, and behavioral shifts. Correlations in this period should be interpreted carefully.
+                </p>
+              </div>
+            )}
+            
+            {/* Mobile COVID explanation - condensed */}
+            {isMobile && (
+              <div className="text-xs text-gray-500 text-center px-2">
+                <Info size={12} className="text-yellow-400 inline mr-1" />
+                Red area shows COVID-19 period with potential data anomalies (2020-2022)
+              </div>
+            )}
+          </div>
+          
+          <div className={`mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-800/50 rounded-lg border border-gray-700/50`}>
+            <div className={`flex items-center ${isMobile ? 'flex-wrap gap-2 mb-3' : 'gap-2 mb-2'}`}>
+              <BookOpen size={isMobile ? 14 : 16} className="text-cyan-400" />
+              <span className={`${isMobile ? 'text-sm' : 'text-sm'} font-medium text-gray-200`}>Citation</span>
+              <Button
+                variant="ghost"
+                size="sm"
+                className={`hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 ${isMobile ? 'p-2 min-h-[36px] min-w-[36px] ml-auto' : 'p-1'}`}
+                onClick={() => copyToClipboard(`${correlation.citation}. ${correlation.title}. ${correlation.journal}, ${correlation.year}.`)}
+                title="Copy citation"
               >
-                {correlation.correlation > 0 ? '+' : ''}
-                {(correlation.correlation * 100).toFixed(1)}% correlation
-              </Badge>
-            </CardTitle>
-            <p className={`text-gray-300 mt-2 leading-relaxed ${isMobile ? 'text-xs' : 'text-sm'}`}>
-              {correlation.description}
+                <Copy size={isMobile ? 14 : 14} />
+              </Button>
+            </div>
+            <p className={`${isMobile ? 'text-sm leading-relaxed' : 'text-sm'} text-gray-400 ${isMobile ? 'break-words' : ''}`}>
+              <span className={`${isMobile ? 'break-words' : ''}`}>{correlation.citation}</span>. 
+              "<span className={`${isMobile ? 'break-words' : ''}`}>{correlation.title}</span>." 
+              <em className={`${isMobile ? 'break-words' : ''}`}>{correlation.journal}</em>, {correlation.year}.
             </p>
           </div>
           
-          <div className={`flex gap-2 ${isMobile ? 'w-full justify-between' : 'flex-col'}`}>
-            {isShareable && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
-                onClick={() => shareCard(correlation)}
-                title="Share this correlation"
-              >
-                <Share size={16} />
-              </Button>
-            )}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-gray-300 hover:text-purple-400 hover:bg-gray-700/50"
-              onClick={() => showCorrelationDetails(correlation)}
-              title="View detailed analysis"
-            >
-              <Info size={16} />
-            </Button>
-          </div>
-        </div>
-      </CardHeader>
-      
-      <CardContent className={`${isMobile ? 'p-3 pt-0' : ''}`}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-          <div className="space-y-4">
-            <div>
-              <h4 className={`font-medium text-gray-200 mb-3 ${isMobile ? 'text-sm' : ''}`}>Variable Details</h4>
+          {/* Enhanced Source Attribution - Mobile-optimized */}
+          {correlation.isRealData && (
+            <div className={`mt-4 p-2 sm:p-3 bg-gray-900/50 rounded-lg border border-gray-600/50`}>
+              <div className={`${isMobile ? 'text-xs' : 'text-xs'} text-gray-300 font-medium mb-2`}>Data Sources:</div>
               <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Dataset X:</span>
-                  <span className="text-cyan-400 font-medium">{correlation.variable1.name}</span>
+                <div className="flex items-center justify-between">
+                  <SourceAttribution dataset={correlation.variable1} />
                 </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Dataset Y:</span>
-                  <span className="text-purple-400 font-medium">{correlation.variable2.name}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Strength:</span>
-                  <span className={getCorrelationColor(correlation.correlation)}>
-                    {getCorrelationStrength(correlation.correlation)}
-                  </span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Significance:</span>
-                  <span className={Math.abs(correlation.correlation) >= 0.5 ? 'text-green-400' : 'text-yellow-400'}>
-                    {Math.abs(correlation.correlation) >= 0.7 ? 'High' : 
-                     Math.abs(correlation.correlation) >= 0.5 ? 'Moderate' : 'Low'}
-                  </span>
+                <div className="flex items-center justify-between">
+                  <SourceAttribution dataset={correlation.variable2} />
                 </div>
               </div>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+    )
+  }
+
+  const FooterComponent = () => (
+    <footer className="mt-16 border-t border-gray-200 bg-gradient-to-r from-blue-50 to-purple-50">
+      <div className="max-w-6xl mx-auto px-6 py-12">
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
+          {/* Developer Profile */}
+          <div className="flex items-center gap-6">
+            <div className="w-20 h-20 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center text-white font-bold text-2xl">
+              VS
+            </div>
+            <div>
+              <h3 className="text-xl font-semibold text-gray-900">Victor Saly</h3>
+              <p className="text-gray-600 font-medium">AI Developer & Data Science Engineer</p>
+              <a 
+                href="https://victorsaly.com" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-blue-600 hover:text-blue-800 font-medium inline-flex items-center gap-1 mt-1"
+              >
+                victorsaly.com
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
             </div>
           </div>
-          
-          <div className="space-y-4">
-            <div>
-              <h4 className={`font-medium text-gray-200 mb-3 ${isMobile ? 'text-sm' : ''}`}>Analysis Insights</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed">
-                    {Math.abs(correlation.correlation) >= 0.7 
-                      ? "Strong relationship detected - significant statistical correlation"
-                      : Math.abs(correlation.correlation) >= 0.5 
-                      ? "Moderate relationship - worth investigating further"
-                      : "Weak relationship - may be coincidental"}
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed">
-                    {correlation.correlation > 0 
-                      ? "Positive correlation - variables tend to increase together"
-                      : "Negative correlation - one increases as the other decreases"}
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed text-xs italic">
-                    Remember: Correlation does not imply causation
-                  </p>
-                </div>
-              </div>
+
+          {/* AI Development Approach */}
+          <div className="text-center lg:text-right max-w-md">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-purple-100 to-blue-100 rounded-full mb-3">
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              <span className="text-sm font-medium text-gray-700">100% AI-Generated Application</span>
             </div>
+            <p className="text-sm text-gray-600 leading-relaxed">
+              Built entirely through AI-assisted development using advanced language models. 
+              This application demonstrates the power of AI in creating professional-grade 
+              data visualization and correlation analysis tools.
+            </p>
           </div>
         </div>
-        
-        {/* Progress bar showing correlation strength */}
-        <div className="mt-6 pt-4 border-t border-gray-700/50">
-          <div className="flex items-center justify-between mb-2">
-            <span className={`text-xs font-medium text-gray-400`}>Correlation Strength</span>
-            <span className={`text-xs font-bold ${getCorrelationColor(correlation.correlation)}`}>
-              {Math.abs(correlation.correlation * 100).toFixed(1)}%
+
+        {/* Bottom Section */}
+        <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+          <p className="text-sm text-gray-500 mb-2">
+            © {new Date().getFullYear()} CorrelateAI Pro. Powered by real-time data from authoritative sources.
+          </p>
+          <div className="flex items-center justify-center gap-4 text-xs text-gray-400">
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-blue-500 rounded-full"></div>
+              FRED (Federal Reserve)
+            </span>
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+              World Bank Open Data
+            </span>
+            <span className="flex items-center gap-1">
+              <div className="w-2 h-2 bg-purple-500 rounded-full"></div>
+              AI-Generated Datasets
             </span>
           </div>
-          <div className="w-full bg-gray-700/50 rounded-full h-2">
-            <div 
-              className={`h-2 rounded-full transition-all duration-500 ${
-                Math.abs(correlation.correlation) >= 0.7 ? 'bg-gradient-to-r from-red-500 to-red-600' :
-                Math.abs(correlation.correlation) >= 0.5 ? 'bg-gradient-to-r from-orange-500 to-orange-600' :
-                'bg-gradient-to-r from-yellow-500 to-yellow-600'
-              }`}
-              style={{ width: `${Math.abs(correlation.correlation) * 100}%` }}
-            ></div>
-          </div>
         </div>
-        
-        {/* Data Source Attribution */}
-        {correlation.isRealData && (
-          <div className="mt-4 pt-4 border-t border-gray-700/50">
-            <div className="text-xs text-gray-400 mb-2">
-              Data Source: <span className="text-cyan-400 font-medium">{correlation.dataSource}</span>
-            </div>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={() => copyToClipboard(correlation.citation)}
-              className="text-xs text-gray-400 hover:text-gray-300"
-            >
-              <Copy size={12} className="mr-1" />
-              Copy Citation
-            </Button>
-          </div>
-        )}
-      </CardContent>
-    </Card>
+      </div>
+    </footer>
   )
 }
 

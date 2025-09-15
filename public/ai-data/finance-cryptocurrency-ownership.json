@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.federalreserve.gov/publications/2021-economic-well-being-of-us-households-in-2020.htm",
     "citation": "Federal Reserve Bank Economic Well-Being Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-14T21:22:42.598Z",
+    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
     "filename": "finance-cryptocurrency-ownership"
   },
   "data": [
     {
       "year": 2014,
-      "value": 11.1,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 10.98,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2015,
-      "value": 21.43,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 20.76,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2016,
-      "value": 28.68,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 29.23,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2017,
-      "value": 36.16,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 36.29,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2018,
-      "value": 47.67,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 45.34,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2019,
-      "value": 54.12,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 58.31,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2020,
-      "value": 64.01,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 66.54,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2021,
-      "value": 74.92,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 74.77,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2022,
-      "value": 87.01,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 77.57,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2023,
-      "value": 97.07,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 86.13,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     },
     {
       "year": 2024,
-      "value": 100.23,
-      "generatedAt": "2025-09-14T21:22:42.631Z"
+      "value": 104.79,
+      "generatedAt": "2025-09-15T07:21:44.910Z"
     }
   ]
 }
