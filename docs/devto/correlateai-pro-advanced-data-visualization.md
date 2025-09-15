@@ -14,7 +14,7 @@ Have you ever wanted to build a professional-grade data visualization platform t
 
 > **⚡ Speed Development Alert:** This entire project was built from concept to production in under 8 hours using GitHub Copilot, Claude, and modern AI development tools. What used to take weeks now takes hours!
 
-![CorrelateAI Pro Hero Interface](https://correlateAI.victorsaly.com/img/hero-interface-correlateai.jpeg)
+![CorrelateAI Pro Hero Interface](https://correlateai.victorsaly.com/img/hero-interface-correlateai.jpeg)
 *CorrelateAI Pro: Professional correlation discovery with interactive charts and AI-powered insights*
 
 ## 🎥 Live Demo
@@ -440,7 +440,7 @@ const exportAsJSON = useCallback(() => {
 
 ### 3. Smart Correlation Discovery with AI
 
-![Smart Discovery Demo](https://correlateAI.victorsaly.com/img/IOS.gif)
+![Smart Discovery Demo](https://correlateai.victorsaly.com/img/IOS-superfast.gif)
 *AI-powered recommendations and intelligent filtering - let AI do the heavy lifting*
 
 The third and most exciting improvement introduced AI-powered recommendations and pattern discovery capabilities.
@@ -878,7 +878,7 @@ The future of CorrelateAI Pro is bright with these planned enhancements:
 
 ## Conclusion 🎉
 
-![Project Success Metrics](./public/img/project-success-metrics.jpeg)
+![Project Success Metrics](https://correlateai.victorsaly.com/img/project-success-metrics.jpeg)
 *From concept to production: Building professional data visualization that users love*
 
 Building CorrelateAI Pro demonstrates the incredible power of AI-assisted development. What traditionally would take weeks of development was accomplished in just **8 hours** using modern AI tools like GitHub Copilot and Claude. The combination of React's component architecture, TypeScript's type safety, Recharts' powerful visualization capabilities, and AI-powered code generation enables revolutionary development speed.

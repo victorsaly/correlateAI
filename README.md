@@ -34,7 +34,7 @@
 
 CorrelateAI Pro demonstrates the power of AI-assisted development by being **100% generated through conversational AI** - from initial concept to production-ready application in just 2 hours.
 
-![Mobile Demo](./public/img/IOS.gif)
+![Mobile Demo](./public/img/IOS-superfast.gif)
 *Responsive mobile interface with interactive data exploration*
 
 ### 🎯 Key Features
