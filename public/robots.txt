@@ -1,0 +1,20 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://correlateai.victorsaly.com/sitemap.xml
+
+# Important pages
+Allow: /
+Allow: /favicon.svg
+Allow: /apple-touch-icon.png
+Allow: /site.webmanifest
+
+# Block unnecessary files
+Disallow: /src/
+Disallow: /.git/
+Disallow: /node_modules/
+Disallow: *.map$
+
+# Crawl-delay for courtesy
+Crawl-delay: 1

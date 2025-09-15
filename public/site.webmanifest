@@ -1,0 +1,71 @@
+{
+  "name": "CorrelateAI Pro",
+  "short_name": "CorrelateAI",
+  "description": "AI-powered data correlation analysis tool that discovers surprising correlations in real economic data",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#1F2937",
+  "theme_color": "#06B6D4",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-US",
+  "categories": ["productivity", "education", "business"],
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
+      "form_factor": "wide",
+      "label": "Desktop view of correlation analysis"
+    },
+    {
+      "src": "/screenshot-mobile.png", 
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow",
+      "label": "Mobile view of correlation analysis"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Generate Correlation",
+      "short_name": "Generate",
+      "description": "Generate a new AI correlation analysis",
+      "url": "/?action=generate",
+      "icons": [
+        {
+          "src": "favicon.svg",
+          "sizes": "96x96",
+          "type": "image/svg+xml"
+        }
+      ]
+    },
+    {
+      "name": "View Favorites",
+      "short_name": "Favorites",
+      "description": "View saved favorite correlations",
+      "url": "/?tab=favorites",
+      "icons": [
+        {
+          "src": "favicon.svg",
+          "sizes": "96x96", 
+          "type": "image/svg+xml"
+        }
+      ]
+    }
+  ]
+}
