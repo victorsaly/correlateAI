@@ -27,13 +27,37 @@
 
   /* Mobile-optimized tab lists */
   [role="tablist"] {
-    gap: 2px;
+    gap: 4px;
+    padding: 4px;
+    min-height: 48px;
+    border-radius: 8px;
   }
 
   [role="tab"] {
-    min-height: 44px;
-    padding: 8px 12px;
-    font-size: 14px;
+    min-height: 40px;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+    flex: 1;
+    margin: 0;
+  }
+
+  /* Ensure proper active state for mobile tabs */
+  [role="tab"][data-state="active"] {
+    background-color: rgb(31 41 55) !important;
+    color: rgb(6 182 212) !important;
+  }
+
+  /* Fix for mobile tab container to ensure proper background coverage */
+  @media (max-width: 768px) {
+    [role="tablist"] {
+      background: rgba(55, 65, 81, 0.5) !important;
+      border: 1px solid rgba(75, 85, 99, 0.5) !important;
+    }
   }
 
   /* Ensure adequate spacing for mobile text */

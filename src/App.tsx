@@ -454,14 +454,23 @@ function App() {
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className={`grid w-full grid-cols-3 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'text-sm' : ''}`}>
-            <TabsTrigger value="generator" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
+          <TabsList className={`grid w-full grid-cols-3 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-12 rounded-lg' : 'rounded-md'}`}>
+            <TabsTrigger 
+              value="generator" 
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+            >
               {isMobile ? "Generate" : "Generate"}
             </TabsTrigger>
-            <TabsTrigger value="favorites" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
+            <TabsTrigger 
+              value="favorites" 
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+            >
               {isMobile ? `❤ (${favorites?.length || 0})` : `Favorites (${favorites?.length || 0})`}
             </TabsTrigger>
-            <TabsTrigger value="story" className="text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800">
+            <TabsTrigger 
+              value="story" 
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+            >
               {isMobile ? "Story" : "AI Development Story"}
             </TabsTrigger>
           </TabsList>
