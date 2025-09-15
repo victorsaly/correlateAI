@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -254,8 +254,497 @@ function ColorizedTitle({ title, isMobile }: { title: string, isMobile: boolean 
   return <span className={`${isMobile ? 'text-sm' : ''}`}>{title}</span>
 }
 
+// Slideshow Component for first-time visitors
+function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
+  const [currentSlide, setCurrentSlide] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+  const [autoProgress, setAutoProgress] = useState(0)
+  const [isPaused, setIsPaused] = useState(false)
+  
+  const slides = [
+    {
+      id: 'welcome',
+      title: 'Welcome to CorrelateAI',
+      subtitle: 'Discover hidden patterns in data with AI',
+      icon: <Database size={48} className="text-cyan-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-6">
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-xl flex items-center justify-center shadow-lg">
+              <Database size={32} className="text-white" />
+            </div>
+            <h1 className="text-4xl font-bold">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Correlate</span>
+              <span className="text-cyan-300">AI</span>
+            </h1>
+          </div>
+          <p className="text-xl text-gray-300 max-w-lg text-center">
+            Ever wondered if two seemingly unrelated things are actually connected?
+          </p>
+          <div className="flex justify-center items-center gap-3 mt-6">
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-cyan-400 rounded-full"></div>
+              <span className="text-sm text-cyan-400">Data Point A</span>
+            </div>
+            <div className="flex items-center">
+              <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-purple-400"></div>
+              <div className="mx-2 text-yellow-400">⚡</div>
+              <div className="w-8 h-px bg-gradient-to-r from-purple-400 to-cyan-400"></div>
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+              <span className="text-sm text-purple-400">Data Point B</span>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 'discover',
+      title: 'Discover Unexpected Connections',
+      subtitle: 'From ice cream sales to drowning deaths',
+      icon: <TrendUp size={48} className="text-green-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-6">
+          <div className="grid grid-cols-2 gap-8 max-w-2xl">
+            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-6 border border-cyan-500/30">
+              <div className="text-3xl mb-3 text-center">🍦</div>
+              <h3 className="text-lg font-semibold text-cyan-400 text-center">Ice Cream Sales</h3>
+              <p className="text-sm text-gray-300 text-center">Summer treats</p>
+            </div>
+            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-6 border border-red-500/30">
+              <div className="text-3xl mb-3 text-center">🏊‍♂️</div>
+              <h3 className="text-lg font-semibold text-red-400 text-center">Drowning Incidents</h3>
+              <p className="text-sm text-gray-300 text-center">Water activities</p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center">
+            <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-red-400"></div>
+            <span className="mx-4 text-2xl text-yellow-400">⚡</span>
+            <div className="w-8 h-px bg-gradient-to-r from-red-400 to-cyan-400"></div>
+          </div>
+          <p className="text-lg text-gray-300 max-w-lg text-center">
+            Both increase in summer! <span className="text-yellow-400 font-semibold">Correlation ≠ Causation</span>
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'graph-example',
+      title: 'See Correlations in Action',
+      subtitle: 'Interactive charts reveal hidden patterns',
+      icon: <TrendUp size={48} className="text-blue-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-4">
+          <div className="w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700/30">
+            {/* Mock Chart */}
+            <div className="mb-4 text-center">
+              <h3 className="text-lg font-semibold mb-1">
+                <span className="text-cyan-400">Netflix Subscriptions</span>
+                <span className="text-gray-300"> vs </span>
+                <span className="text-purple-400">Pizza Deliveries</span>
+              </h3>
+              <p className="text-sm text-gray-400">Correlation: +0.847 (Strong Positive)</p>
+            </div>
+            <div className="h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden">
+              {/* Mock chart lines */}
+              <svg className="w-full h-full" viewBox="0 0 300 100">
+                <defs>
+                  <linearGradient id="line1" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#06b6d4" />
+                    <stop offset="100%" stopColor="#3b82f6" />
+                  </linearGradient>
+                  <linearGradient id="line2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#8b5cf6" />
+                    <stop offset="100%" stopColor="#d946ef" />
+                  </linearGradient>
+                </defs>
+                {/* Grid lines */}
+                <g stroke="#374151" strokeWidth="0.5">
+                  <line x1="0" y1="25" x2="300" y2="25" />
+                  <line x1="0" y1="50" x2="300" y2="50" />
+                  <line x1="0" y1="75" x2="300" y2="75" />
+                  <line x1="60" y1="0" x2="60" y2="100" />
+                  <line x1="120" y1="0" x2="120" y2="100" />
+                  <line x1="180" y1="0" x2="180" y2="100" />
+                  <line x1="240" y1="0" x2="240" y2="100" />
+                </g>
+                {/* Mock data lines */}
+                <polyline
+                  fill="none"
+                  stroke="url(#line1)"
+                  strokeWidth="2"
+                  points="20,85 60,75 120,65 180,45 240,30 280,20"
+                />
+                <polyline
+                  fill="none"
+                  stroke="url(#line2)"
+                  strokeWidth="2"
+                  points="20,80 60,70 120,55 180,40 240,28 280,18"
+                />
+                {/* Data points */}
+                <g fill="#06b6d4">
+                  <circle cx="20" cy="85" r="2" />
+                  <circle cx="60" cy="75" r="2" />
+                  <circle cx="120" cy="65" r="2" />
+                  <circle cx="180" cy="45" r="2" />
+                  <circle cx="240" cy="30" r="2" />
+                  <circle cx="280" cy="20" r="2" />
+                </g>
+                <g fill="#8b5cf6">
+                  <circle cx="20" cy="80" r="2" />
+                  <circle cx="60" cy="70" r="2" />
+                  <circle cx="120" cy="55" r="2" />
+                  <circle cx="180" cy="40" r="2" />
+                  <circle cx="240" cy="28" r="2" />
+                  <circle cx="280" cy="18" r="2" />
+                </g>
+              </svg>
+            </div>
+            <div className="flex justify-between text-xs text-gray-400 mt-2">
+              <span>2019</span>
+              <span>2024</span>
+            </div>
+          </div>
+          <p className="text-gray-300 text-center max-w-lg">
+            As streaming services grew, so did home food delivery. 
+            <span className="text-cyan-400 font-semibold"> Real data</span> reveals unexpected connections!
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'ai-powered',
+      title: 'AI-Powered Analysis',
+      subtitle: 'Advanced algorithms find patterns humans miss',
+      icon: <Robot size={48} className="text-purple-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-6">
+          <div className="max-w-md">
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl p-8 border border-purple-500/30">
+              <div className="flex items-center justify-center gap-4 mb-4">
+                <Robot size={32} className="text-purple-400" />
+                <div className="flex flex-col items-start">
+                  <div className="flex items-center gap-2">
+                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                    <span className="text-sm text-green-400">Analyzing patterns...</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                    <span className="text-sm text-blue-400">Processing datasets...</span>
+                  </div>
+                  <div className="flex items-center gap-2 mt-1">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                    <span className="text-sm text-yellow-400">Calculating correlations...</span>
+                  </div>
+                </div>
+              </div>
+              <div className="text-xs text-purple-300 bg-purple-900/30 rounded-lg p-3 font-mono">
+                correlation_strength: 0.847<br/>
+                statistical_significance: HIGH<br/>
+                pattern_confidence: 92.3%
+              </div>
+            </div>
+          </div>
+          <p className="text-lg text-gray-300 max-w-lg text-center">
+            Our AI processes <span className="text-cyan-400 font-semibold">real-world data</span> from trusted sources to uncover hidden relationships
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'interactive',
+      title: 'Interactive Exploration',
+      subtitle: 'Click, explore, and share your discoveries',
+      icon: <Target size={48} className="text-orange-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
+            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-4 border border-cyan-500/30 hover:scale-105 transition-transform cursor-pointer">
+              <MagnifyingGlass size={24} className="text-cyan-400 mx-auto mb-2" />
+              <h4 className="font-semibold text-cyan-400 text-sm text-center">Explore</h4>
+              <p className="text-xs text-gray-300 text-center">Generate new correlations</p>
+            </div>
+            <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-500/30 hover:scale-105 transition-transform cursor-pointer">
+              <TrendUp size={24} className="text-purple-400 mx-auto mb-2" />
+              <h4 className="font-semibold text-purple-400 text-sm text-center">Analyze</h4>
+              <p className="text-xs text-gray-300 text-center">Deep dive into data</p>
+            </div>
+            <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 border border-green-500/30 hover:scale-105 transition-transform cursor-pointer">
+              <Share size={24} className="text-green-400 mx-auto mb-2" />
+              <h4 className="font-semibold text-green-400 text-sm text-center">Share</h4>
+              <p className="text-xs text-gray-300 text-center">Spread your findings</p>
+            </div>
+          </div>
+          <p className="text-lg text-gray-300 max-w-lg text-center">
+            Every click reveals new insights. Every discovery can be shared with the world.
+          </p>
+        </div>
+      )
+    },
+    {
+      id: 'ready',
+      title: 'Ready to Explore?',
+      subtitle: 'Let\'s find some amazing correlations!',
+      icon: <Rocket size={48} className="text-yellow-400" />,
+      content: (
+        <div className="h-80 flex flex-col items-center justify-center space-y-6">
+          <div className="relative max-w-md">
+            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-2xl opacity-20 animate-pulse"></div>
+            <div className="relative bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-8 border border-cyan-500/30">
+              <Rocket size={48} className="text-yellow-400 mx-auto mb-4" />
+              <h3 className="text-2xl font-bold text-white mb-2 text-center">Start Discovering</h3>
+              <p className="text-gray-300 mb-6 text-center">
+                With <span className="text-cyan-400 font-semibold">80+</span> datasets and <span className="text-purple-400 font-semibold">infinite</span> possibilities
+              </p>
+              <button 
+                onClick={onComplete}
+                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+              >
+                Launch CorrelateAI ✨
+              </button>
+            </div>
+          </div>
+          <div className="flex justify-center gap-2 text-sm text-gray-400">
+            <span>Press</span>
+            <div className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300 font-mono">ESC</div>
+            <span>to skip</span>
+          </div>
+        </div>
+      )
+    }
+  ]
+
+  const nextSlide = useCallback(() => {
+    if (currentSlide < slides.length - 1) {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentSlide(prev => prev + 1)
+        setIsAnimating(false)
+      }, 300)
+    }
+  }, [currentSlide, slides.length])
+
+  const prevSlide = useCallback(() => {
+    if (currentSlide > 0) {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentSlide(prev => prev - 1)
+        setIsAnimating(false)
+      }, 300)
+    }
+  }, [currentSlide])
+
+  const goToSlide = useCallback((index: number) => {
+    if (index !== currentSlide) {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentSlide(index)
+        setIsAnimating(false)
+      }, 300)
+    }
+  }, [currentSlide])
+
+  // Auto-advance slides with progress tracking
+  useEffect(() => {
+    if (currentSlide < slides.length - 1 && !isPaused) {
+      const progressInterval = setInterval(() => {
+        setAutoProgress(prev => {
+          const newProgress = prev + 1 // Reduced from 2% to 1% for slower progression
+          if (newProgress >= 100) {
+            clearInterval(progressInterval)
+            nextSlide()
+            return 0
+          }
+          return newProgress
+        })
+      }, 100)
+
+      return () => clearInterval(progressInterval)
+    } else {
+      setAutoProgress(0)
+    }
+  }, [currentSlide, nextSlide, slides.length, isPaused])
+
+  // Reset progress when slide changes
+  useEffect(() => {
+    setAutoProgress(0)
+  }, [currentSlide])
+
+  // Handle keyboard navigation
+  useEffect(() => {
+    const handleKeyPress = (e: KeyboardEvent) => {
+      if (e.key === 'ArrowRight' || e.key === ' ') {
+        e.preventDefault()
+        nextSlide()
+        setAutoProgress(0)
+        setIsPaused(true)
+        setTimeout(() => setIsPaused(false), 1000)
+      } else if (e.key === 'ArrowLeft') {
+        e.preventDefault()
+        prevSlide()
+        setAutoProgress(0)
+        setIsPaused(true)
+        setTimeout(() => setIsPaused(false), 1000)
+      } else if (e.key === 'Escape') {
+        e.preventDefault()
+        onComplete()
+      } else if (e.key === 'p' || e.key === 'P') {
+        e.preventDefault()
+        setIsPaused(prev => !prev)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyPress)
+    return () => window.removeEventListener('keydown', handleKeyPress)
+  }, [nextSlide, prevSlide, onComplete])
+
+  const currentSlideData = slides[currentSlide]
+
+  return (
+    <div className="fixed inset-0 z-50 bg-gray-900">
+      <SwirlBackground />
+      <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+        <div className="max-w-4xl w-full">
+          {/* Main Slide Content */}
+          <div 
+            className={`bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8 sm:p-12 transition-all duration-500 ${
+              isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
+            }`}
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            {/* Header */}
+            <div className="text-center mb-8">
+              <div className="flex justify-center mb-4">
+                {currentSlideData.icon}
+              </div>
+              <h1 className="text-3xl sm:text-4xl font-bold text-white mb-2">
+                {currentSlideData.title}
+              </h1>
+              <p className="text-lg text-gray-400">
+                {currentSlideData.subtitle}
+              </p>
+            </div>
+
+            {/* Slide Content */}
+            <div className="mb-8">
+              {currentSlideData.content}
+            </div>
+
+            {/* Navigation Controls */}
+            <div className="space-y-4">
+              {/* Auto-progress bar for current slide */}
+              {currentSlide < slides.length - 1 && (
+                <div className="w-full bg-gray-700 rounded-full h-1 overflow-hidden">
+                  <div 
+                    className="h-full bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-100 ease-linear"
+                    style={{ width: `${autoProgress}%` }}
+                  />
+                </div>
+              )}
+
+              <div className="flex items-center justify-between">
+                {/* Left side: Progress dots */}
+                <div className="flex gap-2">
+                  {slides.map((_, index) => (
+                    <button
+                      key={index}
+                      onClick={() => {
+                        goToSlide(index)
+                        setAutoProgress(0)
+                        setIsPaused(true)
+                        setTimeout(() => setIsPaused(false), 1000)
+                      }}
+                      className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                        index === currentSlide 
+                          ? 'bg-cyan-400 shadow-lg shadow-cyan-400/50' 
+                          : index < currentSlide
+                          ? 'bg-purple-400'
+                          : 'bg-gray-600 hover:bg-gray-500'
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                {/* Right side: Navigation buttons */}
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={onComplete}
+                    className="text-sm text-gray-400 hover:text-gray-300 transition-colors"
+                  >
+                    Skip intro
+                  </button>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => {
+                        prevSlide()
+                        setAutoProgress(0)
+                        setIsPaused(true)
+                        setTimeout(() => setIsPaused(false), 1000)
+                      }}
+                      disabled={currentSlide === 0}
+                      className={`p-2 rounded-lg border transition-all duration-300 ${
+                        currentSlide === 0 
+                          ? 'border-gray-700 text-gray-600 cursor-not-allowed' 
+                          : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
+                      }`}
+                    >
+                      <CaretLeft size={16} />
+                    </button>
+                    <button
+                      onClick={() => {
+                        if (currentSlide === slides.length - 1) {
+                          onComplete()
+                        } else {
+                          nextSlide()
+                          setAutoProgress(0)
+                          setIsPaused(true)
+                          setTimeout(() => setIsPaused(false), 1000)
+                        }
+                      }}
+                      className="p-2 rounded-lg border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 transition-all duration-300"
+                    >
+                      {currentSlide === slides.length - 1 ? (
+                        <Check size={16} />
+                      ) : (
+                        <CaretRight size={16} />
+                      )}
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Slide Counter and Status */}
+          <div className="text-center mt-4 flex items-center justify-center gap-4 text-sm text-gray-500">
+            <span>{currentSlide + 1} of {slides.length}</span>
+            {isPaused && currentSlide < slides.length - 1 && (
+              <div className="flex items-center gap-1 text-yellow-400">
+                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                <span className="text-xs">Paused</span>
+              </div>
+            )}
+            {currentSlide < slides.length - 1 && !isPaused && (
+              <div className="flex items-center gap-1 text-green-400">
+                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                <span className="text-xs">Auto-advancing</span>
+              </div>
+            )}
+            <div className="text-xs text-gray-600">
+              Press <kbd className="px-1 py-0.5 bg-gray-700 rounded text-gray-300">P</kbd> to pause
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
 function App() {
   const [isAppLoading, setIsAppLoading] = useState(true)
+  const [showSlideshow, setShowSlideshow] = useState(false)
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
@@ -351,6 +840,11 @@ function App() {
         setTotalDatasetCount(fallbackStats.total)
         setDatasetStats(fallbackStats)
       } finally {
+        // Check if this is a first-time visitor
+        const hasSeenIntro = localStorage.getItem('correlate-ai-intro-seen')
+        if (!hasSeenIntro) {
+          setShowSlideshow(true)
+        }
         setIsAppLoading(false)
       }
     }
@@ -372,6 +866,12 @@ function App() {
     } catch (error) {
       console.warn('Failed to refresh dataset count:', error)
     }
+  }, [])
+
+  // Handle slideshow completion
+  const handleSlideshowComplete = useCallback(() => {
+    localStorage.setItem('correlate-ai-intro-seen', 'true')
+    setShowSlideshow(false)
   }, [])
 
   // Save to localStorage
@@ -839,6 +1339,11 @@ function App() {
   }, [])
 
   const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
+
+  // Slideshow for first-time visitors
+  if (showSlideshow && !isAppLoading) {
+    return <IntroSlideshow onComplete={handleSlideshowComplete} />
+  }
 
   // Loading Screen Component
   if (isAppLoading) {
