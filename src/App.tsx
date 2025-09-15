@@ -269,7 +269,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'Discover hidden patterns in data with AI',
       icon: <Database size={48} className="text-cyan-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
           <div className={`flex items-center justify-center gap-4 transition-all duration-1000 ease-out transform ${
             animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
           }`}>
@@ -336,7 +336,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'From ice cream sales to drowning deaths',
       icon: <TrendUp size={48} className="text-green-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
           <div className={`grid grid-cols-2 gap-4 sm:gap-8 max-w-2xl transition-all duration-1000 ease-out ${
             animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -396,7 +396,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'Interactive charts reveal hidden patterns',
       icon: <TrendUp size={48} className="text-blue-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-3 sm:space-y-4">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
           <div className={`w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-3 sm:p-6 border border-gray-700/30 transition-all duration-1000 ease-out transform ${
             animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-95 rotate-1'
           }`}>
@@ -548,7 +548,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'Advanced algorithms find patterns humans miss',
       icon: <Robot size={48} className="text-purple-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
           <div className={`max-w-md transition-all duration-1000 ease-out transform ${
             animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-95 -rotate-2'
           }`}>
@@ -637,7 +637,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'Click, explore, and share your discoveries',
       icon: <Target size={48} className="text-orange-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
           <div className={`grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 max-w-2xl transition-all duration-1000 ease-out ${
             animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}>
@@ -705,7 +705,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       subtitle: 'Let\'s find some amazing correlations!',
       icon: <Play size={48} className="text-yellow-400" />,
       content: (
-        <div className="h-60 sm:h-80 flex flex-col items-center justify-center space-y-4 sm:space-y-6">
+        <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
           <div className={`relative max-w-md transition-all duration-1200 ease-out transform ${
             animationStep >= 1 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 rotate-3'
           }`}>
@@ -941,30 +941,30 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   return (
     <div className="fixed inset-0 z-50 bg-gray-900">
       <SwirlBackground />
-      <div className="relative z-10 min-h-screen flex items-center justify-center p-2 sm:p-4">
-        <div className="max-w-4xl w-full">
-          {/* Main Slide Content - Fixed Container */}
+      <div className="relative z-10 min-h-screen p-4 sm:p-6 md:p-8">
+        <div className="w-full h-full">
+          {/* Main Slide Content - Card with Margin */}
           <div 
-            className="bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8 md:p-12"
+            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Fixed Header */}
-            <div className="text-center mb-6 sm:mb-8">
-              <div className="flex justify-center mb-3 sm:mb-4 scale-75 sm:scale-100">
+            <div className="text-center mb-4 sm:mb-6">
+              <div className="flex justify-center mb-2 sm:mb-3 scale-75 sm:scale-100">
                 {currentSlideData.icon}
               </div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-1 sm:mb-2">
                 {currentSlideData.title}
               </h1>
-              <p className="text-sm sm:text-base md:text-lg text-gray-400">
+              <p className="text-base sm:text-lg md:text-xl text-gray-400">
                 {currentSlideData.subtitle}
               </p>
             </div>
 
-            {/* Transitioning Content Container */}
-            <div className="mb-6 sm:mb-8">
-              <div className={`transition-all duration-500 ${
+            {/* Transitioning Content Container - Flex Grow */}
+            <div className="flex-1 flex items-center justify-center mb-4 sm:mb-6">
+              <div className={`w-full max-w-4xl transition-all duration-500 ${
                 isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
               }`}>
                 {currentSlideData.content}
@@ -985,7 +985,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
               <div className="flex items-center justify-between">
                 {/* Left side: Progress dots */}
-                <div className="flex gap-1">
+                <div className="flex gap-0.5 sm:gap-1">
                   {slides.map((_, index) => (
                     <button
                       key={index}
@@ -995,9 +995,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setIsPaused(true)
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
-                      className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                      className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
                         index === currentSlide 
-                          ? 'bg-cyan-400 shadow-md shadow-cyan-400/50' 
+                          ? 'bg-cyan-400 shadow-sm sm:shadow-md shadow-cyan-400/50' 
                           : index < currentSlide
                           ? 'bg-purple-400'
                           : 'bg-gray-600 hover:bg-gray-500'
@@ -1007,14 +1007,14 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 </div>
 
                 {/* Right side: Navigation buttons */}
-                <div className="flex items-center gap-2">
+                <div className="flex items-center gap-1 sm:gap-2">
                   <button
                     onClick={onComplete}
                     className="text-xs text-gray-400 hover:text-gray-300 transition-colors"
                   >
                     Skip intro
                   </button>
-                  <div className="flex gap-1">
+                  <div className="flex gap-0.5 sm:gap-1">
                     <button
                       onClick={() => {
                         prevSlide()
@@ -1023,13 +1023,14 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
                       disabled={currentSlide === 0}
-                      className={`p-1.5 rounded-md border transition-all duration-300 ${
+                      className={`px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border transition-all duration-300 ${
                         currentSlide === 0 
                           ? 'border-gray-700 text-gray-600 cursor-not-allowed' 
                           : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
                       }`}
                     >
-                      <CaretLeft size={12} />
+                      <CaretLeft size={10} className="sm:hidden" />
+                      <CaretLeft size={12} className="hidden sm:block" />
                     </button>
                     <button
                       onClick={() => {
@@ -1042,12 +1043,18 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                           setTimeout(() => setIsPaused(false), 1000)
                         }
                       }}
-                      className="p-1.5 rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 transition-all duration-300"
+                      className="px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 transition-all duration-300"
                     >
                       {currentSlide === slides.length - 1 ? (
-                        <Check size={12} />
+                        <>
+                          <Check size={10} className="sm:hidden" />
+                          <Check size={12} className="hidden sm:block" />
+                        </>
                       ) : (
-                        <CaretRight size={12} />
+                        <>
+                          <CaretRight size={10} className="sm:hidden" />
+                          <CaretRight size={12} className="hidden sm:block" />
+                        </>
                       )}
                     </button>
                   </div>
@@ -1056,17 +1063,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
               {/* Slide Counter and Status - Now inside the card */}
               <div className="flex items-center justify-between pt-2 border-t border-gray-700/30">
-                <div className="flex items-center gap-2 text-xs text-gray-400">
-                  <span>{currentSlide + 1} of {slides.length}</span>
+                <div className="flex items-center gap-1 sm:gap-2 text-xs text-gray-400">
+                  <span className="text-xs">{currentSlide + 1} of {slides.length}</span>
                   {isPaused && currentSlide < slides.length - 1 && (
                     <div className="flex items-center gap-1 text-yellow-400">
-                      <div className="w-1.5 h-1.5 bg-yellow-400 rounded-full"></div>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-yellow-400 rounded-full"></div>
                       <span className="text-xs">Paused</span>
                     </div>
                   )}
                   {currentSlide < slides.length - 1 && !isPaused && (
                     <div className="flex items-center gap-1 text-green-400">
-                      <div className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse"></div>
+                      <div className="w-1 h-1 sm:w-1.5 sm:h-1.5 bg-green-400 rounded-full animate-pulse"></div>
                       <span className="text-xs">Auto-advancing</span>
                     </div>
                   )}
