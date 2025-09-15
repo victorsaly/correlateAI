@@ -224,19 +224,55 @@ function App() {
         // Simulate initial loading time for better UX
         await new Promise(resolve => setTimeout(resolve, 1000))
         
-        // Use synthetic dataset count and stats
-        const count = datasets.length
-        const stats = {
-          real: 0, // Since we're using synthetic data only
-          ai: datasets.length, // All our datasets are AI-generated
-          total: datasets.length
+        // Count real datasets from public/data/ folder
+        let realDatasetCount = 0
+        try {
+          const response = await fetch('/data/summary.json')
+          if (response.ok) {
+            const summary = await response.json()
+            // Count datasets mentioned in summary, excluding summary itself
+            realDatasetCount = summary?.datasets?.length || 32 // Fallback to manual count
+          }
+        } catch (error) {
+          console.warn('Could not fetch real dataset summary, using fallback count')
+          realDatasetCount = 32 // Manual count based on FRED + World Bank data
         }
-        setTotalDatasetCount(count)
+
+        // Count AI-generated datasets from public/ai-data/ folder
+        let aiDatasetCount = 0
+        try {
+          const response = await fetch('/ai-data/generation_summary.json')
+          if (response.ok) {
+            const aiSummary = await response.json()
+            aiDatasetCount = aiSummary?.totalDatasets || 48 // Fallback based on directory listing
+          }
+        } catch (error) {
+          console.warn('Could not fetch AI dataset summary, using fallback count')
+          aiDatasetCount = 48 // Manual count based on generated files
+        }
+
+        // Also count synthetic datasets used in the app
+        const syntheticCount = datasets.length
+
+        const totalCount = realDatasetCount + aiDatasetCount + syntheticCount
+        const stats = {
+          real: realDatasetCount, // Real datasets from APIs (FRED, World Bank)
+          ai: aiDatasetCount + syntheticCount, // AI-generated + synthetic datasets
+          total: totalCount
+        }
+        
+        setTotalDatasetCount(totalCount)
         setDatasetStats(stats)
       } catch (error) {
         console.warn('Failed to load dataset count:', error)
-        setTotalDatasetCount(80) // Fallback value
-        setDatasetStats(null)
+        // Enhanced fallback with realistic counts
+        const fallbackStats = {
+          real: 32, // Known real datasets
+          ai: 48 + datasets.length, // AI datasets + synthetic
+          total: 32 + 48 + datasets.length
+        }
+        setTotalDatasetCount(fallbackStats.total)
+        setDatasetStats(fallbackStats)
       } finally {
         setIsAppLoading(false)
       }

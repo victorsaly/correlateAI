@@ -3,8 +3,8 @@ title: "Building CorrelateAI Pro: Advanced Interactive Data Visualization with R
 published: true
 description: "Learn how to build a professional correlation discovery platform with interactive charts, advanced export features, and AI-powered recommendations using React, TypeScript, and Recharts."
 tags: react, typescript, dataviz, frontend
-cover_image: ./assets/images/hero-image.png
-canonical_url: https://correlatepro.app
+cover_image: ./img/hero-interface-correlateai.jpeg
+canonical_url: https://correlateai.victorsaly.com
 series: Data Visualization
 ---
 
@@ -14,7 +14,7 @@ Have you ever wanted to build a professional-grade data visualization platform t
 
 > **⚡ Speed Development Alert:** This entire project was built from concept to production in under 8 hours using GitHub Copilot, Claude, and modern AI development tools. What used to take weeks now takes hours!
 
-![CorrelateAI Pro Hero Interface](https://victorsaly.github.io/correlateAI/docs/assets/images/hero-interface-correlateai.png)
+![CorrelateAI Pro Hero Interface](./public/img/hero-interface-correlateai.jpeg)
 *CorrelateAI Pro: Professional correlation discovery with interactive charts and AI-powered insights*
 
 ## 🎥 Live Demo
@@ -32,9 +32,6 @@ Before we dive into the code, check out CorrelateAI Pro in action:
 ## What We're Building 🎯
 
 CorrelateAI Pro is a sophisticated web application that helps users discover hidden correlations in data through:
-
-![CorrelateAI Pro Feature Overview](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-overview-grid.png)
-*The three major improvements that transformed CorrelateAI Pro in just hours*
 
 ### 🎯 **Interactive Chart Visualizations** 
 - Mouse-driven zoom and pan capabilities
@@ -62,9 +59,6 @@ CorrelateAI Pro is a sophisticated web application that helps users discover hid
 
 ## Tech Stack 🛠️
 
-![Tech Stack Visualization](https://victorsaly.github.io/correlateAI/docs/assets/images/tech-stack-visual.png)
-*Modern AI-assisted development stack: Built for speed and efficiency*
-
 | **Category** | **Technology** | **Why We Chose It** |
 |--------------|----------------|---------------------|
 | **Frontend** | React 19 + TypeScript | Latest features, type safety, excellent DX |
@@ -84,9 +78,6 @@ CorrelateAI Pro is a sophisticated web application that helps users discover hid
 - **Mobile**: Optimized for touch and small screens
 
 ## 🤖 AI-Assisted Development Process
-
-![AI Development Workflow](https://victorsaly.github.io/correlateAI/docs/assets/images/ai-development-workflow.png)
-*How AI tools accelerated development from weeks to hours*
 
 This project showcases the power of AI-assisted development. Here's how I leveraged AI to build a professional platform in record time:
 
@@ -134,9 +125,6 @@ Let's dive into the three major improvements that transformed this from a basic 
 
 ### 1. Advanced Chart Interactions with Zoom & Pan
 
-![Interactive Chart Demo](https://victorsaly.github.io/correlateAI/docs/assets/images/zoom-feature-demo.gif)
-*Smooth zoom selection with visual feedback - no more squinting at data points!*
-
 The first major improvement was implementing interactive chart capabilities that allow users to zoom into specific data ranges and explore correlations in detail.
 
 #### 🎯 The Challenge
@@ -149,9 +137,6 @@ Basic Recharts implementations provide static visualization, but professional ap
 #### 💡 The Solution
 
 Here's how we implemented the interactive zoom system:
-
-![Zoom Implementation Architecture](https://victorsaly.github.io/correlateAI/docs/assets/images/zoom-architecture.png)
-*State management flow for interactive chart zoom functionality*
 
 ```tsx
 // Chart interaction state management
@@ -207,9 +192,6 @@ const handleMouseUp = useCallback(() => {
 ```
 
 #### Visual Feedback Implementation
-
-![Zoom Selection Visual Feedback](https://victorsaly.github.io/correlateAI/docs/assets/images/zoom-selection-feedback.png)
-*Purple selection area with smooth transitions - professional UX that users love*
 
 ```tsx
 <ComposedChart
@@ -274,20 +256,13 @@ const handleMouseUp = useCallback(() => {
 - **Accessibility**: Keyboard navigation and screen reader support
 - **Performance**: Debounced mouse events prevent lag
 
-![Interactive Chart Zoom Result](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-zoom-result.png)
-*Zoomed view with data range selection - precise analysis made easy*
 
 ### 2. Enhanced Export Capabilities
-
-![Export System Demo](https://victorsaly.github.io/correlateAI/docs/assets/images/export-system-demo.gif)
-*From analysis to presentation in seconds - professional export system*
 
 The second major improvement introduced a comprehensive export system that transforms the app from a simple viewer into a professional analysis tool.
 
 #### 🎯 Export Features Implemented
 
-![Export Dropdown Interface](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-export-dropdown.png)
-*Professional export dropdown with multiple format options*
 
 **📊 Export Options:**
 - **🖼️ PNG Export**: High-resolution images (2x, 3x scaling) perfect for presentations
@@ -298,9 +273,6 @@ The second major improvement introduced a comprehensive export system that trans
 #### 🏗️ The Export System Architecture
 
 Here's how we built a professional-grade export system:
-
-![Export System Architecture](https://victorsaly.github.io/correlateAI/docs/assets/images/export-architecture.png)
-*Comprehensive export system with multiple output formats*
 
 ```tsx
 // PNG Export with HTML2Canvas
@@ -377,9 +349,6 @@ const exportAsJSON = useCallback(() => {
 ```
 
 #### Professional Export Dropdown
-
-![Export Menu Interface](https://victorsaly.github.io/correlateAI/docs/assets/images/export-menu-detailed.png)
-*Clean, intuitive export interface with icons and descriptions*
 
 ```tsx
 <DropdownMenu>
@@ -469,19 +438,19 @@ const exportAsJSON = useCallback(() => {
 - **Hover states**: Smooth transitions for better interaction
 - **Keyboard accessible**: Full keyboard navigation support
 
-![Export Results Example](https://victorsaly.github.io/correlateAI/docs/assets/images/export-results-showcase.png)
-*Example outputs: PNG image, CSV data, and JSON with metadata*
-
 ### 3. Smart Correlation Discovery with AI
 
-![Smart Discovery Demo](https://victorsaly.github.io/correlateAI/docs/assets/images/smart-discovery-demo.gif)
+<iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
+    src="https://www.canva.com/design/DAGzDbdKe_E/BgOE5E_gNwIl62XCjxGItQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
+  </iframe>
+  
 *AI-powered recommendations and intelligent filtering - let AI do the heavy lifting*
 
 The third and most exciting improvement introduced AI-powered recommendations and pattern discovery capabilities.
 
 #### 🤖 Smart Discovery Features
 
-![Smart Discovery Interface](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-discovery-tab.png)
+![Smart Discovery Interface](https://correlateai.victorsaly.com/img/feature-discovery-tab.jpeg)
 *The Discover tab: AI recommendations with advanced filtering capabilities*
 
 **🎯 Core Capabilities:**
@@ -493,9 +462,6 @@ The third and most exciting improvement introduced AI-powered recommendations an
 #### 🏗️ The Recommendation Engine
 
 Here's how we built the AI recommendation system:
-
-![AI Recommendation Architecture](https://victorsaly.github.io/correlateAI/docs/assets/images/ai-recommendation-flow.png)
-*Machine learning pipeline for intelligent correlation discovery*
 
 ```tsx
 // AI-powered correlation recommendations
@@ -566,7 +532,7 @@ const detectAnomalies = useCallback((data: DataPoint[]) => {
 
 #### Smart Discovery UI
 
-![Advanced Filtering System](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-discovery-filters.png)
+![Advanced Filtering System](https://correlateai.victorsaly.com/img/feature-discovery-filters.jpeg)
 *Clean white dropdowns with professional filtering options - fixed UI that users love*
 
 ```tsx
@@ -687,20 +653,11 @@ const detectAnomalies = useCallback((data: DataPoint[]) => {
 - **Grid layouts**: Responsive design that works on all screen sizes
 - **Color-coded badges**: Visual indicators for correlation strength
 
-![AI Recommendations in Action](https://victorsaly.github.io/correlateAI/docs/assets/images/ai-recommendations-showcase.png)
-*Smart recommendations with pattern analysis and strength indicators*
-
 ## UI/UX Polish & Professional Design 💎
-
-![UI Improvements Showcase](https://victorsaly.github.io/correlateAI/docs/assets/images/ui-improvements-before-after.png)
-*Before & After: Transforming the interface from good to exceptional*
 
 Beyond the core features, significant effort went into creating a professional, accessible interface that users love to interact with.
 
 ### 🎨 Design System Implementation
-
-![Design System Overview](https://victorsaly.github.io/correlateAI/docs/assets/images/design-system-showcase.png)
-*Consistent color palette, typography, and spacing throughout the application*
 
 **🌈 Color Palette:**
 - **Primary**: Purple (#8B5CF6) for brand identity and key actions
@@ -715,7 +672,7 @@ Beyond the core features, significant effort went into creating a professional, 
 
 ### 📱 Responsive Design Excellence
 
-![Mobile Responsive Design](https://victorsaly.github.io/correlateAI/docs/assets/images/mobile-responsive.png)
+![Mobile Responsive Design](https://correlateai.victorsaly.com/img/mobile-responsive.jpeg)
 *Seamless experience across desktop, tablet, and mobile devices*
 
 ```tsx
@@ -771,15 +728,9 @@ Beyond the core features, significant effort went into creating a professional, 
 
 ## Performance Optimizations ⚡
 
-![Performance Metrics Dashboard](https://victorsaly.github.io/correlateAI/docs/assets/images/performance-metrics.png)
-*Real performance metrics: Fast loading, smooth interactions, optimized bundle*
-
 Several performance optimizations ensure smooth user experience across all devices:
 
 ### 🚀 React Performance Patterns
-
-![Performance Optimization Flow](https://victorsaly.github.io/correlateAI/docs/assets/images/performance-optimization-flow.png)
-*Smart optimization techniques for 60fps interactions*
 
 ```tsx
 // 🎯 Memoized expensive calculations prevent unnecessary re-renders
@@ -870,9 +821,6 @@ Future enhancements planned:
 
 ## Try It Yourself! 🛠️
 
-![Getting Started Guide](https://victorsaly.github.io/correlateAI/docs/assets/images/getting-started-guide.png)
-*Quick setup guide: From clone to running in under 2 minutes*
-
 The complete source code is available on GitHub with comprehensive documentation:
 
 ### 🚀 **Quick Start**
@@ -916,9 +864,6 @@ correlateAI/
 
 ## What's Next? 🔮
 
-![Roadmap Visualization](https://victorsaly.github.io/correlateAI/docs/assets/images/feature-roadmap.png)
-*Exciting features coming soon - join the journey!*
-
 The future of CorrelateAI Pro is bright with these planned enhancements:
 
 ### 🌟 **Coming Soon**
@@ -936,7 +881,7 @@ The future of CorrelateAI Pro is bright with these planned enhancements:
 
 ## Conclusion 🎉
 
-![Project Success Metrics](https://victorsaly.github.io/correlateAI/docs/assets/images/project-success-metrics.png)
+![Project Success Metrics](./public/img/project-success-metrics.jpeg)
 *From concept to production: Building professional data visualization that users love*
 
 Building CorrelateAI Pro demonstrates the incredible power of AI-assisted development. What traditionally would take weeks of development was accomplished in just **8 hours** using modern AI tools like GitHub Copilot and Claude. The combination of React's component architecture, TypeScript's type safety, Recharts' powerful visualization capabilities, and AI-powered code generation enables revolutionary development speed.
