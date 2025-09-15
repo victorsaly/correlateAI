@@ -10,7 +10,7 @@
   "citation": "Walk Score Urban Walkability Research (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-09-15T07:21:45.039Z",
+  "aiGeneratedAt": "2025-09-15T07:48:27.254Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "Low",
   "seasonal": "No",
   "covidImpact": "None",
-  "lastUpdated": "2025-09-15T07:21:45.039Z",
+  "lastUpdated": "2025-09-15T07:48:27.254Z",
   "tags": [
     "housing",
     "ai-generated",

@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.ici.org/research/stats/retirement/data_401k",
     "citation": "Investment Company Institute Robo-Advisor Study (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
+    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
     "filename": "finance-robo-advisor-assets"
   },
   "data": [
     {
       "year": 2014,
-      "value": 137.86,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 147.24,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2015,
-      "value": 203.47,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 201.82,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2016,
-      "value": 300.45,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 328.05,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2017,
-      "value": 408.24,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 427.41,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2018,
-      "value": 537.21,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 446.04,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2019,
-      "value": 513.75,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 564.39,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2020,
-      "value": 615.83,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 718.6,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2021,
-      "value": 861.92,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 680.82,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2022,
-      "value": 917.32,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 778.02,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2023,
-      "value": 810.04,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 997.53,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     },
     {
       "year": 2024,
-      "value": 962.48,
-      "generatedAt": "2025-09-15T07:21:44.912Z"
+      "value": 1080.42,
+      "generatedAt": "2025-09-15T07:48:27.232Z"
     }
   ]
 }

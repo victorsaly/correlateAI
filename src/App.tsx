@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsOut, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, Eye, Lightbulb } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -230,6 +230,17 @@ function App() {
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
+  const [correlationFilters, setCorrelationFilters] = useState<{
+    minStrength: number
+    maxStrength: number
+    dataType: 'all' | 'real' | 'ai'
+  }>({
+    minStrength: 0,
+    maxStrength: 1,
+    dataType: 'all'
+  })
+  const [recommendedCorrelations, setRecommendedCorrelations] = useState<CorrelationData[]>([])
+  const [showRecommendations, setShowRecommendations] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
@@ -319,6 +330,110 @@ function App() {
     }
   }, [selectedCategory])
 
+  // Smart correlation discovery functions
+  const generateSimilarCorrelations = useCallback((baseCorrelation: CorrelationData, count: number = 3) => {
+    const similarCorrelations: CorrelationData[] = []
+    
+    for (let i = 0; i < count; i++) {
+      const similar = generateCorrelationData(baseCorrelation.variable1.category || 'economics')
+      // Adjust correlation to be similar strength
+      const targetCorrelation = baseCorrelation.correlation + (Math.random() - 0.5) * 0.3
+      similar.correlation = Math.max(-1, Math.min(1, targetCorrelation))
+      similar.rSquared = similar.correlation * similar.correlation
+      similar.id = `similar-${Date.now()}-${i}`
+      similar.title = `Similar: ${similar.title}`
+      similar.description = `Based on ${baseCorrelation.title} - ${similar.description}`
+      
+      similarCorrelations.push(similar)
+    }
+    
+    return similarCorrelations
+  }, [])
+
+  const detectPatternAnomalies = useCallback((correlation: CorrelationData) => {
+    const data = correlation.data
+    const insights: string[] = []
+    
+    // Check for sudden changes
+    for (let i = 1; i < data.length - 1; i++) {
+      const prev = data[i - 1]
+      const curr = data[i]
+      const next = data[i + 1]
+      
+      const change1 = Math.abs(curr.value1 - prev.value1) / prev.value1
+      const change2 = Math.abs(curr.value2 - prev.value2) / prev.value2
+      
+      if (change1 > 0.2 || change2 > 0.2) {
+        insights.push(`📈 Significant change detected in ${curr.year}`)
+      }
+      
+      // Check for correlation breakdown
+      const localCorr1 = (curr.value1 - prev.value1) * (curr.value2 - prev.value2)
+      const localCorr2 = (next.value1 - curr.value1) * (next.value2 - curr.value2)
+      
+      if (localCorr1 * localCorr2 < 0) {
+        insights.push(`⚠️ Correlation pattern shifts around ${curr.year}`)
+      }
+    }
+    
+    // Check overall strength
+    if (Math.abs(correlation.correlation) > 0.8) {
+      insights.push(`🔥 Exceptionally strong correlation (${(correlation.correlation * 100).toFixed(1)}%)`)
+    } else if (Math.abs(correlation.correlation) < 0.2) {
+      insights.push(`🎲 Weak correlation - may be coincidental`)
+    }
+    
+    return insights
+  }, [])
+
+  const generateSmartRecommendations = useCallback(() => {
+    const recommendations: CorrelationData[] = []
+    
+    // Generate high-correlation examples
+    const strongCorrelation = generateCorrelationData()
+    strongCorrelation.correlation = 0.85 + Math.random() * 0.1
+    strongCorrelation.rSquared = strongCorrelation.correlation * strongCorrelation.correlation
+    strongCorrelation.title = `🔥 Strong: ${strongCorrelation.title}`
+    strongCorrelation.id = `strong-${Date.now()}`
+    recommendations.push(strongCorrelation)
+    
+    // Generate interesting weak correlation
+    const weakCorrelation = generateCorrelationData('social')
+    weakCorrelation.correlation = (Math.random() - 0.5) * 0.4
+    weakCorrelation.rSquared = weakCorrelation.correlation * weakCorrelation.correlation
+    weakCorrelation.title = `🎲 Surprising: ${weakCorrelation.title}`
+    weakCorrelation.id = `weak-${Date.now()}`
+    recommendations.push(weakCorrelation)
+    
+    // Generate real data correlation if available
+    generateRealDataCorrelation().then(realCorrelation => {
+      if (realCorrelation) {
+        realCorrelation.title = `📊 Real Data: ${realCorrelation.title}`
+        realCorrelation.id = `real-${Date.now()}`
+        setRecommendedCorrelations([...recommendations, realCorrelation])
+      } else {
+        setRecommendedCorrelations(recommendations)
+      }
+    }).catch(() => {
+      setRecommendedCorrelations(recommendations)
+    })
+    
+    setShowRecommendations(true)
+    toast.success("Smart recommendations generated!")
+  }, [])
+
+  const filterCorrelationsByStrength = useCallback((correlations: CorrelationData[], filters: typeof correlationFilters) => {
+    return correlations.filter(corr => {
+      const strength = Math.abs(corr.correlation)
+      if (strength < filters.minStrength || strength > filters.maxStrength) return false
+      
+      if (filters.dataType === 'real' && !corr.isRealData) return false
+      if (filters.dataType === 'ai' && corr.isRealData) return false
+      
+      return true
+    })
+  }, [])
+
   const toggleFavorite = useCallback((correlation: CorrelationData) => {
     const exists = favorites.find(fav => fav.id === correlation.id)
     if (exists) {
@@ -381,7 +496,7 @@ function App() {
     toast.success("Opening Facebook share dialog!")
   }, [generateShareText])
 
-  const downloadAsImage = useCallback(async (correlation: CorrelationData) => {
+  const downloadAsImage = useCallback(async (correlation: CorrelationData, scale: number = 2) => {
     if (!shareCardRef.current) {
       toast.error("Share card not found. Try again in a moment.")
       return
@@ -393,7 +508,7 @@ function App() {
       
       const canvas = await html2canvas(shareCardRef.current, {
         backgroundColor: '#ffffff',
-        scale: 2,
+        scale: scale,
         useCORS: true,
         allowTaint: true,
         height: shareCardRef.current.offsetHeight,
@@ -401,11 +516,12 @@ function App() {
       })
       
       const link = document.createElement('a')
-      link.download = `correlation-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.png`
+      const scaleText = scale > 2 ? `-${scale}x` : ''
+      link.download = `correlation-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}${scaleText}.png`
       link.href = canvas.toDataURL('image/png')
       link.click()
       
-      toast.success("Correlation card downloaded!")
+      toast.success(`Correlation card downloaded! (${scale}x resolution)`)
     } catch (error) {
       console.error('Error generating image:', error)
       toast.error("Failed to download image. Please try again.")
@@ -471,24 +587,30 @@ function App() {
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className={`grid w-full grid-cols-3 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-12 rounded-lg' : 'rounded-md'}`}>
+          <TabsList className={`grid w-full grid-cols-4 mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-14 rounded-xl p-1' : 'h-12 rounded-lg p-1'}`}>
             <TabsTrigger 
               value="generator" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
             >
               {isMobile ? "Generate" : "Generate"}
             </TabsTrigger>
             <TabsTrigger 
               value="favorites" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
             >
-              {isMobile ? `❤ (${favorites?.length || 0})` : `Favorites (${favorites?.length || 0})`}
+              {isMobile ? `❤ ${favorites?.length || 0}` : `Favorites (${favorites?.length || 0})`}
+            </TabsTrigger>
+            <TabsTrigger 
+              value="discover" 
+              className={`text-gray-300 data-[state=active]:text-purple-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
+            >
+              {isMobile ? "🔮 Discover" : "🔮 Discover"}
             </TabsTrigger>
             <TabsTrigger 
               value="story" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 h-10 text-sm rounded-md' : 'px-4 py-2'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
             >
-              {isMobile ? "Story" : "AI Development Story"}
+              {isMobile ? "Story" : "AI Story"}
             </TabsTrigger>
           </TabsList>
           
@@ -559,6 +681,210 @@ function App() {
                 ))}
               </div>
             )}
+          </TabsContent>
+          
+          <TabsContent value="discover" className="space-y-6 sm:space-y-8">
+            <div className="max-w-5xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className={`${isMobile ? 'text-xl' : 'text-3xl'} font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent mb-4`}>
+                  🔮 Smart Correlation Discovery
+                </h2>
+                <p className={`${isMobile ? 'text-sm px-4' : 'text-lg'} text-gray-400 mb-6`}>
+                  AI-powered recommendations and pattern analysis
+                </p>
+                
+                {/* Quick Actions */}
+                <div className={`flex ${isMobile ? 'flex-col gap-3' : 'gap-4 justify-center'} mb-8`}>
+                  <Button
+                    onClick={generateSmartRecommendations}
+                    className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800"
+                  >
+                    <Lightbulb size={16} className="mr-2" />
+                    Generate Smart Recommendations
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      const insights = detectPatternAnomalies(currentCorrelation)
+                      if (insights.length > 0) {
+                        toast.success(`Found ${insights.length} insights!`)
+                        insights.forEach((insight, i) => {
+                          setTimeout(() => toast.info(insight), i * 1000)
+                        })
+                      } else {
+                        toast.info("No unusual patterns detected")
+                      }
+                    }}
+                    className="border-purple-600 text-purple-400 hover:bg-purple-600/10"
+                  >
+                    <Eye size={16} className="mr-2" />
+                    Analyze Current Pattern
+                  </Button>
+                </div>
+              </div>
+
+              {/* Correlation Strength Filter */}
+              <Card className="bg-gray-800/50 border-gray-700/50 mb-6">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-gray-200">
+                    <Sliders size={20} />
+                    Correlation Filters
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className={`grid ${isMobile ? 'grid-cols-1 gap-4' : 'grid-cols-3 gap-6'}`}>
+                    <div>
+                      <Label className="text-gray-300 text-sm mb-2 block">Min Strength</Label>
+                      <Select 
+                        value={correlationFilters.minStrength.toString()} 
+                        onValueChange={(value) => setCorrelationFilters(prev => ({ ...prev, minStrength: parseFloat(value) }))}
+                      >
+                        <SelectTrigger className="bg-white border-gray-300 text-gray-900 hover:bg-gray-50">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-300">
+                          <SelectItem value="0" className="text-gray-900 hover:bg-gray-100">Any (0%)</SelectItem>
+                          <SelectItem value="0.3" className="text-gray-900 hover:bg-gray-100">Moderate (30%)</SelectItem>
+                          <SelectItem value="0.5" className="text-gray-900 hover:bg-gray-100">Strong (50%)</SelectItem>
+                          <SelectItem value="0.7" className="text-gray-900 hover:bg-gray-100">Very Strong (70%)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label className="text-gray-300 text-sm mb-2 block">Max Strength</Label>
+                      <Select 
+                        value={correlationFilters.maxStrength.toString()} 
+                        onValueChange={(value) => setCorrelationFilters(prev => ({ ...prev, maxStrength: parseFloat(value) }))}
+                      >
+                        <SelectTrigger className="bg-white border-gray-300 text-gray-900 hover:bg-gray-50">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-300">
+                          <SelectItem value="0.5" className="text-gray-900 hover:bg-gray-100">Up to Strong (50%)</SelectItem>
+                          <SelectItem value="0.7" className="text-gray-900 hover:bg-gray-100">Up to Very Strong (70%)</SelectItem>
+                          <SelectItem value="1" className="text-gray-900 hover:bg-gray-100">Any (100%)</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                    <div>
+                      <Label className="text-gray-300 text-sm mb-2 block">Data Type</Label>
+                      <Select 
+                        value={correlationFilters.dataType} 
+                        onValueChange={(value) => setCorrelationFilters(prev => ({ ...prev, dataType: value as 'all' | 'real' | 'ai' }))}
+                      >
+                        <SelectTrigger className="bg-white border-gray-300 text-gray-900 hover:bg-gray-50">
+                          <SelectValue />
+                        </SelectTrigger>
+                        <SelectContent className="bg-white border-gray-300">
+                          <SelectItem value="all" className="text-gray-900 hover:bg-gray-100">All Data</SelectItem>
+                          <SelectItem value="real" className="text-gray-900 hover:bg-gray-100">Real Data Only</SelectItem>
+                          <SelectItem value="ai" className="text-gray-900 hover:bg-gray-100">AI Generated Only</SelectItem>
+                        </SelectContent>
+                      </Select>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Smart Recommendations */}
+              {showRecommendations && recommendedCorrelations.length > 0 && (
+                <div className="space-y-6">
+                  <div className="flex items-center justify-between">
+                    <h3 className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold text-gray-200`}>
+                      Smart Recommendations
+                    </h3>
+                    <Button 
+                      variant="ghost" 
+                      size="sm"
+                      onClick={() => setShowRecommendations(false)}
+                      className="text-gray-400 hover:text-gray-300"
+                    >
+                      ✕ Hide
+                    </Button>
+                  </div>
+                  <div className="space-y-4">
+                    {filterCorrelationsByStrength(recommendedCorrelations, correlationFilters).map(correlation => (
+                      <CorrelationCard key={correlation.id} correlation={correlation} />
+                    ))}
+                  </div>
+                  
+                  {filterCorrelationsByStrength(recommendedCorrelations, correlationFilters).length === 0 && (
+                    <Card className="text-center py-8 bg-gray-800/30 border-gray-700/50">
+                      <CardContent>
+                        <p className="text-gray-400">No correlations match your current filters</p>
+                        <Button 
+                          variant="outline" 
+                          size="sm" 
+                          onClick={() => setCorrelationFilters({ minStrength: 0, maxStrength: 1, dataType: 'all' })}
+                          className="mt-3"
+                        >
+                          Reset Filters
+                        </Button>
+                      </CardContent>
+                    </Card>
+                  )}
+                </div>
+              )}
+
+              {/* Pattern Insights for Current Correlation */}
+              <Card className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 border-purple-700/50">
+                <CardHeader>
+                  <CardTitle className="flex items-center gap-2 text-purple-300">
+                    <Robot size={20} />
+                    AI Pattern Analysis
+                  </CardTitle>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-3">
+                    {detectPatternAnomalies(currentCorrelation).length > 0 ? (
+                      detectPatternAnomalies(currentCorrelation).map((insight, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-purple-800/20 rounded-lg">
+                          <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                          <p className="text-purple-200 text-sm">{insight}</p>
+                        </div>
+                      ))
+                    ) : (
+                      <div className="text-center py-6">
+                        <Robot size={48} className="mx-auto text-purple-500 mb-3" />
+                        <p className="text-purple-300">No unusual patterns detected</p>
+                        <p className="text-purple-400 text-sm mt-1">The correlation follows expected statistical behavior</p>
+                      </div>
+                    )}
+                  </div>
+                </CardContent>
+              </Card>
+
+              {/* Similar Correlations */}
+              <Card className="bg-gray-800/50 border-gray-700/50">
+                <CardHeader>
+                  <div className="flex items-center justify-between">
+                    <CardTitle className="flex items-center gap-2 text-gray-200">
+                      <Target size={20} />
+                      Similar Correlations
+                    </CardTitle>
+                    <Button 
+                      variant="outline" 
+                      size="sm"
+                      onClick={() => {
+                        const similar = generateSimilarCorrelations(currentCorrelation)
+                        setRecommendedCorrelations(similar)
+                        setShowRecommendations(true)
+                        toast.success(`Generated ${similar.length} similar correlations!`)
+                      }}
+                      className="border-gray-600 text-gray-300 hover:bg-gray-700"
+                    >
+                      Generate Similar
+                    </Button>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-gray-400 text-sm">
+                    Based on your current correlation ({currentCorrelation.title}), 
+                    we can generate similar patterns with comparable statistical properties.
+                  </p>
+                </CardContent>
+              </Card>
+            </div>
           </TabsContent>
           
           <TabsContent value="story" className="space-y-6 sm:space-y-8">
@@ -1108,6 +1434,16 @@ function CorrelationCard({ correlation, isShareable = false }: { correlation: Co
   const isMobile = useIsMobile()
   const shareCardRef = useRef<HTMLDivElement>(null)
   
+  // Chart zoom/pan state
+  const [zoomState, setZoomState] = useState<{
+    refAreaLeft?: string | number
+    refAreaRight?: string | number
+    left?: string | number
+    right?: string | number
+    animation?: boolean
+  }>({ animation: true })
+  const [isZooming, setIsZooming] = useState(false)
+  
   const getCorrelationColor = (correlation: number) => {
     const abs = Math.abs(correlation)
     if (abs >= 0.8) return 'text-red-600 font-bold'
@@ -1124,10 +1460,202 @@ function CorrelationCard({ correlation, isShareable = false }: { correlation: Co
     return 'Weak'
   }
 
+  // Chart zoom functionality
+  const zoomOut = useCallback(() => {
+    setZoomState({ 
+      refAreaLeft: undefined, 
+      refAreaRight: undefined,
+      left: 'dataMin',
+      right: 'dataMax',
+      animation: true
+    })
+  }, [])
+
+  const zoom = useCallback(() => {
+    let { refAreaLeft, refAreaRight } = zoomState
+    const { data } = correlation
+
+    if (refAreaLeft === refAreaRight || !refAreaLeft || !refAreaRight) {
+      setZoomState(prev => ({ ...prev, refAreaLeft: undefined, refAreaRight: undefined }))
+      return
+    }
+
+    // Ensure left is smaller than right
+    if (refAreaLeft > refAreaRight) [refAreaLeft, refAreaRight] = [refAreaRight, refAreaLeft]
+
+    setZoomState({
+      refAreaLeft: undefined,
+      refAreaRight: undefined,
+      left: refAreaLeft,
+      right: refAreaRight,
+      animation: false
+    })
+  }, [zoomState, correlation])
+
+  const handleMouseDown = useCallback((e: any) => {
+    if (e?.activeLabel) {
+      setZoomState(prev => ({ ...prev, refAreaLeft: e.activeLabel }))
+      setIsZooming(true)
+    }
+  }, [])
+
+  const handleMouseMove = useCallback((e: any) => {
+    if (isZooming && e?.activeLabel && zoomState.refAreaLeft) {
+      setZoomState(prev => ({ ...prev, refAreaRight: e.activeLabel }))
+    }
+  }, [isZooming, zoomState.refAreaLeft])
+
+  const handleMouseUp = useCallback(() => {
+    if (isZooming) {
+      zoom()
+      setIsZooming(false)
+    }
+  }, [isZooming, zoom])
+
   const copyToClipboard = useCallback((text: string) => {
     navigator.clipboard.writeText(text)
     toast.success("Citation copied to clipboard!")
   }, [])
+
+  const downloadAsImage = useCallback(async (scale: number = 2) => {
+    if (!shareCardRef.current) {
+      toast.error("Share card not found. Try again in a moment.")
+      return
+    }
+
+    try {
+      // Dynamic import to avoid bundling issues
+      const html2canvas = (await import('html2canvas')).default
+      
+      const canvas = await html2canvas(shareCardRef.current, {
+        backgroundColor: '#ffffff',
+        scale: scale,
+        useCORS: true,
+        allowTaint: true,
+        height: shareCardRef.current.offsetHeight,
+        width: shareCardRef.current.offsetWidth
+      })
+      
+      const link = document.createElement('a')
+      const scaleText = scale > 2 ? `-${scale}x` : ''
+      link.download = `correlation-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}${scaleText}.png`
+      link.href = canvas.toDataURL('image/png')
+      link.click()
+      
+      toast.success(`Correlation card downloaded! (${scale}x resolution)`)
+    } catch (error) {
+      console.error('Error generating image:', error)
+      toast.error("Failed to download image. Please try again.")
+    }
+  }, [correlation.title])
+
+  const exportAsCSV = useCallback(() => {
+    try {
+      // Create CSV header
+      const headers = ['Year', correlation.variable1.name, correlation.variable2.name]
+      const csvContent = [
+        headers.join(','),
+        ...correlation.data.map(row => 
+          `${row.year},${row.value1.toFixed(4)},${row.value2.toFixed(4)}`
+        )
+      ].join('\n')
+
+      // Add metadata as comments
+      const metadataContent = [
+        `# Correlation Analysis: ${correlation.title}`,
+        `# Correlation Coefficient: ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation.toFixed(4)}`,
+        `# R-Squared: ${correlation.rSquared.toFixed(4)}`,
+        `# Data Source: ${correlation.isRealData ? correlation.dataSource : 'AI Generated'}`,
+        `# Generated: ${new Date().toISOString()}`,
+        `# Description: ${correlation.description}`,
+        ''
+      ].join('\n')
+
+      const fullContent = metadataContent + csvContent
+
+      const blob = new Blob([fullContent], { type: 'text/csv;charset=utf-8;' })
+      const link = document.createElement('a')
+      
+      if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob)
+        link.setAttribute('href', url)
+        link.setAttribute('download', `correlation-data-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.csv`)
+        link.style.visibility = 'hidden'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }
+      
+      toast.success("CSV data exported successfully!")
+    } catch (error) {
+      console.error('Error exporting CSV:', error)
+      toast.error("Failed to export CSV. Please try again.")
+    }
+  }, [correlation])
+
+  const exportAsJSON = useCallback(() => {
+    try {
+      const exportData = {
+        metadata: {
+          title: correlation.title,
+          description: correlation.description,
+          correlation: correlation.correlation,
+          rSquared: correlation.rSquared,
+          dataSource: correlation.isRealData ? correlation.dataSource : 'AI Generated',
+          isRealData: correlation.isRealData,
+          exportedAt: new Date().toISOString(),
+          variable1: {
+            name: correlation.variable1.name,
+            unit: (correlation.variable1 as any).unit || 'units'
+          },
+          variable2: {
+            name: correlation.variable2.name,
+            unit: (correlation.variable2 as any).unit || 'units'
+          }
+        },
+        data: correlation.data,
+        citation: correlation.citation
+      }
+
+      const jsonContent = JSON.stringify(exportData, null, 2)
+      const blob = new Blob([jsonContent], { type: 'application/json;charset=utf-8;' })
+      const link = document.createElement('a')
+      
+      if (link.download !== undefined) {
+        const url = URL.createObjectURL(blob)
+        link.setAttribute('href', url)
+        link.setAttribute('download', `correlation-data-${correlation.title.replace(/[^a-z0-9]/gi, '-').toLowerCase()}.json`)
+        link.style.visibility = 'hidden'
+        document.body.appendChild(link)
+        link.click()
+        document.body.removeChild(link)
+      }
+      
+      toast.success("JSON data exported successfully!")
+    } catch (error) {
+      console.error('Error exporting JSON:', error)
+      toast.error("Failed to export JSON. Please try again.")
+    }
+  }, [correlation])
+
+  const generateShareableURL = useCallback(() => {
+    try {
+      const params = new URLSearchParams({
+        id: correlation.id,
+        title: correlation.title,
+        correlation: correlation.correlation.toString(),
+        var1: correlation.variable1.name,
+        var2: correlation.variable2.name
+      })
+      
+      const shareableURL = `${window.location.origin}${window.location.pathname}?${params.toString()}`
+      navigator.clipboard.writeText(shareableURL)
+      toast.success("Shareable URL copied to clipboard!")
+    } catch (error) {
+      console.error('Error generating shareable URL:', error)
+      toast.error("Failed to generate shareable URL.")
+    }
+  }, [correlation])
 
   const shareCard = useCallback((correlation: CorrelationData) => {
     const text = `Interesting correlation: ${correlation.title} (r=${correlation.correlation > 0 ? '+' : ''}${correlation.correlation})`
@@ -1177,16 +1705,50 @@ function CorrelationCard({ correlation, isShareable = false }: { correlation: Co
           
           <div className={`flex gap-2 ${isMobile ? 'w-full justify-between' : 'flex-col'}`}>
             {isShareable && (
-              <Button
-                variant="ghost"
-                size="icon"
-                className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
-                onClick={() => shareCard(correlation)}
-                title="Share this correlation"
-              >
-                <Share size={16} />
-              </Button>
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
+                    title="Export options"
+                  >
+                    <Download size={16} />
+                  </Button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-56">
+                  <DropdownMenuItem onClick={() => downloadAsImage(2)}>
+                    <ImageSquare size={16} className="mr-2" />
+                    Download PNG (2x)
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => downloadAsImage(3)}>
+                    <ImageSquare size={16} className="mr-2" />
+                    Download PNG (3x)
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => exportAsCSV()}>
+                    <FileCsv size={16} className="mr-2" />
+                    Export as CSV
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => exportAsJSON()}>
+                    <FileText size={16} className="mr-2" />
+                    Export as JSON
+                  </DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => generateShareableURL()}>
+                    <Link size={16} className="mr-2" />
+                    Copy Shareable Link
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
             )}
+            <Button
+              variant="ghost"
+              size="icon"
+              className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
+              onClick={() => shareCard(correlation)}
+              title="Share this correlation"
+            >
+              <Share size={16} />
+            </Button>
             <Button
               variant="ghost"
               size="icon"
@@ -1260,6 +1822,134 @@ function CorrelationCard({ correlation, isShareable = false }: { correlation: Co
                   </p>
                 </div>
               </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Chart Visualization */}
+        <div className="mt-6">
+          {/* Chart Controls */}
+          <div className="flex items-center justify-between mb-3">
+            <div className="flex items-center gap-2">
+              <span className="text-sm text-gray-400">Interactive Chart:</span>
+              <span className="text-xs text-gray-500">Click & drag to zoom</span>
+            </div>
+            <div className="flex gap-1">
+              <Button 
+                variant="ghost" 
+                size="sm" 
+                onClick={zoomOut}
+                className="text-gray-400 hover:text-cyan-400 h-8 px-2"
+                title="Reset zoom"
+              >
+                <ArrowsOut size={14} />
+              </Button>
+            </div>
+          </div>
+          
+          <div className={`h-64 sm:h-80 ${isMobile ? 'px-2' : ''}`}>
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart 
+                data={correlation.data} 
+                margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                onMouseDown={handleMouseDown}
+                onMouseMove={handleMouseMove}
+                onMouseUp={handleMouseUp}
+              >
+                <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
+                <XAxis 
+                  dataKey="year" 
+                  stroke="#9CA3AF" 
+                  fontSize={isMobile ? 10 : 12}
+                  tick={{ fill: '#9CA3AF' }}
+                  domain={[zoomState.left || 'dataMin', zoomState.right || 'dataMax']}
+                />
+                <YAxis 
+                  yAxisId="left" 
+                  stroke="#06B6D4" 
+                  fontSize={isMobile ? 10 : 12}
+                  tick={{ fill: '#06B6D4' }}
+                  width={isMobile ? 40 : 60}
+                />
+                <YAxis 
+                  yAxisId="right" 
+                  orientation="right" 
+                  stroke="#A855F7" 
+                  fontSize={isMobile ? 10 : 12}
+                  tick={{ fill: '#A855F7' }}
+                  width={isMobile ? 40 : 60}
+                />
+                <Tooltip
+                  contentStyle={{
+                    backgroundColor: '#1F2937',
+                    border: '1px solid #374151',
+                    borderRadius: '8px',
+                    fontSize: isMobile ? '12px' : '14px'
+                  }}
+                  labelStyle={{ color: '#F3F4F6' }}
+                />
+                
+                {/* Zoom selection area */}
+                {zoomState.refAreaLeft && zoomState.refAreaRight && (
+                  <ReferenceArea
+                    yAxisId="left"
+                    x1={zoomState.refAreaLeft}
+                    x2={zoomState.refAreaRight}
+                    strokeOpacity={0.3}
+                    fill="#06B6D4"
+                    fillOpacity={0.1}
+                  />
+                )}
+                
+                <Line
+                  yAxisId="left"
+                  type="monotone"
+                  dataKey="value1"
+                  stroke="#06B6D4"
+                  strokeWidth={2}
+                  dot={{ fill: '#06B6D4', strokeWidth: 2, r: isMobile ? 3 : 4 }}
+                  activeDot={{ r: isMobile ? 5 : 6, stroke: '#06B6D4', strokeWidth: 2 }}
+                  name={correlation.variable1.name}
+                  animationDuration={zoomState.animation ? 1000 : 0}
+                />
+                <Line
+                  yAxisId="right"
+                  type="monotone"
+                  dataKey="value2"
+                  stroke="#A855F7"
+                  strokeWidth={2}
+                  dot={{ fill: '#A855F7', strokeWidth: 2, r: isMobile ? 3 : 4 }}
+                  activeDot={{ r: isMobile ? 5 : 6, stroke: '#A855F7', strokeWidth: 2 }}
+                  name={correlation.variable2.name}
+                  animationDuration={zoomState.animation ? 1000 : 0}
+                />
+              </LineChart>
+            </ResponsiveContainer>
+          </div>
+          
+          {/* Chart Legend */}
+          <div className={`flex ${isMobile ? 'flex-col gap-2' : 'justify-center gap-6'} mt-3`}>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-cyan-400 rounded-full"></div>
+              <span className={`text-cyan-400 font-medium ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                {correlation.variable1.name}
+              </span>
+              {!isMobile && (
+                <span className="text-gray-500 text-xs">
+                  ({(correlation.variable1 as any).unit || 'units'})
+                </span>
+              )}
+            </div>
+            <div className="flex items-center gap-2">
+              <div className="w-3 h-3 bg-purple-400 rounded-full"></div>
+              <span className={`text-purple-400 font-medium ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                {correlation.variable2.name}
+              </span>
+              {!isMobile && (
+                <span className="text-gray-500 text-xs">
+                  ({(correlation.variable2 as any).unit || 'units'})
+                </span>
+              )}
             </div>
           </div>
         </div>

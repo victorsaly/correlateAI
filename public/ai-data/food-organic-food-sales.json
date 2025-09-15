@@ -9,64 +9,64 @@
     "sourceUrl": "https://ota.com/resources/market-analysis",
     "citation": "Organic Trade Association Organic Industry Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
+    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
     "filename": "food-organic-food-sales"
   },
   "data": [
     {
       "year": 2014,
-      "value": 34.42,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 34.61,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2015,
-      "value": 40,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 40.05,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2016,
-      "value": 45.83,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 46.03,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2017,
-      "value": 51.27,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 51.31,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2018,
-      "value": 57.83,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 57.7,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2019,
-      "value": 62.69,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 63.94,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2020,
-      "value": 69.77,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 68.49,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2021,
-      "value": 75.06,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 74.44,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2022,
-      "value": 81.25,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 81.1,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2023,
-      "value": 86.72,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 86.38,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     },
     {
       "year": 2024,
-      "value": 91.53,
-      "generatedAt": "2025-09-15T07:21:45.024Z"
+      "value": 93.27,
+      "generatedAt": "2025-09-15T07:48:27.247Z"
     }
   ]
 }

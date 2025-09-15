@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.uspto.gov/web/offices/ac/ido/oeip/taf/reports.htm",
     "citation": "US Patent & Trademark Office AI Classification (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:21:44.698Z",
+    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
     "filename": "technology-ai-patent-applications"
   },
   "data": [
     {
       "year": 2014,
-      "value": 445.17,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 6187.64,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2015,
-      "value": 7319.83,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 492.02,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2016,
-      "value": 7255.79,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 5983.44,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2017,
-      "value": 5081.99,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 1201.66,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2018,
-      "value": 8382.06,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 9055.57,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2019,
-      "value": 4498.04,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 6296.75,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2020,
-      "value": 9238.3,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 15993.6,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2021,
-      "value": 1816.82,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 10554.62,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2022,
-      "value": 11559.41,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 6447.58,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2023,
-      "value": 16355.45,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 8915.42,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     },
     {
       "year": 2024,
-      "value": 3312.82,
-      "generatedAt": "2025-09-15T07:21:44.724Z"
+      "value": 5518.1,
+      "generatedAt": "2025-09-15T07:48:27.196Z"
     }
   ]
 }
