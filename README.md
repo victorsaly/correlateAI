@@ -12,6 +12,9 @@
 
 **Discover surprising correlations in real economic data using AI-powered analysis.**
 
+![CorrelateAI Pro Interface](./public/img/hero-interface-correlateai.jpeg)
+*Professional data correlation interface with real-time economic data visualization*
+
 ## 🚀 Quick Start (5 Minutes)
 
 ### Secure Setup
@@ -30,6 +33,9 @@
 ## ✨ What Makes This Special?
 
 CorrelateAI Pro demonstrates the power of AI-assisted development by being **100% generated through conversational AI** - from initial concept to production-ready application in just 2 hours.
+
+![Mobile Demo](./public/img/IOS.gif)
+*Responsive mobile interface with interactive data exploration*
 
 ### 🎯 Key Features
 - **31 Real Datasets**: Federal Reserve (FRED) + World Bank APIs
@@ -131,11 +137,20 @@ Deploy your own instance:
 - Visual correlation matrix
 - Interactive data exploration
 
+![Feature Discovery](./public/img/feature-discovery-tab.jpeg)
+*Advanced data discovery with tabbed interface for exploring different datasets*
+
+![Filtering System](./public/img/feature-discovery-filters.jpeg)
+*Powerful filtering system for precise data analysis and correlation discovery*
+
 ### Professional UI/UX
 - Gradient branding with AI-focused design
 - Responsive layout for all devices
 - Loading states and error handling
 - Professional data source attribution
+
+![Mobile Responsive](./public/img/mobile-responsive.jpeg)
+*Fully responsive design optimized for desktop, tablet, and mobile devices*
 
 ### Social Integration
 - One-click sharing to major platforms
@@ -158,6 +173,9 @@ This project showcases a new paradigm in software development:
 - **AI Code Generation**: Complex TypeScript/React components
 - **Intelligent Integration**: APIs, state management, and UI consistency
 - **Quality Assurance**: Type-safe code with professional standards
+
+![Project Success Metrics](./public/img/project-success-metrics.jpeg)
+*Development metrics demonstrating the efficiency of AI-assisted development*
 
 ## 📚 Documentation
 
