@@ -8,8 +8,8 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsOut, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, Eye, Lightbulb } from '@phosphor-icons/react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, Eye, Lightbulb } from '@phosphor-icons/react'
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
@@ -1260,7 +1260,7 @@ function App() {
                   How CorrelateAI Pro Was Built
                 </h2>
                 <p className={`${isMobile ? 'text-base px-4' : 'text-lg'} text-muted-foreground mb-6`}>
-                  {isMobile ? "AI-assisted development in 2 hours" : "A complete AI-assisted development journey from idea to deployment in 2 hours"}
+                  {isMobile ? "AI-assisted development in 4 hours" : "A complete AI-assisted development journey from idea to deployment in 4 hours"}
                 </p>
                 
                 {/* Quick Actions */}
@@ -1768,7 +1768,7 @@ function App() {
                   <div className="text-xs sm:text-sm text-gray-300">Data Sources</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-purple-400">2h</div>
+                  <div className="text-lg sm:text-2xl font-bold text-purple-400">4h</div>
                   <div className="text-xs sm:text-sm text-gray-300">Dev Time</div>
                 </div>
                 {!isMobile && (
@@ -1818,15 +1818,9 @@ function CorrelationCard({
   const isMobile = useIsMobile()
   const shareCardRef = useRef<HTMLDivElement>(null)
   
-  // Chart zoom/pan state
-  const [zoomState, setZoomState] = useState<{
-    refAreaLeft?: string | number
-    refAreaRight?: string | number
-    left?: string | number
-    right?: string | number
-    animation?: boolean
-  }>({ animation: true })
-  const [isZooming, setIsZooming] = useState(false)
+  // Expandable sections state
+  const [showDetails, setShowDetails] = useState(false)
+  const [showInsights, setShowInsights] = useState(false)
   
   const getCorrelationColor = (correlation: number) => {
     const abs = Math.abs(correlation)
@@ -1843,58 +1837,6 @@ function CorrelationCard({
     if (abs >= 0.3) return 'Moderate'
     return 'Weak'
   }
-
-  // Chart zoom functionality
-  const zoomOut = useCallback(() => {
-    setZoomState({ 
-      refAreaLeft: undefined, 
-      refAreaRight: undefined,
-      left: 'dataMin',
-      right: 'dataMax',
-      animation: true
-    })
-  }, [])
-
-  const zoom = useCallback(() => {
-    let { refAreaLeft, refAreaRight } = zoomState
-    const { data } = correlation
-
-    if (refAreaLeft === refAreaRight || !refAreaLeft || !refAreaRight) {
-      setZoomState(prev => ({ ...prev, refAreaLeft: undefined, refAreaRight: undefined }))
-      return
-    }
-
-    // Ensure left is smaller than right
-    if (refAreaLeft > refAreaRight) [refAreaLeft, refAreaRight] = [refAreaRight, refAreaLeft]
-
-    setZoomState({
-      refAreaLeft: undefined,
-      refAreaRight: undefined,
-      left: refAreaLeft,
-      right: refAreaRight,
-      animation: false
-    })
-  }, [zoomState, correlation])
-
-  const handleMouseDown = useCallback((e: any) => {
-    if (e?.activeLabel) {
-      setZoomState(prev => ({ ...prev, refAreaLeft: e.activeLabel }))
-      setIsZooming(true)
-    }
-  }, [])
-
-  const handleMouseMove = useCallback((e: any) => {
-    if (isZooming && e?.activeLabel && zoomState.refAreaLeft) {
-      setZoomState(prev => ({ ...prev, refAreaRight: e.activeLabel }))
-    }
-  }, [isZooming, zoomState.refAreaLeft])
-
-  const handleMouseUp = useCallback(() => {
-    if (isZooming) {
-      zoom()
-      setIsZooming(false)
-    }
-  }, [isZooming, zoom])
 
   const copyToClipboard = useCallback((text: string) => {
     navigator.clipboard.writeText(text)
@@ -2081,17 +2023,18 @@ function CorrelationCard({
             </p>
           </div>
           
-          <div className={`flex gap-2 ${isMobile ? 'w-full justify-between' : 'flex-col'}`}>
+          {/* Action buttons in 2x2 grid layout for better space efficiency */}
+          <div className="grid grid-cols-2 gap-1 w-20">
             {isShareable && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
+                    className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 h-8 w-8"
                     title="Export options"
                   >
-                    <Download size={16} />
+                    <Download size={14} />
                   </Button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-56">
@@ -2123,10 +2066,10 @@ function CorrelationCard({
                 <Button
                   variant="ghost"
                   size="icon"
-                  className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
+                  className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 h-8 w-8"
                   title="Share this correlation"
                 >
-                  <Share size={16} />
+                  <Share size={14} />
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-56">
@@ -2159,7 +2102,7 @@ function CorrelationCard({
             <Button
               variant="ghost"
               size="icon"
-              className={`hover:bg-gray-700/50 ${
+              className={`hover:bg-gray-700/50 h-8 w-8 ${
                 favorites.some(fav => fav.id === correlation.id) 
                   ? 'text-red-400 hover:text-red-300' 
                   : 'text-gray-300 hover:text-red-400'
@@ -2167,114 +2110,29 @@ function CorrelationCard({
               onClick={() => toggleFavorite?.(correlation)}
               title={favorites.some(fav => fav.id === correlation.id) ? "Remove from favorites" : "Add to favorites"}
             >
-              <Heart size={16} className={favorites.some(fav => fav.id === correlation.id) ? 'fill-current' : ''} />
+              <Heart size={14} className={favorites.some(fav => fav.id === correlation.id) ? 'fill-current' : ''} />
             </Button>
             <Button
               variant="ghost"
               size="icon"
-              className="text-gray-300 hover:text-purple-400 hover:bg-gray-700/50"
+              className="text-gray-300 hover:text-purple-400 hover:bg-gray-700/50 h-8 w-8"
               onClick={() => showCorrelationDetails(correlation)}
               title="View detailed analysis"
             >
-              <Info size={16} />
+              <Info size={14} />
             </Button>
           </div>
         </div>
       </CardHeader>
       
       <CardContent className={`${isMobile ? 'p-3 pt-0' : ''}`}>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
-          <div className="space-y-4">
-            <div>
-              <h4 className={`font-medium text-gray-200 mb-3 ${isMobile ? 'text-sm' : ''}`}>Variable Details</h4>
-              <div className="space-y-2">
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Dataset X:</span>
-                  <span className="text-cyan-400 font-medium">{correlation.variable1.name}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Dataset Y:</span>
-                  <span className="text-purple-400 font-medium">{correlation.variable2.name}</span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Strength:</span>
-                  <span className={getCorrelationColor(correlation.correlation)}>
-                    {getCorrelationStrength(correlation.correlation)}
-                  </span>
-                </div>
-                <div className="flex justify-between text-sm">
-                  <span className="text-gray-400">Significance:</span>
-                  <span className={Math.abs(correlation.correlation) >= 0.5 ? 'text-green-400' : 'text-yellow-400'}>
-                    {Math.abs(correlation.correlation) >= 0.7 ? 'High' : 
-                     Math.abs(correlation.correlation) >= 0.5 ? 'Moderate' : 'Low'}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div className="space-y-4">
-            <div>
-              <h4 className={`font-medium text-gray-200 mb-3 ${isMobile ? 'text-sm' : ''}`}>Analysis Insights</h4>
-              <div className="space-y-2 text-sm">
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed">
-                    {Math.abs(correlation.correlation) >= 0.7 
-                      ? "Strong relationship detected - significant statistical correlation"
-                      : Math.abs(correlation.correlation) >= 0.5 
-                      ? "Moderate relationship - worth investigating further"
-                      : "Weak relationship - may be coincidental"}
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed">
-                    {correlation.correlation > 0 
-                      ? "Positive correlation - variables tend to increase together"
-                      : "Negative correlation - one increases as the other decreases"}
-                  </p>
-                </div>
-                <div className="flex items-start gap-2">
-                  <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
-                  <p className="text-gray-300 leading-relaxed text-xs italic">
-                    Remember: Correlation does not imply causation
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        {/* Chart Visualization */}
-        <div className="mt-6">
-          {/* Chart Controls */}
-          <div className="flex items-center justify-between mb-3">
-            <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-400">Interactive Chart:</span>
-              <span className="text-xs text-gray-500">Click & drag to zoom</span>
-            </div>
-            <div className="flex gap-1">
-              <Button 
-                variant="ghost" 
-                size="sm" 
-                onClick={zoomOut}
-                className="text-gray-400 hover:text-cyan-400 h-8 px-2"
-                title="Reset zoom"
-              >
-                <ArrowsOut size={14} />
-              </Button>
-            </div>
-          </div>
-          
+        {/* Chart Visualization - Now at the top */}
+        <div className="mb-6">
           <div className={`h-64 sm:h-80 ${isMobile ? 'px-2' : ''}`}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart 
                 data={correlation.data} 
                 margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
-                onMouseDown={handleMouseDown}
-                onMouseMove={handleMouseMove}
-                onMouseUp={handleMouseUp}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
                 <XAxis 
@@ -2282,7 +2140,6 @@ function CorrelationCard({
                   stroke="#9CA3AF" 
                   fontSize={isMobile ? 10 : 12}
                   tick={{ fill: '#9CA3AF' }}
-                  domain={[zoomState.left || 'dataMin', zoomState.right || 'dataMax']}
                 />
                 <YAxis 
                   yAxisId="left" 
@@ -2309,18 +2166,6 @@ function CorrelationCard({
                   labelStyle={{ color: '#F3F4F6' }}
                 />
                 
-                {/* Zoom selection area */}
-                {zoomState.refAreaLeft && zoomState.refAreaRight && (
-                  <ReferenceArea
-                    yAxisId="left"
-                    x1={zoomState.refAreaLeft}
-                    x2={zoomState.refAreaRight}
-                    strokeOpacity={0.3}
-                    fill="#06B6D4"
-                    fillOpacity={0.1}
-                  />
-                )}
-                
                 <Line
                   yAxisId="left"
                   type="monotone"
@@ -2330,7 +2175,7 @@ function CorrelationCard({
                   dot={{ fill: '#06B6D4', strokeWidth: 2, r: isMobile ? 3 : 4 }}
                   activeDot={{ r: isMobile ? 5 : 6, stroke: '#06B6D4', strokeWidth: 2 }}
                   name={correlation.variable1.name}
-                  animationDuration={zoomState.animation ? 1000 : 0}
+                  animationDuration={1000}
                 />
                 <Line
                   yAxisId="right"
@@ -2341,7 +2186,7 @@ function CorrelationCard({
                   dot={{ fill: '#A855F7', strokeWidth: 2, r: isMobile ? 3 : 4 }}
                   activeDot={{ r: isMobile ? 5 : 6, stroke: '#A855F7', strokeWidth: 2 }}
                   name={correlation.variable2.name}
-                  animationDuration={zoomState.animation ? 1000 : 0}
+                  animationDuration={1000}
                 />
               </LineChart>
             </ResponsiveContainer>
@@ -2391,6 +2236,150 @@ function CorrelationCard({
               }`}
               style={{ width: `${Math.abs(correlation.correlation) * 100}%` }}
             ></div>
+          </div>
+        </div>
+        
+        {/* Expandable Analysis Sections */}
+        <div className="mt-6 space-y-3">
+          {/* Variable Details - Expandable */}
+          <div className="border border-gray-700/50 rounded-lg overflow-hidden">
+            <Button
+              variant="ghost"
+              className="w-full justify-between text-left h-12 px-4 hover:bg-gray-800/50"
+              onClick={() => setShowDetails(!showDetails)}
+            >
+              <div className="flex items-center gap-2">
+                <Database size={16} className="text-cyan-400" />
+                <span className="font-medium text-gray-200">Variable Details</span>
+                {!showDetails && (
+                  <div className="flex gap-1 ml-2">
+                    <Badge variant="outline" className="text-xs text-cyan-400 border-cyan-400/30">
+                      {correlation.variable1.name.split(' ').slice(0, 2).join(' ')}
+                    </Badge>
+                    <Badge variant="outline" className="text-xs text-purple-400 border-purple-400/30">
+                      {correlation.variable2.name.split(' ').slice(0, 2).join(' ')}
+                    </Badge>
+                  </div>
+                )}
+              </div>
+              <div className={`transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`}>
+                <Eye size={16} className="text-gray-400" />
+              </div>
+            </Button>
+            
+            {showDetails && (
+              <div className="px-4 pb-4 pt-2 bg-gray-800/20">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Dataset X:</span>
+                      <span className="text-cyan-400 font-medium">{correlation.variable1.name}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Unit:</span>
+                      <span className="text-gray-300">{(correlation.variable1 as any).unit || 'units'}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Category:</span>
+                      <span className="text-gray-300">{correlation.variable1.category}</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2">
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Dataset Y:</span>
+                      <span className="text-purple-400 font-medium">{correlation.variable2.name}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Unit:</span>
+                      <span className="text-gray-300">{(correlation.variable2 as any).unit || 'units'}</span>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                      <span className="text-gray-400">Category:</span>
+                      <span className="text-gray-300">{correlation.variable2.category}</span>
+                    </div>
+                  </div>
+                </div>
+                <div className="mt-4 pt-3 border-t border-gray-700/30 grid grid-cols-2 gap-4 text-sm">
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Strength:</span>
+                    <span className={getCorrelationColor(correlation.correlation)}>
+                      {getCorrelationStrength(correlation.correlation)}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-400">Significance:</span>
+                    <span className={Math.abs(correlation.correlation) >= 0.5 ? 'text-green-400' : 'text-yellow-400'}>
+                      {Math.abs(correlation.correlation) >= 0.7 ? 'High' : 
+                       Math.abs(correlation.correlation) >= 0.5 ? 'Moderate' : 'Low'}
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* Analysis Insights - Expandable */}
+          <div className="border border-gray-700/50 rounded-lg overflow-hidden">
+            <Button
+              variant="ghost"
+              className="w-full justify-between text-left h-12 px-4 hover:bg-gray-800/50"
+              onClick={() => setShowInsights(!showInsights)}
+            >
+              <div className="flex items-center gap-2">
+                <Lightbulb size={16} className="text-yellow-400" />
+                <span className="font-medium text-gray-200">Analysis Insights</span>
+                {!showInsights && (
+                  <Badge variant="outline" className={`text-xs ml-2 ${getCorrelationColor(correlation.correlation).replace('text-', 'text-').replace(' font-bold', '').replace(' font-semibold', '')} border-current/30`}>
+                    {correlation.correlation > 0 ? 'Positive' : 'Negative'} Correlation
+                  </Badge>
+                )}
+              </div>
+              <div className={`transition-transform duration-200 ${showInsights ? 'rotate-180' : ''}`}>
+                <Eye size={16} className="text-gray-400" />
+              </div>
+            </Button>
+            
+            {showInsights && (
+              <div className="px-4 pb-4 pt-2 bg-gray-800/20">
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-cyan-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 leading-relaxed">
+                      {Math.abs(correlation.correlation) >= 0.7 
+                        ? "Strong relationship detected - significant statistical correlation"
+                        : Math.abs(correlation.correlation) >= 0.5 
+                        ? "Moderate relationship - worth investigating further"
+                        : "Weak relationship - may be coincidental"}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 leading-relaxed">
+                      {correlation.correlation > 0 
+                        ? "Positive correlation - variables tend to increase together"
+                        : "Negative correlation - one increases as the other decreases"}
+                    </p>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="w-2 h-2 bg-yellow-400 rounded-full mt-2 flex-shrink-0"></div>
+                    <p className="text-gray-300 leading-relaxed text-xs italic">
+                      Remember: Correlation does not imply causation
+                    </p>
+                  </div>
+                  <div className="mt-4 pt-3 border-t border-gray-700/30">
+                    <div className="flex items-center justify-between text-xs">
+                      <span className="text-gray-400">R-squared Value:</span>
+                      <span className="text-gray-300 font-medium">
+                        {(correlation.rSquared * 100).toFixed(1)}%
+                      </span>
+                    </div>
+                    <p className="text-xs text-gray-400 mt-1">
+                      {(correlation.rSquared * 100).toFixed(1)}% of variance in one variable is explained by the other
+                    </p>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
         
