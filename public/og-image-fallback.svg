@@ -1,0 +1,106 @@
+<!-- 
+This is a fallback for og-image.svg for platforms that don't support SVG Open Graph images.
+The SVG version should be preferred for better quality and smaller file size.
+-->
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background Gradient -->
+  <defs>
+    <linearGradient id="bg-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a;stop-opacity:1" />
+      <stop offset="25%" style="stop-color:#1e293b;stop-opacity:1" />
+      <stop offset="75%" style="stop-color:#334155;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#475569;stop-opacity:1" />
+    </linearGradient>
+    
+    <!-- Data Visualization Gradient -->
+    <linearGradient id="data-gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.8" />
+      <stop offset="50%" style="stop-color:#3b82f6;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:0.8" />
+    </linearGradient>
+
+    <!-- Glow Effect -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg-gradient)"/>
+  
+  <!-- Decorative Grid Pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#334155" stroke-width="1" opacity="0.3"/>
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#grid)" opacity="0.5"/>
+
+  <!-- Left Side: Logo and Branding -->
+  <g transform="translate(60, 120)">
+    <!-- CorrelateAI Logo -->
+    <circle cx="40" cy="40" r="35" fill="url(#data-gradient)" filter="url(#glow)"/>
+    <text x="40" y="50" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">AI</text>
+    
+    <!-- Brand Name -->
+    <text x="90" y="35" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">CorrelateAI</text>
+    <text x="90" y="75" font-family="Arial, sans-serif" font-size="24" fill="#94a3b8">Pro</text>
+    
+    <!-- Tagline -->
+    <text x="0" y="130" font-family="Arial, sans-serif" font-size="20" fill="#e2e8f0">AI-Powered Data Correlation Analysis</text>
+    <text x="0" y="160" font-family="Arial, sans-serif" font-size="16" fill="#94a3b8">Discover surprising patterns in real economic data</text>
+    
+    <!-- Stats -->
+    <g transform="translate(0, 220)">
+      <rect x="0" y="0" width="180" height="80" rx="8" fill="#1e293b" stroke="#06b6d4" stroke-width="2"/>
+      <text x="90" y="25" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#06b6d4" text-anchor="middle">1000+ Correlations</text>
+      <text x="90" y="45" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" text-anchor="middle">Real FRED &amp; World Bank Data</text>
+      <text x="90" y="65" font-family="Arial, sans-serif" font-size="14" fill="#94a3b8" text-anchor="middle">AI-Generated Insights</text>
+    </g>
+  </g>
+
+  <!-- Right Side: Data Visualization -->
+  <g transform="translate(650, 80)">
+    <!-- Chart Background -->
+    <rect x="0" y="0" width="480" height="320" rx="12" fill="#1e293b" stroke="#334155" stroke-width="2"/>
+    
+    <!-- Chart Title -->
+    <text x="240" y="35" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#e2e8f0" text-anchor="middle">Sample Correlation Analysis</text>
+    
+    <!-- Data Points and Correlation Line -->
+    <g transform="translate(40, 60)">
+      <!-- Axis -->
+      <line x1="0" y1="220" x2="400" y2="220" stroke="#64748b" stroke-width="2"/>
+      <line x1="0" y1="0" x2="0" y2="220" stroke="#64748b" stroke-width="2"/>
+      
+      <!-- Correlation Line -->
+      <line x1="20" y1="180" x2="380" y2="40" stroke="url(#data-gradient)" stroke-width="4" filter="url(#glow)"/>
+      
+      <!-- Data Points -->
+      <circle cx="50" cy="170" r="4" fill="#06b6d4" filter="url(#glow)"/>
+      <circle cx="100" cy="140" r="4" fill="#06b6d4" filter="url(#glow)"/>
+      <circle cx="150" cy="120" r="4" fill="#3b82f6" filter="url(#glow)"/>
+      <circle cx="200" cy="100" r="4" fill="#3b82f6" filter="url(#glow)"/>
+      <circle cx="250" cy="85" r="4" fill="#8b5cf6" filter="url(#glow)"/>
+      <circle cx="300" cy="70" r="4" fill="#8b5cf6" filter="url(#glow)"/>
+      <circle cx="350" cy="50" r="4" fill="#8b5cf6" filter="url(#glow)"/>
+    </g>
+    
+    <!-- Correlation Coefficient -->
+    <g transform="translate(60, 420)">
+      <rect x="0" y="0" width="360" height="60" rx="8" fill="#06b6d4" fill-opacity="0.2" stroke="#06b6d4" stroke-width="2"/>
+      <text x="180" y="30" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#06b6d4" text-anchor="middle">r = +0.87</text>
+      <text x="180" y="50" font-family="Arial, sans-serif" font-size="14" fill="#e2e8f0" text-anchor="middle">Strong Positive Correlation</text>
+    </g>
+  </g>
+
+  <!-- Bottom CTA -->
+  <g transform="translate(300, 520)">
+    <rect x="0" y="0" width="600" height="60" rx="30" fill="#06b6d4" filter="url(#glow)"/>
+    <text x="300" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#ffffff" text-anchor="middle">Discover Your Data's Hidden Stories</text>
+  </g>
+</svg>

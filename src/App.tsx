@@ -340,26 +340,43 @@ function App() {
                      Math.abs(correlation.correlation) > 0.4 ? "moderate" : "weak"
     const direction = correlation.correlation > 0 ? "positive" : "negative"
     
-    return `🔍 Fascinating ${corrType} ${direction} correlation discovered!\n\n${correlation.title}\nr = ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}\n\n${correlation.description}\n\n#SpuriousCorrelations #DataScience #Statistics`
+    const baseUrl = window.location.origin
+    const shareUrl = `${baseUrl}/?share=${correlation.id}`
+    
+    return {
+      short: `🔍 ${corrType.charAt(0).toUpperCase() + corrType.slice(1)} ${direction} correlation: ${correlation.title} (r=${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}) #DataScience #AI #Correlation`,
+      long: `🔍 Fascinating ${corrType} ${direction} correlation discovered!\n\n${correlation.title}\nr = ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}\n\n${correlation.description}\n\n🤖 Powered by CorrelateAI Pro - AI-driven data correlation analysis\n📊 Real data from FRED & World Bank APIs\n\n${shareUrl}\n\n#DataScience #AI #Statistics #Economics #MachineLearning`,
+      url: shareUrl
+    }
   }, [])
 
   const shareToTwitter = useCallback((correlation: CorrelationData) => {
-    const text = generateShareText(correlation)
-    const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
+    const shareContent = generateShareText(correlation)
+    const twitterText = shareContent.short + `\n\n🔗 ${shareContent.url}`
+    const url = `https://x.com/intent/tweet?text=${encodeURIComponent(twitterText)}`
     window.open(url, '_blank', 'width=600,height=400')
-    toast.success("Opening Twitter share dialog!")
+    toast.success("Opening X (Twitter) share dialog!")
   }, [generateShareText])
 
   const shareToLinkedIn = useCallback((correlation: CorrelationData) => {
-    const text = generateShareText(correlation)
-    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(window.location.href)}&summary=${encodeURIComponent(text)}`
-    window.open(url, '_blank', 'width=600,height=600')
+    const shareContent = generateShareText(correlation)
+    const fullUrl = shareContent.url
+    
+    // LinkedIn sharing with proper URL encoding and parameters
+    const linkedInTitle = encodeURIComponent(`CorrelateAI Pro: ${correlation.title}`)
+    const linkedInSummary = encodeURIComponent(shareContent.long)
+    const linkedInSource = encodeURIComponent('CorrelateAI Pro - AI Data Analysis')
+    
+    // Use the proper LinkedIn share URL with all parameters
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}&title=${linkedInTitle}&summary=${linkedInSummary}&source=${linkedInSource}`
+    
+    window.open(url, '_blank', 'width=700,height=500,scrollbars=yes,resizable=yes')
     toast.success("Opening LinkedIn share dialog!")
   }, [generateShareText])
 
   const shareToFacebook = useCallback((correlation: CorrelationData) => {
-    const text = generateShareText(correlation)
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}&quote=${encodeURIComponent(text)}`
+    const shareContent = generateShareText(correlation)
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareContent.url)}&quote=${encodeURIComponent(shareContent.long)}`
     window.open(url, '_blank', 'width=600,height=400')
     toast.success("Opening Facebook share dialog!")
   }, [generateShareText])
@@ -898,36 +915,51 @@ function App() {
                 />
               </Button>
               
-              <DropdownMenu>
-                <DropdownMenuTrigger asChild>
-                  <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 p-2">
-                    <Share size={isMobile ? 16 : 18} />
-                  </Button>
-                </DropdownMenuTrigger>
-                <DropdownMenuContent align="end" className="w-48 bg-gray-800 border-gray-700">
-                  <DropdownMenuItem onClick={() => shareToTwitter(correlation)} className="text-gray-200 hover:bg-gray-700">
-                    <TwitterLogo size={16} className="mr-2" />
-                    Share on Twitter
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => shareToLinkedIn(correlation)} className="text-gray-200 hover:bg-gray-700">
-                    <LinkedinLogo size={16} className="mr-2" />
-                    Share on LinkedIn
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => shareToFacebook(correlation)} className="text-gray-200 hover:bg-gray-700">
-                    <FacebookLogo size={16} className="mr-2" />
-                    Share on Facebook
-                  </DropdownMenuItem>
-                  <Separator className="bg-gray-600" />
-                  <DropdownMenuItem onClick={() => downloadAsImage(correlation)} className="text-gray-200 hover:bg-gray-700">
-                    <Download size={16} className="mr-2" />
-                    Download as Image
-                  </DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation))} className="text-gray-200 hover:bg-gray-700">
-                    <Copy size={16} className="mr-2" />
-                    Copy Share Text
-                  </DropdownMenuItem>
-                </DropdownMenuContent>
-              </DropdownMenu>
+              {/* Prominent Social Share Buttons */}
+              <div className="flex items-center gap-1">
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:bg-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 text-blue-400 hover:text-blue-200 p-2 transition-all duration-300 hover:scale-105 border border-transparent hover:border-blue-500/30"
+                  onClick={() => shareToLinkedIn(correlation)}
+                  title="Share on LinkedIn"
+                >
+                  <LinkedinLogo size={isMobile ? 16 : 18} weight="fill" />
+                </Button>
+                
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="hover:bg-gray-900/60 hover:shadow-lg hover:shadow-gray-900/30 text-gray-300 hover:text-white p-2 transition-all duration-300 hover:scale-105 border border-transparent hover:border-gray-600/40"
+                  onClick={() => shareToTwitter(correlation)}
+                  title="Share on X (Twitter)"
+                >
+                  <TwitterLogo size={isMobile ? 16 : 18} weight="fill" />
+                </Button>
+                
+                <DropdownMenu>
+                  <DropdownMenuTrigger asChild>
+                    <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 p-2">
+                      <Share size={isMobile ? 14 : 16} />
+                    </Button>
+                  </DropdownMenuTrigger>
+                  <DropdownMenuContent align="end" className="w-44 bg-gray-800 border-gray-700">
+                    <DropdownMenuItem onClick={() => shareToFacebook(correlation)} className="text-gray-200 hover:bg-gray-700">
+                      <FacebookLogo size={14} className="mr-2" />
+                      Facebook
+                    </DropdownMenuItem>
+                    <Separator className="bg-gray-600" />
+                    <DropdownMenuItem onClick={() => downloadAsImage(correlation)} className="text-gray-200 hover:bg-gray-700">
+                      <Download size={14} className="mr-2" />
+                      Download Image
+                    </DropdownMenuItem>
+                    <DropdownMenuItem onClick={() => copyToClipboard(generateShareText(correlation).long)} className="text-gray-200 hover:bg-gray-700">
+                      <Copy size={14} className="mr-2" />
+                      Copy Text
+                    </DropdownMenuItem>
+                  </DropdownMenuContent>
+                </DropdownMenu>
+              </div>
             </div>
           </div>
           

@@ -1,0 +1,122 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F2937;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#374151;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1F2937;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#06B6D4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A855F7;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bgGradient)"/>
+  
+  <!-- Brand Logo Circle -->
+  <circle cx="150" cy="150" r="60" fill="url(#logoGradient)"/>
+  <rect x="125" y="135" width="50" height="6" rx="3" fill="white" opacity="0.9"/>
+  <rect x="125" y="145" width="40" height="4" rx="2" fill="white" opacity="0.7"/>
+  <rect x="125" y="155" width="45" height="4" rx="2" fill="white" opacity="0.8"/>
+  <rect x="125" y="165" width="35" height="4" rx="2" fill="white" opacity="0.6"/>
+  
+  <!-- AI correlation lines -->
+  <path d="M120 120 L180 180" stroke="white" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  <path d="M180 120 L120 180" stroke="white" stroke-width="2" opacity="0.4" stroke-linecap="round"/>
+  
+  <!-- Data points -->
+  <circle cx="135" cy="135" r="3" fill="#00D9FF"/>
+  <circle cx="165" cy="165" r="3" fill="#FFFFFF"/>
+  <circle cx="165" cy="135" r="3" fill="#00D9FF"/>
+  <circle cx="135" cy="165" r="3" fill="#FFFFFF"/>
+  
+  <!-- Main Title -->
+  <text x="250" y="120" fill="white" font-family="Inter, sans-serif" font-size="48" font-weight="bold">
+    CorrelateAI Pro
+  </text>
+  
+  <!-- AI Badge -->
+  <rect x="250" y="140" width="140" height="30" rx="15" fill="url(#logoGradient)"/>
+  <text x="320" y="160" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">
+    AI-Powered
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="250" y="220" fill="#D1D5DB" font-family="Inter, sans-serif" font-size="24" font-weight="400">
+    Discover surprising correlations in real economic data
+  </text>
+  <text x="250" y="250" fill="#9CA3AF" font-family="Inter, sans-serif" font-size="18" font-weight="400">
+    using advanced AI analysis
+  </text>
+  
+  <!-- Data Sources -->
+  <text x="250" y="320" fill="#06B6D4" font-family="Inter, sans-serif" font-size="16" font-weight="600">
+    Powered by FRED API • World Bank • AI Datasets
+  </text>
+  
+  <!-- Stats Section -->
+  <rect x="250" y="350" width="300" height="120" rx="8" fill="rgba(55, 65, 81, 0.5)" stroke="rgba(75, 85, 99, 0.5)"/>
+  
+  <text x="270" y="380" fill="#00D9FF" font-family="Inter, sans-serif" font-size="32" font-weight="bold">100+</text>
+  <text x="270" y="400" fill="#D1D5DB" font-family="Inter, sans-serif" font-size="14">Datasets</text>
+  
+  <text x="350" y="380" fill="#A855F7" font-family="Inter, sans-serif" font-size="32" font-weight="bold">Real-time</text>
+  <text x="350" y="400" fill="#D1D5DB" font-family="Inter, sans-serif" font-size="14">Economic Data</text>
+  
+  <text x="270" y="430" fill="#10B981" font-family="Inter, sans-serif" font-size="32" font-weight="bold">AI</text>
+  <text x="270" y="450" fill="#D1D5DB" font-family="Inter, sans-serif" font-size="14">Generated</text>
+  
+  <text x="350" y="430" fill="#F59E0B" font-family="Inter, sans-serif" font-size="32" font-weight="bold">0%</text>
+  <text x="350" y="450" fill="#D1D5DB" font-family="Inter, sans-serif" font-size="14">Manual Code</text>
+  
+  <!-- Call to Action -->
+  <text x="250" y="520" fill="#E5E7EB" font-family="Inter, sans-serif" font-size="20" font-weight="500">
+    Experience AI-assisted data correlation analysis
+  </text>
+  
+  <!-- URL -->
+  <text x="250" y="560" fill="#06B6D4" font-family="Inter, sans-serif" font-size="18" font-weight="600">
+    correlateai.victorsaly.com
+  </text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="1050" cy="150" r="80" fill="rgba(6, 182, 212, 0.1)" stroke="rgba(6, 182, 212, 0.3)" stroke-width="2"/>
+  <circle cx="1050" cy="150" r="50" fill="rgba(168, 85, 247, 0.1)" stroke="rgba(168, 85, 247, 0.3)" stroke-width="2"/>
+  <circle cx="1050" cy="150" r="20" fill="rgba(16, 185, 129, 0.2)"/>
+  
+  <!-- Chart visualization -->
+  <g transform="translate(700, 350)">
+    <rect width="300" height="180" rx="8" fill="rgba(31, 41, 55, 0.8)" stroke="rgba(75, 85, 99, 0.5)"/>
+    
+    <!-- Chart lines -->
+    <polyline points="20,140 60,120 100,100 140,80 180,60 220,40 260,20" 
+              fill="none" stroke="#06B6D4" stroke-width="3" opacity="0.8"/>
+    <polyline points="20,60 60,80 100,100 140,120 180,140 220,160 260,140" 
+              fill="none" stroke="#A855F7" stroke-width="3" opacity="0.8"/>
+    
+    <!-- Chart points -->
+    <circle cx="20" cy="140" r="4" fill="#06B6D4"/>
+    <circle cx="60" cy="120" r="4" fill="#06B6D4"/>
+    <circle cx="100" cy="100" r="4" fill="#06B6D4"/>
+    <circle cx="140" cy="80" r="4" fill="#06B6D4"/>
+    <circle cx="180" cy="60" r="4" fill="#06B6D4"/>
+    <circle cx="220" cy="40" r="4" fill="#06B6D4"/>
+    <circle cx="260" cy="20" r="4" fill="#06B6D4"/>
+    
+    <circle cx="20" cy="60" r="4" fill="#A855F7"/>
+    <circle cx="60" cy="80" r="4" fill="#A855F7"/>
+    <circle cx="100" cy="100" r="4" fill="#A855F7"/>
+    <circle cx="140" cy="120" r="4" fill="#A855F7"/>
+    <circle cx="180" cy="140" r="4" fill="#A855F7"/>
+    <circle cx="220" cy="160" r="4" fill="#A855F7"/>
+    <circle cx="260" cy="140" r="4" fill="#A855F7"/>
+    
+    <!-- Correlation text -->
+    <text x="150" y="200" fill="#E5E7EB" font-family="Inter, sans-serif" font-size="16" font-weight="600" text-anchor="middle">
+      r = +0.847
+    </text>
+  </g>
+  
+</svg>
