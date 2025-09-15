@@ -401,7 +401,7 @@ function App() {
     <div className="min-h-screen relative">
       <SwirlBackground />
       <div className="relative z-10 p-2 sm:p-4 min-h-screen">
-        <div className="max-w-6xl mx-auto bg-gray-800/90 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8">
+        <div className="max-w-6xl mx-auto bg-gray-800/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8">
         <header className="text-center mb-6 sm:mb-8">
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
