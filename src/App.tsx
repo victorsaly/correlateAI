@@ -890,57 +890,69 @@ function App() {
   function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
     return (
       <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
-        <CardHeader className={`${isMobile ? 'p-4 pb-2' : ''}`}>
-          <div className="flex justify-between items-start">
+        <CardHeader className={`${isMobile ? 'p-3 pb-3' : ''}`}>
+          <div className={`flex justify-between ${isMobile ? 'flex-col gap-3' : 'items-start'}`}>
             <div className="flex-1">
-              <CardTitle className={`${isMobile ? 'text-lg' : 'text-xl'} font-semibold flex items-center gap-2 text-gray-100`}>
-                <TrendUp size={isMobile ? 18 : 20} className="text-cyan-400" />
-                {correlation.title}
+              <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'}`}>
+                <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
+                  <TrendUp size={isMobile ? 20 : 20} className="text-cyan-400 flex-shrink-0" />
+                  <span className={`${isMobile ? 'leading-5 break-words hyphens-auto' : ''}`} style={isMobile ? {wordWrap: 'break-word', wordBreak: 'break-word'} : {}}>
+                    {correlation.title}
+                  </span>
+                </div>
               </CardTitle>
-              <CardDescription className={`mt-2 text-gray-300 ${isMobile ? 'text-sm' : ''}`}>
-                {correlation.description}
+              <CardDescription className={`${isMobile ? 'mt-3 text-sm leading-relaxed' : 'mt-2'} text-gray-300`}>
+                <span className={`${isMobile ? 'break-words hyphens-auto' : ''}`} style={isMobile ? {wordWrap: 'break-word', wordBreak: 'break-word'} : {}}>
+                  {correlation.description}
+                </span>
               </CardDescription>
             </div>
-            <div className="flex items-center gap-1 sm:gap-2 ml-2 sm:ml-4">
+            <div className={`flex items-center ${isMobile ? 'gap-2 self-start justify-start mt-1' : 'gap-1 sm:gap-2 ml-2 sm:ml-4'}`}>
               <Button
                 variant="ghost"
                 size="sm"
-                className="hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 p-2"
+                className={`hover:bg-gray-700/50 text-gray-300 hover:text-gray-100 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
                 onClick={() => toggleFavorite(correlation)}
+                title="Add to Favorites"
               >
                 <Heart 
-                  size={isMobile ? 16 : 18} 
+                  size={isMobile ? 18 : 18} 
                   weight={isFavorited(correlation.id) ? "fill" : "regular"}
                   className={isFavorited(correlation.id) ? "text-red-400" : ""}
                 />
               </Button>
               
               {/* Prominent Social Share Buttons */}
-              <div className="flex items-center gap-1">
+              <div className={`flex items-center ${isMobile ? 'gap-2' : 'gap-1'}`}>
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="hover:bg-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 text-blue-400 hover:text-blue-200 p-2 transition-all duration-300 hover:scale-105 border border-transparent hover:border-blue-500/30"
+                  className={`hover:bg-blue-600/30 hover:shadow-lg hover:shadow-blue-500/20 text-blue-400 hover:text-blue-200 transition-all duration-300 hover:scale-105 border border-transparent hover:border-blue-500/30 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
                   onClick={() => shareToLinkedIn(correlation)}
                   title="Share on LinkedIn"
                 >
-                  <LinkedinLogo size={isMobile ? 16 : 18} weight="fill" />
+                  <LinkedinLogo size={isMobile ? 18 : 18} weight="fill" />
                 </Button>
                 
                 <Button
                   variant="ghost"
                   size="sm"
-                  className="hover:bg-gray-900/60 hover:shadow-lg hover:shadow-gray-900/30 text-gray-300 hover:text-white p-2 transition-all duration-300 hover:scale-105 border border-transparent hover:border-gray-600/40"
+                  className={`hover:bg-gray-900/60 hover:shadow-lg hover:shadow-gray-900/30 text-gray-300 hover:text-white transition-all duration-300 hover:scale-105 border border-transparent hover:border-gray-600/40 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
                   onClick={() => shareToTwitter(correlation)}
                   title="Share on X (Twitter)"
                 >
-                  <TwitterLogo size={isMobile ? 16 : 18} weight="fill" />
+                  <TwitterLogo size={isMobile ? 18 : 18} weight="fill" />
                 </Button>
                 
                 <DropdownMenu>
                   <DropdownMenuTrigger asChild>
-                    <Button variant="ghost" size="sm" className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 p-2">
-                      <Share size={isMobile ? 14 : 16} />
+                    <Button 
+                      variant="ghost" 
+                      size="sm" 
+                      className={`hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 ${isMobile ? 'p-3 min-h-[44px] min-w-[44px]' : 'p-2'}`}
+                      title="More sharing options"
+                    >
+                      <Share size={isMobile ? 16 : 16} />
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent align="end" className="w-44 bg-gray-800 border-gray-700">
@@ -963,33 +975,38 @@ function App() {
             </div>
           </div>
           
-          <div className={`flex gap-1 sm:gap-2 mt-4 flex-wrap ${isMobile ? 'text-xs' : ''}`}>
-            <Badge variant="secondary" className="bg-cyan-900/50 text-cyan-300 border-cyan-700/50">
-              r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
-            </Badge>
-            <Badge variant="outline" className="border-gray-600 text-gray-300">
-              R² = {correlation.rSquared.toFixed(3)}
-            </Badge>
-            <Badge variant={correlation.isRealData ? "default" : "secondary"} className={correlation.isRealData ? "bg-purple-900/50 text-purple-300 border-purple-700/50" : "bg-gray-700/50 text-gray-300 border-gray-600/50"}>
-              {correlation.isRealData ? (
-                <>
-                  <Database size={10} className="mr-1" />
-                  {isMobile ? "Real Data" : `${correlation.dataSource} Real Data`}
-                </>
-              ) : (
-                <>
-                  <Database size={10} className="mr-1" />
-                  {isMobile ? "Synthetic" : categories[(correlation.variable1 as Dataset).category as keyof typeof categories]}
-                </>
-              )}
-            </Badge>
+          <div className={`flex ${isMobile ? 'flex-col gap-3 mt-4' : 'gap-1 sm:gap-2 mt-4 flex-wrap'} ${isMobile ? 'text-xs' : ''}`}>
+            <div className={`flex gap-2 flex-wrap ${isMobile ? 'items-start' : 'items-center'}`}>
+              <Badge variant="secondary" className="bg-cyan-900/50 text-cyan-300 border-cyan-700/50">
+                r = {correlation.correlation > 0 ? '+' : ''}{correlation.correlation}
+              </Badge>
+              <Badge variant="outline" className="border-gray-600 text-gray-300">
+                R² = {correlation.rSquared.toFixed(3)}
+              </Badge>
+              <Badge variant={correlation.isRealData ? "default" : "secondary"} className={correlation.isRealData ? "bg-purple-900/50 text-purple-300 border-purple-700/50" : "bg-gray-700/50 text-gray-300 border-gray-600/50"}>
+                {correlation.isRealData ? (
+                  <>
+                    <Database size={10} className="mr-1" />
+                    {isMobile ? "Real Data" : `${correlation.dataSource} Real Data`}
+                  </>
+                ) : (
+                  <>
+                    <Database size={10} className="mr-1" />
+                    {isMobile ? "Synthetic" : categories[(correlation.variable1 as Dataset).category as keyof typeof categories]}
+                  </>
+                )}
+              </Badge>
+            </div>
           </div>
         </CardHeader>
         
         <CardContent className={`bg-gray-900/30 rounded-lg ${isMobile ? 'p-3' : ''}`}>
           <div className={`${isMobile ? 'h-56' : 'h-64'} w-full`}>
             <ResponsiveContainer width="100%" height="100%">
-              <LineChart data={correlation.data} margin={isMobile ? { top: 5, right: 15, left: 15, bottom: 25 } : undefined}>
+              <LineChart 
+                data={correlation.data} 
+                margin={isMobile ? { top: 8, right: 20, left: 20, bottom: 35 } : { top: 5, right: 15, left: 15, bottom: 25 }}
+              >
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" />
                 <XAxis 
                   dataKey="year" 
@@ -1145,20 +1162,23 @@ function App() {
           </div>
           
           <div className={`mt-4 sm:mt-6 p-3 sm:p-4 bg-gray-800/50 rounded-lg border border-gray-700/50`}>
-            <div className="flex items-center gap-2 mb-2">
+            <div className={`flex items-center ${isMobile ? 'flex-wrap gap-2 mb-3' : 'gap-2 mb-2'}`}>
               <BookOpen size={isMobile ? 14 : 16} className="text-cyan-400" />
-              <span className={`${isMobile ? 'text-xs' : 'text-sm'} font-medium text-gray-200`}>Citation</span>
+              <span className={`${isMobile ? 'text-sm' : 'text-sm'} font-medium text-gray-200`}>Citation</span>
               <Button
                 variant="ghost"
                 size="sm"
-                className="hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 p-1"
+                className={`hover:bg-gray-700/50 text-gray-400 hover:text-gray-200 ${isMobile ? 'p-2 min-h-[36px] min-w-[36px] ml-auto' : 'p-1'}`}
                 onClick={() => copyToClipboard(`${correlation.citation}. ${correlation.title}. ${correlation.journal}, ${correlation.year}.`)}
+                title="Copy citation"
               >
-                <Copy size={isMobile ? 12 : 14} />
+                <Copy size={isMobile ? 14 : 14} />
               </Button>
             </div>
-            <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-gray-400`}>
-              {correlation.citation}. "{correlation.title}." <em>{correlation.journal}</em>, {correlation.year}.
+            <p className={`${isMobile ? 'text-sm leading-relaxed' : 'text-sm'} text-gray-400 ${isMobile ? 'break-words' : ''}`}>
+              <span className={`${isMobile ? 'break-words' : ''}`}>{correlation.citation}</span>. 
+              "<span className={`${isMobile ? 'break-words' : ''}`}>{correlation.title}</span>." 
+              <em className={`${isMobile ? 'break-words' : ''}`}>{correlation.journal}</em>, {correlation.year}.
             </p>
           </div>
           

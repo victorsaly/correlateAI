@@ -101,6 +101,44 @@
     border-radius: 12px;
   }
 
+  /* Enhanced mobile card title wrapping */
+  .mobile-card-title {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    line-height: 1.4;
+    overflow-wrap: break-word;
+  }
+
+  /* Mobile text readability improvements */
+  .mobile-text-wrap {
+    word-wrap: break-word;
+    word-break: break-word;
+    hyphens: auto;
+    overflow-wrap: break-word;
+  }
+
+  /* Mobile badge container improvements */
+  .mobile-badge-spacing {
+    gap: 8px;
+    margin-top: 12px;
+  }
+
+  /* Enhanced touch targets for mobile icons */
+  .mobile-icon-button {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px;
+    border-radius: 8px;
+    touch-action: manipulation;
+  }
+
+  /* Mobile card content spacing */
+  .mobile-card-spacing-enhanced {
+    padding: 12px;
+    margin-bottom: 8px;
+  }
+
   /* Better mobile form elements */
   .mobile-form-element {
     font-size: 16px; /* Prevents zoom on iOS */
