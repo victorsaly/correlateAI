@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, Eye, Lightbulb } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -177,6 +177,83 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
   }
 }
 
+// Dynamic Examples Component
+function DynamicExamples({ onExampleClick }: { onExampleClick?: (correlation: CorrelationData) => void }) {
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAnimating, setIsAnimating] = useState(false)
+  
+  // Generate a few example correlations
+  const examples = useMemo(() => {
+    const exampleCorrelations: CorrelationData[] = []
+    for (let i = 0; i < 4; i++) {
+      exampleCorrelations.push(generateCorrelationData())
+    }
+    return exampleCorrelations
+  }, [])
+  
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsAnimating(true)
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % examples.length)
+        setIsAnimating(false)
+      }, 500)
+    }, 7000) // Increased from 5s to 7s for better readability
+    
+    return () => clearInterval(interval)
+  }, [examples.length])
+  
+  const currentExample = examples[currentIndex]
+  
+  const colors = [
+    { var1: 'text-cyan-400', var2: 'text-purple-400' },
+    { var1: 'text-green-400', var2: 'text-blue-400' },
+    { var1: 'text-orange-400', var2: 'text-pink-400' },
+    { var1: 'text-yellow-400', var2: 'text-red-400' }
+  ]
+  
+  const colorSet = colors[currentIndex % colors.length]
+  
+  const handleClick = () => {
+    if (onExampleClick && currentExample) {
+      onExampleClick(currentExample)
+    }
+  }
+  
+  return (
+    <div className="h-8 sm:h-10 flex items-center justify-center">
+      <p 
+        className={`text-base sm:text-lg lg:text-xl leading-relaxed transition-all duration-500 transform cursor-pointer hover:scale-105 ${
+          isAnimating 
+            ? 'opacity-0 scale-95 -translate-y-2' 
+            : 'opacity-100 scale-100 translate-y-0'
+        }`}
+        onClick={handleClick}
+        title="Click to generate this correlation"
+      >
+        Like whether <span className={`${colorSet.var1} font-semibold`}>{currentExample?.variable1.name?.toLowerCase()}</span> affects{' '}
+        <span className={`${colorSet.var2} font-semibold`}>{currentExample?.variable2.name?.toLowerCase()}</span>?
+      </p>
+    </div>
+  )
+}
+
+// Function to render colorized title with different colors for each variable
+function ColorizedTitle({ title, isMobile }: { title: string, isMobile: boolean }) {
+  const parts = title.split(' vs ')
+  if (parts.length === 2) {
+    return (
+      <span className={`${isMobile ? 'text-sm' : ''}`}>
+        <span className="text-cyan-400">{parts[0]}</span>
+        <span className="text-gray-300"> vs </span>
+        <span className="text-purple-400">{parts[1]}</span>
+      </span>
+    )
+  }
+  // Fallback for titles that don't follow the "X vs Y" pattern
+  return <span className={`${isMobile ? 'text-sm' : ''}`}>{title}</span>
+}
+
 function App() {
   const [isAppLoading, setIsAppLoading] = useState(true)
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
@@ -330,6 +407,12 @@ function App() {
       setIsGenerating(false)
     }
   }, [selectedCategory])
+
+  // Handle clicking on dynamic examples to generate that specific correlation
+  const handleExampleClick = useCallback((exampleCorrelation: CorrelationData) => {
+    setCurrentCorrelation(exampleCorrelation)
+    toast.success(`📊 Generated: ${exampleCorrelation.title}`)
+  }, [])
 
   // Smart correlation discovery functions
   const generateSimilarCorrelations = useCallback((baseCorrelation: CorrelationData, count: number = 3) => {
@@ -769,8 +852,8 @@ function App() {
               <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center animate-pulse">
                 <Database size={24} className="text-white" />
               </div>
-              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-                CorrelateAI Pro
+              <h1 className="text-2xl font-bold">
+                <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Correlate</span><span className="text-cyan-300">AI</span>
               </h1>
             </div>
             
@@ -819,17 +902,22 @@ function App() {
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
               <Database size={isMobile ? 20 : 24} className="text-white" />
             </div>
-            <h1 className="text-2xl sm:text-4xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
-              {isMobile ? "CorrelateAI" : "CorrelateAI Pro"}
+            <h1 className="text-2xl sm:text-4xl font-bold">
+              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Correlate</span><span className="text-cyan-300">AI</span>
             </h1>
             <div className="px-2 py-1 sm:px-3 sm:py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25">
               AI-Powered
             </div>
           </div>
-          <p className="text-gray-300 max-w-2xl mx-auto leading-relaxed text-sm sm:text-base px-4 sm:px-0">
-            Discover surprising correlations in real economic data using advanced AI analysis. 
-            Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.
-          </p>
+          <div className="text-gray-300 max-w-2xl mx-auto px-4 sm:px-0 space-y-1">
+            <h2 className="text-lg sm:text-xl font-semibold text-white">
+              Ever wonder if <span className="text-orange-400 font-bold">2</span> things are connected?
+            </h2>
+            <DynamicExamples onExampleClick={handleExampleClick} />
+            <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
+              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve and World Bank.
+            </p>
+          </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
             <div className="flex items-center gap-2">
               <Database size={14} className="text-cyan-400" />
@@ -1073,7 +1161,7 @@ function App() {
                       }}
                       className="border-purple-600 text-purple-400 hover:bg-purple-600/10"
                     >
-                      <Eye size={16} className="mr-2" />
+                      <TrendUp size={16} className="mr-2" />
                       Analyze Current Pattern
                     </Button>
                   )}
@@ -2002,11 +2090,9 @@ function CorrelationCard({
             <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'}`}>
               <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
                 <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
-                  <Heart size={16} className="text-white" />
+                  <TrendUp size={16} className="text-white" />
                 </div>
-                <span className={`${isMobile ? 'text-sm' : ''}`}>
-                  {correlation.title}
-                </span>
+                <ColorizedTitle title={correlation.title} isMobile={isMobile} />
               </div>
               <Badge 
                 variant="secondary" 
@@ -2023,8 +2109,8 @@ function CorrelationCard({
             </p>
           </div>
           
-          {/* Action buttons in 2x2 grid layout for better space efficiency */}
-          <div className="grid grid-cols-2 gap-1 w-20">
+          {/* Action buttons in single row for mobile, 2x2 grid for desktop */}
+          <div className={`grid gap-1 ${isMobile ? 'grid-cols-4 w-40' : 'grid-cols-2 w-20'}`}>
             {isShareable && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
@@ -2125,14 +2211,19 @@ function CorrelationCard({
         </div>
       </CardHeader>
       
-      <CardContent className={`${isMobile ? 'p-3 pt-0' : ''}`}>
+      <CardContent className={`${isMobile ? 'p-1 pt-0' : ''}`}>
         {/* Chart Visualization - Now at the top */}
         <div className="mb-6">
-          <div className={`h-64 sm:h-80 ${isMobile ? 'px-2' : ''}`}>
+          <div className={`h-64 sm:h-80 ${isMobile ? 'px-0' : ''}`}>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart 
                 data={correlation.data} 
-                margin={{ top: 20, right: 30, left: 20, bottom: 60 }}
+                margin={{ 
+                  top: isMobile ? 10 : 20, 
+                  right: isMobile ? 15 : 30, 
+                  left: isMobile ? 10 : 20, 
+                  bottom: isMobile ? 40 : 60 
+                }}
               >
                 <CartesianGrid strokeDasharray="3 3" stroke="#374151" opacity={0.3} />
                 <XAxis 
@@ -2245,7 +2336,7 @@ function CorrelationCard({
           <div className="border border-gray-700/50 rounded-lg overflow-hidden">
             <Button
               variant="ghost"
-              className="w-full justify-between text-left h-12 px-4 hover:bg-gray-800/50"
+              className="w-full justify-between text-left h-12 px-4 hover:bg-cyan-500/10"
               onClick={() => setShowDetails(!showDetails)}
             >
               <div className="flex items-center gap-2">
@@ -2263,7 +2354,7 @@ function CorrelationCard({
                 )}
               </div>
               <div className={`transition-transform duration-200 ${showDetails ? 'rotate-180' : ''}`}>
-                <Eye size={16} className="text-gray-400" />
+                <CaretDown size={16} className="text-gray-400" />
               </div>
             </Button>
             
@@ -2322,7 +2413,7 @@ function CorrelationCard({
           <div className="border border-gray-700/50 rounded-lg overflow-hidden">
             <Button
               variant="ghost"
-              className="w-full justify-between text-left h-12 px-4 hover:bg-gray-800/50"
+              className="w-full justify-between text-left h-12 px-4 hover:bg-yellow-400/10"
               onClick={() => setShowInsights(!showInsights)}
             >
               <div className="flex items-center gap-2">
@@ -2335,7 +2426,7 @@ function CorrelationCard({
                 )}
               </div>
               <div className={`transition-transform duration-200 ${showInsights ? 'rotate-180' : ''}`}>
-                <Eye size={16} className="text-gray-400" />
+                <CaretDown size={16} className="text-gray-400" />
               </div>
             </Button>
             
