@@ -425,43 +425,267 @@ function App() {
     const baseUrl = window.location.origin
     const shareUrl = `${baseUrl}/?share=${correlation.id}`
     
+    // More engaging share text with emojis and better formatting
+    const strengthEmoji = Math.abs(correlation.correlation) > 0.7 ? "🔥" : 
+                         Math.abs(correlation.correlation) > 0.4 ? "💪" : "🔍"
+    const directionEmoji = correlation.correlation > 0 ? "📈" : "📉"
+    const correlationValue = (correlation.correlation * 100).toFixed(0)
+    
     return {
-      short: `🔍 ${corrType.charAt(0).toUpperCase() + corrType.slice(1)} ${direction} correlation: ${correlation.title} (r=${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}) #DataScience #AI #Correlation`,
-      long: `🔍 Fascinating ${corrType} ${direction} correlation discovered!\n\n${correlation.title}\nr = ${correlation.correlation > 0 ? '+' : ''}${correlation.correlation}\n\n${correlation.description}\n\n🤖 Powered by CorrelateAI Pro - AI-driven data correlation analysis\n📊 Real data from FRED & World Bank APIs\n\n${shareUrl}\n\n#DataScience #AI #Statistics #Economics #MachineLearning`,
+      short: `${strengthEmoji} ${corrType.toUpperCase()} CORRELATION FOUND! ${directionEmoji}\n\n"${correlation.title}"\n\nCorrelation: ${correlation.correlation > 0 ? '+' : ''}${correlationValue}%\n\n🤖 Discovered with AI-powered analysis\n${shareUrl}\n\n#DataScience #AI #Statistics #Correlation #MachineLearning`,
+      
+      medium: `${strengthEmoji} Fascinating ${corrType} correlation discovered!\n\n${directionEmoji} ${correlation.title}\n📊 Correlation strength: ${correlation.correlation > 0 ? '+' : ''}${correlationValue}%\n\n${correlation.description}\n\n🤖 Powered by CorrelateAI Pro\n🔗 ${shareUrl}\n\n#DataScience #AI #Statistics #Economics #MachineLearning #DataAnalysis`,
+      
+      long: `${strengthEmoji} BREAKTHROUGH DATA CORRELATION DISCOVERY! ${directionEmoji}\n\n"${correlation.title}"\n\n📊 KEY FINDINGS:\n• Correlation Strength: ${correlation.correlation > 0 ? '+' : ''}${correlationValue}%\n• Statistical Significance: ${Math.abs(correlation.correlation) >= 0.5 ? 'HIGH ✅' : 'MODERATE ⚠️'}\n• Analysis Type: ${corrType.charAt(0).toUpperCase() + corrType.slice(1)} ${direction}\n\n💡 INSIGHT:\n${correlation.description}\n\n🤖 This correlation was discovered using CorrelateAI Pro's advanced AI-driven data analysis engine, processing real-world datasets to uncover hidden patterns and relationships.\n\n🔗 Explore the interactive analysis: ${shareUrl}\n\n#DataScience #AI #Statistics #Economics #MachineLearning #DataAnalysis #Research #TechInnovation #BigData`,
+      
       url: shareUrl
     }
   }, [])
 
-  const shareToTwitter = useCallback((correlation: CorrelationData) => {
-    const shareContent = generateShareText(correlation)
-    const twitterText = shareContent.short + `\n\n🔗 ${shareContent.url}`
-    const url = `https://x.com/intent/tweet?text=${encodeURIComponent(twitterText)}`
-    window.open(url, '_blank', 'width=600,height=400')
-    toast.success("Opening X (Twitter) share dialog!")
+  // Enhanced share function that generates image and shares with better content
+  const generateShareImageAndText = useCallback(async (correlation: CorrelationData) => {
+    if (!shareCardRef.current) {
+      toast.error("Unable to generate share image. Please try again.")
+      return null
+    }
+
+    try {
+      toast.info("🎨 Generating shareable image...")
+      
+      // Dynamic import to avoid bundling issues
+      const html2canvas = (await import('html2canvas')).default
+      
+      const canvas = await html2canvas(shareCardRef.current, {
+        backgroundColor: '#1f2937', // Dark background to match app theme
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        height: shareCardRef.current.offsetHeight,
+        width: shareCardRef.current.offsetWidth,
+        logging: false
+      })
+      
+      // Convert canvas to blob
+      const blob = await new Promise<Blob>((resolve) => {
+        canvas.toBlob((blob) => resolve(blob!), 'image/png', 0.95)
+      })
+      
+      const shareContent = generateShareText(correlation)
+      
+      toast.success("📸 Share image ready!")
+      
+      return {
+        imageBlob: blob,
+        imageUrl: URL.createObjectURL(blob),
+        text: shareContent,
+        filename: `correlateai-${correlation.id}.png`
+      }
+    } catch (error) {
+      console.error('Error generating share image:', error)
+      toast.error("Failed to generate share image")
+      return null
+    }
   }, [generateShareText])
 
-  const shareToLinkedIn = useCallback((correlation: CorrelationData) => {
-    const shareContent = generateShareText(correlation)
-    const fullUrl = shareContent.url
+  const shareToTwitter = useCallback(async (correlation: CorrelationData) => {
+    const shareData = await generateShareImageAndText(correlation)
     
-    // LinkedIn sharing with proper URL encoding and parameters
+    if (!shareData) {
+      // Fallback to text-only sharing if image generation fails
+      const shareContent = generateShareText(correlation)
+      const twitterText = shareContent.short
+      const url = `https://x.com/intent/tweet?text=${encodeURIComponent(twitterText)}`
+      window.open(url, '_blank', 'width=600,height=400')
+      toast.success("Opening X (Twitter) share dialog!")
+      return
+    }
+
+    // Check if Web Share API is supported for native image sharing
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })] })) {
+      try {
+        const file = new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })
+        await navigator.share({
+          title: '🔍 Correlation Discovery',
+          text: shareData.text.short,
+          files: [file]
+        })
+        toast.success("🚀 Shared successfully!")
+        return
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.warn('Native share failed, falling back to URL sharing')
+        }
+      }
+    }
+
+    // Fallback: Open Twitter with text and suggest image upload
+    const twitterText = shareData.text.short + "\n\n📸 Image saved to downloads - Upload it with your tweet for maximum impact!"
+    const url = `https://x.com/intent/tweet?text=${encodeURIComponent(twitterText)}`
+    
+    // Also trigger image download for user to upload manually
+    const link = document.createElement('a')
+    link.href = shareData.imageUrl
+    link.download = shareData.filename
+    link.click()
+    
+    window.open(url, '_blank', 'width=600,height=400')
+    toast.success("📸 Image downloaded! Upload it with your tweet for best results!")
+  }, [generateShareImageAndText, generateShareText])
+
+  const shareToLinkedIn = useCallback(async (correlation: CorrelationData) => {
+    const shareData = await generateShareImageAndText(correlation)
+    
+    if (!shareData) {
+      // Fallback to text-only sharing if image generation fails
+      const shareContent = generateShareText(correlation)
+      const fullUrl = shareContent.url
+      const linkedInTitle = encodeURIComponent(`CorrelateAI Pro: ${correlation.title}`)
+      const linkedInSummary = encodeURIComponent(shareContent.long)
+      const linkedInSource = encodeURIComponent('CorrelateAI Pro - AI Data Analysis')
+      
+      const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}&title=${linkedInTitle}&summary=${linkedInSummary}&source=${linkedInSource}`
+      window.open(url, '_blank', 'width=700,height=500,scrollbars=yes,resizable=yes')
+      toast.success("Opening LinkedIn share dialog!")
+      return
+    }
+
+    // Check if Web Share API is supported for native image sharing
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })] })) {
+      try {
+        const file = new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })
+        await navigator.share({
+          title: 'CorrelateAI Pro: Data Correlation Discovery',
+          text: shareData.text.long,
+          files: [file]
+        })
+        toast.success("🚀 Shared successfully!")
+        return
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.warn('Native share failed, falling back to LinkedIn URL')
+        }
+      }
+    }
+
+    // Fallback: LinkedIn sharing with enhanced text and image download
+    const fullUrl = shareData.text.url
     const linkedInTitle = encodeURIComponent(`CorrelateAI Pro: ${correlation.title}`)
-    const linkedInSummary = encodeURIComponent(shareContent.long)
+    const linkedInSummary = encodeURIComponent(shareData.text.long + "\n\n📸 Visualization image saved to downloads - attach it to your LinkedIn post!")
     const linkedInSource = encodeURIComponent('CorrelateAI Pro - AI Data Analysis')
     
-    // Use the proper LinkedIn share URL with all parameters
-    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}&title=${linkedInTitle}&summary=${linkedInSummary}&source=${linkedInSource}`
+    // Download image for manual upload
+    const link = document.createElement('a')
+    link.href = shareData.imageUrl
+    link.download = shareData.filename
+    link.click()
     
+    const url = `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(fullUrl)}&title=${linkedInTitle}&summary=${linkedInSummary}&source=${linkedInSource}`
     window.open(url, '_blank', 'width=700,height=500,scrollbars=yes,resizable=yes')
-    toast.success("Opening LinkedIn share dialog!")
-  }, [generateShareText])
+    toast.success("📸 Image downloaded! Attach it to your LinkedIn post for better engagement!")
+  }, [generateShareImageAndText, generateShareText])
 
-  const shareToFacebook = useCallback((correlation: CorrelationData) => {
-    const shareContent = generateShareText(correlation)
-    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareContent.url)}&quote=${encodeURIComponent(shareContent.long)}`
+  const shareToFacebook = useCallback(async (correlation: CorrelationData) => {
+    const shareData = await generateShareImageAndText(correlation)
+    
+    if (!shareData) {
+      // Fallback to text-only sharing if image generation fails
+      const shareContent = generateShareText(correlation)
+      const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareContent.url)}&quote=${encodeURIComponent(shareContent.long)}`
+      window.open(url, '_blank', 'width=600,height=400')
+      toast.success("Opening Facebook share dialog!")
+      return
+    }
+
+    // Check if Web Share API is supported for native image sharing
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })] })) {
+      try {
+        const file = new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })
+        await navigator.share({
+          title: 'CorrelateAI Pro: Correlation Discovery',
+          text: shareData.text.medium,
+          files: [file]
+        })
+        toast.success("🚀 Shared successfully!")
+        return
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.warn('Native share failed, falling back to Facebook URL')
+        }
+      }
+    }
+
+    // Fallback: Facebook sharing with image download
+    const link = document.createElement('a')
+    link.href = shareData.imageUrl
+    link.download = shareData.filename
+    link.click()
+    
+    const url = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareData.text.url)}&quote=${encodeURIComponent(shareData.text.medium + "\n\n📸 Visualization image saved - upload it with your post!")}`
     window.open(url, '_blank', 'width=600,height=400')
-    toast.success("Opening Facebook share dialog!")
-  }, [generateShareText])
+    toast.success("📸 Image downloaded! Upload it with your Facebook post!")
+  }, [generateShareImageAndText, generateShareText])
+
+  // Universal share function that uses native sharing when available
+  const shareCorrelation = useCallback(async (correlation: CorrelationData) => {
+    const shareData = await generateShareImageAndText(correlation)
+    
+    if (!shareData) {
+      toast.error("Unable to generate share content. Please try again.")
+      return
+    }
+
+    // Check if native sharing with image is supported
+    if (navigator.share && navigator.canShare) {
+      try {
+        const file = new File([shareData.imageBlob], shareData.filename, { type: 'image/png' })
+        
+        if (navigator.canShare({ files: [file] })) {
+          await navigator.share({
+            title: '🔍 CorrelateAI Pro: Correlation Discovery',
+            text: shareData.text.medium,
+            files: [file]
+          })
+          toast.success("🚀 Shared successfully!")
+          return
+        } else {
+          // Native share without files
+          await navigator.share({
+            title: '🔍 CorrelateAI Pro: Correlation Discovery',
+            text: shareData.text.medium,
+            url: shareData.text.url
+          })
+          
+          // Also download image for user to share separately
+          const link = document.createElement('a')
+          link.href = shareData.imageUrl
+          link.download = shareData.filename
+          link.click()
+          
+          toast.success("🚀 Link shared! Image downloaded for separate upload.")
+          return
+        }
+      } catch (error) {
+        if (error.name !== 'AbortError') {
+          console.warn('Native share failed:', error)
+        } else {
+          return // User cancelled
+        }
+      }
+    }
+
+    // Fallback: Download image and copy text to clipboard
+    const link = document.createElement('a')
+    link.href = shareData.imageUrl
+    link.download = shareData.filename
+    link.click()
+
+    try {
+      await navigator.clipboard.writeText(shareData.text.medium)
+      toast.success("📸 Image downloaded and text copied to clipboard! Ready to share anywhere!")
+    } catch (error) {
+      toast.success("📸 Image downloaded! Copy the text from the share dialog to post with it.")
+    }
+  }, [generateShareImageAndText])
 
   const downloadAsImage = useCallback(async (correlation: CorrelationData, scale: number = 2) => {
     if (!shareCardRef.current) {
@@ -728,6 +952,10 @@ function App() {
                 isShareable={true} 
                 favorites={favorites}
                 toggleFavorite={toggleFavorite}
+                shareToTwitter={shareToTwitter}
+                shareToLinkedIn={shareToLinkedIn}
+                shareToFacebook={shareToFacebook}
+                shareCorrelation={shareCorrelation}
               />
             )}
             
@@ -754,6 +982,10 @@ function App() {
                     correlation={correlation} 
                     favorites={favorites}
                     toggleFavorite={toggleFavorite}
+                    shareToTwitter={shareToTwitter}
+                    shareToLinkedIn={shareToLinkedIn}
+                    shareToFacebook={shareToFacebook}
+                    shareCorrelation={shareCorrelation}
                   />
                 ))}
               </div>
@@ -898,6 +1130,10 @@ function App() {
                         correlation={correlation}
                         favorites={favorites}
                         toggleFavorite={toggleFavorite}
+                        shareToTwitter={shareToTwitter}
+                        shareToLinkedIn={shareToLinkedIn}
+                        shareToFacebook={shareToFacebook}
+                        shareCorrelation={shareCorrelation}
                       />
                     ))}
                   </div>
@@ -1528,12 +1764,20 @@ function CorrelationCard({
   correlation, 
   isShareable = false, 
   favorites = [], 
-  toggleFavorite 
+  toggleFavorite,
+  shareToTwitter,
+  shareToLinkedIn, 
+  shareToFacebook,
+  shareCorrelation
 }: { 
   correlation: CorrelationData; 
   isShareable?: boolean; 
   favorites?: CorrelationData[]; 
   toggleFavorite?: (correlation: CorrelationData) => void; 
+  shareToTwitter?: (correlation: CorrelationData) => void;
+  shareToLinkedIn?: (correlation: CorrelationData) => void;
+  shareToFacebook?: (correlation: CorrelationData) => void;
+  shareCorrelation?: (correlation: CorrelationData) => void;
 }) {
   const isMobile = useIsMobile()
   const shareCardRef = useRef<HTMLDivElement>(null)
@@ -1761,18 +2005,12 @@ function CorrelationCard({
     }
   }, [correlation])
 
-  const shareCard = useCallback((correlation: CorrelationData) => {
-    const text = `Interesting correlation: ${correlation.title} (r=${correlation.correlation > 0 ? '+' : ''}${correlation.correlation})`
-    if (navigator.share) {
-      navigator.share({
-        title: 'CorrelateAI Pro Discovery',
-        text: text,
-        url: window.location.href
-      })
-    } else {
-      copyToClipboard(text)
+  const shareCard = useCallback(async (correlation: CorrelationData) => {
+    // Use the enhanced sharing system with image generation
+    if (shareCorrelation) {
+      await shareCorrelation(correlation)
     }
-  }, [copyToClipboard])
+  }, [shareCorrelation])
 
   const showCorrelationDetails = useCallback((correlation: CorrelationData) => {
     toast.info(`Viewing details for ${correlation.title}`)
@@ -1844,15 +2082,44 @@ function CorrelationCard({
                 </DropdownMenuContent>
               </DropdownMenu>
             )}
-            <Button
-              variant="ghost"
-              size="icon"
-              className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
-              onClick={() => shareCard(correlation)}
-              title="Share this correlation"
-            >
-              <Share size={16} />
-            </Button>
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50"
+                  title="Share this correlation"
+                >
+                  <Share size={16} />
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end" className="w-56">
+                {shareCorrelation && (
+                  <DropdownMenuItem onClick={() => shareCorrelation(correlation)}>
+                    <Share size={16} className="mr-2" />
+                    Quick Share (Image + Text)
+                  </DropdownMenuItem>
+                )}
+                {shareToTwitter && (
+                  <DropdownMenuItem onClick={() => shareToTwitter(correlation)}>
+                    <TwitterLogo size={16} className="mr-2" />
+                    Share to X (Twitter)
+                  </DropdownMenuItem>
+                )}
+                {shareToLinkedIn && (
+                  <DropdownMenuItem onClick={() => shareToLinkedIn(correlation)}>
+                    <LinkedinLogo size={16} className="mr-2" />
+                    Share to LinkedIn
+                  </DropdownMenuItem>
+                )}
+                {shareToFacebook && (
+                  <DropdownMenuItem onClick={() => shareToFacebook(correlation)}>
+                    <FacebookLogo size={16} className="mr-2" />
+                    Share to Facebook
+                  </DropdownMenuItem>
+                )}
+              </DropdownMenuContent>
+            </DropdownMenu>
             <Button
               variant="ghost"
               size="icon"
