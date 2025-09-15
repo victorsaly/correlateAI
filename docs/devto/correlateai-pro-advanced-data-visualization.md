@@ -2,8 +2,8 @@
 title: "Building CorrelateAI Pro: Advanced Interactive Data Visualization with React & TypeScript"
 published: true
 description: "Learn how to build a professional correlation discovery platform with interactive charts, advanced export features, and AI-powered recommendations using React, TypeScript, and Recharts."
-tags: react, typescript, dataviz, frontend
-cover_image: ./img/hero-interface-correlateai.jpeg
+tags: react, typescript, dataviz, ai
+cover_image: https://correlateAI.victorsaly.com/img/hero-interface-correlateai.jpeg
 canonical_url: https://correlateai.victorsaly.com
 series: Data Visualization
 ---
@@ -14,7 +14,7 @@ Have you ever wanted to build a professional-grade data visualization platform t
 
 > **⚡ Speed Development Alert:** This entire project was built from concept to production in under 8 hours using GitHub Copilot, Claude, and modern AI development tools. What used to take weeks now takes hours!
 
-![CorrelateAI Pro Hero Interface](./public/img/hero-interface-correlateai.jpeg)
+![CorrelateAI Pro Hero Interface](https://correlateAI.victorsaly.com/img/hero-interface-correlateai.jpeg)
 *CorrelateAI Pro: Professional correlation discovery with interactive charts and AI-powered insights*
 
 ## 🎥 Live Demo
@@ -440,10 +440,7 @@ const exportAsJSON = useCallback(() => {
 
 ### 3. Smart Correlation Discovery with AI
 
-<iframe loading="lazy" style="position: absolute; width: 100%; height: 100%; top: 0; left: 0; border: none; padding: 0;margin: 0;"
-    src="https://www.canva.com/design/DAGzDbdKe_E/BgOE5E_gNwIl62XCjxGItQ/watch?embed" allowfullscreen="allowfullscreen" allow="fullscreen">
-  </iframe>
-  
+![Smart Discovery Demo](https://correlateAI.victorsaly.com/img/IOS.gif)
 *AI-powered recommendations and intelligent filtering - let AI do the heavy lifting*
 
 The third and most exciting improvement introduced AI-powered recommendations and pattern discovery capabilities.
