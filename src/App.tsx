@@ -260,6 +260,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const [isAnimating, setIsAnimating] = useState(false)
   const [autoProgress, setAutoProgress] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const [animationStep, setAnimationStep] = useState(0)
   
   const slides = [
     {
@@ -269,30 +270,60 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <Database size={48} className="text-cyan-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-6">
-          <div className="flex items-center justify-center gap-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-xl flex items-center justify-center shadow-lg">
-              <Database size={32} className="text-white" />
+          <div className={`flex items-center justify-center gap-4 transition-all duration-1000 ease-out transform ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+          }`}>
+            <div className={`w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-xl flex items-center justify-center shadow-lg transition-all duration-1200 ease-out ${
+              animationStep >= 1 ? 'rotate-0 shadow-cyan-400/25' : 'rotate-12 shadow-transparent'
+            }`}>
+              <Database size={32} className={`text-white transition-all duration-800 ${
+                animationStep >= 1 ? 'scale-100' : 'scale-75'
+              }`} />
             </div>
             <h1 className="text-4xl font-bold">
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Correlate</span>
-              <span className="text-cyan-300">AI</span>
+              <span className={`bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent transition-all duration-1000 ${
+                animationStep >= 1 ? 'letter-spacing-normal' : 'letter-spacing-wide'
+              }`}>Correlate</span>
+              <span className={`text-cyan-300 transition-all duration-1000 delay-200 ${
+                animationStep >= 1 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+              }`}>AI</span>
             </h1>
           </div>
-          <p className="text-xl text-gray-300 max-w-lg text-center">
+          <p className={`text-xl text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out transform delay-300 ${
+            animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+          }`}>
             Ever wondered if two seemingly unrelated things are actually connected?
           </p>
-          <div className="flex justify-center items-center gap-3 mt-6">
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-cyan-400 rounded-full"></div>
+          <div className={`flex justify-center items-center gap-3 transition-all duration-1200 ease-out transform delay-500 ${
+            animationStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'
+          }`}>
+            <div className={`flex items-center gap-2 transition-all duration-800 delay-600 ${
+              animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-6'
+            }`}>
+              <div className={`w-4 h-4 bg-cyan-400 rounded-full transition-all duration-500 ${
+                animationStep >= 3 ? 'scale-100 shadow-lg shadow-cyan-400/50' : 'scale-0'
+              }`}></div>
               <span className="text-sm text-cyan-400">Data Point A</span>
             </div>
-            <div className="flex items-center">
-              <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-purple-400"></div>
-              <div className="mx-2 text-yellow-400">⚡</div>
-              <div className="w-8 h-px bg-gradient-to-r from-purple-400 to-cyan-400"></div>
+            <div className={`flex items-center transition-all duration-1000 delay-700 ${
+              animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>
+              <div className={`w-8 h-px bg-gradient-to-r from-cyan-400 to-purple-400 transition-all duration-800 ${
+                animationStep >= 3 ? 'scale-x-100' : 'scale-x-0'
+              }`}></div>
+              <div className={`mx-2 text-yellow-400 transition-all duration-500 delay-800 ${
+                animationStep >= 3 ? 'scale-100 rotate-0' : 'scale-0 rotate-45'
+              }`}>⚡</div>
+              <div className={`w-8 h-px bg-gradient-to-r from-purple-400 to-cyan-400 transition-all duration-800 ${
+                animationStep >= 3 ? 'scale-x-100' : 'scale-x-0'
+              }`}></div>
             </div>
-            <div className="flex items-center gap-2">
-              <div className="w-4 h-4 bg-purple-400 rounded-full"></div>
+            <div className={`flex items-center gap-2 transition-all duration-800 delay-900 ${
+              animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-6'
+            }`}>
+              <div className={`w-4 h-4 bg-purple-400 rounded-full transition-all duration-500 delay-100 ${
+                animationStep >= 3 ? 'scale-100 shadow-lg shadow-purple-400/50' : 'scale-0'
+              }`}></div>
               <span className="text-sm text-purple-400">Data Point B</span>
             </div>
           </div>
@@ -306,25 +337,55 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <TrendUp size={48} className="text-green-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-6">
-          <div className="grid grid-cols-2 gap-8 max-w-2xl">
-            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-6 border border-cyan-500/30">
-              <div className="text-3xl mb-3 text-center">🍦</div>
-              <h3 className="text-lg font-semibold text-cyan-400 text-center">Ice Cream Sales</h3>
-              <p className="text-sm text-gray-300 text-center">Summer treats</p>
+          <div className={`grid grid-cols-2 gap-8 max-w-2xl transition-all duration-1000 ease-out ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className={`bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-6 border border-cyan-500/30 transition-all duration-1200 ease-out transform ${
+              animationStep >= 1 ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 -translate-x-8 -rotate-3'
+            }`}>
+              <div className={`text-3xl mb-3 text-center transition-all duration-800 delay-200 ${
+                animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+              }`}>🍦</div>
+              <h3 className={`text-lg font-semibold text-cyan-400 text-center transition-all duration-600 delay-300 ${
+                animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>Ice Cream Sales</h3>
+              <p className={`text-sm text-gray-300 text-center transition-all duration-600 delay-400 ${
+                animationStep >= 1 ? 'opacity-100' : 'opacity-0'
+              }`}>Summer treats</p>
             </div>
-            <div className="bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-6 border border-red-500/30">
-              <div className="text-3xl mb-3 text-center">🏊‍♂️</div>
-              <h3 className="text-lg font-semibold text-red-400 text-center">Drowning Incidents</h3>
-              <p className="text-sm text-gray-300 text-center">Water activities</p>
+            <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-6 border border-red-500/30 transition-all duration-1200 ease-out transform ${
+              animationStep >= 1 ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 translate-x-8 rotate-3'
+            }`}>
+              <div className={`text-3xl mb-3 text-center transition-all duration-800 delay-400 ${
+                animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 -rotate-180'
+              }`}>🏊‍♂️</div>
+              <h3 className={`text-lg font-semibold text-red-400 text-center transition-all duration-600 delay-500 ${
+                animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}>Drowning Incidents</h3>
+              <p className={`text-sm text-gray-300 text-center transition-all duration-600 delay-600 ${
+                animationStep >= 1 ? 'opacity-100' : 'opacity-0'
+              }`}>Water activities</p>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <div className="w-8 h-px bg-gradient-to-r from-cyan-400 to-red-400"></div>
-            <span className="mx-4 text-2xl text-yellow-400">⚡</span>
-            <div className="w-8 h-px bg-gradient-to-r from-red-400 to-cyan-400"></div>
+          <div className={`flex items-center justify-center transition-all duration-1000 ease-out delay-700 ${
+            animationStep >= 2 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-6 scale-75'
+          }`}>
+            <div className={`w-8 h-px bg-gradient-to-r from-cyan-400 to-red-400 transition-all duration-800 ${
+              animationStep >= 2 ? 'scale-x-100' : 'scale-x-0'
+            }`}></div>
+            <span className={`mx-4 text-2xl text-yellow-400 transition-all duration-600 delay-800 ${
+              animationStep >= 2 ? 'scale-125 rotate-0 drop-shadow-lg' : 'scale-0 rotate-90'
+            }`}>⚡</span>
+            <div className={`w-8 h-px bg-gradient-to-r from-red-400 to-cyan-400 transition-all duration-800 delay-100 ${
+              animationStep >= 2 ? 'scale-x-100' : 'scale-x-0'
+            }`}></div>
           </div>
-          <p className="text-lg text-gray-300 max-w-lg text-center">
-            Both increase in summer! <span className="text-yellow-400 font-semibold">Correlation ≠ Causation</span>
+          <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-900 ${
+            animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
+          }`}>
+            Both increase in summer! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
+              animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>Correlation ≠ Causation</span>
           </p>
         </div>
       )
@@ -336,17 +397,33 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <TrendUp size={48} className="text-blue-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-4">
-          <div className="w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700/30">
+          <div className={`w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-6 border border-gray-700/30 transition-all duration-1000 ease-out transform ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-95 rotate-1'
+          }`}>
             {/* Mock Chart */}
-            <div className="mb-4 text-center">
+            <div className={`mb-4 text-center transition-all duration-800 delay-300 ${
+              animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
               <h3 className="text-lg font-semibold mb-1">
-                <span className="text-cyan-400">Netflix Subscriptions</span>
-                <span className="text-gray-300"> vs </span>
-                <span className="text-purple-400">Pizza Deliveries</span>
+                <span className={`text-cyan-400 transition-all duration-600 delay-400 ${
+                  animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
+                }`}>Netflix Subscriptions</span>
+                <span className={`text-gray-300 mx-2 transition-all duration-400 delay-600 ${
+                  animationStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                }`}> vs </span>
+                <span className={`text-purple-400 transition-all duration-600 delay-800 ${
+                  animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
+                }`}>Pizza Deliveries</span>
               </h3>
-              <p className="text-sm text-gray-400">Correlation: +0.847 (Strong Positive)</p>
+              <p className={`text-sm text-gray-400 transition-all duration-500 delay-1000 ${
+                animationStep >= 2 ? 'opacity-100' : 'opacity-0'
+              }`}>Correlation: <span className={`text-green-400 font-bold transition-all duration-600 delay-1100 ${
+                animationStep >= 2 ? 'scale-110 opacity-100' : 'scale-75 opacity-0'
+              }`}>+0.847</span> (Strong Positive)</p>
             </div>
-            <div className="h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden">
+            <div className={`h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden transition-all duration-1200 ease-out delay-1200 transform ${
+              animationStep >= 3 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 -rotate-1'
+            }`}>
               {/* Mock chart lines */}
               <svg className="w-full h-full" viewBox="0 0 300 100">
                 <defs>
@@ -360,7 +437,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                   </linearGradient>
                 </defs>
                 {/* Grid lines */}
-                <g stroke="#374151" strokeWidth="0.5">
+                <g stroke="#374151" strokeWidth="0.5" className={`transition-all duration-800 delay-1400 ${
+                  animationStep >= 3 ? 'opacity-30' : 'opacity-0'
+                }`}>
                   <line x1="0" y1="25" x2="300" y2="25" />
                   <line x1="0" y1="50" x2="300" y2="50" />
                   <line x1="0" y1="75" x2="300" y2="75" />
@@ -369,46 +448,96 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                   <line x1="180" y1="0" x2="180" y2="100" />
                   <line x1="240" y1="0" x2="240" y2="100" />
                 </g>
-                {/* Mock data lines */}
+                {/* Mock data lines - animated stroke drawing */}
                 <polyline
                   fill="none"
                   stroke="url(#line1)"
                   strokeWidth="2"
                   points="20,85 60,75 120,65 180,45 240,30 280,20"
+                  className={`transition-all duration-1500 ease-out delay-1600 ${
+                    animationStep >= 3 ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                    strokeDasharray: animationStep >= 3 ? '0' : '400',
+                    strokeDashoffset: animationStep >= 3 ? '0' : '400'
+                  }}
                 />
                 <polyline
                   fill="none"
                   stroke="url(#line2)"
                   strokeWidth="2"
                   points="20,80 60,70 120,55 180,40 240,28 280,18"
+                  className={`transition-all duration-1500 ease-out delay-1800 ${
+                    animationStep >= 3 ? 'opacity-100' : 'opacity-0'
+                  }`}
+                  style={{
+                    strokeDasharray: animationStep >= 3 ? '0' : '400',
+                    strokeDashoffset: animationStep >= 3 ? '0' : '400'
+                  }}
                 />
-                {/* Data points */}
+                {/* Data points - staggered appearance */}
                 <g fill="#06b6d4">
-                  <circle cx="20" cy="85" r="2" />
-                  <circle cx="60" cy="75" r="2" />
-                  <circle cx="120" cy="65" r="2" />
-                  <circle cx="180" cy="45" r="2" />
-                  <circle cx="240" cy="30" r="2" />
-                  <circle cx="280" cy="20" r="2" />
+                  {[
+                    { cx: 20, cy: 85, delay: 2000 },
+                    { cx: 60, cy: 75, delay: 2100 },
+                    { cx: 120, cy: 65, delay: 2200 },
+                    { cx: 180, cy: 45, delay: 2300 },
+                    { cx: 240, cy: 30, delay: 2400 },
+                    { cx: 280, cy: 20, delay: 2500 }
+                  ].map((point, i) => (
+                    <circle 
+                      key={i}
+                      cx={point.cx} 
+                      cy={point.cy} 
+                      r="2" 
+                      className={`transition-all duration-400 ease-out ${
+                        animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                      }`}
+                      style={{ transitionDelay: `${point.delay}ms` }}
+                    />
+                  ))}
                 </g>
                 <g fill="#8b5cf6">
-                  <circle cx="20" cy="80" r="2" />
-                  <circle cx="60" cy="70" r="2" />
-                  <circle cx="120" cy="55" r="2" />
-                  <circle cx="180" cy="40" r="2" />
-                  <circle cx="240" cy="28" r="2" />
-                  <circle cx="280" cy="18" r="2" />
+                  {[
+                    { cx: 20, cy: 80, delay: 2000 },
+                    { cx: 60, cy: 70, delay: 2100 },
+                    { cx: 120, cy: 55, delay: 2200 },
+                    { cx: 180, cy: 40, delay: 2300 },
+                    { cx: 240, cy: 28, delay: 2400 },
+                    { cx: 280, cy: 18, delay: 2500 }
+                  ].map((point, i) => (
+                    <circle 
+                      key={i}
+                      cx={point.cx} 
+                      cy={point.cy} 
+                      r="2" 
+                      className={`transition-all duration-400 ease-out ${
+                        animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                      }`}
+                      style={{ transitionDelay: `${point.delay}ms` }}
+                    />
+                  ))}
                 </g>
               </svg>
             </div>
-            <div className="flex justify-between text-xs text-gray-400 mt-2">
-              <span>2019</span>
-              <span>2024</span>
+            <div className={`flex justify-between text-xs text-gray-400 mt-2 transition-all duration-600 ease-out delay-2600 ${
+              animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            }`}>
+              <span className={`transition-all duration-300 delay-2600 ${
+                animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`}>2019</span>
+              <span className={`transition-all duration-300 delay-2700 ${
+                animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              }`}>2024</span>
             </div>
           </div>
-          <p className="text-gray-300 text-center max-w-lg">
+          <p className={`text-gray-300 text-center max-w-lg transition-all duration-1000 ease-out delay-2800 ${
+            animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+          }`}>
             As streaming services grew, so did home food delivery. 
-            <span className="text-cyan-400 font-semibold"> Real data</span> reveals unexpected connections!
+            <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-2900 ${
+              animationStep >= 4 ? 'opacity-100 scale-100 text-shadow' : 'opacity-0 scale-75'
+            }`}> Real data</span> reveals unexpected connections!
           </p>
         </div>
       )
@@ -420,34 +549,84 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <Robot size={48} className="text-purple-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-6">
-          <div className="max-w-md">
-            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl p-8 border border-purple-500/30">
-              <div className="flex items-center justify-center gap-4 mb-4">
-                <Robot size={32} className="text-purple-400" />
+          <div className={`max-w-md transition-all duration-1000 ease-out transform ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-95 -rotate-2'
+          }`}>
+            <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 rounded-2xl p-8 border border-purple-500/30 backdrop-blur-sm">
+              <div className={`flex items-center justify-center gap-4 mb-4 transition-all duration-800 ease-out delay-200 ${
+                animationStep >= 2 ? 'opacity-100 translate-x-0 scale-100' : 'opacity-0 -translate-x-8 scale-75'
+              }`}>
+                <div className={`transition-all duration-600 delay-300 ${
+                  animationStep >= 2 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+                }`}>
+                  <Robot size={32} className="text-purple-400" />
+                </div>
                 <div className="flex flex-col items-start">
-                  <div className="flex items-center gap-2">
-                    <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                    <span className="text-sm text-green-400">Analyzing patterns...</span>
+                  <div className={`flex items-center gap-2 transition-all duration-500 delay-400 ${
+                    animationStep >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                  }`}>
+                    <div className={`w-2 h-2 bg-green-400 rounded-full transition-all duration-300 delay-500 ${
+                      animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
+                    }`}></div>
+                    <span className={`text-sm text-green-400 transition-all duration-400 delay-600 ${
+                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                    }`}>Analyzing patterns...</span>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                    <span className="text-sm text-blue-400">Processing datasets...</span>
+                  <div className={`flex items-center gap-2 mt-1 transition-all duration-500 delay-700 ${
+                    animationStep >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                  }`}>
+                    <div className={`w-2 h-2 bg-blue-400 rounded-full transition-all duration-300 delay-800 ${
+                      animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
+                    }`} style={{ animationDelay: '0.3s' }}></div>
+                    <span className={`text-sm text-blue-400 transition-all duration-400 delay-900 ${
+                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                    }`}>Processing datasets...</span>
                   </div>
-                  <div className="flex items-center gap-2 mt-1">
-                    <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
-                    <span className="text-sm text-yellow-400">Calculating correlations...</span>
+                  <div className={`flex items-center gap-2 mt-1 transition-all duration-500 delay-1000 ${
+                    animationStep >= 2 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+                  }`}>
+                    <div className={`w-2 h-2 bg-yellow-400 rounded-full transition-all duration-300 delay-1100 ${
+                      animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
+                    }`} style={{ animationDelay: '0.6s' }}></div>
+                    <span className={`text-sm text-yellow-400 transition-all duration-400 delay-1200 ${
+                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                    }`}>Calculating correlations...</span>
                   </div>
                 </div>
               </div>
-              <div className="text-xs text-purple-300 bg-purple-900/30 rounded-lg p-3 font-mono">
-                correlation_strength: 0.847<br/>
-                statistical_significance: HIGH<br/>
-                pattern_confidence: 92.3%
+              <div className={`text-xs text-purple-300 bg-purple-900/30 rounded-lg p-3 font-mono transition-all duration-1000 ease-out delay-1300 transform ${
+                animationStep >= 3 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-4 scale-95 rotate-1'
+              }`}>
+                <div className={`transition-all duration-400 delay-1400 ${
+                  animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                }`}>
+                  correlation_strength: <span className={`text-green-400 font-bold transition-all duration-300 delay-1500 ${
+                    animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                  }`}>0.847</span>
+                </div>
+                <div className={`transition-all duration-400 delay-1600 ${
+                  animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                }`}>
+                  statistical_significance: <span className={`text-yellow-400 font-bold transition-all duration-300 delay-1700 ${
+                    animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                  }`}>HIGH</span>
+                </div>
+                <div className={`transition-all duration-400 delay-1800 ${
+                  animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-2'
+                }`}>
+                  pattern_confidence: <span className={`text-cyan-400 font-bold transition-all duration-300 delay-1900 ${
+                    animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+                  }`}>92.3%</span>
+                </div>
               </div>
             </div>
           </div>
-          <p className="text-lg text-gray-300 max-w-lg text-center">
-            Our AI processes <span className="text-cyan-400 font-semibold">real-world data</span> from trusted sources to uncover hidden relationships
+          <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-2000 ${
+            animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+          }`}>
+            Our AI processes <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-2100 ${
+              animationStep >= 4 ? 'opacity-100 scale-100 text-shadow' : 'opacity-0 scale-75'
+            }`}>real-world data</span> from trusted sources to uncover hidden relationships
           </p>
         </div>
       )
@@ -459,25 +638,63 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <Target size={48} className="text-orange-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-6">
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl">
-            <div className="bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-4 border border-cyan-500/30 hover:scale-105 transition-transform cursor-pointer">
-              <MagnifyingGlass size={24} className="text-cyan-400 mx-auto mb-2" />
-              <h4 className="font-semibold text-cyan-400 text-sm text-center">Explore</h4>
-              <p className="text-xs text-gray-300 text-center">Generate new correlations</p>
+          <div className={`grid grid-cols-1 sm:grid-cols-3 gap-4 max-w-2xl transition-all duration-1000 ease-out ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}>
+            <div className={`bg-gradient-to-br from-cyan-500/20 to-blue-500/20 rounded-xl p-4 border border-cyan-500/30 hover:scale-105 transition-all cursor-pointer duration-1000 ease-out transform ${
+              animationStep >= 2 ? 'opacity-100 translate-x-0 scale-100 rotate-0' : 'opacity-0 -translate-x-8 scale-75 -rotate-6'
+            }`} style={{ transitionDelay: '200ms' }}>
+              <div className={`transition-all duration-600 delay-300 ${
+                animationStep >= 2 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+              }`}>
+                <MagnifyingGlass size={24} className="text-cyan-400 mx-auto mb-2" />
+              </div>
+              <h4 className={`font-semibold text-cyan-400 text-sm text-center transition-all duration-500 delay-400 ${
+                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+              }`}>Explore</h4>
+              <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-500 ${
+                animationStep >= 2 ? 'opacity-100' : 'opacity-0'
+              }`}>Generate new correlations</p>
             </div>
-            <div className="bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-500/30 hover:scale-105 transition-transform cursor-pointer">
-              <TrendUp size={24} className="text-purple-400 mx-auto mb-2" />
-              <h4 className="font-semibold text-purple-400 text-sm text-center">Analyze</h4>
-              <p className="text-xs text-gray-300 text-center">Deep dive into data</p>
+            <div className={`bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-xl p-4 border border-purple-500/30 hover:scale-105 transition-all cursor-pointer duration-1000 ease-out transform ${
+              animationStep >= 2 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-75 rotate-3'
+            }`} style={{ transitionDelay: '400ms' }}>
+              <div className={`transition-all duration-600 delay-500 ${
+                animationStep >= 2 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+              }`}>
+                <TrendUp size={24} className="text-purple-400 mx-auto mb-2" />
+              </div>
+              <h4 className={`font-semibold text-purple-400 text-sm text-center transition-all duration-500 delay-600 ${
+                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+              }`}>Analyze</h4>
+              <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-700 ${
+                animationStep >= 2 ? 'opacity-100' : 'opacity-0'
+              }`}>Deep dive into data</p>
             </div>
-            <div className="bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 border border-green-500/30 hover:scale-105 transition-transform cursor-pointer">
-              <Share size={24} className="text-green-400 mx-auto mb-2" />
-              <h4 className="font-semibold text-green-400 text-sm text-center">Share</h4>
-              <p className="text-xs text-gray-300 text-center">Spread your findings</p>
+            <div className={`bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-xl p-4 border border-green-500/30 hover:scale-105 transition-all cursor-pointer duration-1000 ease-out transform ${
+              animationStep >= 2 ? 'opacity-100 translate-x-0 scale-100 rotate-0' : 'opacity-0 translate-x-8 scale-75 rotate-6'
+            }`} style={{ transitionDelay: '600ms' }}>
+              <div className={`transition-all duration-600 delay-700 ${
+                animationStep >= 2 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
+              }`}>
+                <Share size={24} className="text-green-400 mx-auto mb-2" />
+              </div>
+              <h4 className={`font-semibold text-green-400 text-sm text-center transition-all duration-500 delay-800 ${
+                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+              }`}>Share</h4>
+              <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-900 ${
+                animationStep >= 2 ? 'opacity-100' : 'opacity-0'
+              }`}>Spread your findings</p>
             </div>
           </div>
-          <p className="text-lg text-gray-300 max-w-lg text-center">
-            Every click reveals new insights. Every discovery can be shared with the world.
+          <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-1000 ${
+            animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+          }`}>
+            Every <span className={`text-cyan-400 font-semibold transition-all duration-500 delay-1100 ${
+              animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>click</span> reveals new insights. Every <span className={`text-green-400 font-semibold transition-all duration-500 delay-1200 ${
+              animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>discovery</span> can be shared with the world.
           </p>
         </div>
       )
@@ -489,26 +706,109 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <Rocket size={48} className="text-yellow-400" />,
       content: (
         <div className="h-80 flex flex-col items-center justify-center space-y-6">
-          <div className="relative max-w-md">
-            <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-2xl opacity-20 animate-pulse"></div>
-            <div className="relative bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-8 border border-cyan-500/30">
-              <Rocket size={48} className="text-yellow-400 mx-auto mb-4" />
-              <h3 className="text-2xl font-bold text-white mb-2 text-center">Start Discovering</h3>
-              <p className="text-gray-300 mb-6 text-center">
-                With <span className="text-cyan-400 font-semibold">80+</span> datasets and <span className="text-purple-400 font-semibold">infinite</span> possibilities
+          <div className={`relative max-w-md transition-all duration-1200 ease-out transform ${
+            animationStep >= 1 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 rotate-3'
+          }`}>
+            <div className={`absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-2xl opacity-20 transition-all duration-1000 ${
+              animationStep >= 1 ? 'animate-pulse scale-100' : 'scale-75'
+            }`}></div>
+            <div className="relative bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-8 border border-cyan-500/30 backdrop-blur-sm">
+              <div className={`transition-all duration-800 ease-out delay-200 transform ${
+                animationStep >= 2 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 -translate-y-8 scale-0 rotate-180'
+              }`}>
+                <Rocket size={48} className="text-yellow-400 mx-auto mb-4" />
+              </div>
+              <h3 className={`text-2xl font-bold text-white mb-2 text-center transition-all duration-800 ease-out delay-400 ${
+                animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0 tracking-normal' : 'opacity-0 translate-y-4 blur-sm tracking-widest'
+              }`}>
+                <span className={`inline-block transition-all duration-300 delay-500 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>S</span>
+                <span className={`inline-block transition-all duration-300 delay-550 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>t</span>
+                <span className={`inline-block transition-all duration-300 delay-600 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>a</span>
+                <span className={`inline-block transition-all duration-300 delay-650 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>r</span>
+                <span className={`inline-block transition-all duration-300 delay-700 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>t</span>
+                <span className="mx-2"></span>
+                <span className={`inline-block transition-all duration-300 delay-750 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>D</span>
+                <span className={`inline-block transition-all duration-300 delay-800 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>i</span>
+                <span className={`inline-block transition-all duration-300 delay-850 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>s</span>
+                <span className={`inline-block transition-all duration-300 delay-900 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>c</span>
+                <span className={`inline-block transition-all duration-300 delay-950 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>o</span>
+                <span className={`inline-block transition-all duration-300 delay-1000 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>v</span>
+                <span className={`inline-block transition-all duration-300 delay-1050 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>e</span>
+                <span className={`inline-block transition-all duration-300 delay-1100 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>r</span>
+                <span className={`inline-block transition-all duration-300 delay-1150 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>i</span>
+                <span className={`inline-block transition-all duration-300 delay-1200 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>n</span>
+                <span className={`inline-block transition-all duration-300 delay-1250 ${
+                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
+                }`}>g</span>
+              </h3>
+              <p className={`text-gray-300 mb-6 text-center transition-all duration-1000 ease-out delay-1300 ${
+                animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
+              }`}>
+                With <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-1400 ${
+                  animationStep >= 4 ? 'opacity-100 scale-110 text-shadow' : 'opacity-0 scale-75'
+                }`}>80+</span> datasets and <span className={`text-purple-400 font-semibold transition-all duration-600 delay-1500 ${
+                  animationStep >= 4 ? 'opacity-100 scale-110 text-shadow' : 'opacity-0 scale-75'
+                }`}>infinite</span> possibilities
               </p>
               <button 
                 onClick={onComplete}
-                className="w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25"
+                className={`w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-1000 ease-out transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 delay-1600 ${
+                  animationStep >= 5 ? 'opacity-100 translate-y-0 scale-100 rotate-0 blur-0' : 'opacity-0 translate-y-8 scale-75 rotate-2 blur-sm'
+                }`}
               >
-                Launch CorrelateAI ✨
+                <span className={`inline-flex items-center gap-2 transition-all duration-500 delay-1700 ${
+                  animationStep >= 5 ? 'opacity-100' : 'opacity-0'
+                }`}>
+                  <span>Launch CorrelateAI</span>
+                  <span className={`transition-all duration-400 delay-1800 ${
+                    animationStep >= 5 ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
+                  }`}>✨</span>
+                </span>
               </button>
             </div>
           </div>
-          <div className="flex justify-center gap-2 text-sm text-gray-400">
-            <span>Press</span>
-            <div className="px-2 py-1 bg-gray-700 rounded text-xs text-gray-300 font-mono">ESC</div>
-            <span>to skip</span>
+          <div className={`flex justify-center gap-2 text-sm text-gray-400 transition-all duration-800 ease-out delay-1900 ${
+            animationStep >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            <span className={`transition-all duration-300 delay-2000 ${
+              animationStep >= 6 ? 'opacity-100' : 'opacity-0'
+            }`}>Press</span>
+            <div className={`px-2 py-1 bg-gray-700 rounded text-xs text-gray-300 font-mono transition-all duration-400 delay-2100 transform ${
+              animationStep >= 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>ESC</div>
+            <span className={`transition-all duration-300 delay-2200 ${
+              animationStep >= 6 ? 'opacity-100' : 'opacity-0'
+            }`}>to skip</span>
           </div>
         </div>
       )
@@ -518,9 +818,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const nextSlide = useCallback(() => {
     if (currentSlide < slides.length - 1) {
       setIsAnimating(true)
+      setAnimationStep(0) // Reset animation step when transitioning
       setTimeout(() => {
         setCurrentSlide(prev => prev + 1)
         setIsAnimating(false)
+        // Start the animation sequence for the new slide
+        setTimeout(() => setAnimationStep(1), 100)
+        setTimeout(() => setAnimationStep(2), 400)
+        setTimeout(() => setAnimationStep(3), 700)
+        setTimeout(() => setAnimationStep(4), 1000)
+        setTimeout(() => setAnimationStep(5), 1300)
+        setTimeout(() => setAnimationStep(6), 1600)
       }, 300)
     }
   }, [currentSlide, slides.length])
@@ -528,9 +836,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const prevSlide = useCallback(() => {
     if (currentSlide > 0) {
       setIsAnimating(true)
+      setAnimationStep(0) // Reset animation step when transitioning
       setTimeout(() => {
         setCurrentSlide(prev => prev - 1)
         setIsAnimating(false)
+        // Start the animation sequence for the new slide
+        setTimeout(() => setAnimationStep(1), 100)
+        setTimeout(() => setAnimationStep(2), 400)
+        setTimeout(() => setAnimationStep(3), 700)
+        setTimeout(() => setAnimationStep(4), 1000)
+        setTimeout(() => setAnimationStep(5), 1300)
+        setTimeout(() => setAnimationStep(6), 1600)
       }, 300)
     }
   }, [currentSlide])
@@ -538,9 +854,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const goToSlide = useCallback((index: number) => {
     if (index !== currentSlide) {
       setIsAnimating(true)
+      setAnimationStep(0) // Reset animation step when transitioning
       setTimeout(() => {
         setCurrentSlide(index)
         setIsAnimating(false)
+        // Start the animation sequence for the new slide
+        setTimeout(() => setAnimationStep(1), 100)
+        setTimeout(() => setAnimationStep(2), 400)
+        setTimeout(() => setAnimationStep(3), 700)
+        setTimeout(() => setAnimationStep(4), 1000)
+        setTimeout(() => setAnimationStep(5), 1300)
+        setTimeout(() => setAnimationStep(6), 1600)
       }, 300)
     }
   }, [currentSlide])
@@ -569,6 +893,25 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   // Reset progress when slide changes
   useEffect(() => {
     setAutoProgress(0)
+  }, [currentSlide])
+
+  // Initialize animation sequence when component mounts or slide changes
+  useEffect(() => {
+    // Reset animation step immediately
+    setAnimationStep(0)
+    
+    const timeouts = [
+      setTimeout(() => setAnimationStep(1), 200),
+      setTimeout(() => setAnimationStep(2), 500),
+      setTimeout(() => setAnimationStep(3), 800),
+      setTimeout(() => setAnimationStep(4), 1100),
+      setTimeout(() => setAnimationStep(5), 1400),
+      setTimeout(() => setAnimationStep(6), 1700)
+    ]
+
+    return () => {
+      timeouts.forEach(timeout => clearTimeout(timeout))
+    }
   }, [currentSlide])
 
   // Handle keyboard navigation
@@ -606,15 +949,13 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       <SwirlBackground />
       <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
         <div className="max-w-4xl w-full">
-          {/* Main Slide Content */}
+          {/* Main Slide Content - Fixed Container */}
           <div 
-            className={`bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8 sm:p-12 transition-all duration-500 ${
-              isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
-            }`}
+            className="bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8 sm:p-12"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
-            {/* Header */}
+            {/* Fixed Header */}
             <div className="text-center mb-8">
               <div className="flex justify-center mb-4">
                 {currentSlideData.icon}
@@ -627,9 +968,13 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
               </p>
             </div>
 
-            {/* Slide Content */}
+            {/* Transitioning Content Container */}
             <div className="mb-8">
-              {currentSlideData.content}
+              <div className={`transition-all duration-500 ${
+                isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
+              }`}>
+                {currentSlideData.content}
+              </div>
             </div>
 
             {/* Navigation Controls */}
@@ -714,28 +1059,32 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                   </div>
                 </div>
               </div>
+
+              {/* Slide Counter and Status - Now inside the card */}
+              <div className="flex items-center justify-between pt-2 border-t border-gray-700/30">
+                <div className="flex items-center gap-4 text-sm text-gray-400">
+                  <span>{currentSlide + 1} of {slides.length}</span>
+                  {isPaused && currentSlide < slides.length - 1 && (
+                    <div className="flex items-center gap-1 text-yellow-400">
+                      <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
+                      <span className="text-xs">Paused</span>
+                    </div>
+                  )}
+                  {currentSlide < slides.length - 1 && !isPaused && (
+                    <div className="flex items-center gap-1 text-green-400">
+                      <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+                      <span className="text-xs">Auto-advancing</span>
+                    </div>
+                  )}
+                </div>
+                <div className="text-xs text-gray-500">
+                  Press <kbd className="px-1 py-0.5 bg-gray-700 rounded text-gray-300">P</kbd> to pause
+                </div>
+              </div>
             </div>
           </div>
 
-          {/* Slide Counter and Status */}
-          <div className="text-center mt-4 flex items-center justify-center gap-4 text-sm text-gray-500">
-            <span>{currentSlide + 1} of {slides.length}</span>
-            {isPaused && currentSlide < slides.length - 1 && (
-              <div className="flex items-center gap-1 text-yellow-400">
-                <div className="w-2 h-2 bg-yellow-400 rounded-full"></div>
-                <span className="text-xs">Paused</span>
-              </div>
-            )}
-            {currentSlide < slides.length - 1 && !isPaused && (
-              <div className="flex items-center gap-1 text-green-400">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
-                <span className="text-xs">Auto-advancing</span>
-              </div>
-            )}
-            <div className="text-xs text-gray-600">
-              Press <kbd className="px-1 py-0.5 bg-gray-700 rounded text-gray-300">P</kbd> to pause
-            </div>
-          </div>
+          {/* Removed the external slide counter */}
         </div>
       </div>
     </div>
