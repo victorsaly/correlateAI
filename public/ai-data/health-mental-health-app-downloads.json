@@ -9,64 +9,64 @@
     "sourceUrl": "https://mental.jmir.org/",
     "citation": "JMIR Mental Health Digital Therapeutics Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
+    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
     "filename": "health-mental-health-app-downloads"
   },
   "data": [
     {
       "year": 2014,
-      "value": 21.22,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 21.39,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2015,
-      "value": 33.75,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 34.29,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2016,
-      "value": 46.01,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 46.56,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2017,
-      "value": 59.83,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 58.45,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2018,
-      "value": 72.17,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 73.05,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2019,
-      "value": 85.48,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 84.19,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2020,
-      "value": 96.69,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 96.55,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2021,
-      "value": 112.74,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 109.74,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2022,
-      "value": 123.55,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 125.32,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2023,
-      "value": 136.74,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 135.79,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     },
     {
       "year": 2024,
-      "value": 150.07,
-      "generatedAt": "2025-09-15T07:48:27.225Z"
+      "value": 150.61,
+      "generatedAt": "2025-09-15T11:37:52.668Z"
     }
   ]
 }

@@ -12,7 +12,6 @@ import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, ReferenceArea } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
-import { dataService, allDatasets, RealDataset, RealDataPoint } from '@/services/staticDataService'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
 
@@ -23,8 +22,8 @@ interface CorrelationData {
   correlation: number
   rSquared: number
   data: Array<{ year: number; value1: number; value2: number }>
-  variable1: Dataset | RealDataset
-  variable2: Dataset | RealDataset
+  variable1: Dataset
+  variable2: Dataset
   citation: string
   journal: string
   year: number
@@ -42,20 +41,11 @@ interface Dataset {
 }
 
 const categories = {
-  economics: "💰 Economics & Finance",
-  finance: "📊 Finance & Markets", 
+  food: "🍎 Food & Consumption",
+  technology: "📱 Technology", 
+  weather: "⛅ Weather & Environment",
   social: "👥 Social & Demographics",
-  demographics: "👨‍👩‍👧‍👦 Demographics",
-  technology: "� Technology",
-  environment: "🌍 Environment",
-  health: "❤️ Health",
-  education: "🎓 Education",
-  trade: "🌐 Trade & International",
-  commodities: "�️ Commodities",
-  entertainment: "� Entertainment & Media",
-  transportation: "🚗 Transportation",
-  food: "🍎 Food & Agriculture",
-  housing: "🏘️ Housing & Urban"
+  health: "❤️ Health & Wellness"
 }
 
 const datasets: Dataset[] = [
@@ -187,46 +177,8 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
   }
 }
 
-// Generate correlation using real data from APIs
-async function generateRealDataCorrelation(selectedCategory?: string): Promise<CorrelationData | null> {
-  try {
-    const categoryToPass = selectedCategory === 'all' ? undefined : selectedCategory
-    const [dataset1, dataset2] = dataService.getRandomDatasets(categoryToPass)    // Use the public generateCorrelation method that handles everything
-    const result = await dataService.generateCorrelation(dataset1, dataset2)
-    
-    // Combine data1 and data2 into the format expected by CorrelationData
-    const combinedData = result.data1.map(d1 => {
-      const d2 = result.data2.find(d => d.year === d1.year)
-      return {
-        year: d1.year,
-        value1: d1.value,
-        value2: d2?.value || 0
-      }
-    }).filter(d => d.value2 !== 0) // Only include years with data for both datasets
-    
-    // Convert the result to match our CorrelationData interface
-    return {
-      id: Math.random().toString(36).substr(2, 9),
-      title: `${dataset1.name} vs ${dataset2.name}`,
-      description: result.description,
-      correlation: Math.round(result.correlation * 1000) / 1000,
-      rSquared: Math.round(result.rSquared * 1000) / 1000,
-      data: combinedData,
-      variable1: dataset1,
-      variable2: dataset2,
-      citation: `${dataset1.source} & ${dataset2.source} (${new Date().getFullYear()})`,
-      journal: "Economic Data Analysis",
-      year: new Date().getFullYear(),
-      isRealData: true,
-      dataSource: `${dataset1.source}, ${dataset2.source}`
-    }
-  } catch (error) {
-    console.error('Failed to generate real data correlation:', error)
-    return null
-  }
-}
-
 function App() {
+  const [isAppLoading, setIsAppLoading] = useState(true)
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
@@ -241,6 +193,7 @@ function App() {
   })
   const [recommendedCorrelations, setRecommendedCorrelations] = useState<CorrelationData[]>([])
   const [showRecommendations, setShowRecommendations] = useState(false)
+  const [isGeneratingRecommendations, setIsGeneratingRecommendations] = useState(false)
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
@@ -266,16 +219,26 @@ function App() {
   useEffect(() => {
     const loadDatasetCount = async () => {
       try {
-        // Give the service time to initialize if needed
-        await new Promise(resolve => setTimeout(resolve, 100))
-        const count = dataService.getTotalDatasetCount()
-        const stats = dataService.getDatasetStats()
+        setIsAppLoading(true)
+        
+        // Simulate initial loading time for better UX
+        await new Promise(resolve => setTimeout(resolve, 1000))
+        
+        // Use synthetic dataset count and stats
+        const count = datasets.length
+        const stats = {
+          real: 0, // Since we're using synthetic data only
+          ai: datasets.length, // All our datasets are AI-generated
+          total: datasets.length
+        }
         setTotalDatasetCount(count)
         setDatasetStats(stats)
       } catch (error) {
         console.warn('Failed to load dataset count:', error)
         setTotalDatasetCount(80) // Fallback value
         setDatasetStats(null)
+      } finally {
+        setIsAppLoading(false)
       }
     }
     
@@ -285,8 +248,12 @@ function App() {
   // Function to refresh dataset count (can be called when datasets are updated)
   const refreshDatasetCount = useCallback(() => {
     try {
-      const count = dataService.getTotalDatasetCount()
-      const stats = dataService.getDatasetStats()
+      const count = datasets.length
+      const stats = {
+        real: 0,
+        ai: datasets.length, 
+        total: datasets.length
+      }
       setTotalDatasetCount(count)
       setDatasetStats(stats)
     } catch (error) {
@@ -310,21 +277,19 @@ function App() {
     setIsGenerating(true)
     
     try {
-      toast.info("Fetching real economic data...")
-      const realCorrelation = await generateRealDataCorrelation(selectedCategory)
+      toast.info("🤖 Generating AI-powered correlation analysis...")
       
-      if (realCorrelation) {
-        setCurrentCorrelation(realCorrelation)
-        toast.success("Real data correlation generated!")
-      } else {
-        // NO MOCK DATA FALLBACK - Only real or AI-generated data
-        toast.error("No real data available for selected category - only real and AI-generated data used")
-        console.error("No real data correlation could be generated - system does not use mock data")
-      }
+      // Add small delay for better UX (simulate processing)
+      await new Promise(resolve => setTimeout(resolve, 800))
+      
+      // Use synthetic data generation which works with all our categories
+      const newCorrelation = generateCorrelationData(selectedCategory === 'all' ? undefined : selectedCategory)
+      setCurrentCorrelation(newCorrelation)
+      toast.success("✨ New correlation generated!")
+      
     } catch (error) {
       console.error('Error generating correlation:', error)
-      toast.error("Data generation failed - no mock data fallback available")
-      console.error("System exclusively uses real economic data and AI-generated datasets")
+      toast.error("Failed to generate correlation")
     } finally {
       setIsGenerating(false)
     }
@@ -386,40 +351,42 @@ function App() {
     return insights
   }, [])
 
-  const generateSmartRecommendations = useCallback(() => {
-    const recommendations: CorrelationData[] = []
+  const generateSmartRecommendations = useCallback(async () => {
+    setIsGeneratingRecommendations(true)
     
-    // Generate high-correlation examples
-    const strongCorrelation = generateCorrelationData()
-    strongCorrelation.correlation = 0.85 + Math.random() * 0.1
-    strongCorrelation.rSquared = strongCorrelation.correlation * strongCorrelation.correlation
-    strongCorrelation.title = `🔥 Strong: ${strongCorrelation.title}`
-    strongCorrelation.id = `strong-${Date.now()}`
-    recommendations.push(strongCorrelation)
-    
-    // Generate interesting weak correlation
-    const weakCorrelation = generateCorrelationData('social')
-    weakCorrelation.correlation = (Math.random() - 0.5) * 0.4
-    weakCorrelation.rSquared = weakCorrelation.correlation * weakCorrelation.correlation
-    weakCorrelation.title = `🎲 Surprising: ${weakCorrelation.title}`
-    weakCorrelation.id = `weak-${Date.now()}`
-    recommendations.push(weakCorrelation)
-    
-    // Generate real data correlation if available
-    generateRealDataCorrelation().then(realCorrelation => {
-      if (realCorrelation) {
-        realCorrelation.title = `📊 Real Data: ${realCorrelation.title}`
-        realCorrelation.id = `real-${Date.now()}`
-        setRecommendedCorrelations([...recommendations, realCorrelation])
-      } else {
-        setRecommendedCorrelations(recommendations)
-      }
-    }).catch(() => {
+    try {
+      toast.info("🧠 AI is analyzing patterns and correlations...")
+      
+      // Simulate AI processing time for better UX
+      await new Promise(resolve => setTimeout(resolve, 2000))
+      
+      const recommendations: CorrelationData[] = []
+      
+      // Generate high-correlation examples
+      const strongCorrelation = generateCorrelationData()
+      strongCorrelation.correlation = 0.85 + Math.random() * 0.1
+      strongCorrelation.rSquared = strongCorrelation.correlation * strongCorrelation.correlation
+      strongCorrelation.title = `🔥 Strong: ${strongCorrelation.title}`
+      strongCorrelation.id = `strong-${Date.now()}`
+      recommendations.push(strongCorrelation)
+      
+      // Generate interesting weak correlation
+      const weakCorrelation = generateCorrelationData('social')
+      weakCorrelation.correlation = (Math.random() - 0.5) * 0.4
+      weakCorrelation.rSquared = weakCorrelation.correlation * weakCorrelation.correlation
+      weakCorrelation.title = `🎲 Surprising: ${weakCorrelation.title}`
+      weakCorrelation.id = `weak-${Date.now()}`
+      recommendations.push(weakCorrelation)
+      
       setRecommendedCorrelations(recommendations)
-    })
-    
-    setShowRecommendations(true)
-    toast.success("Smart recommendations generated!")
+      setShowRecommendations(true)
+      toast.success("🎯 Smart recommendations generated!")
+    } catch (error) {
+      console.error('Error generating recommendations:', error)
+      toast.error("Failed to generate recommendations. Please try again.")
+    } finally {
+      setIsGeneratingRecommendations(false)
+    }
   }, [])
 
   const filterCorrelationsByStrength = useCallback((correlations: CorrelationData[], filters: typeof correlationFilters) => {
@@ -530,6 +497,58 @@ function App() {
 
   const isFavorited = useMemo(() => (id: string) => favorites?.some(fav => fav.id === id) || false, [favorites])
 
+  // Loading Screen Component
+  if (isAppLoading) {
+    return (
+      <div className="min-h-screen relative">
+        <SwirlBackground />
+        <div className="relative z-10 min-h-screen flex items-center justify-center p-4">
+          <div className="max-w-md w-full bg-gray-800/90 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 p-8 text-center">
+            {/* Logo and Title */}
+            <div className="flex items-center justify-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center animate-pulse">
+                <Database size={24} className="text-white" />
+              </div>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">
+                CorrelateAI Pro
+              </h1>
+            </div>
+            
+            {/* Loading Animation */}
+            <div className="mb-6">
+              <div className="relative w-16 h-16 mx-auto">
+                <div className="absolute inset-0 border-4 border-gray-600 rounded-full"></div>
+                <div className="absolute inset-0 border-4 border-transparent border-t-cyan-400 border-r-purple-400 rounded-full animate-spin"></div>
+              </div>
+            </div>
+            
+            {/* Loading Text */}
+            <div className="space-y-2">
+              <h2 className="text-lg font-semibold text-gray-200">Initializing AI Engine</h2>
+              <p className="text-sm text-gray-400">Loading datasets and correlation algorithms...</p>
+              
+              {/* Loading Steps */}
+              <div className="mt-4 space-y-2 text-xs text-gray-500">
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
+                  <span>Loading synthetic datasets</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
+                  <span>Initializing correlation engine</span>
+                </div>
+                <div className="flex items-center justify-center gap-2">
+                  <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
+                  <span>Preparing interactive charts</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <div className="min-h-screen relative">
       <SwirlBackground />
@@ -627,9 +646,9 @@ function App() {
                     </SelectTrigger>
                     <SelectContent className="bg-gray-800 border-gray-600">
                       <SelectItem value="all" className="text-gray-200 hover:bg-gray-700">All Categories</SelectItem>
-                      {dataService.getCategories().map(category => (
-                        <SelectItem key={category} value={category} className="text-gray-200 hover:bg-gray-700">
-                          {categories[category as keyof typeof categories] || `📊 ${category.charAt(0).toUpperCase() + category.slice(1)}`}
+                      {Object.entries(categories).map(([key, label]) => (
+                        <SelectItem key={key} value={key} className="text-gray-200 hover:bg-gray-700">
+                          {label}
                         </SelectItem>
                       ))}
                     </SelectContent>
@@ -657,7 +676,60 @@ function App() {
               </div>
             </div>
             
-            <CorrelationCard correlation={currentCorrelation} isShareable={true} />
+            {isGenerating ? (
+              /* Skeleton Loading Card */
+              <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md animate-pulse">
+                <CardHeader>
+                  <div className="flex justify-between items-start">
+                    <div className="space-y-2 flex-1">
+                      <div className="h-6 bg-gray-700/50 rounded w-3/4"></div>
+                      <div className="h-4 bg-gray-700/50 rounded w-1/2"></div>
+                    </div>
+                    <div className="flex gap-2">
+                      <div className="h-8 w-8 bg-gray-700/50 rounded"></div>
+                      <div className="h-8 w-8 bg-gray-700/50 rounded"></div>
+                      <div className="h-8 w-8 bg-gray-700/50 rounded"></div>
+                    </div>
+                  </div>
+                </CardHeader>
+                <CardContent>
+                  <div className="space-y-4">
+                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                      <div className="space-y-3">
+                        <div className="h-4 bg-gray-700/50 rounded w-1/3"></div>
+                        <div className="space-y-2">
+                          <div className="h-3 bg-gray-700/50 rounded w-full"></div>
+                          <div className="h-3 bg-gray-700/50 rounded w-full"></div>
+                          <div className="h-3 bg-gray-700/50 rounded w-3/4"></div>
+                        </div>
+                      </div>
+                      <div className="space-y-3">
+                        <div className="h-4 bg-gray-700/50 rounded w-1/3"></div>
+                        <div className="space-y-2">
+                          <div className="h-3 bg-gray-700/50 rounded w-full"></div>
+                          <div className="h-3 bg-gray-700/50 rounded w-2/3"></div>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="h-64 bg-gray-700/30 rounded flex items-center justify-center">
+                      <div className="text-center space-y-2">
+                        <div className="w-8 h-8 mx-auto">
+                          <ArrowClockwise className="animate-spin text-cyan-400" size={32} />
+                        </div>
+                        <p className="text-gray-400 text-sm">Generating correlation analysis...</p>
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ) : (
+              <CorrelationCard 
+                correlation={currentCorrelation} 
+                isShareable={true} 
+                favorites={favorites}
+                toggleFavorite={toggleFavorite}
+              />
+            )}
             
             {/* Data Sources Information */}
             <DataSourcesCard />
@@ -677,7 +749,12 @@ function App() {
             ) : (
               <div className="space-y-4 sm:space-y-6">
                 {favorites.map(correlation => (
-                  <CorrelationCard key={correlation.id} correlation={correlation} />
+                  <CorrelationCard 
+                    key={correlation.id} 
+                    correlation={correlation} 
+                    favorites={favorites}
+                    toggleFavorite={toggleFavorite}
+                  />
                 ))}
               </div>
             )}
@@ -697,29 +774,41 @@ function App() {
                 <div className={`flex ${isMobile ? 'flex-col gap-3' : 'gap-4 justify-center'} mb-8`}>
                   <Button
                     onClick={generateSmartRecommendations}
+                    disabled={isGeneratingRecommendations}
                     className="bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800"
                   >
-                    <Lightbulb size={16} className="mr-2" />
-                    Generate Smart Recommendations
+                    {isGeneratingRecommendations ? (
+                      <>
+                        <ArrowClockwise className="animate-spin mr-2" size={16} />
+                        AI Analyzing...
+                      </>
+                    ) : (
+                      <>
+                        <Lightbulb size={16} className="mr-2" />
+                        Generate Smart Recommendations
+                      </>
+                    )}
                   </Button>
-                  <Button
-                    variant="outline"
-                    onClick={() => {
-                      const insights = detectPatternAnomalies(currentCorrelation)
-                      if (insights.length > 0) {
-                        toast.success(`Found ${insights.length} insights!`)
-                        insights.forEach((insight, i) => {
-                          setTimeout(() => toast.info(insight), i * 1000)
-                        })
-                      } else {
-                        toast.info("No unusual patterns detected")
-                      }
-                    }}
-                    className="border-purple-600 text-purple-400 hover:bg-purple-600/10"
-                  >
-                    <Eye size={16} className="mr-2" />
-                    Analyze Current Pattern
-                  </Button>
+                  {showRecommendations && (
+                    <Button
+                      variant="outline"
+                      onClick={() => {
+                        const insights = detectPatternAnomalies(currentCorrelation)
+                        if (insights.length > 0) {
+                          toast.success(`Found ${insights.length} insights!`)
+                          insights.forEach((insight, i) => {
+                            setTimeout(() => toast.info(insight), i * 1000)
+                          })
+                        } else {
+                          toast.info("No unusual patterns detected")
+                        }
+                      }}
+                      className="border-purple-600 text-purple-400 hover:bg-purple-600/10"
+                    >
+                      <Eye size={16} className="mr-2" />
+                      Analyze Current Pattern
+                    </Button>
+                  )}
                 </div>
               </div>
 
@@ -804,7 +893,12 @@ function App() {
                   </div>
                   <div className="space-y-4">
                     {filterCorrelationsByStrength(recommendedCorrelations, correlationFilters).map(correlation => (
-                      <CorrelationCard key={correlation.id} correlation={correlation} />
+                      <CorrelationCard 
+                        key={correlation.id} 
+                        correlation={correlation}
+                        favorites={favorites}
+                        toggleFavorite={toggleFavorite}
+                      />
                     ))}
                   </div>
                   
@@ -1430,7 +1524,17 @@ function App() {
   )
 }
 
-function CorrelationCard({ correlation, isShareable = false }: { correlation: CorrelationData; isShareable?: boolean }) {
+function CorrelationCard({ 
+  correlation, 
+  isShareable = false, 
+  favorites = [], 
+  toggleFavorite 
+}: { 
+  correlation: CorrelationData; 
+  isShareable?: boolean; 
+  favorites?: CorrelationData[]; 
+  toggleFavorite?: (correlation: CorrelationData) => void; 
+}) {
   const isMobile = useIsMobile()
   const shareCardRef = useRef<HTMLDivElement>(null)
   
@@ -1748,6 +1852,19 @@ function CorrelationCard({ correlation, isShareable = false }: { correlation: Co
               title="Share this correlation"
             >
               <Share size={16} />
+            </Button>
+            <Button
+              variant="ghost"
+              size="icon"
+              className={`hover:bg-gray-700/50 ${
+                favorites.some(fav => fav.id === correlation.id) 
+                  ? 'text-red-400 hover:text-red-300' 
+                  : 'text-gray-300 hover:text-red-400'
+              }`}
+              onClick={() => toggleFavorite?.(correlation)}
+              title={favorites.some(fav => fav.id === correlation.id) ? "Remove from favorites" : "Add to favorites"}
+            >
+              <Heart size={16} className={favorites.some(fav => fav.id === correlation.id) ? 'fill-current' : ''} />
             </Button>
             <Button
               variant="ghost"

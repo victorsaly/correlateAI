@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks",
     "citation": "Environmental Protection Agency Carbon Footprint Data (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
+    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
     "filename": "environment-carbon-footprint-per-capita"
   },
   "data": [
     {
       "year": 2014,
-      "value": 15.36,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 15.43,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2015,
-      "value": 14.6,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 14.62,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2016,
-      "value": 13.79,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 13.8,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2017,
-      "value": 12.99,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 13.02,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2018,
-      "value": 12.21,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 12.19,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2019,
       "value": 11.41,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2020,
-      "value": 10.61,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 10.58,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2021,
-      "value": 9.82,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 9.78,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2022,
-      "value": 9,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 8.98,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2023,
-      "value": 8.19,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 8.21,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     },
     {
       "year": 2024,
-      "value": 7.38,
-      "generatedAt": "2025-09-15T07:48:27.204Z"
+      "value": 7.39,
+      "generatedAt": "2025-09-15T11:37:52.635Z"
     }
   ]
 }

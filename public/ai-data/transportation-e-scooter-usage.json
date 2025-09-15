@@ -9,64 +9,64 @@
     "sourceUrl": "https://nacto.org/shared-micromobility-2020/",
     "citation": "National Association of City Transportation Officials Shared Micromobility (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
+    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
     "filename": "transportation-e-scooter-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 18.87,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 18.72,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2015,
-      "value": 35,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 35.18,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2016,
-      "value": 43.53,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 43.77,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2017,
-      "value": 52.15,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 50.29,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2018,
-      "value": 70.08,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 70.31,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2019,
-      "value": 89.51,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 91.35,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2020,
-      "value": 93.96,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 96.84,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2021,
-      "value": 97.92,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 96.42,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2022,
-      "value": 122.76,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 119.62,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2023,
-      "value": 145.54,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 149.15,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     },
     {
       "year": 2024,
-      "value": 145.52,
-      "generatedAt": "2025-09-15T07:48:27.242Z"
+      "value": 143.53,
+      "generatedAt": "2025-09-15T11:37:52.703Z"
     }
   ]
 }

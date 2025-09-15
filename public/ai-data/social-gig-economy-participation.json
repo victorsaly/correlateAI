@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.bls.gov/news.release/conemp.htm",
     "citation": "Bureau of Labor Statistics Alternative Work Arrangements (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T07:48:27.190Z",
+    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
     "filename": "social-gig-economy-participation"
   },
   "data": [
     {
       "year": 2014,
-      "value": 9.98,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 10.01,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2015,
       "value": 11.82,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2016,
       "value": 13.6,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2017,
-      "value": 15.38,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 15.42,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2018,
-      "value": 17.23,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 17.22,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2019,
-      "value": 19,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 18.99,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2020,
-      "value": 20.79,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 20.83,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2021,
-      "value": 22.54,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 22.62,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2022,
-      "value": 24.42,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 24.4,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2023,
-      "value": 26.14,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 26.17,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     },
     {
       "year": 2024,
-      "value": 28.07,
-      "generatedAt": "2025-09-15T07:48:27.210Z"
+      "value": 28.01,
+      "generatedAt": "2025-09-15T11:37:52.649Z"
     }
   ]
 }

@@ -1,0 +1,45 @@
+# CorrelateAI Pro - Article Configuration
+title: "CorrelateAI Pro Articles"
+description: "Technical articles and social media content for CorrelateAI Pro - Advanced Correlation Discovery Platform"
+url: "https://correlatepro.app"
+baseurl: ""
+
+# Project Details
+project:
+  name: "CorrelateAI Pro"
+  tagline: "Discover Hidden Patterns in Data"
+  version: "1.0.0"
+  github: "https://github.com/victorsaly/correlateAI"
+  demo: "https://correlatepro.app"
+  
+# Article Metadata
+author:
+  name: "Victor Saly"
+  twitter: "@victorsaly"
+  github: "victorsaly"
+  linkedin: "victor-saly"
+  
+# Article Tags
+tags:
+  - React
+  - TypeScript
+  - Data Visualization
+  - Recharts
+  - Vite
+  - AI
+  - Correlation Analysis
+  - Web Development
+  - Frontend
+  - Interactive Charts
+
+# Social Media
+social:
+  twitter: "victorsaly"
+  github: "victorsaly"
+  linkedin: "victor-saly"
+
+# Build settings
+markdown: kramdown
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap

@@ -10,7 +10,7 @@
   "citation": "Federal Reserve Bank Payments Study (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-09-15T07:48:27.231Z",
+  "aiGeneratedAt": "2025-09-15T11:37:52.694Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "High",
   "seasonal": "Yes",
   "covidImpact": "None",
-  "lastUpdated": "2025-09-15T07:48:27.231Z",
+  "lastUpdated": "2025-09-15T11:37:52.694Z",
   "tags": [
     "finance",
     "ai-generated",
