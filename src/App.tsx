@@ -261,6 +261,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const [autoProgress, setAutoProgress] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [animationStep, setAnimationStep] = useState(0)
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
+  const [showSwipeHint, setShowSwipeHint] = useState(false)
   
   const slides = [
     {
@@ -904,6 +907,20 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     }
   }, [currentSlide])
 
+  // Show swipe hint on mobile for first slide after animations complete
+  useEffect(() => {
+    const isMobile = window.innerWidth < 640
+    if (isMobile && currentSlide === 0 && animationStep >= 3) {
+      const hintTimeout = setTimeout(() => {
+        setShowSwipeHint(true)
+        // Auto-hide after 3 seconds
+        setTimeout(() => setShowSwipeHint(false), 3000)
+      }, 2000)
+      
+      return () => clearTimeout(hintTimeout)
+    }
+  }, [currentSlide, animationStep])
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -932,7 +949,104 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [nextSlide, prevSlide, onComplete])
 
+  // Handle touch gestures
+  const handleTouchStart = (e: any) => {
+    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchStart({
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    })
+    setIsPaused(true)
+    setShowSwipeHint(false) // Hide hint when user starts interacting
+  }
+
+  const handleTouchMove = (e: any) => {
+    setTouchEnd({
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    })
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distanceX = touchStart.x - touchEnd.x
+    const distanceY = touchStart.y - touchEnd.y
+    const isLeftSwipe = distanceX > 50
+    const isRightSwipe = distanceX < -50
+    const isVerticalSwipe = Math.abs(distanceY) > Math.abs(distanceX)
+
+    // Only handle horizontal swipes (ignore vertical scrolling)
+    if (!isVerticalSwipe) {
+      if (isLeftSwipe) {
+        // Swipe left - next slide
+        if (currentSlide === slides.length - 1) {
+          onComplete()
+        } else {
+          nextSlide()
+          setAutoProgress(0)
+        }
+      } else if (isRightSwipe) {
+        // Swipe right - previous slide
+        prevSlide()
+        setAutoProgress(0)
+      }
+    }
+
+    setTimeout(() => setIsPaused(false), 1000)
+  }
+
   const currentSlideData = slides[currentSlide]
+
+  // Add touch event listeners
+  useEffect(() => {
+    const slideContainer = document.getElementById('slide-container')
+    if (slideContainer) {
+      slideContainer.addEventListener('touchstart', handleTouchStart, { passive: true })
+      slideContainer.addEventListener('touchmove', handleTouchMove, { passive: true })
+      slideContainer.addEventListener('touchend', handleTouchEnd, { passive: true })
+
+      return () => {
+        slideContainer.removeEventListener('touchstart', handleTouchStart)
+        slideContainer.removeEventListener('touchmove', handleTouchMove)
+        slideContainer.removeEventListener('touchend', handleTouchEnd)
+      }
+    }
+  }, [handleTouchStart, handleTouchMove, handleTouchEnd])
+
+  // Handle click navigation
+  const handleSlideClick = (e: any) => {
+    // Don't handle clicks on interactive elements
+    const target = e.target as HTMLElement
+    if (target.tagName === 'BUTTON' || target.closest('button') || target.tagName === 'A' || target.closest('a')) {
+      return
+    }
+
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    const clickX = e.clientX - rect.left
+    const width = rect.width
+    const leftThird = width / 3
+    const rightThird = width * 2 / 3
+
+    if (clickX < leftThird && currentSlide > 0) {
+      // Clicked on left third - previous slide
+      prevSlide()
+      setAutoProgress(0)
+      setIsPaused(true)
+      setTimeout(() => setIsPaused(false), 1000)
+    } else if (clickX > rightThird) {
+      // Clicked on right third - next slide or complete
+      if (currentSlide === slides.length - 1) {
+        onComplete()
+      } else {
+        nextSlide()
+        setAutoProgress(0)
+        setIsPaused(true)
+        setTimeout(() => setIsPaused(false), 1000)
+      }
+    }
+    // Middle third does nothing to avoid accidental navigation
+  }
 
   return (
     <div className="fixed inset-0 z-50 bg-gray-900">
@@ -941,15 +1055,52 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
         <div className="w-full h-full">
           {/* Main Slide Content - Card with Margin */}
           <div 
-            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain"
+            id="slide-container"
+            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain select-none relative"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onClick={handleSlideClick}
+            style={{ touchAction: 'pan-y' }} // Allow vertical scrolling but handle horizontal swipes
           >
+            {/* Click zones visual feedback - only show on hover on desktop */}
+            <div className="absolute inset-0 pointer-events-none z-10 rounded-2xl overflow-hidden opacity-0 hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+              {/* Left click zone */}
+              {currentSlide > 0 && (
+                <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-cyan-500/10 to-transparent flex items-center justify-start pl-4">
+                  <div className="text-cyan-400/60 text-sm font-medium">← Previous</div>
+                </div>
+              )}
+              {/* Right click zone */}
+              <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-purple-500/10 to-transparent flex items-center justify-end pr-4">
+                <div className="text-purple-400/60 text-sm font-medium">
+                  {currentSlide === slides.length - 1 ? 'Start →' : 'Next →'}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile swipe hint - only show on mobile for first slide */}
+            <div className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 pointer-events-none z-20 sm:hidden transition-all duration-500 ${
+              showSwipeHint ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}>
+              <div className="bg-gray-700/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-600/50">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-1">
+                    <div className="w-6 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent rounded animate-pulse"></div>
+                    <span className="text-cyan-400">←</span>
+                  </div>
+                  <span>Swipe to navigate</span>
+                  <div className="flex items-center gap-1">
+                    <span className="text-purple-400">→</span>
+                    <div className="w-6 h-0.5 bg-gradient-to-l from-purple-400 to-transparent rounded animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Skip Button - Top Right */}
             <div className="flex justify-end mb-2">
               <button
                 onClick={onComplete}
-                className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors px-3 py-1 rounded-md hover:bg-gray-700/30"
+                className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors px-4 py-2 sm:px-3 sm:py-1 rounded-md hover:bg-gray-700/30 active:bg-gray-700/50 min-h-[36px] sm:min-h-auto"
               >
                 Skip intro
               </button>
@@ -991,7 +1142,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
               <div className="flex items-center justify-between">
                 {/* Left side: Progress dots */}
-                <div className="flex gap-0.5 sm:gap-1">
+                <div className="flex gap-1 sm:gap-1.5">
                   {slides.map((_, index) => (
                     <button
                       key={index}
@@ -1001,7 +1152,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setIsPaused(true)
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
-                      className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+                      className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 p-2 -m-2 ${
                         index === currentSlide 
                           ? 'bg-cyan-400 shadow-sm sm:shadow-md shadow-cyan-400/50' 
                           : index < currentSlide
@@ -1013,8 +1164,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 </div>
 
                 {/* Right side: Navigation buttons */}
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <div className="flex gap-0.5 sm:gap-1">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="flex gap-1 sm:gap-2">
                     <button
                       onClick={() => {
                         prevSlide()
@@ -1023,14 +1174,14 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
                       disabled={currentSlide === 0}
-                      className={`px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border transition-all duration-300 ${
+                      className={`p-2 sm:p-2.5 rounded-md border transition-all duration-300 min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center ${
                         currentSlide === 0 
                           ? 'border-gray-700 text-gray-600 cursor-not-allowed' 
-                          : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
+                          : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 active:bg-cyan-400/10'
                       }`}
                     >
-                      <CaretLeft size={10} className="sm:hidden" />
-                      <CaretLeft size={12} className="hidden sm:block" />
+                      <CaretLeft size={16} className="sm:hidden" />
+                      <CaretLeft size={18} className="hidden sm:block" />
                     </button>
                     <button
                       onClick={() => {
@@ -1043,17 +1194,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                           setTimeout(() => setIsPaused(false), 1000)
                         }
                       }}
-                      className="px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 transition-all duration-300"
+                      className="p-2 sm:p-2.5 rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 active:bg-cyan-600/20 transition-all duration-300 min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center"
                     >
                       {currentSlide === slides.length - 1 ? (
                         <>
-                          <Check size={10} className="sm:hidden" />
-                          <Check size={12} className="hidden sm:block" />
+                          <Check size={16} className="sm:hidden" />
+                          <Check size={18} className="hidden sm:block" />
                         </>
                       ) : (
                         <>
-                          <CaretRight size={10} className="sm:hidden" />
-                          <CaretRight size={12} className="hidden sm:block" />
+                          <CaretRight size={16} className="sm:hidden" />
+                          <CaretRight size={18} className="hidden sm:block" />
                         </>
                       )}
                     </button>
