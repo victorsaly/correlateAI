@@ -1288,36 +1288,113 @@ function App() {
     const data = correlation.data
     const insights: string[] = []
     
-    // Check for sudden changes
+    // Calculate trend analysis
+    const values1 = data.map(d => d.value1)
+    const values2 = data.map(d => d.value2)
+    const years = data.map(d => d.year)
+    
+    // Check for trend consistency
+    let increasingCount1 = 0, decreasingCount1 = 0
+    let increasingCount2 = 0, decreasingCount2 = 0
+    
+    for (let i = 1; i < data.length; i++) {
+      if (values1[i] > values1[i-1]) increasingCount1++
+      else if (values1[i] < values1[i-1]) decreasingCount1++
+      
+      if (values2[i] > values2[i-1]) increasingCount2++
+      else if (values2[i] < values2[i-1]) decreasingCount2++
+    }
+    
+    // Trend analysis insights
+    const trend1 = increasingCount1 > decreasingCount1 ? 'increasing' : 'decreasing'
+    const trend2 = increasingCount2 > decreasingCount2 ? 'increasing' : 'decreasing'
+    
+    if (correlation.correlation > 0.6 && trend1 === trend2) {
+      insights.push(`📊 Strong positive trend alignment: Both ${correlation.variable1.name.toLowerCase()} and ${correlation.variable2.name.toLowerCase()} are ${trend1}`)
+    } else if (correlation.correlation < -0.6 && trend1 !== trend2) {
+      insights.push(`📉 Strong inverse relationship: As ${correlation.variable1.name.toLowerCase()} ${trend1}, ${correlation.variable2.name.toLowerCase()} ${trend2}`)
+    }
+    
+    // Check for sudden changes with specific insights
+    let hasSignificantChanges = false
+    for (let i = 1; i < data.length - 1; i++) {
+      const prev = data[i - 1]
+      const curr = data[i]
+      
+      const change1 = Math.abs(curr.value1 - prev.value1) / prev.value1
+      const change2 = Math.abs(curr.value2 - prev.value2) / prev.value2
+      
+      if (change1 > 0.25 || change2 > 0.25) {
+        const primaryVar = change1 > change2 ? correlation.variable1.name : correlation.variable2.name
+        const changePercent = Math.max(change1, change2) * 100
+        insights.push(`📈 Significant ${changePercent.toFixed(0)}% change in ${primaryVar.toLowerCase()} around ${curr.year}`)
+        hasSignificantChanges = true
+        break // Only show first major change to avoid spam
+      }
+    }
+    
+    // Check for correlation pattern shifts
+    let correlationShifts = 0
     for (let i = 1; i < data.length - 1; i++) {
       const prev = data[i - 1]
       const curr = data[i]
       const next = data[i + 1]
       
-      const change1 = Math.abs(curr.value1 - prev.value1) / prev.value1
-      const change2 = Math.abs(curr.value2 - prev.value2) / prev.value2
-      
-      if (change1 > 0.2 || change2 > 0.2) {
-        insights.push(`📈 Significant change detected in ${curr.year}`)
-      }
-      
-      // Check for correlation breakdown
       const localCorr1 = (curr.value1 - prev.value1) * (curr.value2 - prev.value2)
       const localCorr2 = (next.value1 - curr.value1) * (next.value2 - curr.value2)
       
       if (localCorr1 * localCorr2 < 0) {
-        insights.push(`⚠️ Correlation pattern shifts around ${curr.year}`)
+        correlationShifts++
+        if (correlationShifts === 1) { // Only report first shift
+          insights.push(`⚠️ Correlation pattern reversal detected around ${curr.year} - relationship direction changed`)
+        }
       }
     }
     
-    // Check overall strength
-    if (Math.abs(correlation.correlation) > 0.8) {
-      insights.push(`🔥 Exceptionally strong correlation (${(correlation.correlation * 100).toFixed(1)}%)`)
-    } else if (Math.abs(correlation.correlation) < 0.2) {
-      insights.push(`🎲 Weak correlation - may be coincidental`)
+    // Volatility analysis
+    const volatility1 = Math.sqrt(values1.reduce((sum, val, i) => {
+      if (i === 0) return 0
+      const change = (val - values1[i-1]) / values1[i-1]
+      return sum + change * change
+    }, 0) / (values1.length - 1))
+    
+    const volatility2 = Math.sqrt(values2.reduce((sum, val, i) => {
+      if (i === 0) return 0
+      const change = (val - values2[i-1]) / values2[i-1]
+      return sum + change * change
+    }, 0) / (values2.length - 1))
+    
+    if (volatility1 > 0.15 || volatility2 > 0.15) {
+      const moreVolatile = volatility1 > volatility2 ? correlation.variable1.name : correlation.variable2.name
+      insights.push(`🎢 High volatility detected in ${moreVolatile.toLowerCase()} - data shows significant fluctuations`)
     }
     
-    return insights
+    // Correlation strength insights with context
+    const absCorr = Math.abs(correlation.correlation)
+    if (absCorr > 0.8) {
+      const direction = correlation.correlation > 0 ? 'positive' : 'negative'
+      insights.push(`🔥 Exceptionally strong ${direction} correlation (${(correlation.correlation * 100).toFixed(1)}%) - highly predictive relationship`)
+    } else if (absCorr > 0.6) {
+      insights.push(`💪 Strong correlation suggests meaningful relationship between variables`)
+    } else if (absCorr < 0.3) {
+      insights.push(`🎲 Weak correlation (${(absCorr * 100).toFixed(1)}%) - relationship may be coincidental or influenced by external factors`)
+    }
+    
+    // R-squared insights
+    if (correlation.rSquared > 0.6) {
+      insights.push(`📈 High explanatory power: ${(correlation.rSquared * 100).toFixed(0)}% of variance is explained by the relationship`)
+    } else if (correlation.rSquared < 0.2) {
+      insights.push(`❓ Low explanatory power: Only ${(correlation.rSquared * 100).toFixed(0)}% of variance explained - other factors likely involved`)
+    }
+    
+    // Data quality insights
+    if (correlation.isRealData) {
+      insights.push(`✅ Analysis based on real-world data from ${correlation.dataSource} - findings are statistically reliable`)
+    } else {
+      insights.push(`🤖 Synthetic data analysis - patterns demonstrate statistical concepts but may not reflect real-world relationships`)
+    }
+    
+    return insights.slice(0, 4) // Limit to 4 most relevant insights to avoid overwhelming
   }, [])
 
   const generateSmartRecommendations = useCallback(async () => {
@@ -1860,10 +1937,10 @@ function App() {
                     <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
-                    <SelectContent className="bg-gray-800 border-gray-600">
-                      <SelectItem value="all" className="text-gray-200 hover:bg-gray-700">All Categories</SelectItem>
+                    <SelectContent className="bg-white border-gray-300 text-gray-900">
+                      <SelectItem value="all" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">All Categories</SelectItem>
                       {Object.entries(categories).map(([key, label]) => (
-                        <SelectItem key={key} value={key} className="text-gray-200 hover:bg-gray-700">
+                        <SelectItem key={key} value={key} className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
                           {label}
                         </SelectItem>
                       ))}
@@ -2150,33 +2227,35 @@ function App() {
                 </div>
               )}
 
-              {/* Pattern Insights for Current Correlation */}
-              <Card className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 border-purple-700/50">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-2 text-purple-300">
-                    <Robot size={20} />
-                    AI Pattern Analysis
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  <div className="space-y-3">
-                    {detectPatternAnomalies(currentCorrelation).length > 0 ? (
-                      detectPatternAnomalies(currentCorrelation).map((insight, index) => (
-                        <div key={index} className="flex items-start gap-3 p-3 bg-purple-800/20 rounded-lg">
+              {/* Pattern Insights for Current Correlation - Only show if insights exist */}
+              {detectPatternAnomalies(currentCorrelation).length > 0 && (
+                <Card className="bg-gradient-to-r from-purple-900/30 to-pink-900/30 border-purple-700/50">
+                  <CardHeader>
+                    <CardTitle className="flex items-center gap-2 text-purple-300">
+                      <Robot size={20} />
+                      AI Pattern Analysis
+                      <Badge variant="outline" className="text-xs text-purple-400 border-purple-400/30 ml-2">
+                        {detectPatternAnomalies(currentCorrelation).length} insights
+                      </Badge>
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    <div className="space-y-3">
+                      {detectPatternAnomalies(currentCorrelation).map((insight, index) => (
+                        <div key={index} className="flex items-start gap-3 p-3 bg-purple-800/20 rounded-lg border border-purple-700/20">
                           <div className="w-2 h-2 bg-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                          <p className="text-purple-200 text-sm">{insight}</p>
+                          <p className="text-purple-200 text-sm leading-relaxed">{insight}</p>
                         </div>
-                      ))
-                    ) : (
-                      <div className="text-center py-6">
-                        <Robot size={48} className="mx-auto text-purple-500 mb-3" />
-                        <p className="text-purple-300">No unusual patterns detected</p>
-                        <p className="text-purple-400 text-sm mt-1">The correlation follows expected statistical behavior</p>
+                      ))}
+                      <div className="mt-4 pt-3 border-t border-purple-700/30">
+                        <p className="text-xs text-purple-400 text-center italic">
+                          AI analysis updates dynamically based on correlation data patterns
+                        </p>
                       </div>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               {/* Similar Correlations */}
               <Card className="bg-gray-800/50 border-gray-700/50">
