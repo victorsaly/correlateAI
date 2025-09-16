@@ -2303,7 +2303,7 @@ function App() {
                 {/* Quick Actions */}
                 <div className={`flex ${isMobile ? 'flex-col gap-3' : 'gap-4 justify-center'} mb-8`}>
                   <Button
-                    onClick={() => window.open('https://spark.github.com', '_blank')}
+                    onClick={() => window.open('https://github.com/features/spark', '_blank')}
                     className="bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800"
                   >
                     <Sparkle size={16} className="mr-2" />
@@ -2384,9 +2384,9 @@ function App() {
                           <p className={`${isMobile ? 'text-xs' : 'text-sm'} text-purple-700 mb-3`}>
                             Working prototype with Chart.js integration, responsive design, and synthetic data generation.
                           </p>
-                          <Button 
-                            size="sm" 
-                            onClick={() => window.open('https://spark.github.com', '_blank')}
+                          <Button
+                            size="sm"
+                            onClick={() => window.open('https://github.com/features/spark', '_blank')}
                             className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white"
                           >
                             <ArrowSquareOut size={12} className="mr-1" />
@@ -2624,7 +2624,7 @@ function App() {
                         </div>
                         <div className="flex items-center justify-center">
                           <Button
-                            onClick={() => window.open('https://spark.github.com', '_blank')}
+                            onClick={() => window.open('https://github.com/features/spark', '_blank')}
                             className="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white"
                           >
                             <Sparkle size={16} className="mr-2" />
@@ -2698,7 +2698,7 @@ function App() {
                           <Button
                             variant="outline"
                             size="sm"
-                            onClick={() => window.open('https://spark.github.com', '_blank')}
+                            onClick={() => window.open('https://github.com/features/spark', '_blank')}
                             className="w-full justify-start"
                           >
                             <Sparkle size={16} className="mr-2" />
@@ -2737,7 +2737,7 @@ function App() {
                   </h3>
                   <div className={`flex ${isMobile ? 'flex-col gap-3' : 'gap-4 justify-center'}`}>
                     <Button
-                      onClick={() => window.open('https://spark.github.com', '_blank')}
+                      onClick={() => window.open('https://github.com/features/spark', '_blank')}
                       className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600"
                     >
                       <Sparkle size={16} className="mr-2" />
