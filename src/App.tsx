@@ -701,108 +701,104 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     },
     {
       id: 'ready',
-      title: 'Ready to Explore?',
-      subtitle: 'Let\'s find some amazing correlations!',
-      icon: <Play size={48} className="text-yellow-400" />,
+      title: 'Ready to Start?',
+      subtitle: 'Dive into data-driven discoveries',
+      icon: <Rocket size={48} className="text-green-400" />,
       content: (
         <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
-          <div className={`relative max-w-md transition-all duration-1200 ease-out transform ${
-            animationStep >= 1 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-75 rotate-3'
+          {/* Main CTA Section */}
+          <div className={`text-center max-w-lg transition-all duration-800 ease-out ${
+            animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
           }`}>
-            <div className={`absolute inset-0 bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 rounded-2xl opacity-20 transition-all duration-1000 ${
-              animationStep >= 1 ? 'animate-pulse scale-100' : 'scale-75'
-            }`}></div>
-            <div className="relative bg-gradient-to-r from-cyan-500/20 to-purple-500/20 rounded-2xl p-4 sm:p-8 border border-cyan-500/30 backdrop-blur-sm">
-              <div className={`transition-all duration-800 ease-out delay-200 transform ${
-                animationStep >= 2 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 -translate-y-8 scale-0 rotate-180'
+            <div className={`mb-4 transition-all duration-600 delay-200 ${
+              animationStep >= 1 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+            }`}>
+              <Rocket size={40} className="text-green-400 mx-auto mb-3" />
+            </div>
+            <h3 className={`text-xl sm:text-2xl font-bold text-white mb-3 transition-all duration-600 delay-400 ${
+              animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              Let's Find Connections!
+            </h3>
+            <p className={`text-gray-300 text-sm sm:text-base mb-6 transition-all duration-600 delay-600 ${
+              animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            }`}>
+              Explore correlations across <span className="text-cyan-400 font-semibold">80+ datasets</span> from trusted sources
+            </p>
+            
+            {/* Launch Button */}
+            <button 
+              onClick={onComplete}
+              className={`w-full bg-gradient-to-r from-green-500 to-cyan-500 hover:from-green-600 hover:to-cyan-600 text-white font-semibold py-3 px-8 rounded-xl text-base transition-all duration-500 ease-out transform hover:scale-105 shadow-lg hover:shadow-green-500/25 mb-4 delay-800 ${
+                animationStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-8 scale-95'
+              }`}
+            >
+              <span className={`inline-flex items-center gap-2 transition-all duration-300 delay-1000 ${
+                animationStep >= 3 ? 'opacity-100' : 'opacity-0'
               }`}>
-                <Play size={32} className="text-yellow-400 mx-auto mb-3 sm:mb-4" />
-              </div>
-              <h3 className={`text-lg sm:text-2xl font-bold text-white mb-2 text-center transition-all duration-800 ease-out delay-400 ${
-                animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0 tracking-normal' : 'opacity-0 translate-y-4 blur-sm tracking-widest'
-              }`}>
-                <span className={`inline-block transition-all duration-300 delay-500 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>S</span>
-                <span className={`inline-block transition-all duration-300 delay-550 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>t</span>
-                <span className={`inline-block transition-all duration-300 delay-600 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>a</span>
-                <span className={`inline-block transition-all duration-300 delay-650 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>r</span>
-                <span className={`inline-block transition-all duration-300 delay-700 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>t</span>
-                <span className="mx-2"></span>
-                <span className={`inline-block transition-all duration-300 delay-750 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>E</span>
-                <span className={`inline-block transition-all duration-300 delay-800 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>x</span>
-                <span className={`inline-block transition-all duration-300 delay-850 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>p</span>
-                <span className={`inline-block transition-all duration-300 delay-900 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>l</span>
-                <span className={`inline-block transition-all duration-300 delay-950 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>o</span>
-                <span className={`inline-block transition-all duration-300 delay-1000 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>r</span>
-                <span className={`inline-block transition-all duration-300 delay-1050 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>i</span>
-                <span className={`inline-block transition-all duration-300 delay-1100 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>n</span>
-                <span className={`inline-block transition-all duration-300 delay-1150 ${
-                  animationStep >= 3 ? 'transform-none' : '-translate-y-2'
-                }`}>g</span>
-              </h3>
-              <p className={`text-gray-300 mb-4 sm:mb-6 text-center text-sm sm:text-base transition-all duration-1000 ease-out delay-1300 ${
-                animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
-              }`}>
-                With <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-1400 ${
-                  animationStep >= 4 ? 'opacity-100 scale-110 text-shadow' : 'opacity-0 scale-75'
-                }`}>80+</span> datasets and <span className={`text-purple-400 font-semibold transition-all duration-600 delay-1500 ${
-                  animationStep >= 4 ? 'opacity-100 scale-110 text-shadow' : 'opacity-0 scale-75'
-                }`}>infinite</span> possibilities
-              </p>
-              <button 
-                onClick={onComplete}
-                className={`w-full bg-gradient-to-r from-cyan-500 to-purple-500 hover:from-cyan-600 hover:to-purple-600 text-white font-semibold py-2 sm:py-3 px-6 sm:px-8 rounded-xl text-sm sm:text-base transition-all duration-1000 ease-out transform hover:scale-105 shadow-lg hover:shadow-cyan-500/25 delay-1600 ${
-                  animationStep >= 5 ? 'opacity-100 translate-y-0 scale-100 rotate-0 blur-0' : 'opacity-0 translate-y-8 scale-75 rotate-2 blur-sm'
-                }`}
-              >
-                <span className={`inline-flex items-center gap-2 transition-all duration-500 delay-1700 ${
-                  animationStep >= 5 ? 'opacity-100' : 'opacity-0'
-                }`}>
-                  <span>Launch CorrelateAI</span>
-                  <span className={`transition-all duration-400 delay-1800 ${
-                    animationStep >= 5 ? 'scale-100 rotate-0' : 'scale-0 rotate-90'
-                  }`}>✨</span>
+                <Rocket size={18} />
+                <span>Start Exploring</span>
+              </span>
+            </button>
+          </div>
+
+          {/* Additional Links Section */}
+          <div className={`text-center space-y-3 transition-all duration-600 delay-1200 ${
+            animationStep >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+          }`}>
+            {/* Data Sources Links */}
+            <div className="space-y-2">
+              <p className="text-xs text-gray-400 mb-2">Data sourced from:</p>
+              <div className="flex flex-wrap justify-center gap-2 text-xs">
+                <a 
+                  href="https://fred.stlouisfed.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md hover:bg-blue-500/30 transition-colors"
+                >
+                  <Database size={12} />
+                  <span>FRED Database</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+                <a 
+                  href="https://data.worldbank.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-md hover:bg-green-500/30 transition-colors"
+                >
+                  <Database size={12} />
+                  <span>World Bank</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md">
+                  <Robot size={12} />
+                  <span>AI Generated</span>
                 </span>
+              </div>
+            </div>
+
+            {/* Restart Intro Link */}
+            <div className="pt-2 border-t border-gray-700/30">
+              <button
+                onClick={() => {
+                  // Clear the intro seen flag and restart
+                  localStorage.removeItem('correlate-ai-intro-seen')
+                  // Restart the slideshow by going to slide 0
+                  window.location.reload()
+                }}
+                className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-cyan-400 transition-colors"
+              >
+                <ArrowClockwise size={12} />
+                <span>View intro again</span>
               </button>
             </div>
           </div>
-          <div className={`flex justify-center gap-2 text-xs sm:text-sm text-gray-400 transition-all duration-800 ease-out delay-1900 ${
-            animationStep >= 6 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+
+          {/* ESC hint */}
+          <div className={`text-xs text-gray-500 transition-all duration-400 delay-1400 ${
+            animationStep >= 5 ? 'opacity-100' : 'opacity-0'
           }`}>
-            <span className={`transition-all duration-300 delay-2000 ${
-              animationStep >= 6 ? 'opacity-100' : 'opacity-0'
-            }`}>Press</span>
-            <div className={`px-2 py-1 bg-gray-700 rounded text-xs text-gray-300 font-mono transition-all duration-400 delay-2100 transform ${
-              animationStep >= 6 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-            }`}>ESC</div>
-            <span className={`transition-all duration-300 delay-2200 ${
-              animationStep >= 6 ? 'opacity-100' : 'opacity-0'
-            }`}>to skip</span>
+            Press <kbd className="px-1 py-0.5 bg-gray-700 rounded text-gray-300 text-xs mx-1">ESC</kbd> to skip
           </div>
         </div>
       )
@@ -1757,7 +1753,20 @@ function App() {
       <div className="relative z-10 p-2 sm:p-4 min-h-screen">
         <div className="max-w-6xl mx-auto bg-gray-800/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8">
         <header className="text-center mb-6 sm:mb-8">
-          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4">
+          <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 relative">
+            {/* Restart Intro Button - positioned absolutely in top right */}
+            <button
+              onClick={() => {
+                localStorage.removeItem('correlate-ai-intro-seen')
+                setShowSlideshow(true)
+              }}
+              className="absolute right-0 top-0 inline-flex items-center gap-1 px-2 py-1 text-xs text-gray-400 hover:text-cyan-400 hover:bg-gray-700/30 rounded-md transition-colors"
+              title="View intro tutorial again"
+            >
+              <Info size={12} />
+              <span className="hidden sm:inline">Intro</span>
+            </button>
+
             <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
               <Database size={isMobile ? 20 : 24} className="text-white" />
             </div>
@@ -1943,7 +1952,9 @@ function App() {
             )}
             
             {/* Data Sources Information */}
-            <DataSourcesCard />
+            <div data-sources-card>
+              <DataSourcesCard />
+            </div>
           </TabsContent>
           
           <TabsContent value="favorites" className="space-y-4 sm:space-y-6">
@@ -2785,6 +2796,40 @@ function CorrelationCard({
     return 'Weak'
   }
 
+  const generateDatasetLink = useCallback((variableName: string, dataSource: string) => {
+    // Generate appropriate links based on variable name and data source
+    const normalizedName = variableName.toLowerCase()
+    
+    if (dataSource === 'FRED') {
+      // Common FRED series mappings
+      if (normalizedName.includes('gdp')) return 'https://fred.stlouisfed.org/series/GDP'
+      if (normalizedName.includes('unemployment')) return 'https://fred.stlouisfed.org/series/UNRATE'
+      if (normalizedName.includes('inflation')) return 'https://fred.stlouisfed.org/series/CPIAUCSL'
+      if (normalizedName.includes('interest') || normalizedName.includes('rate')) return 'https://fred.stlouisfed.org/series/FEDFUNDS'
+      if (normalizedName.includes('housing')) return 'https://fred.stlouisfed.org/series/HOUST'
+      if (normalizedName.includes('construction')) return 'https://fred.stlouisfed.org/series/TTLCONS'
+      if (normalizedName.includes('consumer')) return 'https://fred.stlouisfed.org/series/CPIAUCSL'
+      if (normalizedName.includes('employment')) return 'https://fred.stlouisfed.org/series/PAYEMS'
+      // Default FRED search
+      return `https://fred.stlouisfed.org/search?st=${encodeURIComponent(normalizedName)}`
+    }
+    
+    if (dataSource === 'World Bank') {
+      // Common World Bank indicator mappings
+      if (normalizedName.includes('gdp')) return 'https://data.worldbank.org/indicator/NY.GDP.MKTP.CD'
+      if (normalizedName.includes('population')) return 'https://data.worldbank.org/indicator/SP.POP.TOTL'
+      if (normalizedName.includes('education')) return 'https://data.worldbank.org/indicator/SE.XPD.TOTL.GD.ZS'
+      if (normalizedName.includes('health')) return 'https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS'
+      if (normalizedName.includes('trade')) return 'https://data.worldbank.org/indicator/TG.VAL.TOTL.GD.ZS'
+      if (normalizedName.includes('energy')) return 'https://data.worldbank.org/indicator/EG.USE.ELEC.KH.PC'
+      // Default World Bank search
+      return `https://data.worldbank.org/search?q=${encodeURIComponent(normalizedName)}`
+    }
+    
+    // For synthetic/AI data, return null (no external link)
+    return null
+  }, [])
+
   const copyToClipboard = useCallback((text: string) => {
     navigator.clipboard.writeText(text)
     toast.success("Citation copied to clipboard!")
@@ -3233,6 +3278,21 @@ function CorrelationCard({
                       <span className="text-gray-400">Category:</span>
                       <span className="text-gray-300">{correlation.variable1.category}</span>
                     </div>
+                    {/* Dataset Link for Variable 1 */}
+                    {correlation.isRealData && generateDatasetLink(correlation.variable1.name, correlation.dataSource) && (
+                      <div className="pt-1">
+                        <a
+                          href={generateDatasetLink(correlation.variable1.name, correlation.dataSource)!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
+                        >
+                          <Database size={12} />
+                          <span>View Dataset</span>
+                          <ArrowSquareOut size={10} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                   <div className="space-y-2">
                     <div className="flex justify-between text-sm">
@@ -3247,8 +3307,58 @@ function CorrelationCard({
                       <span className="text-gray-400">Category:</span>
                       <span className="text-gray-300">{correlation.variable2.category}</span>
                     </div>
+                    {/* Dataset Link for Variable 2 */}
+                    {correlation.isRealData && generateDatasetLink(correlation.variable2.name, correlation.dataSource) && (
+                      <div className="pt-1">
+                        <a
+                          href={generateDatasetLink(correlation.variable2.name, correlation.dataSource)!}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 text-xs text-purple-400 hover:text-purple-300 transition-colors"
+                        >
+                          <Database size={12} />
+                          <span>View Dataset</span>
+                          <ArrowSquareOut size={10} />
+                        </a>
+                      </div>
+                    )}
                   </div>
                 </div>
+                
+                {/* Data Source Information */}
+                {correlation.isRealData && (
+                  <div className="mt-4 pt-3 border-t border-gray-700/30">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-xs text-gray-400">Data Source:</span>
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-cyan-400 font-medium">{correlation.dataSource}</span>
+                        {correlation.dataSource === 'FRED' && (
+                          <a
+                            href="https://fred.stlouisfed.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-blue-500/20 text-blue-400 rounded text-xs hover:bg-blue-500/30 transition-colors"
+                          >
+                            <span>FRED</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'World Bank' && (
+                          <a
+                            href="https://data.worldbank.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-green-500/20 text-green-400 rounded text-xs hover:bg-green-500/30 transition-colors"
+                          >
+                            <span>World Bank</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                )}
+                
                 <div className="mt-4 pt-3 border-t border-gray-700/30 grid grid-cols-2 gap-4 text-sm">
                   <div className="flex justify-between">
                     <span className="text-gray-400">Strength:</span>
@@ -3333,23 +3443,90 @@ function CorrelationCard({
           </div>
         </div>
         
-        {/* Data Source Attribution */}
-        {correlation.isRealData && (
-          <div className="mt-4 pt-4 border-t border-gray-700/50">
-            <div className="text-xs text-gray-400 mb-2">
-              Data Source: <span className="text-cyan-400 font-medium">{correlation.dataSource}</span>
+        {/* Data Source Attribution with Links */}
+        <div className="mt-4 pt-4 border-t border-gray-700/50">
+          <div className="space-y-3">
+            {/* Data Source Info */}
+            <div className="flex items-center justify-between">
+              <div className="text-xs text-gray-400">
+                Data Source: <span className="text-cyan-400 font-medium">{correlation.isRealData ? correlation.dataSource : 'AI Generated'}</span>
+              </div>
+              {correlation.isRealData && (
+                <div className="flex items-center gap-2">
+                  <button
+                    onClick={() => copyToClipboard(correlation.citation)}
+                    className="inline-flex items-center gap-1 text-xs text-gray-400 hover:text-gray-300 transition-colors"
+                  >
+                    <Copy size={12} />
+                    <span>Copy Citation</span>
+                  </button>
+                </div>
+              )}
             </div>
-            <Button 
-              variant="ghost" 
-              size="sm" 
-              onClick={() => copyToClipboard(correlation.citation)}
-              className="text-xs text-gray-400 hover:text-gray-300"
-            >
-              <Copy size={12} className="mr-1" />
-              Copy Citation
-            </Button>
+            
+            {/* Citation and Journal Links */}
+            {correlation.isRealData && (
+              <div className="text-xs text-gray-400">
+                <div className="flex items-start gap-2 mb-2">
+                  <span className="text-gray-500">Citation:</span>
+                  <span className="text-gray-300">{correlation.citation}</span>
+                </div>
+                <div className="flex items-start gap-2">
+                  <span className="text-gray-500">Journal:</span>
+                  <span className="text-gray-300">{correlation.journal}</span>
+                </div>
+              </div>
+            )}
+            
+            {/* Direct Links to Data Sources */}
+            <div className="flex flex-wrap gap-2">
+              {correlation.dataSource === 'FRED' && (
+                <a
+                  href="https://fred.stlouisfed.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md hover:bg-blue-500/30 text-xs transition-colors"
+                >
+                  <Database size={10} />
+                  <span>View FRED Database</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'World Bank' && (
+                <a
+                  href="https://data.worldbank.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-md hover:bg-green-500/30 text-xs transition-colors"
+                >
+                  <Database size={10} />
+                  <span>View World Bank Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'Synthetic' && (
+                <div className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md text-xs">
+                  <Robot size={10} />
+                  <span>AI Generated Dataset</span>
+                </div>
+              )}
+              
+              {/* General Data Sources Link */}
+              <button
+                onClick={() => {
+                  const element = document.querySelector('[data-sources-card]')
+                  if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' })
+                  }
+                }}
+                className="inline-flex items-center gap-1 px-2 py-1 bg-gray-600/20 text-gray-400 rounded-md hover:bg-gray-600/30 text-xs transition-colors"
+              >
+                <Info size={10} />
+                <span>View All Sources</span>
+              </button>
+            </div>
           </div>
-        )}
+        </div>
       </CardContent>
     </Card>
   )
