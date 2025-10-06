@@ -1,0 +1,13 @@
+[
+  {"year": 2014, "value": 3.2, "region": "Global"},
+  {"year": 2015, "value": 3.4, "region": "Global"},
+  {"year": 2016, "value": 3.1, "region": "Global"},
+  {"year": 2017, "value": 3.6, "region": "Global"},
+  {"year": 2018, "value": 3.3, "region": "Global"},
+  {"year": 2019, "value": 3.5, "region": "Global"},
+  {"year": 2020, "value": 3.4, "region": "Global"},
+  {"year": 2021, "value": 3.7, "region": "Global"},
+  {"year": 2022, "value": 3.8, "region": "Global"},
+  {"year": 2023, "value": 3.9, "region": "Global"},
+  {"year": 2024, "value": 3.6, "region": "Global"}
+]

@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.nass.usda.gov/Publications/Highlights/2016/LocalFoodsMarketingPractices/",
     "citation": "USDA Local Food Marketing Practices Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
+    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
     "filename": "food-local-food-market-share"
   },
   "data": [
     {
       "year": 2014,
-      "value": 11.25,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 11.23,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2015,
-      "value": 15.52,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 15.51,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2016,
-      "value": 16.92,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 16.78,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2017,
       "value": 17.79,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2018,
-      "value": 22.5,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 22.41,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2019,
-      "value": 27.91,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 27.95,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2020,
-      "value": 27.96,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 28.04,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2021,
-      "value": 27.83,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 27.87,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2022,
-      "value": 33.82,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 33.95,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2023,
-      "value": 40.22,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 40.42,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     },
     {
       "year": 2024,
-      "value": 39.16,
-      "generatedAt": "2025-09-15T11:37:52.719Z"
+      "value": 39.06,
+      "generatedAt": "2025-10-06T19:11:02.461Z"
     }
   ]
 }

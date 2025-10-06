@@ -1,0 +1,13 @@
+[
+  {"year": 2014, "value": 2.54, "region": "US"},
+  {"year": 2015, "value": 2.14, "region": "US"},
+  {"year": 2016, "value": 1.84, "region": "US"},
+  {"year": 2017, "value": 2.33, "region": "US"},
+  {"year": 2018, "value": 2.91, "region": "US"},
+  {"year": 2019, "value": 2.14, "region": "US"},
+  {"year": 2020, "value": 0.89, "region": "US"},
+  {"year": 2021, "value": 1.45, "region": "US"},
+  {"year": 2022, "value": 3.88, "region": "US"},
+  {"year": 2023, "value": 4.05, "region": "US"},
+  {"year": 2024, "value": 4.28, "region": "US"}
+]

@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -49,12 +49,12 @@ const categories = {
 }
 
 const datasets: Dataset[] = [
-  // Food & Consumption
-  { name: "Ice cream sales", unit: "thousands of gallons", baseValue: 150, trend: 0.05, seasonal: true, category: "food" },
-  { name: "Margarine consumption", unit: "lbs per capita", baseValue: 8.2, trend: -0.08, seasonal: false, category: "food" },
-  { name: "Apple sales", unit: "millions sold", baseValue: 280, trend: -0.02, seasonal: true, category: "food" },
-  { name: "Coffee consumption", unit: "cups per capita", baseValue: 412, trend: 0.03, seasonal: false, category: "food" },
-  { name: "Pizza deliveries", unit: "millions per month", baseValue: 3.2, trend: 0.08, seasonal: true, category: "food" },
+  // Economic Indicators
+  { name: "GDP Growth Rate", unit: "% YoY", baseValue: 2.3, trend: 0.02, seasonal: false, category: "food" },
+  { name: "Unemployment Rate", unit: "% of workforce", baseValue: 4.1, trend: -0.05, seasonal: false, category: "food" },
+  { name: "Interest Rates", unit: "% federal funds", baseValue: 2.5, trend: 0.03, seasonal: false, category: "food" },
+  { name: "Housing Starts", unit: "thousands annually", baseValue: 1200, trend: 0.04, seasonal: true, category: "food" },
+  { name: "Consumer Confidence", unit: "index value", baseValue: 102.5, trend: 0.02, seasonal: false, category: "food" },
   { name: "Organic food sales", unit: "billions USD", baseValue: 47, trend: 0.12, seasonal: false, category: "food" },
 
   // Technology & Digital
@@ -261,6 +261,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const [autoProgress, setAutoProgress] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const [animationStep, setAnimationStep] = useState(0)
+  const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
+  const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
+  const [showSwipeHint, setShowSwipeHint] = useState(false)
   
   const slides = [
     {
@@ -292,7 +295,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
           <p className={`text-xl text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out transform delay-300 ${
             animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
           }`}>
-            Ever wondered if two seemingly unrelated things are actually connected?
+            Discover hidden relationships between economic indicators and market trends
           </p>
           <div className={`flex justify-center items-center gap-3 transition-all duration-1200 ease-out transform delay-500 ${
             animationStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'
@@ -332,8 +335,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     },
     {
       id: 'discover',
-      title: 'Discover Unexpected Connections',
-      subtitle: 'From ice cream sales to drowning deaths',
+      title: 'Discover Meaningful Connections',
+      subtitle: 'Real economic relationships that matter',
       icon: <TrendUp size={48} className="text-green-400" />,
       content: (
         <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
@@ -345,26 +348,26 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             }`}>
               <div className={`text-2xl sm:text-3xl mb-2 sm:mb-3 text-center transition-all duration-800 delay-200 ${
                 animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
-              }`}>🍦</div>
+              }`}>📈</div>
               <h3 className={`text-base sm:text-lg font-semibold text-cyan-400 text-center transition-all duration-600 delay-300 ${
                 animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>Ice Cream Sales</h3>
+              }`}>Interest Rates</h3>
               <p className={`text-xs sm:text-sm text-gray-300 text-center transition-all duration-600 delay-400 ${
                 animationStep >= 1 ? 'opacity-100' : 'opacity-0'
-              }`}>Summer treats</p>
+              }`}>Federal funds rate</p>
             </div>
             <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-3 sm:p-6 border border-red-500/30 transition-all duration-1200 ease-out transform ${
               animationStep >= 1 ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 translate-x-8 rotate-3'
             }`}>
               <div className={`text-2xl sm:text-3xl mb-2 sm:mb-3 text-center transition-all duration-800 delay-400 ${
                 animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 -rotate-180'
-              }`}>🏊‍♂️</div>
+              }`}>�</div>
               <h3 className={`text-base sm:text-lg font-semibold text-red-400 text-center transition-all duration-600 delay-500 ${
                 animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>Drowning Incidents</h3>
+              }`}>Housing Starts</h3>
               <p className={`text-xs sm:text-sm text-gray-300 text-center transition-all duration-600 delay-600 ${
                 animationStep >= 1 ? 'opacity-100' : 'opacity-0'
-              }`}>Water activities</p>
+              }`}>New construction</p>
             </div>
           </div>
           <div className={`flex items-center justify-center transition-all duration-1000 ease-out delay-700 ${
@@ -383,9 +386,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
           <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-900 ${
             animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
           }`}>
-            Both increase in summer! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
+            Lower rates drive construction activity! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
               animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-            }`}>Correlation ≠ Causation</span>
+            }`}>Strong Negative Correlation</span>
           </p>
         </div>
       )
@@ -407,19 +410,19 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
               <h3 className="text-base sm:text-lg font-semibold mb-1">
                 <span className={`text-cyan-400 transition-all duration-600 delay-400 ${
                   animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
-                }`}>Netflix Subscriptions</span>
+                }`}>GDP Growth</span>
                 <span className={`text-gray-300 mx-1 sm:mx-2 transition-all duration-400 delay-600 ${
                   animationStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                 }`}> vs </span>
                 <span className={`text-purple-400 transition-all duration-600 delay-800 ${
                   animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
-                }`}>Pizza Deliveries</span>
+                }`}>Unemployment Rate</span>
               </h3>
               <p className={`text-xs sm:text-sm text-gray-400 transition-all duration-500 delay-1000 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
-              }`}>Correlation: <span className={`text-green-400 font-bold transition-all duration-600 delay-1100 ${
+              }`}>Correlation: <span className={`text-red-400 font-bold transition-all duration-600 delay-1100 ${
                 animationStep >= 2 ? 'scale-110 opacity-100' : 'scale-75 opacity-0'
-              }`}>+0.847</span> (Strong Positive)</p>
+              }`}>-0.732</span> (Strong Negative)</p>
             </div>
             <div className={`h-24 sm:h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden transition-all duration-1200 ease-out delay-1200 transform ${
               animationStep >= 3 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 -rotate-1'
@@ -770,6 +773,26 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                   <span>World Bank</span>
                   <ArrowSquareOut size={10} />
                 </a>
+                <a 
+                  href="https://www.alphavantage.co/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors"
+                >
+                  <TrendUp size={12} />
+                  <span>Alpha Vantage</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+                <a 
+                  href="https://openweathermap.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 transition-colors"
+                >
+                  <CloudSun size={12} />
+                  <span>OpenWeather</span>
+                  <ArrowSquareOut size={10} />
+                </a>
                 <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md">
                   <Robot size={12} />
                   <span>AI Generated</span>
@@ -904,6 +927,20 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     }
   }, [currentSlide])
 
+  // Show swipe hint on mobile for first slide after animations complete
+  useEffect(() => {
+    const isMobile = window.innerWidth < 640
+    if (isMobile && currentSlide === 0 && animationStep >= 3) {
+      const hintTimeout = setTimeout(() => {
+        setShowSwipeHint(true)
+        // Auto-hide after 3 seconds
+        setTimeout(() => setShowSwipeHint(false), 3000)
+      }, 2000)
+      
+      return () => clearTimeout(hintTimeout)
+    }
+  }, [currentSlide, animationStep])
+
   // Handle keyboard navigation
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -932,7 +969,104 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     return () => window.removeEventListener('keydown', handleKeyPress)
   }, [nextSlide, prevSlide, onComplete])
 
+  // Handle touch gestures
+  const handleTouchStart = (e: any) => {
+    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchStart({
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    })
+    setIsPaused(true)
+    setShowSwipeHint(false) // Hide hint when user starts interacting
+  }
+
+  const handleTouchMove = (e: any) => {
+    setTouchEnd({
+      x: e.touches[0].clientX,
+      y: e.touches[0].clientY
+    })
+  }
+
+  const handleTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    
+    const distanceX = touchStart.x - touchEnd.x
+    const distanceY = touchStart.y - touchEnd.y
+    const isLeftSwipe = distanceX > 50
+    const isRightSwipe = distanceX < -50
+    const isVerticalSwipe = Math.abs(distanceY) > Math.abs(distanceX)
+
+    // Only handle horizontal swipes (ignore vertical scrolling)
+    if (!isVerticalSwipe) {
+      if (isLeftSwipe) {
+        // Swipe left - next slide
+        if (currentSlide === slides.length - 1) {
+          onComplete()
+        } else {
+          nextSlide()
+          setAutoProgress(0)
+        }
+      } else if (isRightSwipe) {
+        // Swipe right - previous slide
+        prevSlide()
+        setAutoProgress(0)
+      }
+    }
+
+    setTimeout(() => setIsPaused(false), 1000)
+  }
+
   const currentSlideData = slides[currentSlide]
+
+  // Add touch event listeners
+  useEffect(() => {
+    const slideContainer = document.getElementById('slide-container')
+    if (slideContainer) {
+      slideContainer.addEventListener('touchstart', handleTouchStart, { passive: true })
+      slideContainer.addEventListener('touchmove', handleTouchMove, { passive: true })
+      slideContainer.addEventListener('touchend', handleTouchEnd, { passive: true })
+
+      return () => {
+        slideContainer.removeEventListener('touchstart', handleTouchStart)
+        slideContainer.removeEventListener('touchmove', handleTouchMove)
+        slideContainer.removeEventListener('touchend', handleTouchEnd)
+      }
+    }
+  }, [handleTouchStart, handleTouchMove, handleTouchEnd])
+
+  // Handle click navigation
+  const handleSlideClick = (e: any) => {
+    // Don't handle clicks on interactive elements
+    const target = e.target as HTMLElement
+    if (target.tagName === 'BUTTON' || target.closest('button') || target.tagName === 'A' || target.closest('a')) {
+      return
+    }
+
+    const rect = (e.currentTarget as HTMLElement).getBoundingClientRect()
+    const clickX = e.clientX - rect.left
+    const width = rect.width
+    const leftThird = width / 3
+    const rightThird = width * 2 / 3
+
+    if (clickX < leftThird && currentSlide > 0) {
+      // Clicked on left third - previous slide
+      prevSlide()
+      setAutoProgress(0)
+      setIsPaused(true)
+      setTimeout(() => setIsPaused(false), 1000)
+    } else if (clickX > rightThird) {
+      // Clicked on right third - next slide or complete
+      if (currentSlide === slides.length - 1) {
+        onComplete()
+      } else {
+        nextSlide()
+        setAutoProgress(0)
+        setIsPaused(true)
+        setTimeout(() => setIsPaused(false), 1000)
+      }
+    }
+    // Middle third does nothing to avoid accidental navigation
+  }
 
   return (
     <div className="fixed inset-0 z-50 bg-gray-900">
@@ -941,15 +1075,52 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
         <div className="w-full h-full">
           {/* Main Slide Content - Card with Margin */}
           <div 
-            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain"
+            id="slide-container"
+            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain select-none relative"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
+            onClick={handleSlideClick}
+            style={{ touchAction: 'pan-y' }} // Allow vertical scrolling but handle horizontal swipes
           >
+            {/* Click zones visual feedback - only show on hover on desktop */}
+            <div className="absolute inset-0 pointer-events-none z-10 rounded-2xl overflow-hidden opacity-0 hover:opacity-100 transition-opacity duration-300 hidden sm:block">
+              {/* Left click zone */}
+              {currentSlide > 0 && (
+                <div className="absolute left-0 top-0 w-1/3 h-full bg-gradient-to-r from-cyan-500/10 to-transparent flex items-center justify-start pl-4">
+                  <div className="text-cyan-400/60 text-sm font-medium">← Previous</div>
+                </div>
+              )}
+              {/* Right click zone */}
+              <div className="absolute right-0 top-0 w-1/3 h-full bg-gradient-to-l from-purple-500/10 to-transparent flex items-center justify-end pr-4">
+                <div className="text-purple-400/60 text-sm font-medium">
+                  {currentSlide === slides.length - 1 ? 'Start →' : 'Next →'}
+                </div>
+              </div>
+            </div>
+
+            {/* Mobile swipe hint - only show on mobile for first slide */}
+            <div className={`absolute bottom-20 left-1/2 transform -translate-x-1/2 pointer-events-none z-20 sm:hidden transition-all duration-500 ${
+              showSwipeHint ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
+            }`}>
+              <div className="bg-gray-700/90 backdrop-blur-sm px-4 py-2 rounded-full border border-gray-600/50">
+                <div className="flex items-center gap-2 text-sm text-gray-300">
+                  <div className="flex items-center gap-1">
+                    <div className="w-6 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent rounded animate-pulse"></div>
+                    <span className="text-cyan-400">←</span>
+                  </div>
+                  <span>Swipe to navigate</span>
+                  <div className="flex items-center gap-1">
+                    <span className="text-purple-400">→</span>
+                    <div className="w-6 h-0.5 bg-gradient-to-l from-purple-400 to-transparent rounded animate-pulse"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
             {/* Skip Button - Top Right */}
             <div className="flex justify-end mb-2">
               <button
                 onClick={onComplete}
-                className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors px-3 py-1 rounded-md hover:bg-gray-700/30"
+                className="text-xs sm:text-sm text-gray-400 hover:text-gray-300 transition-colors px-4 py-2 sm:px-3 sm:py-1 rounded-md hover:bg-gray-700/30 active:bg-gray-700/50 min-h-[36px] sm:min-h-auto"
               >
                 Skip intro
               </button>
@@ -991,7 +1162,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
               <div className="flex items-center justify-between">
                 {/* Left side: Progress dots */}
-                <div className="flex gap-0.5 sm:gap-1">
+                <div className="flex gap-1 sm:gap-1.5">
                   {slides.map((_, index) => (
                     <button
                       key={index}
@@ -1001,7 +1172,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setIsPaused(true)
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
-                      className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${
+                      className={`w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full transition-all duration-300 p-2 -m-2 ${
                         index === currentSlide 
                           ? 'bg-cyan-400 shadow-sm sm:shadow-md shadow-cyan-400/50' 
                           : index < currentSlide
@@ -1013,8 +1184,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 </div>
 
                 {/* Right side: Navigation buttons */}
-                <div className="flex items-center gap-1 sm:gap-2">
-                  <div className="flex gap-0.5 sm:gap-1">
+                <div className="flex items-center gap-2 sm:gap-3">
+                  <div className="flex gap-1 sm:gap-2">
                     <button
                       onClick={() => {
                         prevSlide()
@@ -1023,14 +1194,14 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                         setTimeout(() => setIsPaused(false), 1000)
                       }}
                       disabled={currentSlide === 0}
-                      className={`px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border transition-all duration-300 ${
+                      className={`p-2 sm:p-2.5 rounded-md border transition-all duration-300 min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center ${
                         currentSlide === 0 
                           ? 'border-gray-700 text-gray-600 cursor-not-allowed' 
-                          : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400'
+                          : 'border-gray-600 text-gray-300 hover:border-cyan-400 hover:text-cyan-400 active:bg-cyan-400/10'
                       }`}
                     >
-                      <CaretLeft size={10} className="sm:hidden" />
-                      <CaretLeft size={12} className="hidden sm:block" />
+                      <CaretLeft size={16} className="sm:hidden" />
+                      <CaretLeft size={18} className="hidden sm:block" />
                     </button>
                     <button
                       onClick={() => {
@@ -1043,17 +1214,17 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                           setTimeout(() => setIsPaused(false), 1000)
                         }
                       }}
-                      className="px-1.5 py-0.5 sm:p-1.5 rounded-sm sm:rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 transition-all duration-300"
+                      className="p-2 sm:p-2.5 rounded-md border border-cyan-600 text-cyan-400 hover:bg-cyan-600/10 active:bg-cyan-600/20 transition-all duration-300 min-w-[40px] min-h-[40px] sm:min-w-[44px] sm:min-h-[44px] flex items-center justify-center"
                     >
                       {currentSlide === slides.length - 1 ? (
                         <>
-                          <Check size={10} className="sm:hidden" />
-                          <Check size={12} className="hidden sm:block" />
+                          <Check size={16} className="sm:hidden" />
+                          <Check size={18} className="hidden sm:block" />
                         </>
                       ) : (
                         <>
-                          <CaretRight size={10} className="sm:hidden" />
-                          <CaretRight size={12} className="hidden sm:block" />
+                          <CaretRight size={16} className="sm:hidden" />
+                          <CaretRight size={18} className="hidden sm:block" />
                         </>
                       )}
                     </button>
@@ -1151,7 +1322,7 @@ function App() {
           }
         } catch (error) {
           console.warn('Could not fetch real dataset summary, using fallback count')
-          realDatasetCount = 32 // Manual count based on FRED + World Bank data
+          realDatasetCount = 45 // Manual count based on FRED + World Bank + Alpha Vantage + OpenWeather data
         }
 
         // Count AI-generated datasets from public/ai-data/ folder
@@ -1860,7 +2031,7 @@ function App() {
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
             <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
-              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve and World Bank.
+              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, and OpenWeather.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
@@ -1870,6 +2041,10 @@ function App() {
               <span className="font-semibold text-blue-400">FRED</span>
               <span>+</span>
               <span className="font-semibold text-green-400">World Bank</span>
+              <span>+</span>
+              <span className="font-semibold text-orange-400">Alpha Vantage</span>
+              <span>+</span>
+              <span className="font-semibold text-cyan-400">OpenWeather</span>
               <span>+</span>
               <span className="font-semibold text-purple-400">AI Datasets</span>
             </div>
@@ -2905,6 +3080,29 @@ function CorrelationCard({
       return `https://data.worldbank.org/search?q=${encodeURIComponent(normalizedName)}`
     }
     
+    if (dataSource === 'Alpha Vantage') {
+      // Common Alpha Vantage symbol mappings
+      if (normalizedName.includes('spy') || normalizedName.includes('s&p 500')) return 'https://finance.yahoo.com/quote/SPY'
+      if (normalizedName.includes('aapl') || normalizedName.includes('apple')) return 'https://finance.yahoo.com/quote/AAPL'
+      if (normalizedName.includes('msft') || normalizedName.includes('microsoft')) return 'https://finance.yahoo.com/quote/MSFT'
+      if (normalizedName.includes('tsla') || normalizedName.includes('tesla')) return 'https://finance.yahoo.com/quote/TSLA'
+      if (normalizedName.includes('nasdaq')) return 'https://finance.yahoo.com/quote/%5EIXIC'
+      if (normalizedName.includes('dow')) return 'https://finance.yahoo.com/quote/%5EDJI'
+      // Default Alpha Vantage documentation
+      return 'https://www.alphavantage.co/documentation/'
+    }
+    
+    if (dataSource === 'OpenWeather') {
+      // OpenWeather data categories
+      if (normalizedName.includes('temperature') || normalizedName.includes('weather')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('humidity')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('pressure')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('wind')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('climate')) return 'https://openweathermap.org/api/statistics-api'
+      // Default OpenWeather API documentation
+      return 'https://openweathermap.org/api'
+    }
+    
     // For synthetic/AI data, return null (no external link)
     return null
   }, [])
@@ -3433,6 +3631,28 @@ function CorrelationCard({
                             <ArrowSquareOut size={8} />
                           </a>
                         )}
+                        {correlation.dataSource === 'Alpha Vantage' && (
+                          <a
+                            href="https://www.alphavantage.co/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-orange-500/20 text-orange-400 rounded text-xs hover:bg-orange-500/30 transition-colors"
+                          >
+                            <span>Alpha Vantage</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'OpenWeather' && (
+                          <a
+                            href="https://openweathermap.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-cyan-500/20 text-cyan-400 rounded text-xs hover:bg-cyan-500/30 transition-colors"
+                          >
+                            <span>OpenWeather</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -3580,6 +3800,30 @@ function CorrelationCard({
                 >
                   <Database size={10} />
                   <span>View World Bank Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'Alpha Vantage' && (
+                <a
+                  href="https://www.alphavantage.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 text-xs transition-colors"
+                >
+                  <TrendUp size={10} />
+                  <span>View Alpha Vantage</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'OpenWeather' && (
+                <a
+                  href="https://openweathermap.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 text-xs transition-colors"
+                >
+                  <CloudSun size={10} />
+                  <span>View OpenWeather</span>
                   <ArrowSquareOut size={10} />
                 </a>
               )}

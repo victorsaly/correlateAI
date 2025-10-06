@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.edisonresearch.com/the-podcast-consumer-2021/",
     "citation": "Edison Research Podcast Consumer Study (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
+    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
     "filename": "entertainment-podcast-listener-percentage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 26.83,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 27.02,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2015,
-      "value": 34.49,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 35.33,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2016,
-      "value": 43.15,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 43.3,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2017,
-      "value": 51.06,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 51.39,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2018,
-      "value": 59.27,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 59.67,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2019,
-      "value": 67.19,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 67.2,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2020,
-      "value": 76.94,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 76.78,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2021,
-      "value": 83.56,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 83.32,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2022,
-      "value": 91.6,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 91.88,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2023,
-      "value": 99.16,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 99.69,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     },
     {
       "year": 2024,
-      "value": 109.83,
-      "generatedAt": "2025-09-15T11:37:52.700Z"
+      "value": 107.72,
+      "generatedAt": "2025-10-06T19:11:00.104Z"
     }
   ]
 }
