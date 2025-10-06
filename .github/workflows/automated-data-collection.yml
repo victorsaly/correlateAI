@@ -1,5 +1,11 @@
 name: 🤖 Automated Data Collection & Correlation Discovery
 
+# Add permissions for GitHub Actions to push code and create issues
+permissions:
+  contents: write
+  issues: write
+  pull-requests: write
+
 on:
   schedule:
     # Run daily at 6 AM UTC (adjust timezone as needed)
@@ -53,6 +59,7 @@ jobs:
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
+          persist-credentials: true
       
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
