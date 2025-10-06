@@ -208,11 +208,12 @@ jobs:
           }
           
           main().then(count => {
-            console.log(`::set-output name=datasets-updated::${count}`);
+            console.log(`✅ FRED data collection complete! Updated ${count} datasets`);
           }).catch(console.error);
           EOF
           
-          node collect-fred-data.js
+          FRED_COUNT=$(node collect-fred-data.js | tail -1 | grep -o '[0-9]*' || echo "0")
+          echo "datasets-updated=$FRED_COUNT" >> $GITHUB_OUTPUT
       
       - name: 🌍 Collect Global Data (World Bank)
         id: collect-worldbank
@@ -316,11 +317,12 @@ jobs:
           }
           
           main().then(count => {
-            console.log(`::set-output name=datasets-updated::${count}`);
+            console.log(`✅ World Bank data collection complete! Updated ${count} datasets`);
           }).catch(console.error);
           EOF
           
-          node collect-worldbank-data.js
+          WB_COUNT=$(node collect-worldbank-data.js | tail -1 | grep -o '[0-9]*' || echo "0")
+          echo "datasets-updated=$WB_COUNT" >> $GITHUB_OUTPUT
       
       - name: 💹 Collect Financial Data (Alpha Vantage)
         id: collect-finance
@@ -441,15 +443,17 @@ jobs:
           }
           
           main().then(count => {
-            console.log(`::set-output name=datasets-updated::${count}`);
+            console.log(`✅ Financial data collection complete! Updated ${count} datasets`);
           }).catch(console.error);
           EOF
           
           # Only run if we have API key and not too many requests
           if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.force_update }}" = "true" ]; then
-            node collect-finance-data.js
+            FINANCE_COUNT=$(node collect-finance-data.js | tail -1 | grep -o '[0-9]*' || echo "0")
+            echo "datasets-updated=$FINANCE_COUNT" >> $GITHUB_OUTPUT
           else
             echo "Skipping financial data collection to avoid rate limits on manual runs"
+            echo "datasets-updated=0" >> $GITHUB_OUTPUT
           fi
       
       - name: 🌤️ Collect Weather & Climate Data (OpenWeather)
@@ -607,11 +611,12 @@ jobs:
           }
           
           main().then(count => {
-            console.log(`::set-output name=cities-updated::${count}`);
+            console.log(`✅ Weather data collection complete! Updated data from ${count} cities`);
           }).catch(console.error);
           EOF
           
-          node collect-weather-data.js
+          WEATHER_COUNT=$(node collect-weather-data.js | tail -1 | grep -o '[0-9]*' || echo "0")
+          echo "cities-updated=$WEATHER_COUNT" >> $GITHUB_OUTPUT
       
       - name: 📈 Generate Dataset Index
         id: generate-index
@@ -688,11 +693,12 @@ jobs:
           }
           
           generateIndex().then(count => {
-            console.log(`::set-output name=datasets-indexed::${count}`);
+            console.log(`✅ Generated index with ${count} datasets`);
           }).catch(console.error);
           EOF
           
-          node generate-index.js
+          INDEX_COUNT=$(node generate-index.js | tail -1 | grep -o '[0-9]*' || echo "0")
+          echo "datasets-indexed=$INDEX_COUNT" >> $GITHUB_OUTPUT
       
       - name: 🔗 Generate Correlations
         id: correlations
@@ -856,11 +862,12 @@ jobs:
           }
           
           generateCorrelations().then(count => {
-            console.log(`::set-output name=correlations-generated::${count}`);
+            console.log(`✅ Generated ${count} interesting correlations`);
           }).catch(console.error);
           EOF
           
-          node generate-correlations.js
+          CORR_COUNT=$(node generate-correlations.js | tail -1 | grep -o '[0-9]*' || echo "0")
+          echo "correlations-generated=$CORR_COUNT" >> $GITHUB_OUTPUT
       
       - name: 📊 Generate Data Summary Report
         id: summary
