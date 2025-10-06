@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
-import { Button } from '@/components/ui/button'
+import { Button }  qfrom '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
@@ -49,12 +49,12 @@ const categories = {
 }
 
 const datasets: Dataset[] = [
-  // Food & Consumption
-  { name: "Ice cream sales", unit: "thousands of gallons", baseValue: 150, trend: 0.05, seasonal: true, category: "food" },
-  { name: "Margarine consumption", unit: "lbs per capita", baseValue: 8.2, trend: -0.08, seasonal: false, category: "food" },
-  { name: "Apple sales", unit: "millions sold", baseValue: 280, trend: -0.02, seasonal: true, category: "food" },
-  { name: "Coffee consumption", unit: "cups per capita", baseValue: 412, trend: 0.03, seasonal: false, category: "food" },
-  { name: "Pizza deliveries", unit: "millions per month", baseValue: 3.2, trend: 0.08, seasonal: true, category: "food" },
+  // Economic Indicators
+  { name: "GDP Growth Rate", unit: "% YoY", baseValue: 2.3, trend: 0.02, seasonal: false, category: "food" },
+  { name: "Unemployment Rate", unit: "% of workforce", baseValue: 4.1, trend: -0.05, seasonal: false, category: "food" },
+  { name: "Interest Rates", unit: "% federal funds", baseValue: 2.5, trend: 0.03, seasonal: false, category: "food" },
+  { name: "Housing Starts", unit: "thousands annually", baseValue: 1200, trend: 0.04, seasonal: true, category: "food" },
+  { name: "Consumer Confidence", unit: "index value", baseValue: 102.5, trend: 0.02, seasonal: false, category: "food" },
   { name: "Organic food sales", unit: "billions USD", baseValue: 47, trend: 0.12, seasonal: false, category: "food" },
 
   // Technology & Digital
@@ -295,7 +295,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
           <p className={`text-xl text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out transform delay-300 ${
             animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
           }`}>
-            Ever wondered if two seemingly unrelated things are actually connected?
+            Discover hidden relationships between economic indicators and market trends
           </p>
           <div className={`flex justify-center items-center gap-3 transition-all duration-1200 ease-out transform delay-500 ${
             animationStep >= 3 ? 'opacity-100 translate-y-0 scale-100' : 'opacity-0 translate-y-4 scale-90'
@@ -335,8 +335,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     },
     {
       id: 'discover',
-      title: 'Discover Unexpected Connections',
-      subtitle: 'From ice cream sales to drowning deaths',
+      title: 'Discover Meaningful Connections',
+      subtitle: 'Real economic relationships that matter',
       icon: <TrendUp size={48} className="text-green-400" />,
       content: (
         <div className="min-h-96 flex flex-col items-center justify-center space-y-6 sm:space-y-8">
@@ -348,26 +348,26 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             }`}>
               <div className={`text-2xl sm:text-3xl mb-2 sm:mb-3 text-center transition-all duration-800 delay-200 ${
                 animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 rotate-180'
-              }`}>🍦</div>
+              }`}>📈</div>
               <h3 className={`text-base sm:text-lg font-semibold text-cyan-400 text-center transition-all duration-600 delay-300 ${
                 animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>Ice Cream Sales</h3>
+              }`}>Interest Rates</h3>
               <p className={`text-xs sm:text-sm text-gray-300 text-center transition-all duration-600 delay-400 ${
                 animationStep >= 1 ? 'opacity-100' : 'opacity-0'
-              }`}>Summer treats</p>
+              }`}>Federal funds rate</p>
             </div>
             <div className={`bg-gradient-to-br from-red-500/20 to-orange-500/20 rounded-xl p-3 sm:p-6 border border-red-500/30 transition-all duration-1200 ease-out transform ${
               animationStep >= 1 ? 'opacity-100 translate-x-0 rotate-0' : 'opacity-0 translate-x-8 rotate-3'
             }`}>
               <div className={`text-2xl sm:text-3xl mb-2 sm:mb-3 text-center transition-all duration-800 delay-400 ${
                 animationStep >= 1 ? 'scale-100 rotate-0' : 'scale-0 -rotate-180'
-              }`}>🏊‍♂️</div>
+              }`}>�</div>
               <h3 className={`text-base sm:text-lg font-semibold text-red-400 text-center transition-all duration-600 delay-500 ${
                 animationStep >= 1 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}>Drowning Incidents</h3>
+              }`}>Housing Starts</h3>
               <p className={`text-xs sm:text-sm text-gray-300 text-center transition-all duration-600 delay-600 ${
                 animationStep >= 1 ? 'opacity-100' : 'opacity-0'
-              }`}>Water activities</p>
+              }`}>New construction</p>
             </div>
           </div>
           <div className={`flex items-center justify-center transition-all duration-1000 ease-out delay-700 ${
@@ -386,9 +386,9 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
           <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-900 ${
             animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
           }`}>
-            Both increase in summer! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
+            Lower rates drive construction activity! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
               animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
-            }`}>Correlation ≠ Causation</span>
+            }`}>Strong Negative Correlation</span>
           </p>
         </div>
       )
@@ -410,19 +410,19 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
               <h3 className="text-base sm:text-lg font-semibold mb-1">
                 <span className={`text-cyan-400 transition-all duration-600 delay-400 ${
                   animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
-                }`}>Netflix Subscriptions</span>
+                }`}>GDP Growth</span>
                 <span className={`text-gray-300 mx-1 sm:mx-2 transition-all duration-400 delay-600 ${
                   animationStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
                 }`}> vs </span>
                 <span className={`text-purple-400 transition-all duration-600 delay-800 ${
                   animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
-                }`}>Pizza Deliveries</span>
+                }`}>Unemployment Rate</span>
               </h3>
               <p className={`text-xs sm:text-sm text-gray-400 transition-all duration-500 delay-1000 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
-              }`}>Correlation: <span className={`text-green-400 font-bold transition-all duration-600 delay-1100 ${
+              }`}>Correlation: <span className={`text-red-400 font-bold transition-all duration-600 delay-1100 ${
                 animationStep >= 2 ? 'scale-110 opacity-100' : 'scale-75 opacity-0'
-              }`}>+0.847</span> (Strong Positive)</p>
+              }`}>-0.732</span> (Strong Negative)</p>
             </div>
             <div className={`h-24 sm:h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden transition-all duration-1200 ease-out delay-1200 transform ${
               animationStep >= 3 ? 'opacity-100 scale-100 rotate-0' : 'opacity-0 scale-95 -rotate-1'
