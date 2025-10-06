@@ -92,9 +92,9 @@ jobs:
           
           # Create data collection script
           cat > collect-fred-data.js << 'EOF'
-          const axios = require('axios');
-          const fs = require('fs').promises;
-          const path = require('path');
+          import axios from 'axios';
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           const FRED_API_KEY = process.env.FRED_API_KEY;
           const BASE_URL = 'https://api.stlouisfed.org/fred';
@@ -220,9 +220,9 @@ jobs:
           echo "🌍 Collecting data from World Bank..."
           
           cat > collect-worldbank-data.js << 'EOF'
-          const axios = require('axios');
-          const fs = require('fs').promises;
-          const path = require('path');
+          import axios from 'axios';
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           // World Bank indicators
           const WB_INDICATORS = [
@@ -329,9 +329,9 @@ jobs:
           echo "💹 Collecting financial market data..."
           
           cat > collect-finance-data.js << 'EOF'
-          const axios = require('axios');
-          const fs = require('fs').promises;
-          const path = require('path');
+          import axios from 'axios';
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           const API_KEY = process.env.ALPHA_VANTAGE_API_KEY;
           const BASE_URL = 'https://www.alphavantage.co/query';
@@ -460,9 +460,9 @@ jobs:
           
           # Create weather data collection script
           cat > collect-weather-data.js << 'EOF'
-          const axios = require('axios');
-          const fs = require('fs').promises;
-          const path = require('path');
+          import axios from 'axios';
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           // Use either OPENWEATHER_API_KEY or VITE_OPENWEATHER_API_KEY
           const OPENWEATHER_API_KEY = process.env.OPENWEATHER_API_KEY || process.env.VITE_OPENWEATHER_API_KEY;
@@ -619,8 +619,8 @@ jobs:
           echo "📈 Generating dataset index..."
           
           cat > generate-index.js << 'EOF'
-          const fs = require('fs').promises;
-          const path = require('path');
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           async function generateIndex() {
             const dataDir = 'public/ai-data';
@@ -700,8 +700,8 @@ jobs:
           echo "🔗 Generating interesting correlations..."
           
           cat > generate-correlations.js << 'EOF'
-          const fs = require('fs').promises;
-          const path = require('path');
+          import { promises as fs } from 'fs';
+          import path from 'path';
           
           // Calculate Pearson correlation coefficient
           function calculateCorrelation(x, y) {
