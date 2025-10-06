@@ -780,12 +780,56 @@ jobs:
                 if (dataset1.category === dataset2.category) continue;
                 
                 try {
-                  // Load actual data
-                  const data1Path = path.join(dataDir, `${dataset1.source.toLowerCase()}-${dataset1.id}.json`);
-                  const data2Path = path.join(dataDir, `${dataset2.source.toLowerCase()}-${dataset2.id}.json`);
+                  // Load actual data - handle different filename patterns
+                  let data1Path, data2Path;
                   
-                  const data1 = JSON.parse(await fs.readFile(data1Path, 'utf8'));
-                  const data2 = JSON.parse(await fs.readFile(data2Path, 'utf8'));
+                  // For weather/climate data, use direct filename
+                  if (dataset1.source === 'OpenWeather API') {
+                    data1Path = path.join(dataDir, `${dataset1.id}.json`);
+                  } else {
+                    // For other sources, use source-id pattern with cleaned source name
+                    const cleanSource1 = dataset1.source.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+                    data1Path = path.join(dataDir, `${cleanSource1}-${dataset1.id}.json`);
+                  }
+                  
+                  if (dataset2.source === 'OpenWeather API') {
+                    data2Path = path.join(dataDir, `${dataset2.id}.json`);
+                  } else {
+                    // For other sources, use source-id pattern with cleaned source name
+                    const cleanSource2 = dataset2.source.toLowerCase().replace(/\s+/g, '').replace(/[^a-z0-9]/g, '');
+                    data2Path = path.join(dataDir, `${cleanSource2}-${dataset2.id}.json`);
+                  }
+                  
+                  // Try to read the data files, with fallback attempts
+                  let data1, data2;
+                  
+                  try {
+                    data1 = JSON.parse(await fs.readFile(data1Path, 'utf8'));
+                  } catch (error) {
+                    console.error(`Warning: Could not read ${data1Path}, trying alternative paths...`);
+                    // Try alternative filename patterns
+                    const altPath1 = path.join(dataDir, `${dataset1.id}.json`);
+                    try {
+                      data1 = JSON.parse(await fs.readFile(altPath1, 'utf8'));
+                    } catch (altError) {
+                      console.error(`Could not read ${dataset1.id} data from any path`);
+                      continue;
+                    }
+                  }
+                  
+                  try {
+                    data2 = JSON.parse(await fs.readFile(data2Path, 'utf8'));
+                  } catch (error) {
+                    console.error(`Warning: Could not read ${data2Path}, trying alternative paths...`);
+                    // Try alternative filename patterns
+                    const altPath2 = path.join(dataDir, `${dataset2.id}.json`);
+                    try {
+                      data2 = JSON.parse(await fs.readFile(altPath2, 'utf8'));
+                    } catch (altError) {
+                      console.error(`Could not read ${dataset2.id} data from any path`);
+                      continue;
+                    }
+                  }
                   
                   const aligned = alignDatasets(data1, data2);
                   if (!aligned) continue;
