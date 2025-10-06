@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.heart.org/en/news/2021/09/14/fitness-trackers-may-not-boost-weight-loss-but-research-continues",
     "citation": "American Heart Association Fitness Technology Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-09-15T11:37:52.626Z",
+    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
     "filename": "health-fitness-tracker-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 19.16,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 18.87,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2015,
-      "value": 25.13,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 25.35,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2016,
-      "value": 31.14,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 31.47,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2017,
-      "value": 37.29,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 37.78,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2018,
-      "value": 43.96,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 44.2,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2019,
-      "value": 50.46,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 50.19,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2020,
-      "value": 56.4,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 56.02,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2021,
-      "value": 62.05,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 62.81,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2022,
-      "value": 67.89,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 68.84,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2023,
-      "value": 75.12,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 74.91,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     },
     {
       "year": 2024,
-      "value": 81.67,
-      "generatedAt": "2025-09-15T11:37:52.652Z"
+      "value": 81.4,
+      "generatedAt": "2025-10-06T19:10:52.404Z"
     }
   ]
 }

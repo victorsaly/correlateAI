@@ -355,6 +355,144 @@ const realDatasets: RealDataset[] = [
     seriesId: 'FP.CPI.TOTL.ZG',
     category: 'economics',
     description: 'Inflation, consumer prices (annual %)'
+  },
+
+  // Alpha Vantage Data - Financial Markets
+  {
+    id: 'av_spy_price',
+    name: 'SPY ETF Price',
+    unit: 'USD',
+    source: 'Alpha Vantage',
+    sourceUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=SPY',
+    seriesId: 'SPY',
+    category: 'finance',
+    description: 'SPDR S&P 500 ETF Trust price data'
+  },
+  {
+    id: 'av_aapl_price',
+    name: 'Apple Inc. Stock Price',
+    unit: 'USD',
+    source: 'Alpha Vantage',
+    sourceUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=AAPL',
+    seriesId: 'AAPL',
+    category: 'finance',
+    description: 'Apple Inc. (AAPL) stock price data'
+  },
+  {
+    id: 'av_nasdaq_index',
+    name: 'NASDAQ Composite Index',
+    unit: 'index',
+    source: 'Alpha Vantage',
+    sourceUrl: 'https://www.alphavantage.co/query?function=GLOBAL_QUOTE&symbol=IXIC',
+    seriesId: 'IXIC',
+    category: 'finance',
+    description: 'NASDAQ Composite Index performance'
+  },
+
+  // OpenWeather Data - Climate & Weather
+  {
+    id: 'ow_global_temp',
+    name: 'Global Temperature Index',
+    unit: '°C',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api/statistics-api',
+    seriesId: 'GLOBAL_TEMP',
+    category: 'climate',
+    description: 'Global average temperature data from major cities'
+  },
+  {
+    id: 'ow_climate_pressure',
+    name: 'Global Atmospheric Pressure',
+    unit: 'hPa',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api/statistics-api',
+    seriesId: 'GLOBAL_PRESSURE',
+    category: 'climate',
+    description: 'Global average atmospheric pressure readings'
+  },
+
+  // Additional Alpha Vantage financial datasets
+  {
+    id: 'av_microsoft_stock',
+    name: 'Microsoft Stock Price',
+    unit: 'USD per share',
+    source: 'Alpha Vantage API',
+    sourceUrl: 'https://www.alphavantage.co/documentation/',
+    seriesId: 'MSFT',
+    category: 'finance',
+    description: 'Microsoft Corporation (MSFT) daily closing stock prices'
+  },
+  {
+    id: 'av_treasury_10yr',
+    name: '10-Year Treasury Rate',
+    unit: 'percent',
+    source: 'Alpha Vantage API',
+    sourceUrl: 'https://www.alphavantage.co/documentation/',
+    seriesId: 'DGS10',
+    category: 'finance',
+    description: 'US 10-Year Treasury Bond yield rates'
+  },
+  {
+    id: 'av_gold_price',
+    name: 'Gold Spot Price',
+    unit: 'USD per ounce',
+    source: 'Alpha Vantage API',
+    sourceUrl: 'https://www.alphavantage.co/documentation/',
+    seriesId: 'GOLD',
+    category: 'finance',
+    description: 'Gold commodity spot prices in US dollars'
+  },
+  {
+    id: 'av_crude_oil',
+    name: 'Crude Oil Price',
+    unit: 'USD per barrel',
+    source: 'Alpha Vantage API',
+    sourceUrl: 'https://www.alphavantage.co/documentation/',
+    seriesId: 'CRUDE_OIL_WTI',
+    category: 'finance',
+    description: 'West Texas Intermediate (WTI) crude oil prices'
+  },
+
+  // Additional OpenWeather climate datasets
+  {
+    id: 'ow_humidity_global',
+    name: 'Global Humidity Levels',
+    unit: 'percent relative humidity',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api',
+    seriesId: 'GLOBAL_HUMIDITY',
+    category: 'climate',
+    description: 'Average relative humidity across major global cities'
+  },
+  {
+    id: 'ow_wind_speed',
+    name: 'Global Wind Speed',
+    unit: 'meters per second',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api',
+    seriesId: 'GLOBAL_WIND',
+    category: 'climate',
+    description: 'Average wind speeds across major global cities'
+  },
+  {
+    id: 'ow_precipitation',
+    name: 'Global Precipitation',
+    unit: 'millimeters',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api',
+    seriesId: 'GLOBAL_PRECIPITATION',
+    category: 'climate',
+    description: 'Average precipitation levels across major global cities'
+  },
+  {
+    id: 'ow_uv_index',
+    name: 'Global UV Index',
+    unit: 'UV index scale',
+    source: 'OpenWeather API',
+    sourceUrl: 'https://openweathermap.org/api',
+    seriesId: 'GLOBAL_UV',
+    category: 'climate',
+    description: 'Average UV index levels across major global cities'
   }
 ]
 
@@ -677,7 +815,6 @@ class StaticDataService {
       name: 'FRED',
       description: 'Federal Reserve Economic Data - St. Louis Fed',
       url: 'https://fred.stlouisfed.org/',
-      logo: '/images/fred-logo.png',
       datasets: fredCount
     })
     
@@ -687,8 +824,25 @@ class StaticDataService {
       name: 'World Bank Open Data',
       description: 'Global development data and statistics',
       url: 'https://data.worldbank.org/',
-      logo: '/images/worldbank-logo.png',
       datasets: worldBankCount
+    })
+    
+    // Count Alpha Vantage datasets
+    const alphaVantageCount = realDatasets.filter(d => d.source.includes('Alpha Vantage')).length
+    sources.set('AlphaVantage', {
+      name: 'Alpha Vantage',
+      description: 'Real-time and historical financial market data',
+      url: 'https://www.alphavantage.co/',
+      datasets: alphaVantageCount
+    })
+    
+    // Count OpenWeather datasets
+    const openWeatherCount = realDatasets.filter(d => d.source.includes('OpenWeather')).length
+    sources.set('OpenWeather', {
+      name: 'OpenWeather',
+      description: 'Weather and climate data from around the world',
+      url: 'https://openweathermap.org/',
+      datasets: openWeatherCount
     })
     
     // AI-generated datasets
@@ -706,11 +860,15 @@ class StaticDataService {
   getDatasetsBySource() {
     const fredDatasets = realDatasets.filter(d => d.source.includes('FRED'))
     const worldBankDatasets = realDatasets.filter(d => d.source.includes('World Bank'))
+    const alphaVantageDatasets = realDatasets.filter(d => d.source.includes('Alpha Vantage'))
+    const openWeatherDatasets = realDatasets.filter(d => d.source.includes('OpenWeather'))
     const aiDatasets = this.aiDatasets
     
     return {
       fred: fredDatasets,
       worldbank: worldBankDatasets,
+      alphavantage: alphaVantageDatasets,
+      openweather: openWeatherDatasets,
       ai: aiDatasets,
       all: this.combinedDatasets
     }

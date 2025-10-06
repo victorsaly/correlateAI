@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowSquareOut, Database, Brain } from '@phosphor-icons/react'
+import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun } from '@phosphor-icons/react'
 import { dataService } from '@/services/staticDataService'
 
 interface DataSourceInfo {
@@ -33,9 +33,9 @@ export function DataSourcesCard() {
         
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Data Quality Commitment:</strong> We exclusively use real economic data from 
-            authoritative sources and AI-generated synthetic datasets based on real-world patterns. 
-            No mock or fabricated data is ever used in our analysis.
+            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, and climate data from 
+            authoritative sources including Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, and OpenWeather, 
+            plus AI-generated synthetic datasets based on real-world patterns. No mock or fabricated data is ever used in our analysis.
           </p>
           
           {/* Quick Access Links */}
@@ -60,6 +60,26 @@ export function DataSourcesCard() {
               Explore World Bank Data
               <ArrowSquareOut className="w-3 h-3" />
             </a>
+            <a
+              href="https://www.alphavantage.co/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-orange-50 text-orange-700 border border-orange-200 rounded-md hover:bg-orange-100 transition-colors"
+            >
+              <TrendUp className="w-3 h-3" />
+              Explore Alpha Vantage
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://openweathermap.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-cyan-50 text-cyan-700 border border-cyan-200 rounded-md hover:bg-cyan-100 transition-colors"
+            >
+              <CloudSun className="w-3 h-3" />
+              Explore OpenWeather
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </CardContent>
@@ -72,6 +92,10 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Data
     switch (key) {
       case 'AI':
         return <Brain className="w-4 h-4" />
+      case 'AlphaVantage':
+        return <TrendUp className="w-4 h-4" />
+      case 'OpenWeather':
+        return <CloudSun className="w-4 h-4" />
       default:
         return <Database className="w-4 h-4" />
     }
@@ -83,6 +107,10 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Data
         return <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">Federal Reserve</Badge>
       case 'WorldBank':
         return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">World Bank</Badge>
+      case 'AlphaVantage':
+        return <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200">Financial Markets</Badge>
+      case 'OpenWeather':
+        return <Badge variant="outline" className="bg-cyan-50 text-cyan-700 border-cyan-200">Weather Data</Badge>
       case 'AI':
         return <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">AI-Generated</Badge>
       default:
@@ -147,6 +175,24 @@ export function DataSourceBadge({ dataset }: { dataset: any }) {
       <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200 text-xs">
         <Database className="w-3 h-3 mr-1" />
         World Bank
+      </Badge>
+    )
+  }
+  
+  if (dataset.source?.includes('Alpha Vantage')) {
+    return (
+      <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200 text-xs">
+        <TrendUp className="w-3 h-3 mr-1" />
+        Alpha Vantage
+      </Badge>
+    )
+  }
+  
+  if (dataset.source?.includes('OpenWeather')) {
+    return (
+      <Badge variant="outline" className="bg-cyan-50 text-cyan-700 border-cyan-200 text-xs">
+        <CloudSun className="w-3 h-3 mr-1" />
+        OpenWeather
       </Badge>
     )
   }

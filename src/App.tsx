@@ -1,5 +1,5 @@
 import { useState, useMemo, useCallback, useRef, useEffect } from 'react'
-import { Button }  qfrom '@/components/ui/button'
+import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -773,6 +773,26 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                   <span>World Bank</span>
                   <ArrowSquareOut size={10} />
                 </a>
+                <a 
+                  href="https://www.alphavantage.co/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors"
+                >
+                  <TrendUp size={12} />
+                  <span>Alpha Vantage</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+                <a 
+                  href="https://openweathermap.org/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 transition-colors"
+                >
+                  <CloudSun size={12} />
+                  <span>OpenWeather</span>
+                  <ArrowSquareOut size={10} />
+                </a>
                 <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md">
                   <Robot size={12} />
                   <span>AI Generated</span>
@@ -1302,7 +1322,7 @@ function App() {
           }
         } catch (error) {
           console.warn('Could not fetch real dataset summary, using fallback count')
-          realDatasetCount = 32 // Manual count based on FRED + World Bank data
+          realDatasetCount = 45 // Manual count based on FRED + World Bank + Alpha Vantage + OpenWeather data
         }
 
         // Count AI-generated datasets from public/ai-data/ folder
@@ -2011,7 +2031,7 @@ function App() {
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
             <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
-              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve and World Bank.
+              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, and OpenWeather.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
@@ -2021,6 +2041,10 @@ function App() {
               <span className="font-semibold text-blue-400">FRED</span>
               <span>+</span>
               <span className="font-semibold text-green-400">World Bank</span>
+              <span>+</span>
+              <span className="font-semibold text-orange-400">Alpha Vantage</span>
+              <span>+</span>
+              <span className="font-semibold text-cyan-400">OpenWeather</span>
               <span>+</span>
               <span className="font-semibold text-purple-400">AI Datasets</span>
             </div>
@@ -3056,6 +3080,29 @@ function CorrelationCard({
       return `https://data.worldbank.org/search?q=${encodeURIComponent(normalizedName)}`
     }
     
+    if (dataSource === 'Alpha Vantage') {
+      // Common Alpha Vantage symbol mappings
+      if (normalizedName.includes('spy') || normalizedName.includes('s&p 500')) return 'https://finance.yahoo.com/quote/SPY'
+      if (normalizedName.includes('aapl') || normalizedName.includes('apple')) return 'https://finance.yahoo.com/quote/AAPL'
+      if (normalizedName.includes('msft') || normalizedName.includes('microsoft')) return 'https://finance.yahoo.com/quote/MSFT'
+      if (normalizedName.includes('tsla') || normalizedName.includes('tesla')) return 'https://finance.yahoo.com/quote/TSLA'
+      if (normalizedName.includes('nasdaq')) return 'https://finance.yahoo.com/quote/%5EIXIC'
+      if (normalizedName.includes('dow')) return 'https://finance.yahoo.com/quote/%5EDJI'
+      // Default Alpha Vantage documentation
+      return 'https://www.alphavantage.co/documentation/'
+    }
+    
+    if (dataSource === 'OpenWeather') {
+      // OpenWeather data categories
+      if (normalizedName.includes('temperature') || normalizedName.includes('weather')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('humidity')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('pressure')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('wind')) return 'https://openweathermap.org/current'
+      if (normalizedName.includes('climate')) return 'https://openweathermap.org/api/statistics-api'
+      // Default OpenWeather API documentation
+      return 'https://openweathermap.org/api'
+    }
+    
     // For synthetic/AI data, return null (no external link)
     return null
   }, [])
@@ -3584,6 +3631,28 @@ function CorrelationCard({
                             <ArrowSquareOut size={8} />
                           </a>
                         )}
+                        {correlation.dataSource === 'Alpha Vantage' && (
+                          <a
+                            href="https://www.alphavantage.co/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-orange-500/20 text-orange-400 rounded text-xs hover:bg-orange-500/30 transition-colors"
+                          >
+                            <span>Alpha Vantage</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'OpenWeather' && (
+                          <a
+                            href="https://openweathermap.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-cyan-500/20 text-cyan-400 rounded text-xs hover:bg-cyan-500/30 transition-colors"
+                          >
+                            <span>OpenWeather</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -3731,6 +3800,30 @@ function CorrelationCard({
                 >
                   <Database size={10} />
                   <span>View World Bank Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'Alpha Vantage' && (
+                <a
+                  href="https://www.alphavantage.co/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 text-xs transition-colors"
+                >
+                  <TrendUp size={10} />
+                  <span>View Alpha Vantage</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'OpenWeather' && (
+                <a
+                  href="https://openweathermap.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 text-xs transition-colors"
+                >
+                  <CloudSun size={10} />
+                  <span>View OpenWeather</span>
                   <ArrowSquareOut size={10} />
                 </a>
               )}
