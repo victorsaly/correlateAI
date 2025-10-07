@@ -23,8 +23,13 @@ export function DataSourcesCard() {
     const loadSources = async () => {
       try {
         const centralizedService = new CentralizedDataSourceService()
+        // Clear cache to ensure fresh data
+        centralizedService.clearCache()
         const dynamicSources = await centralizedService.getDataSources()
         const stats = await centralizedService.getDataSourceStats()
+        
+        console.log(`🔍 DataSources loaded: ${dynamicSources.size} sources, ${stats.totalDatasets} total datasets`)
+        console.log('📊 Sources:', Array.from(dynamicSources.keys()))
         
         setSources(dynamicSources)
         setTotalDatasets(stats.totalDatasets)

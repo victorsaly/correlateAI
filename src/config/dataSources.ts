@@ -172,7 +172,7 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     icon: 'currency',
     color: 'text-purple-400',
     badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
-    isStatic: false,
+    isStatic: true,
     expectedDatasets: 7
   },
   {
