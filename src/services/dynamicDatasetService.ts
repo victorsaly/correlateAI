@@ -143,7 +143,7 @@ export class DynamicDatasetService {
         'economics': 'economics',
         'financial': 'economics', 
         'climate': 'weather',
-        'space': 'technology',
+        'space': 'space',
         'geology': 'weather',
         'energy': 'economics',
         'health': 'health',

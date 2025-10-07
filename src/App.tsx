@@ -108,6 +108,14 @@ const datasets: Dataset[] = [
   { name: "Public transit ridership", unit: "millions per month", baseValue: 450, trend: -0.02, seasonal: true, category: "transportation" },
   { name: "Parking ticket revenue", unit: "millions USD", baseValue: 85, trend: 0.04, seasonal: false, category: "transportation" },
 
+  // Space & Astronomy
+  { name: "Asteroid sightings", unit: "near-Earth objects tracked", baseValue: 450, trend: 0.08, seasonal: false, category: "space" },
+  { name: "Satellite launches", unit: "per quarter", baseValue: 32, trend: 0.15, seasonal: false, category: "space" },
+  { name: "Space telescope observations", unit: "hours per week", baseValue: 168, trend: 0.03, seasonal: false, category: "space" },
+  { name: "Aurora activity", unit: "geomagnetic storms", baseValue: 18, trend: 0.02, seasonal: true, category: "space" },
+  { name: "Space station supply missions", unit: "per year", baseValue: 8, trend: 0.06, seasonal: false, category: "space" },
+  { name: "Meteor shower observations", unit: "reported meteors per hour", baseValue: 45, trend: 0.01, seasonal: true, category: "space" },
+
   // Economics & Finance
   { name: "Credit card applications", unit: "millions per month", baseValue: 12, trend: 0.05, seasonal: false, category: "economics" },
   { name: "Stock market volatility", unit: "VIX index", baseValue: 18, trend: 0.02, seasonal: false, category: "economics" },
