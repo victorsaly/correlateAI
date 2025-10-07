@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning } from '@phosphor-icons/react'
+import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart } from '@phosphor-icons/react'
 import { dataService } from '@/services/staticDataService'
 import { dynamicDataSourceService, DataSourceInfo as DynamicDataSourceInfo } from '@/services/dynamicDataSourceService'
 import { useState, useEffect } from 'react'
@@ -96,10 +96,9 @@ export function DataSourcesCard() {
         
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, and energy data from 
+            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, and health data from 
             authoritative sources including Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, 
-            USGS geological data, and EIA energy statistics, plus AI-generated synthetic datasets based on real-world patterns. 
-            No mock or fabricated data is ever used in our analysis.
+            USGS earthquakes and geological data, EIA energy statistics, Bureau of Labor Statistics (BLS), and Centers for Disease Control (CDC).
           </p>
           
           {/* Quick Access Links */}
@@ -174,6 +173,26 @@ export function DataSourcesCard() {
               Explore EIA Data
               <ArrowSquareOut className="w-3 h-3" />
             </a>
+            <a
+              href="https://www.bls.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md hover:bg-emerald-100 transition-colors"
+            >
+              <Briefcase className="w-3 h-3" />
+              Explore BLS Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://data.cdc.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-red-50 text-red-700 border border-red-200 rounded-md hover:bg-red-100 transition-colors"
+            >
+              <Heart className="w-3 h-3" />
+              Explore CDC Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </CardContent>
@@ -184,6 +203,10 @@ export function DataSourcesCard() {
 function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: DynamicDataSourceInfo }) {
   const getSourceIcon = (key: string) => {
     switch (key) {
+      case 'FRED':
+        return <Database className="w-4 h-4" />
+      case 'WorldBank':
+        return <Database className="w-4 h-4" />
       case 'AI':
         return <Brain className="w-4 h-4" />
       case 'AlphaVantage':
@@ -196,6 +219,10 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
         return <Mountains className="w-4 h-4" />
       case 'EIA':
         return <Lightning className="w-4 h-4" />
+      case 'BLS':
+        return <Briefcase className="w-4 h-4" />
+      case 'CDC':
+        return <Heart className="w-4 h-4" />
       default:
         return <Database className="w-4 h-4" />
     }
@@ -217,6 +244,10 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
         return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Geological Data</Badge>
       case 'EIA':
         return <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">Energy Sector</Badge>
+      case 'BLS':
+        return <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">Labor Statistics</Badge>
+      case 'CDC':
+        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Health Statistics</Badge>
       case 'AI':
         return <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">AI-Generated</Badge>
       default:

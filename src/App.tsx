@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -2934,8 +2934,8 @@ function App() {
                         </div>
                       </div>
                       
-                      {/* Additional row for EIA */}
-                      <div className="mt-3">
+                      {/* Additional row for EIA, BLS, and CDC */}
+                      <div className="mt-3 grid grid-cols-1 md:grid-cols-3 gap-2">
                         <Button
                           variant="outline"
                           size="sm"
@@ -2944,6 +2944,24 @@ function App() {
                         >
                           <Lightning size={16} className="mr-2" />
                           EIA API Documentation
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.open('https://www.bls.gov/developers/', '_blank')}
+                          className="w-full justify-start"
+                        >
+                          <Briefcase size={16} className="mr-2" />
+                          BLS API Documentation
+                        </Button>
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.open('https://data.cdc.gov/', '_blank')}
+                          className="w-full justify-start"
+                        >
+                          <Heart size={16} className="mr-2" />
+                          CDC Open Data Portal
                         </Button>
                       </div>
                     </div>
@@ -3021,7 +3039,7 @@ function App() {
             <div className={`${isMobile ? 'w-full' : ''}`}>
               <div className={`grid ${isMobile ? 'grid-cols-2 gap-4' : 'grid-cols-3 gap-6'} text-center`}>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">7</div>
+                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">9</div>
                   <div className="text-xs sm:text-sm text-gray-300">API Sources</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
@@ -3041,7 +3059,7 @@ function App() {
           {/* Copyright */}
           <div className="mt-8 pt-6 border-t border-gray-700/30 text-center">
             <p className="text-xs sm:text-sm text-gray-400">
-              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic multi-domain data from 7 API sources.
+              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic multi-domain data from 9 API sources.
             </p>
           </div>
         </div>

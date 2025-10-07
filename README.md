@@ -24,7 +24,7 @@
 [![AI-Generated](https://img.shields.io/badge/Built%20with-AI%20Assistance-purple?style=flat-square&logo=openai)](https://github.com/victorsaly)
 [![React](https://img.shields.io/badge/React-19.0.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-Latest-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Data Sources](https://img.shields.io/badge/API%20Sources-7%20Live%20APIs-green?style=flat-square&logo=databricks)](https://fred.stlouisfed.org/)
+[![Data Sources](https://img.shields.io/badge/API%20Sources-9%20Live%20APIs-green?style=flat-square&logo=databricks)](https://fred.stlouisfed.org/)
 [![Datasets](https://img.shields.io/badge/Datasets-51%2B%20Real%20Data-blue?style=flat-square&logo=chart.js)](https://correlateai.victorsaly.com)
 [![Security](https://img.shields.io/badge/Security-Audit%20Passed-brightgreen?style=flat-square&logo=shield)](./scripts/security-audit.sh)
 
@@ -114,7 +114,39 @@ CorrelateAI Pro demonstrates the power of AI-assisted development by being **100
 - Energy consumption patterns
 - **5 energy datasets** with official U.S. energy data
 
-## 🚀 The Development Story
+### 💼 BLS API (Bureau of Labor Statistics)
+- Consumer Price Index (CPI) for all urban consumers
+- Producer Price Index (PPI) for all commodities
+- Employment and unemployment statistics
+- Inflation and price change indicators
+- **2 economic datasets** with official U.S. labor statistics
+
+### 🏥 CDC API (Centers for Disease Control)
+- COVID-19 surveillance data
+- Public health statistics and trends
+- Disease monitoring and prevention data
+- Health indicators and outcomes
+- **1 health dataset** with official CDC health data
+
+## � API Integration Summary
+
+**Total Data Coverage**: 9 authoritative data sources providing real-time access to:
+- **Economics**: FRED (16 datasets), World Bank (11 datasets), BLS (2 datasets)
+- **Financial**: Alpha Vantage (7 datasets)
+- **Climate**: OpenWeather (6 datasets)
+- **Space**: NASA (5 datasets)
+- **Geology**: USGS (4 datasets)
+- **Energy**: EIA (5 datasets)
+- **Health**: CDC (1 dataset)
+
+**Integration Features**:
+- ✅ Real-time data fetching with automated workflows
+- ✅ Dynamic source detection and counting
+- ✅ Error handling and fallback mechanisms
+- ✅ Automated data collection via GitHub Actions
+- ✅ Professional API rate limiting and caching
+
+## �🚀 The Development Story
 
 **This entire application was built in 2 working sessions over 2 days without writing a single line of code manually.**
 
@@ -131,7 +163,7 @@ CorrelateAI Pro demonstrates the power of AI-assisted development by being **100
 - **Styling**: Tailwind CSS + shadcn/ui components
 - **Build Tool**: Vite 6.3.6
 - **Charts**: Recharts for data visualization
-- **APIs**: 7 live data sources (FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA)
+- **APIs**: 9 live data sources (FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA, BLS, CDC)
 - **Data Processing**: Real-time correlation analysis across multiple domains
 - **State Management**: React hooks and local storage
 - **Deployment**: GitHub Actions with automated data collection workflows
@@ -300,7 +332,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **CorrelateAI Pro** has evolved into a comprehensive multi-domain data correlation platform, demonstrating that AI-assisted development can rapidly expand from simple prototypes to sophisticated applications.
 
-**From 2 APIs to 7 live data sources. From economic data to space weather, geological events, and energy markets. From prototype to production platform.**
+**From 2 APIs to 9 live data sources. From economic data to space weather, geological events, energy markets, labor statistics, and health data. From prototype to production platform.**
 
 ✅ **7 Live API Integrations** - FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA  
 ✅ **51+ Real Datasets** - Economics, finance, climate, space, geology, energy  

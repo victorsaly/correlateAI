@@ -54,6 +54,8 @@ export function AnimatedPoweredBy({ sources, isMobile = false }: AnimatedPowered
       case 'NASA': return 'text-indigo-400'
       case 'USGS': return 'text-amber-400'
       case 'EIA': return 'text-yellow-400'
+      case 'BLS': return 'text-emerald-400'
+      case 'CDC': return 'text-red-400'
       default: return 'text-purple-400'
     }
   }

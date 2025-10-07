@@ -1,0 +1,31 @@
+{
+  "id": "bls_consumer_price_index",
+  "name": "Consumer Price Index",
+  "unit": "index (1982-84=100)",
+  "category": "economics",
+  "description": "Consumer Price Index for All Urban Consumers (CPI-U): All Items",
+  "source": "U.S. Bureau of Labor Statistics (BLS)",
+  "sourceUrl": "https://data.bls.gov/timeseries/CUUR0000SA0",
+  "citation": "U.S. Bureau of Labor Statistics. Consumer Price Index, retrieved from BLS Data Portal.",
+  "methodology": "Official labor statistics from the U.S. Bureau of Labor Statistics using government employment and economic surveys",
+  "isAIGenerated": false,
+  "isRealData": true,
+  "dataQuality": "Official Government Data - BLS",
+  "updateFrequency": "Updated monthly by BLS",
+  "geographicScope": "United States",
+  "timePeriod": "2014-2023",
+  "dataPoints": 10,
+  "lastUpdated": "2025-10-07T03:20:05.917Z",
+  "apiProvider": "Bureau of Labor Statistics API",
+  "seriesId": "CUUR0000SA0",
+  "filename": "bls_consumer_price_index",
+  "tags": [
+    "economics",
+    "employment",
+    "government-data",
+    "real-data",
+    "bls",
+    "labor-statistics",
+    "economic-indicators"
+  ]
+}

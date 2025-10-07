@@ -1,0 +1,75 @@
+{
+  "metadata": {
+    "id": "bls_consumer_price_index",
+    "name": "Consumer Price Index",
+    "unit": "index (1982-84=100)",
+    "category": "economics",
+    "description": "Consumer Price Index for All Urban Consumers (CPI-U): All Items",
+    "source": "U.S. Bureau of Labor Statistics (BLS)",
+    "sourceUrl": "https://data.bls.gov/timeseries/CUUR0000SA0",
+    "citation": "U.S. Bureau of Labor Statistics. Consumer Price Index, retrieved from BLS Data Portal.",
+    "methodology": "Official labor statistics from the U.S. Bureau of Labor Statistics using government employment and economic surveys",
+    "isAIGenerated": false,
+    "isRealData": true,
+    "dataQuality": "Official Government Data - BLS",
+    "updateFrequency": "Updated monthly by BLS",
+    "geographicScope": "United States",
+    "timePeriod": "2014-2023",
+    "dataPoints": 10,
+    "lastUpdated": "2025-10-07T03:20:05.916Z",
+    "apiProvider": "Bureau of Labor Statistics API",
+    "seriesId": "CUUR0000SA0",
+    "filename": "bls_consumer_price_index",
+    "tags": [
+      "economics",
+      "employment",
+      "government-data",
+      "real-data",
+      "bls",
+      "labor-statistics",
+      "economic-indicators"
+    ]
+  },
+  "data": [
+    {
+      "year": 2014,
+      "value": 236.736
+    },
+    {
+      "year": 2015,
+      "value": 237.017
+    },
+    {
+      "year": 2016,
+      "value": 240.007
+    },
+    {
+      "year": 2017,
+      "value": 245.12
+    },
+    {
+      "year": 2018,
+      "value": 251.107
+    },
+    {
+      "year": 2019,
+      "value": 255.657
+    },
+    {
+      "year": 2020,
+      "value": 258.811
+    },
+    {
+      "year": 2021,
+      "value": 270.97
+    },
+    {
+      "year": 2022,
+      "value": 292.655
+    },
+    {
+      "year": 2023,
+      "value": 304.702
+    }
+  ]
+}

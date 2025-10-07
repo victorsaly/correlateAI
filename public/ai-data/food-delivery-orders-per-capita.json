@@ -9,64 +9,64 @@
     "sourceUrl": "https://restaurant.org/research/reports/state-of-restaurant-industry/",
     "citation": "National Restaurant Association Delivery Trends Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
+    "aiGeneratedAt": "2025-10-07T11:46:38.297Z",
     "filename": "food-delivery-orders-per-capita"
   },
   "data": [
     {
       "year": 2014,
-      "value": 21.64,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 21.52,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2015,
-      "value": 33.14,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 33.38,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2016,
-      "value": 39.19,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 38.95,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2017,
-      "value": 42.88,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 43.56,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2018,
-      "value": 56.49,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 57.15,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2019,
-      "value": 73.25,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 72.19,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2020,
-      "value": 208.04,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 208.14,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2021,
-      "value": 172.09,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 169.43,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2022,
-      "value": 143.48,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 143.55,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2023,
-      "value": 111.11,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 111.97,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     },
     {
       "year": 2024,
-      "value": 111.23,
-      "generatedAt": "2025-10-07T02:15:12.936Z"
+      "value": 109.55,
+      "generatedAt": "2025-10-07T11:46:38.311Z"
     }
   ]
 }

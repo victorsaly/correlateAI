@@ -96,6 +96,24 @@ export class DynamicDataSourceService {
       dataPath: '/data/eia/'
     })
 
+    await this.checkDynamicSource(sources, 'BLS', {
+      name: 'BLS',
+      description: 'Bureau of Labor Statistics - Employment and economic data',
+      url: 'https://www.bls.gov/',
+      category: 'economics',
+      icon: 'briefcase',
+      dataPath: '/data/bls/'
+    })
+
+    await this.checkDynamicSource(sources, 'CDC', {
+      name: 'CDC',
+      description: 'Centers for Disease Control - Health and vital statistics',
+      url: 'https://data.cdc.gov/',
+      category: 'health',
+      icon: 'heart',
+      dataPath: '/data/cdc/'
+    })
+
     // AI-generated datasets (check for AI data)
     const aiCount = await this.countAIDatasets()
     if (aiCount > 0) {
@@ -273,6 +291,35 @@ export class DynamicDataSourceService {
           'eia_electricity_generation.json',
           'eia_renewable_energy.json',
           'eia_petroleum_consumption.json'
+        ]
+        
+        for (const file of knownFiles) {
+          try {
+            const response = await fetch(`${dataPath}${file}`)
+            if (response.ok) count++
+          } catch (e) {
+            // Ignore fetch errors
+          }
+        }
+      } else if (sourceKey === 'bls') {
+        // Known BLS files
+        const knownFiles = [
+          'bls_consumer_price_index.json',
+          'bls_producer_price_index.json'
+        ]
+        
+        for (const file of knownFiles) {
+          try {
+            const response = await fetch(`${dataPath}${file}`)
+            if (response.ok) count++
+          } catch (e) {
+            // Ignore fetch errors
+          }
+        }
+      } else if (sourceKey === 'cdc') {
+        // Known CDC files
+        const knownFiles = [
+          'cdc_covid_deaths.json'
         ]
         
         for (const file of knownFiles) {
