@@ -2,7 +2,7 @@
 
 **Collection Date:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
 **Workflow:** Automated Data Pipeline
-**Trigger:** workflow_dispatch
+**Trigger:** schedule
 
 ## 📈 Data Collection Summary
 
@@ -15,7 +15,7 @@
 ## 🎯 Data Quality
 
 - All data passed quality threshold of 0.7
-- Data sources: FRED, World Bank, Alpha Vantage
+- Data sources: FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA
 - Time range: 2010-2024 (where available)
 - Data format: JSON with metadata
 
