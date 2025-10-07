@@ -26,6 +26,7 @@ export default defineConfig(({ mode }) => {
       // Optimize for production
       minify: true,
       sourcemap: false,
+      target: 'esnext',
       rollupOptions: {
         output: {
           manualChunks: {
@@ -35,7 +36,11 @@ export default defineConfig(({ mode }) => {
             icons: ['@phosphor-icons/react']
           }
         }
-      }
+      },
+      assetsDir: 'assets',
+      // Ensure proper CSS and JS handling
+      cssCodeSplit: true,
+      emptyOutDir: true
     },
     server: {
       // Development server configuration (only used in dev mode)

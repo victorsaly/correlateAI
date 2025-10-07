@@ -9,64 +9,64 @@
     "sourceUrl": "https://uli.org/wp-content/uploads/ULI-Documents/Co-Living-Market-Study.pdf",
     "citation": "Urban Land Institute Co-living Market Study (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
+    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
     "filename": "housing-co-living-space-occupancy"
   },
   "data": [
     {
       "year": 2014,
-      "value": 31.14,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 31.42,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2015,
-      "value": 49.49,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 51.13,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2016,
-      "value": 68.59,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 70.34,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2017,
-      "value": 85.21,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 86.85,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2018,
-      "value": 111.12,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 110.32,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2019,
-      "value": 126.33,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 127.41,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2020,
-      "value": 141.96,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 140.15,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2021,
-      "value": 168.9,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 158.74,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2022,
-      "value": 185.93,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 183.22,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2023,
-      "value": 201.25,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 204.04,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2024,
-      "value": 222.15,
-      "generatedAt": "2025-10-06T20:48:46.614Z"
+      "value": 222,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     }
   ]
 }

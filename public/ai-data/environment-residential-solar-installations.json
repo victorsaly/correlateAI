@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.seia.org/solar-industry-research-data",
     "citation": "Solar Energy Industries Association Installation Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
+    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
     "filename": "environment-residential-solar-installations"
   },
   "data": [
     {
       "year": 2014,
-      "value": 186.36,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 189.35,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2015,
-      "value": 262.98,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 236.38,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2016,
-      "value": 242.17,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 282.4,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2017,
-      "value": 281.81,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 255.1,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2018,
-      "value": 339.13,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 359.69,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2019,
-      "value": 428.07,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 449,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2020,
-      "value": 420.4,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 441.26,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2021,
-      "value": 441.41,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 419.04,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2022,
-      "value": 492.27,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 444.15,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2023,
-      "value": 633.17,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 553.97,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     },
     {
       "year": 2024,
-      "value": 535.61,
-      "generatedAt": "2025-10-06T20:48:46.604Z"
+      "value": 582.53,
+      "generatedAt": "2025-10-07T02:15:12.927Z"
     }
   ]
 }

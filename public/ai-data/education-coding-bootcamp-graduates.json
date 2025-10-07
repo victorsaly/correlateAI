@@ -9,64 +9,64 @@
     "sourceUrl": "https://cirr.org/data",
     "citation": "Council on Integrity in Results Reporting Bootcamp Outcomes (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
+    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
     "filename": "education-coding-bootcamp-graduates"
   },
   "data": [
     {
       "year": 2014,
-      "value": 21.15,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 21.47,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2015,
-      "value": 34.38,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 34.05,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2016,
-      "value": 46.94,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 47.28,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2017,
-      "value": 60.59,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 59.26,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2018,
-      "value": 71.89,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 73.13,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2019,
-      "value": 84.4,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 84.79,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2020,
-      "value": 97.46,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 96.26,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2021,
-      "value": 110.47,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 111.58,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2022,
-      "value": 125.2,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 126.22,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2023,
-      "value": 136.45,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 137.57,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     },
     {
       "year": 2024,
-      "value": 149.85,
-      "generatedAt": "2025-10-06T20:48:46.608Z"
+      "value": 151.6,
+      "generatedAt": "2025-10-07T02:15:12.931Z"
     }
   ]
 }

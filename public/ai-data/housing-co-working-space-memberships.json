@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.deskmag.com/en/background/2021-state-of-coworking-spaces-2021",
     "citation": "Deskmag Global Coworking Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
+    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
     "filename": "housing-co-working-space-memberships"
   },
   "data": [
     {
       "year": 2014,
-      "value": 7.03,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 7.01,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2015,
-      "value": 11.17,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 11.16,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2016,
-      "value": 15.41,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 15.42,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2017,
-      "value": 19.64,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 19.73,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2018,
-      "value": 23.82,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 23.81,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2019,
-      "value": 27.87,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 27.89,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2020,
-      "value": 32.2,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 32.14,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2021,
-      "value": 36.14,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 36.36,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2022,
-      "value": 40.29,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 40.9,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2023,
-      "value": 44.92,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 44.6,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     },
     {
       "year": 2024,
-      "value": 49.21,
-      "generatedAt": "2025-10-06T20:48:46.615Z"
+      "value": 49.33,
+      "generatedAt": "2025-10-07T02:15:12.938Z"
     }
   ]
 }

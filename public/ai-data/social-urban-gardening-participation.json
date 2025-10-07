@@ -9,64 +9,64 @@
     "sourceUrl": "https://gardenresearch.org/home-garden-statistics/",
     "citation": "National Gardening Association Urban Gardening Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
+    "aiGeneratedAt": "2025-10-07T02:15:12.921Z",
     "filename": "social-urban-gardening-participation"
   },
   "data": [
     {
       "year": 2014,
-      "value": 32.3,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 32.07,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2015,
-      "value": 39.61,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 39.88,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2016,
-      "value": 40.22,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 40.17,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2017,
-      "value": 39.73,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 39.29,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2018,
-      "value": 47.85,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 47.76,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2019,
-      "value": 56,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 56.73,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2020,
-      "value": 55.4,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 55.64,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2021,
-      "value": 52.77,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 53.17,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2022,
-      "value": 62.56,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 62.34,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2023,
-      "value": 73.31,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 73.79,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     },
     {
       "year": 2024,
-      "value": 70.74,
-      "generatedAt": "2025-10-06T20:48:46.606Z"
+      "value": 70.15,
+      "generatedAt": "2025-10-07T02:15:12.929Z"
     }
   ]
 }

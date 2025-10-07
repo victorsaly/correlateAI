@@ -10,7 +10,7 @@
   "citation": "California DMV Autonomous Vehicle Testing Reports (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-10-06T20:48:46.603Z",
+  "aiGeneratedAt": "2025-10-07T02:15:12.925Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "Low",
   "seasonal": "No",
   "covidImpact": "None",
-  "lastUpdated": "2025-10-06T20:48:46.603Z",
+  "lastUpdated": "2025-10-07T02:15:12.925Z",
   "tags": [
     "technology",
     "ai-generated",
