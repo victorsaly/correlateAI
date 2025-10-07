@@ -10,7 +10,7 @@
   "citation": "Solar Energy Industries Association Installation Reports (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-10-06T19:10:48.709Z",
+  "aiGeneratedAt": "2025-10-06T20:48:46.604Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "High",
   "seasonal": "Yes",
   "covidImpact": "None",
-  "lastUpdated": "2025-10-06T19:10:48.709Z",
+  "lastUpdated": "2025-10-06T20:48:46.604Z",
   "tags": [
     "environment",
     "ai-generated",

@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.energy.gov/eere/vehicles/electric-vehicle-basics",
     "citation": "Electric Vehicle Association & DOT Statistics (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "technology-electric-vehicle-sales"
   },
   "data": [
     {
       "year": 2014,
-      "value": 73.45,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 69.28,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2015,
-      "value": 98.51,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 98.92,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2016,
-      "value": 115.06,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 119.08,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2017,
-      "value": 149.58,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 149.16,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2018,
-      "value": 184.55,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 163.99,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2019,
-      "value": 194.46,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 192.88,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2020,
-      "value": 223.35,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 215.06,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2021,
-      "value": 242.32,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 240.61,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2022,
-      "value": 273.16,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 260.5,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2023,
-      "value": 304.96,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 315.59,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     },
     {
       "year": 2024,
-      "value": 315.11,
-      "generatedAt": "2025-10-06T19:10:44.618Z"
+      "value": 334.51,
+      "generatedAt": "2025-10-06T20:48:46.601Z"
     }
   ]
 }

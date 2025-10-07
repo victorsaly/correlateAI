@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling",
     "citation": "Environmental Protection Agency Waste Management Data (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "environment-municipal-recycling-rate"
   },
   "data": [
     {
       "year": 2014,
-      "value": 34.43,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 34.21,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2015,
-      "value": 36.01,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 36.15,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2016,
-      "value": 38.04,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 37.71,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2017,
-      "value": 39.47,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 39.68,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2018,
-      "value": 41.44,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 41.59,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2019,
-      "value": 43.06,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 43.16,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2020,
-      "value": 45.01,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 44.94,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2021,
-      "value": 46.75,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 46.69,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2022,
-      "value": 48.49,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 48.89,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2023,
-      "value": 50.71,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 50.37,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     },
     {
       "year": 2024,
-      "value": 52.42,
-      "generatedAt": "2025-10-06T19:10:48.413Z"
+      "value": 52.58,
+      "generatedAt": "2025-10-06T20:48:46.604Z"
     }
   ]
 }

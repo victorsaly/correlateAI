@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.bls.gov/news.release/conemp.htm",
     "citation": "Bureau of Labor Statistics Alternative Work Arrangements (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "social-gig-economy-participation"
   },
   "data": [
     {
       "year": 2014,
-      "value": 9.99,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 10.02,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2015,
-      "value": 11.77,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 11.79,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2016,
       "value": 13.6,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2017,
-      "value": 15.43,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 15.42,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2018,
-      "value": 17.25,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 17.24,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2019,
-      "value": 18.94,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 19.03,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2020,
-      "value": 20.81,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 20.8,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2021,
-      "value": 22.6,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 22.63,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2022,
-      "value": 24.33,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 24.41,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2023,
-      "value": 26.18,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 26.17,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     },
     {
       "year": 2024,
-      "value": 28.05,
-      "generatedAt": "2025-10-06T19:10:50.814Z"
+      "value": 27.93,
+      "generatedAt": "2025-10-06T20:48:46.606Z"
     }
   ]
 }

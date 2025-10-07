@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.nielsen.com/insights/2021/streaming-stats-how-covid-19-changed-the-way-we-watch/",
     "citation": "Nielsen Streaming Platform Audience Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "entertainment-streaming-service-subscriptions"
   },
   "data": [
     {
       "year": 2014,
-      "value": 146.03,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 150.25,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2015,
-      "value": 190.58,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 172.43,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2016,
-      "value": 211.37,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 205.49,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2017,
-      "value": 247.64,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 242.24,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2018,
-      "value": 272.25,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 255.59,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2019,
-      "value": 302.34,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 300.61,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2020,
-      "value": 324.35,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 337.49,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2021,
-      "value": 337.66,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 355.15,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2022,
-      "value": 370.26,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 377.64,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2023,
-      "value": 410.15,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 393.96,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2024,
-      "value": 438.94,
-      "generatedAt": "2025-10-06T19:10:59.828Z"
+      "value": 435.7,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     }
   ]
 }

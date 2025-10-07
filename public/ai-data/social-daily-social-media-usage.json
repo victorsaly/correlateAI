@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/social-media/",
     "citation": "Pew Research Center Social Media & Technology Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "social-daily-social-media-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 124.54,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 128.91,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2015,
-      "value": 148.37,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 149.09,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2016,
-      "value": 143.54,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 141.55,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2017,
-      "value": 136.53,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 138.32,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2018,
-      "value": 158.32,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 163.83,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2019,
-      "value": 187.38,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 184.01,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2020,
-      "value": 178.31,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 178.4,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2021,
-      "value": 166.85,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 164.83,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2022,
-      "value": 194.01,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 197.98,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2023,
-      "value": 222.53,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 226.28,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2024,
-      "value": 210.36,
-      "generatedAt": "2025-10-06T19:10:50.689Z"
+      "value": 212.28,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     }
   ]
 }

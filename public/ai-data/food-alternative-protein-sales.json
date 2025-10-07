@@ -9,64 +9,64 @@
     "sourceUrl": "https://gfi.org/resource/alternative-protein-industry-annual-review/",
     "citation": "Good Food Institute Alternative Protein Industry Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "food-alternative-protein-sales"
   },
   "data": [
     {
       "year": 2014,
-      "value": 11.56,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 11.58,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2015,
-      "value": 20.62,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 20.35,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2016,
-      "value": 29.68,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 29.57,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2017,
-      "value": 38.09,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 38.39,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2018,
-      "value": 47.53,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 47.92,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2019,
-      "value": 56.6,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 55.83,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2020,
-      "value": 66,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 64.45,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2021,
-      "value": 74.08,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 73.87,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2022,
-      "value": 83.49,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 81.87,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2023,
-      "value": 91.51,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 92.49,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     },
     {
       "year": 2024,
-      "value": 100.94,
-      "generatedAt": "2025-10-06T19:11:02.411Z"
+      "value": 101.64,
+      "generatedAt": "2025-10-06T20:48:46.614Z"
     }
   ]
 }

@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.bls.gov/news.release/flex2.htm",
     "citation": "Bureau of Labor Statistics Work Arrangements Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "social-remote-work-adoption"
   },
   "data": [
     {
       "year": 2014,
-      "value": 12.86,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 12.37,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2015,
-      "value": 17.26,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 17.2,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2016,
-      "value": 20.81,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 20.59,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2017,
-      "value": 26.1,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 25.91,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2018,
-      "value": 29,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 29.33,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2019,
-      "value": 34.59,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 34.41,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2020,
-      "value": 156.21,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 163.33,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2021,
-      "value": 134.78,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 133.5,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2022,
-      "value": 90.17,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 90.26,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2023,
-      "value": 50.09,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 49.49,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     },
     {
       "year": 2024,
-      "value": 54.4,
-      "generatedAt": "2025-10-06T19:10:50.474Z"
+      "value": 53.32,
+      "generatedAt": "2025-10-06T20:48:46.605Z"
     }
   ]
 }

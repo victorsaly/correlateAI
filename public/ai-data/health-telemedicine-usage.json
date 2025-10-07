@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.ama-assn.org/practice-management/digital/ama-digital-health-study",
     "citation": "American Medical Association Digital Health Scorecard (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "health-telemedicine-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 33.26,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 33.66,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2015,
-      "value": 52.55,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 52.89,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2016,
-      "value": 71.28,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 73.48,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2017,
-      "value": 87.58,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 88.39,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2018,
-      "value": 112.65,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 111.88,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2019,
-      "value": 128.87,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 132.66,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2020,
-      "value": 1225.3,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 1297.35,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2021,
-      "value": 1037.73,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 1019.82,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2022,
-      "value": 621.23,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 607.19,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2023,
-      "value": 206.12,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 199.63,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2024,
-      "value": 217.09,
-      "generatedAt": "2025-10-06T19:10:53.606Z"
+      "value": 231.1,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     }
   ]
 }

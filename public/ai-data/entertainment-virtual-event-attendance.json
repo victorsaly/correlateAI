@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.eventscouncil.org/Research",
     "citation": "Event Industry Council Virtual Event Study (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "entertainment-virtual-event-attendance"
   },
   "data": [
     {
       "year": 2014,
-      "value": 70.73,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 76.45,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2015,
-      "value": 97.81,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 108.86,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2016,
-      "value": 130.21,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 125.45,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2017,
-      "value": 166.27,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 153.21,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2018,
-      "value": 189.63,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 185.48,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2019,
-      "value": 209.79,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 209.47,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2020,
-      "value": 1054.88,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 1094.06,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2021,
-      "value": 889.93,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 867.2,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2022,
-      "value": 565.02,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 618.56,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2023,
-      "value": 309.83,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 334.91,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     },
     {
       "year": 2024,
-      "value": 373.36,
-      "generatedAt": "2025-10-06T19:11:00.340Z"
+      "value": 337.34,
+      "generatedAt": "2025-10-06T20:48:46.611Z"
     }
   ]
 }

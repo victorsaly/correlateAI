@@ -9,64 +9,64 @@
     "sourceUrl": "https://plantbasedfoods.org/market-research/",
     "citation": "Plant Based Foods Association Consumer Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-06T19:10:44.504Z",
+    "aiGeneratedAt": "2025-10-06T20:48:46.599Z",
     "filename": "health-plant-based-diet-adoption"
   },
   "data": [
     {
       "year": 2014,
-      "value": 10.93,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 11.08,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2015,
-      "value": 13.84,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 13.77,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2016,
-      "value": 16.63,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 16.7,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2017,
-      "value": 19.48,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 19.4,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2018,
-      "value": 22.14,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 22.27,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2019,
-      "value": 25.14,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 25.1,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2020,
-      "value": 27.92,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 27.9,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2021,
-      "value": 30.68,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 30.66,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2022,
-      "value": 33.44,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 33.4,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2023,
-      "value": 36.34,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 36.08,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     },
     {
       "year": 2024,
-      "value": 39.22,
-      "generatedAt": "2025-10-06T19:10:53.331Z"
+      "value": 39.15,
+      "generatedAt": "2025-10-06T20:48:46.607Z"
     }
   ]
 }
