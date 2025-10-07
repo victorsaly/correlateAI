@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.walkscore.com/methodology.shtml",
     "citation": "Walk Score Urban Walkability Research (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T11:46:38.297Z",
+    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
     "filename": "housing-urban-walkability-index"
   },
   "data": [
     {
       "year": 2014,
-      "value": 60.93,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 59.91,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2015,
-      "value": 62.69,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 62.03,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2016,
-      "value": 63.58,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 63.52,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2017,
-      "value": 66.01,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 65.27,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2018,
-      "value": 67.67,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 67.24,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2019,
-      "value": 69.55,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 68.67,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2020,
-      "value": 71.04,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 71.65,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2021,
-      "value": 73.06,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 72.26,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2022,
-      "value": 75.46,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 75.28,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2023,
-      "value": 76.02,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 75.77,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     },
     {
       "year": 2024,
-      "value": 79.07,
-      "generatedAt": "2025-10-07T11:46:38.313Z"
+      "value": 77.63,
+      "generatedAt": "2025-10-07T12:15:44.648Z"
     }
   ]
 }

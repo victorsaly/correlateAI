@@ -14,7 +14,7 @@ import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
-import { DynamicDataSourceService, type DataSourceInfo } from '@/services/dynamicDataSourceService'
+import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/centralizedDataSourceService'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -1294,7 +1294,7 @@ function App() {
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
   const [dynamicDataSources, setDynamicDataSources] = useState<Map<string, DataSourceInfo>>(new Map())
-  const [dynamicDataSourceService] = useState(() => new DynamicDataSourceService())
+  const [dynamicDataSourceService] = useState(() => new CentralizedDataSourceService())
   const isMobile = useIsMobile()
   
   // Favorites using localStorage only
@@ -2041,10 +2041,10 @@ function App() {
               {datasetStats ? (
                 <div className="flex items-center gap-2 text-xs sm:text-sm">
                   <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets from ${dynamicDataSources.size} sources`}>
-                    {datasetStats.total} Sources
+                    {dynamicDataSources.size} Sources
                   </span>
                   <span className="text-gray-500">•</span>
-                  <span className="text-blue-400 font-medium" title="Real data from FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, and EIA">
+                  <span className="text-blue-400 font-medium" title="Real data from FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA, BLS, CDC, and Nasdaq">
                     {datasetStats.real} Real
                   </span>
                   <span className="text-gray-500">•</span>
@@ -3039,7 +3039,7 @@ function App() {
             <div className={`${isMobile ? 'w-full' : ''}`}>
               <div className={`grid ${isMobile ? 'grid-cols-2 gap-4' : 'grid-cols-3 gap-6'} text-center`}>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">9</div>
+                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">{dynamicDataSources.size}</div>
                   <div className="text-xs sm:text-sm text-gray-300">API Sources</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
@@ -3059,7 +3059,7 @@ function App() {
           {/* Copyright */}
           <div className="mt-8 pt-6 border-t border-gray-700/30 text-center">
             <p className="text-xs sm:text-sm text-gray-400">
-              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic multi-domain data from 9 API sources.
+              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic multi-domain data from {dynamicDataSources.size} API sources.
             </p>
           </div>
         </div>

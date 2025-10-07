@@ -1,0 +1,10 @@
+{
+  "name": "Commodity Price Index",
+  "description": "Global commodity price index tracking",
+  "source": "Nasdaq Data Link",
+  "sourceUrl": "https://data.nasdaq.com/",
+  "filename": "nasdaq_commodities.json",
+  "dataPoints": 30,
+  "lastUpdated": "2025-10-07T11:50:23.875Z",
+  "generatedAt": "2025-10-07T11:50:23.875Z"
+}

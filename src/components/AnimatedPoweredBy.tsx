@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import { Database } from '@phosphor-icons/react'
 import { type DataSourceInfo } from '@/services/dynamicDataSourceService'
+import { getSourceConfig } from '@/config/dataSources'
 
 interface AnimatedPoweredByProps {
   sources: Map<string, DataSourceInfo>
@@ -46,18 +47,8 @@ export function AnimatedPoweredBy({ sources, isMobile = false }: AnimatedPowered
   const [currentKey, currentSource] = sourceEntries[currentSourceIndex]
   
   const getSourceColor = (key: string) => {
-    switch (key) {
-      case 'FRED': return 'text-blue-400'
-      case 'WorldBank': return 'text-green-400'
-      case 'AlphaVantage': return 'text-orange-400'
-      case 'OpenWeather': return 'text-cyan-400'
-      case 'NASA': return 'text-indigo-400'
-      case 'USGS': return 'text-amber-400'
-      case 'EIA': return 'text-yellow-400'
-      case 'BLS': return 'text-emerald-400'
-      case 'CDC': return 'text-red-400'
-      default: return 'text-purple-400'
-    }
+    const config = getSourceConfig(key)
+    return config ? config.color : 'text-purple-400'
   }
 
   return (

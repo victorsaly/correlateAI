@@ -1,9 +1,10 @@
+import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart } from '@phosphor-icons/react'
+import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart, ChartLine } from '@phosphor-icons/react'
 import { dataService } from '@/services/staticDataService'
 import { dynamicDataSourceService, DataSourceInfo as DynamicDataSourceInfo } from '@/services/dynamicDataSourceService'
-import { useState, useEffect } from 'react'
+import { getSourceConfig } from '@/config/dataSources'
 
 interface DataSourceInfo {
   name: string
@@ -98,7 +99,7 @@ export function DataSourcesCard() {
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
             <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, and health data from 
             authoritative sources including Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, 
-            USGS earthquakes and geological data, EIA energy statistics, Bureau of Labor Statistics (BLS), and Centers for Disease Control (CDC).
+            USGS earthquakes and geological data, EIA energy statistics, Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), and Nasdaq Data Link.
           </p>
           
           {/* Quick Access Links */}
@@ -193,6 +194,16 @@ export function DataSourcesCard() {
               Explore CDC Data
               <ArrowSquareOut className="w-3 h-3" />
             </a>
+            <a
+              href="https://data.nasdaq.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-blue-50 text-blue-700 border border-blue-200 rounded-md hover:bg-blue-100 transition-colors"
+            >
+              <ChartLine className="w-3 h-3" />
+              Explore Nasdaq Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </CardContent>
@@ -201,58 +212,43 @@ export function DataSourcesCard() {
 }
 
 function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: DynamicDataSourceInfo }) {
-  const getSourceIcon = (key: string) => {
-    switch (key) {
-      case 'FRED':
-        return <Database className="w-4 h-4" />
-      case 'WorldBank':
-        return <Database className="w-4 h-4" />
-      case 'AI':
-        return <Brain className="w-4 h-4" />
-      case 'AlphaVantage':
-        return <TrendUp className="w-4 h-4" />
-      case 'OpenWeather':
-        return <CloudSun className="w-4 h-4" />
-      case 'NASA':
-        return <Rocket className="w-4 h-4" />
-      case 'USGS':
-        return <Mountains className="w-4 h-4" />
-      case 'EIA':
-        return <Lightning className="w-4 h-4" />
-      case 'BLS':
-        return <Briefcase className="w-4 h-4" />
-      case 'CDC':
-        return <Heart className="w-4 h-4" />
-      default:
-        return <Database className="w-4 h-4" />
+  const getSourceIcon = (key: string): React.ReactElement => {
+    const iconMap: Record<string, React.ReactElement> = {
+      'FRED': <Database className="w-4 h-4" />,
+      'WorldBank': <Database className="w-4 h-4" />,
+      'AI': <Brain className="w-4 h-4" />,
+      'AlphaVantage': <TrendUp className="w-4 h-4" />,
+      'OpenWeather': <CloudSun className="w-4 h-4" />,
+      'NASA': <Rocket className="w-4 h-4" />,
+      'USGS': <Mountains className="w-4 h-4" />,
+      'EIA': <Lightning className="w-4 h-4" />,
+      'BLS': <Briefcase className="w-4 h-4" />,
+      'CDC': <Heart className="w-4 h-4" />,
+      'Nasdaq': <ChartLine className="w-4 h-4" />
     }
+    
+    return iconMap[key] || <Database className="w-4 h-4" />
   }
 
-  const getSourceBadge = (key: string) => {
-    switch (key) {
-      case 'FRED':
-        return <Badge variant="outline" className="bg-blue-50 text-blue-700 border-blue-200">Federal Reserve</Badge>
-      case 'WorldBank':
-        return <Badge variant="outline" className="bg-green-50 text-green-700 border-green-200">World Bank</Badge>
-      case 'AlphaVantage':
-        return <Badge variant="outline" className="bg-orange-50 text-orange-700 border-orange-200">Financial Markets</Badge>
-      case 'OpenWeather':
-        return <Badge variant="outline" className="bg-cyan-50 text-cyan-700 border-cyan-200">Weather Data</Badge>
-      case 'NASA':
-        return <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">Space Weather</Badge>
-      case 'USGS':
-        return <Badge variant="outline" className="bg-amber-50 text-amber-700 border-amber-200">Geological Data</Badge>
-      case 'EIA':
-        return <Badge variant="outline" className="bg-yellow-50 text-yellow-700 border-yellow-200">Energy Sector</Badge>
-      case 'BLS':
-        return <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">Labor Statistics</Badge>
-      case 'CDC':
-        return <Badge variant="outline" className="bg-red-50 text-red-700 border-red-200">Health Statistics</Badge>
-      case 'AI':
-        return <Badge variant="outline" className="bg-purple-50 text-purple-700 border-purple-200">AI-Generated</Badge>
-      default:
-        return <Badge variant="outline">Official Data</Badge>
+  const getSourceBadge = (key: string): React.ReactElement => {
+    const config = getSourceConfig(key)
+    
+    const badgeMap: Record<string, { label: string; className: string }> = {
+      'FRED': { label: 'Federal Reserve', className: 'bg-blue-50 text-blue-700 border-blue-200' },
+      'WorldBank': { label: 'World Bank', className: 'bg-green-50 text-green-700 border-green-200' },
+      'AlphaVantage': { label: 'Financial Markets', className: 'bg-orange-50 text-orange-700 border-orange-200' },
+      'OpenWeather': { label: 'Weather Data', className: 'bg-cyan-50 text-cyan-700 border-cyan-200' },
+      'NASA': { label: 'Space Weather', className: 'bg-purple-50 text-purple-700 border-purple-200' },
+      'USGS': { label: 'Geological Data', className: 'bg-amber-50 text-amber-700 border-amber-200' },
+      'EIA': { label: 'Energy Sector', className: 'bg-yellow-50 text-yellow-700 border-yellow-200' },
+      'BLS': { label: 'Labor Statistics', className: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
+      'CDC': { label: 'Health Statistics', className: 'bg-red-50 text-red-700 border-red-200' },
+      'Nasdaq': { label: 'Financial Markets', className: 'bg-blue-50 text-blue-700 border-blue-200' },
+      'AI': { label: 'AI-Generated', className: 'bg-purple-50 text-purple-700 border-purple-200' }
     }
+    
+    const badge = badgeMap[key] || { label: 'Official Data', className: '' }
+    return <Badge variant="outline" className={badge.className}>{badge.label}</Badge>
   }
 
   return (

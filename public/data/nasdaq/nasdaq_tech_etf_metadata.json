@@ -1,0 +1,10 @@
+{
+  "name": "US Tech Sector ETF",
+  "description": "Technology sector exchange-traded fund performance",
+  "source": "Nasdaq Data Link",
+  "sourceUrl": "https://data.nasdaq.com/",
+  "filename": "nasdaq_tech_etf.json",
+  "dataPoints": 30,
+  "lastUpdated": "2025-10-07T11:50:23.874Z",
+  "generatedAt": "2025-10-07T11:50:23.874Z"
+}

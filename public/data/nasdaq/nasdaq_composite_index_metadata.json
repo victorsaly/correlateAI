@@ -1,0 +1,10 @@
+{
+  "name": "Nasdaq Composite Index",
+  "description": "Technology-heavy stock market index performance",
+  "source": "Nasdaq Data Link",
+  "sourceUrl": "https://data.nasdaq.com/",
+  "filename": "nasdaq_composite_index.json",
+  "dataPoints": 30,
+  "lastUpdated": "2025-10-07T11:50:23.873Z",
+  "generatedAt": "2025-10-07T11:50:23.874Z"
+}

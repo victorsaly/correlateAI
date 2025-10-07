@@ -114,6 +114,15 @@ export class DynamicDataSourceService {
       dataPath: '/data/cdc/'
     })
 
+    await this.checkDynamicSource(sources, 'Nasdaq', {
+      name: 'Nasdaq Data Link',
+      description: 'Financial markets and economic data platform',
+      url: 'https://data.nasdaq.com/',
+      category: 'financial',
+      icon: 'chart',
+      dataPath: '/data/nasdaq/'
+    })
+
     // AI-generated datasets (check for AI data)
     const aiCount = await this.countAIDatasets()
     if (aiCount > 0) {
@@ -320,6 +329,24 @@ export class DynamicDataSourceService {
         // Known CDC files
         const knownFiles = [
           'cdc_covid_deaths.json'
+        ]
+        
+        for (const file of knownFiles) {
+          try {
+            const response = await fetch(`${dataPath}${file}`)
+            if (response.ok) count++
+          } catch (e) {
+            // Ignore fetch errors
+          }
+        }
+      } else if (sourceKey === 'nasdaq') {
+        // Known Nasdaq files
+        const knownFiles = [
+          'nasdaq_composite_index.json',
+          'nasdaq_tech_etf.json',
+          'nasdaq_bond_index.json',
+          'nasdaq_emerging_markets.json',
+          'nasdaq_commodities.json'
         ]
         
         for (const file of knownFiles) {

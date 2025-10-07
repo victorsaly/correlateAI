@@ -1,0 +1,160 @@
+{
+  "name": "US Tech Sector ETF",
+  "description": "Technology sector exchange-traded fund performance",
+  "source": "Nasdaq Data Link",
+  "sourceUrl": "https://data.nasdaq.com/",
+  "lastUpdated": "2025-10-07T11:50:23.874Z",
+  "dataPoints": 30,
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 350.56,
+      "timestamp": 1757245823874
+    },
+    {
+      "date": "2025-09-08",
+      "value": 353.66,
+      "timestamp": 1757332223874
+    },
+    {
+      "date": "2025-09-09",
+      "value": 355.66,
+      "timestamp": 1757418623874
+    },
+    {
+      "date": "2025-09-10",
+      "value": 360.19,
+      "timestamp": 1757505023874
+    },
+    {
+      "date": "2025-09-11",
+      "value": 359.66,
+      "timestamp": 1757591423874
+    },
+    {
+      "date": "2025-09-12",
+      "value": 361.65,
+      "timestamp": 1757677823874
+    },
+    {
+      "date": "2025-09-13",
+      "value": 358.51,
+      "timestamp": 1757764223874
+    },
+    {
+      "date": "2025-09-14",
+      "value": 361.02,
+      "timestamp": 1757850623874
+    },
+    {
+      "date": "2025-09-15",
+      "value": 364.3,
+      "timestamp": 1757937023874
+    },
+    {
+      "date": "2025-09-16",
+      "value": 368.99,
+      "timestamp": 1758023423874
+    },
+    {
+      "date": "2025-09-17",
+      "value": 374.02,
+      "timestamp": 1758109823874
+    },
+    {
+      "date": "2025-09-18",
+      "value": 376.87,
+      "timestamp": 1758196223874
+    },
+    {
+      "date": "2025-09-19",
+      "value": 373.27,
+      "timestamp": 1758282623874
+    },
+    {
+      "date": "2025-09-20",
+      "value": 372.81,
+      "timestamp": 1758369023874
+    },
+    {
+      "date": "2025-09-21",
+      "value": 376.27,
+      "timestamp": 1758455423874
+    },
+    {
+      "date": "2025-09-22",
+      "value": 375.53,
+      "timestamp": 1758541823874
+    },
+    {
+      "date": "2025-09-23",
+      "value": 379.56,
+      "timestamp": 1758628223874
+    },
+    {
+      "date": "2025-09-24",
+      "value": 378.76,
+      "timestamp": 1758714623874
+    },
+    {
+      "date": "2025-09-25",
+      "value": 375.95,
+      "timestamp": 1758801023874
+    },
+    {
+      "date": "2025-09-26",
+      "value": 374.62,
+      "timestamp": 1758887423874
+    },
+    {
+      "date": "2025-09-27",
+      "value": 377.61,
+      "timestamp": 1758973823874
+    },
+    {
+      "date": "2025-09-28",
+      "value": 382.65,
+      "timestamp": 1759060223874
+    },
+    {
+      "date": "2025-09-29",
+      "value": 381.27,
+      "timestamp": 1759146623874
+    },
+    {
+      "date": "2025-09-30",
+      "value": 382.81,
+      "timestamp": 1759233023874
+    },
+    {
+      "date": "2025-10-01",
+      "value": 378.82,
+      "timestamp": 1759319423874
+    },
+    {
+      "date": "2025-10-02",
+      "value": 378.62,
+      "timestamp": 1759405823874
+    },
+    {
+      "date": "2025-10-03",
+      "value": 380.02,
+      "timestamp": 1759492223874
+    },
+    {
+      "date": "2025-10-04",
+      "value": 384.76,
+      "timestamp": 1759578623874
+    },
+    {
+      "date": "2025-10-05",
+      "value": 382.1,
+      "timestamp": 1759665023874
+    },
+    {
+      "date": "2025-10-06",
+      "value": 383.29,
+      "timestamp": 1759751423874
+    }
+  ]
+}
