@@ -1,0 +1,15 @@
+{
+  "id": "fp-cpi-totl-zg",
+  "name": "Inflation, consumer prices",
+  "unit": "Annual %",
+  "category": "economics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+  "lastUpdated": "2025-10-07T01:31:09.439Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Inflation, consumer prices data from the World Bank Open Data"
+}

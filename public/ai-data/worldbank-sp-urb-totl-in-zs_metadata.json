@@ -1,0 +1,15 @@
+{
+  "id": "sp-urb-totl-in-zs",
+  "name": "Urban population",
+  "unit": "% of total",
+  "category": "demographics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
+  "lastUpdated": "2025-10-07T01:31:08.793Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Urban population data from the World Bank Open Data"
+}

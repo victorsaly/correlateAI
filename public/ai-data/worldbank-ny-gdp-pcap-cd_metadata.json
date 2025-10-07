@@ -1,0 +1,15 @@
+{
+  "id": "ny-gdp-pcap-cd",
+  "name": "GDP per capita",
+  "unit": "Current US$",
+  "category": "economics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+  "lastUpdated": "2025-10-07T01:31:08.195Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "GDP per capita data from the World Bank Open Data"
+}

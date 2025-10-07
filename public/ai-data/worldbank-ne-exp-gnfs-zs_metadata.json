@@ -1,0 +1,15 @@
+{
+  "id": "ne-exp-gnfs-zs",
+  "name": "Exports of goods and services",
+  "unit": "% of GDP",
+  "category": "trade",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+  "lastUpdated": "2025-10-07T01:31:09.708Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Exports of goods and services data from the World Bank Open Data"
+}

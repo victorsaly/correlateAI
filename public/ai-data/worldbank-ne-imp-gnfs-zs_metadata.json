@@ -1,0 +1,15 @@
+{
+  "id": "ne-imp-gnfs-zs",
+  "name": "Imports of goods and services",
+  "unit": "% of GDP",
+  "category": "trade",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
+  "lastUpdated": "2025-10-07T01:31:10.048Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Imports of goods and services data from the World Bank Open Data"
+}

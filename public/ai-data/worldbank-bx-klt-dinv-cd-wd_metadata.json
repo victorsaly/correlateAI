@@ -1,0 +1,15 @@
+{
+  "id": "bx-klt-dinv-cd-wd",
+  "name": "Foreign direct investment",
+  "unit": "Current US$",
+  "category": "finance",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
+  "lastUpdated": "2025-10-07T01:31:10.325Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Foreign direct investment data from the World Bank Open Data"
+}

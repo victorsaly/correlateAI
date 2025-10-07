@@ -1,0 +1,15 @@
+{
+  "id": "sl-uem-totl-zs",
+  "name": "Unemployment, total",
+  "unit": "% of labor force",
+  "category": "economics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+  "lastUpdated": "2025-10-07T01:31:09.096Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Unemployment, total data from the World Bank Open Data"
+}

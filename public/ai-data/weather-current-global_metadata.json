@@ -1,0 +1,31 @@
+{
+  "id": "weather-current-global",
+  "name": "Global Current Weather Data",
+  "unit": "Various (°C, %, hPa, m/s)",
+  "category": "climate",
+  "source": "OpenWeather API",
+  "sourceUrl": "https://openweathermap.org/",
+  "lastUpdated": "2025-10-07T01:31:22.937Z",
+  "dataPoints": 10,
+  "cities": [
+    "New York, US",
+    "London, GB",
+    "Tokyo, JP",
+    "Sydney, AU",
+    "Mumbai, IN",
+    "São Paulo, BR",
+    "Cairo, EG",
+    "Moscow, RU",
+    "Dubai, AE",
+    "Toronto, CA"
+  ],
+  "description": "Current weather conditions for major global cities including temperature, humidity, pressure, and wind data for climate correlation analysis",
+  "dataTypes": [
+    "temperature",
+    "humidity",
+    "pressure",
+    "windSpeed",
+    "cloudiness",
+    "visibility"
+  ]
+}

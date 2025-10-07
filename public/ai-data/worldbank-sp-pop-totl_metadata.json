@@ -1,0 +1,15 @@
+{
+  "id": "sp-pop-totl",
+  "name": "Population, total",
+  "unit": "People",
+  "category": "demographics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+  "lastUpdated": "2025-10-07T01:31:08.483Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "Population, total data from the World Bank Open Data"
+}

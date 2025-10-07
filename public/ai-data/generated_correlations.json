@@ -1,0 +1,1388 @@
+[
+  {
+    "id": "ny-gdp-mktp-cd_vs_sp-urb-totl-in-zs",
+    "title": "GDP (current US$) vs Urban population",
+    "description": "very strong positive correlation between GDP (current US$) and Urban population",
+    "correlation": 0.9754849652628431,
+    "rSquared": 0.9515709174538503,
+    "variable1": {
+      "name": "GDP (current US$)",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Urban population",
+      "unit": "% of total",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15048971000000,
+        "value2": 80.772
+      },
+      {
+        "year": "2011",
+        "value1": 15599732000000,
+        "value2": 80.944
+      },
+      {
+        "year": "2012",
+        "value1": 16253970000000,
+        "value2": 81.119
+      },
+      {
+        "year": "2013",
+        "value1": 16880683000000,
+        "value2": 81.299
+      },
+      {
+        "year": "2014",
+        "value1": 17608138000000,
+        "value2": 81.483
+      },
+      {
+        "year": "2015",
+        "value1": 18295019000000,
+        "value2": 81.671
+      },
+      {
+        "year": "2016",
+        "value1": 18804913000000,
+        "value2": 81.862
+      },
+      {
+        "year": "2017",
+        "value1": 19612102000000,
+        "value2": 82.058
+      },
+      {
+        "year": "2018",
+        "value1": 20656516000000,
+        "value2": 82.256
+      },
+      {
+        "year": "2019",
+        "value1": 21539982000000,
+        "value2": 82.459
+      },
+      {
+        "year": "2020",
+        "value1": 21354105000000,
+        "value2": 82.664
+      },
+      {
+        "year": "2021",
+        "value1": 23681171000000,
+        "value2": 82.873
+      },
+      {
+        "year": "2022",
+        "value1": 26006893000000,
+        "value2": 83.084
+      },
+      {
+        "year": "2023",
+        "value1": 27720709000000,
+        "value2": 83.298
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.407Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ny-gdp-pcap-cd_vs_sp-urb-totl-in-zs",
+    "title": "GDP per capita vs Urban population",
+    "description": "very strong positive correlation between GDP per capita and Urban population",
+    "correlation": 0.9683002334927321,
+    "rSquared": 0.9376053421820795,
+    "variable1": {
+      "name": "GDP per capita",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Urban population",
+      "unit": "% of total",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 48642.6312088213,
+        "value2": 80.772
+      },
+      {
+        "year": "2011",
+        "value1": 50024.8812320773,
+        "value2": 80.944
+      },
+      {
+        "year": "2012",
+        "value1": 51708.3940614082,
+        "value2": 81.119
+      },
+      {
+        "year": "2013",
+        "value1": 53297.3862901595,
+        "value2": 81.299
+      },
+      {
+        "year": "2014",
+        "value1": 55153.3940182967,
+        "value2": 81.483
+      },
+      {
+        "year": "2015",
+        "value1": 56849.4697923159,
+        "value2": 81.671
+      },
+      {
+        "year": "2016",
+        "value1": 57976.628204291,
+        "value2": 81.862
+      },
+      {
+        "year": "2017",
+        "value1": 60047.7190728307,
+        "value2": 82.058
+      },
+      {
+        "year": "2018",
+        "value1": 62875.6661382728,
+        "value2": 82.256
+      },
+      {
+        "year": "2019",
+        "value1": 65227.9565911038,
+        "value2": 82.459
+      },
+      {
+        "year": "2020",
+        "value1": 64401.5074354212,
+        "value2": 82.664
+      },
+      {
+        "year": "2021",
+        "value1": 71307.4017277218,
+        "value2": 82.873
+      },
+      {
+        "year": "2022",
+        "value1": 77860.9112908848,
+        "value2": 83.084
+      },
+      {
+        "year": "2023",
+        "value1": 82304.6204272866,
+        "value2": 83.298
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.408Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ny-gdp-mktp-cd_vs_sp-pop-totl",
+    "title": "GDP (current US$) vs Population, total",
+    "description": "very strong positive correlation between GDP (current US$) and Population, total",
+    "correlation": 0.9423844174977324,
+    "rSquared": 0.8880883903425404,
+    "variable1": {
+      "name": "GDP (current US$)",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15048971000000,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 15599732000000,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 16253970000000,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 16880683000000,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 17608138000000,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 18295019000000,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 18804913000000,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 19612102000000,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 20656516000000,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 21539982000000,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 21354105000000,
+        "value2": 331577720
+      },
+      {
+        "year": "2021",
+        "value1": 23681171000000,
+        "value2": 332099760
+      },
+      {
+        "year": "2022",
+        "value1": 26006893000000,
+        "value2": 334017321
+      },
+      {
+        "year": "2023",
+        "value1": 27720709000000,
+        "value2": 336806231
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.407Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ny-gdp-pcap-cd_vs_sp-pop-totl",
+    "title": "GDP per capita vs Population, total",
+    "description": "very strong positive correlation between GDP per capita and Population, total",
+    "correlation": 0.93133564740043,
+    "rSquared": 0.867386088118778,
+    "variable1": {
+      "name": "GDP per capita",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 48642.6312088213,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 50024.8812320773,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 51708.3940614082,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 53297.3862901595,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 55153.3940182967,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 56849.4697923159,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 57976.628204291,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 60047.7190728307,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 62875.6661382728,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 65227.9565911038,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 64401.5074354212,
+        "value2": 331577720
+      },
+      {
+        "year": "2021",
+        "value1": 71307.4017277218,
+        "value2": 332099760
+      },
+      {
+        "year": "2022",
+        "value1": 77860.9112908848,
+        "value2": 334017321
+      },
+      {
+        "year": "2023",
+        "value1": 82304.6204272866,
+        "value2": 336806231
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.408Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-imp-gnfs-zs_vs_sp-pop-totl",
+    "title": "Imports of goods and services vs Population, total",
+    "description": "very strong negative correlation between Imports of goods and services and Population, total",
+    "correlation": -0.8161757569574937,
+    "rSquared": 0.6661428662451377,
+    "variable1": {
+      "name": "Imports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15.878527508625,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 17.2790147933311,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 17.0377883064876,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 16.3878144030073,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 16.3983551242045,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 15.2770653039497,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 14.5644385592212,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 14.9478571955214,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 15.1582483706352,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 14.4692832148142,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 13.0061222420701,
+        "value2": 331577720
+      },
+      {
+        "year": "2021",
+        "value1": 14.422677831261,
+        "value2": 332099760
+      },
+      {
+        "year": "2022",
+        "value1": 15.2894619130397,
+        "value2": 334017321
+      },
+      {
+        "year": "2023",
+        "value1": 13.8878518583345,
+        "value2": 336806231
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.406Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-exp-gnfs-zs_vs_sp-urb-totl-in-zs",
+    "title": "Exports of goods and services vs Urban population",
+    "description": "very strong negative correlation between Exports of goods and services and Urban population",
+    "correlation": -0.8094292036879003,
+    "rSquared": 0.6551756357828283,
+    "variable1": {
+      "name": "Exports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Urban population",
+      "unit": "% of total",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 12.3413554322086,
+        "value2": 80.772
+      },
+      {
+        "year": "2011",
+        "value1": 13.5634637825829,
+        "value2": 80.944
+      },
+      {
+        "year": "2012",
+        "value1": 13.6440512687054,
+        "value2": 81.119
+      },
+      {
+        "year": "2013",
+        "value1": 13.5534918818154,
+        "value2": 81.299
+      },
+      {
+        "year": "2014",
+        "value1": 13.5082142132235,
+        "value2": 81.483
+      },
+      {
+        "year": "2015",
+        "value1": 12.4111486301271,
+        "value2": 81.671
+      },
+      {
+        "year": "2016",
+        "value1": 11.8881592273253,
+        "value2": 81.862
+      },
+      {
+        "year": "2017",
+        "value1": 12.177481026766,
+        "value2": 82.058
+      },
+      {
+        "year": "2018",
+        "value1": 12.2871107596266,
+        "value2": 82.256
+      },
+      {
+        "year": "2019",
+        "value1": 11.7891974097286,
+        "value2": 82.459
+      },
+      {
+        "year": "2020",
+        "value1": 10.0736556273372,
+        "value2": 82.664
+      },
+      {
+        "year": "2021",
+        "value1": 10.7909781995156,
+        "value2": 82.873
+      },
+      {
+        "year": "2022",
+        "value1": 11.6022279170372,
+        "value2": 83.084
+      },
+      {
+        "year": "2023",
+        "value1": 11.0115112856601,
+        "value2": 83.298
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.404Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-exp-gnfs-zs_vs_sp-pop-totl",
+    "title": "Exports of goods and services vs Population, total",
+    "description": "strong negative correlation between Exports of goods and services and Population, total",
+    "correlation": -0.7938602705308953,
+    "rSquared": 0.6302141291273862,
+    "variable1": {
+      "name": "Exports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 12.3413554322086,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 13.5634637825829,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 13.6440512687054,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 13.5534918818154,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 13.5082142132235,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 12.4111486301271,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 11.8881592273253,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 12.177481026766,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 12.2871107596266,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 11.7891974097286,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 10.0736556273372,
+        "value2": 331577720
+      },
+      {
+        "year": "2021",
+        "value1": 10.7909781995156,
+        "value2": 332099760
+      },
+      {
+        "year": "2022",
+        "value1": 11.6022279170372,
+        "value2": 334017321
+      },
+      {
+        "year": "2023",
+        "value1": 11.0115112856601,
+        "value2": 336806231
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.404Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "sl-uem-totl-zs_vs_sp-pop-totl",
+    "title": "Unemployment, total vs Population, total",
+    "description": "strong negative correlation between Unemployment, total and Population, total",
+    "correlation": -0.7938506503536665,
+    "rSquared": 0.6301988550669393,
+    "variable1": {
+      "name": "Unemployment, total",
+      "unit": "% of labor force",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 9.633,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 8.949,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 8.069,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 7.375,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 6.168,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 5.28,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 4.869,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 4.355,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 3.896,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 3.669,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 8.055,
+        "value2": 331577720
+      },
+      {
+        "year": "2021",
+        "value1": 5.349,
+        "value2": 332099760
+      },
+      {
+        "year": "2022",
+        "value1": 3.65,
+        "value2": 334017321
+      },
+      {
+        "year": "2023",
+        "value1": 3.638,
+        "value2": 336806231
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.409Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-imp-gnfs-zs_vs_sp-urb-totl-in-zs",
+    "title": "Imports of goods and services vs Urban population",
+    "description": "strong negative correlation between Imports of goods and services and Urban population",
+    "correlation": -0.7897469982032956,
+    "rSquared": 0.6237003211711163,
+    "variable1": {
+      "name": "Imports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Urban population",
+      "unit": "% of total",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15.878527508625,
+        "value2": 80.772
+      },
+      {
+        "year": "2011",
+        "value1": 17.2790147933311,
+        "value2": 80.944
+      },
+      {
+        "year": "2012",
+        "value1": 17.0377883064876,
+        "value2": 81.119
+      },
+      {
+        "year": "2013",
+        "value1": 16.3878144030073,
+        "value2": 81.299
+      },
+      {
+        "year": "2014",
+        "value1": 16.3983551242045,
+        "value2": 81.483
+      },
+      {
+        "year": "2015",
+        "value1": 15.2770653039497,
+        "value2": 81.671
+      },
+      {
+        "year": "2016",
+        "value1": 14.5644385592212,
+        "value2": 81.862
+      },
+      {
+        "year": "2017",
+        "value1": 14.9478571955214,
+        "value2": 82.058
+      },
+      {
+        "year": "2018",
+        "value1": 15.1582483706352,
+        "value2": 82.256
+      },
+      {
+        "year": "2019",
+        "value1": 14.4692832148142,
+        "value2": 82.459
+      },
+      {
+        "year": "2020",
+        "value1": 13.0061222420701,
+        "value2": 82.664
+      },
+      {
+        "year": "2021",
+        "value1": 14.422677831261,
+        "value2": 82.873
+      },
+      {
+        "year": "2022",
+        "value1": 15.2894619130397,
+        "value2": 83.084
+      },
+      {
+        "year": "2023",
+        "value1": 13.8878518583345,
+        "value2": 83.298
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.407Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "sl-uem-totl-zs_vs_sp-urb-totl-in-zs",
+    "title": "Unemployment, total vs Urban population",
+    "description": "strong negative correlation between Unemployment, total and Urban population",
+    "correlation": -0.7408259907441551,
+    "rSquared": 0.548823148562059,
+    "variable1": {
+      "name": "Unemployment, total",
+      "unit": "% of labor force",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Urban population",
+      "unit": "% of total",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 9.633,
+        "value2": 80.772
+      },
+      {
+        "year": "2011",
+        "value1": 8.949,
+        "value2": 80.944
+      },
+      {
+        "year": "2012",
+        "value1": 8.069,
+        "value2": 81.119
+      },
+      {
+        "year": "2013",
+        "value1": 7.375,
+        "value2": 81.299
+      },
+      {
+        "year": "2014",
+        "value1": 6.168,
+        "value2": 81.483
+      },
+      {
+        "year": "2015",
+        "value1": 5.28,
+        "value2": 81.671
+      },
+      {
+        "year": "2016",
+        "value1": 4.869,
+        "value2": 81.862
+      },
+      {
+        "year": "2017",
+        "value1": 4.355,
+        "value2": 82.058
+      },
+      {
+        "year": "2018",
+        "value1": 3.896,
+        "value2": 82.256
+      },
+      {
+        "year": "2019",
+        "value1": 3.669,
+        "value2": 82.459
+      },
+      {
+        "year": "2020",
+        "value1": 8.055,
+        "value2": 82.664
+      },
+      {
+        "year": "2021",
+        "value1": 5.349,
+        "value2": 82.873
+      },
+      {
+        "year": "2022",
+        "value1": 3.65,
+        "value2": 83.084
+      },
+      {
+        "year": "2023",
+        "value1": 3.638,
+        "value2": 83.298
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.409Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-exp-gnfs-zs_vs_ny-gdp-mktp-cd",
+    "title": "Exports of goods and services vs GDP (current US$)",
+    "description": "strong negative correlation between Exports of goods and services and GDP (current US$)",
+    "correlation": -0.7354895272273895,
+    "rSquared": 0.5409448446611689,
+    "variable1": {
+      "name": "Exports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "GDP (current US$)",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 12.3413554322086,
+        "value2": 15048971000000
+      },
+      {
+        "year": "2011",
+        "value1": 13.5634637825829,
+        "value2": 15599732000000
+      },
+      {
+        "year": "2012",
+        "value1": 13.6440512687054,
+        "value2": 16253970000000
+      },
+      {
+        "year": "2013",
+        "value1": 13.5534918818154,
+        "value2": 16880683000000
+      },
+      {
+        "year": "2014",
+        "value1": 13.5082142132235,
+        "value2": 17608138000000
+      },
+      {
+        "year": "2015",
+        "value1": 12.4111486301271,
+        "value2": 18295019000000
+      },
+      {
+        "year": "2016",
+        "value1": 11.8881592273253,
+        "value2": 18804913000000
+      },
+      {
+        "year": "2017",
+        "value1": 12.177481026766,
+        "value2": 19612102000000
+      },
+      {
+        "year": "2018",
+        "value1": 12.2871107596266,
+        "value2": 20656516000000
+      },
+      {
+        "year": "2019",
+        "value1": 11.7891974097286,
+        "value2": 21539982000000
+      },
+      {
+        "year": "2020",
+        "value1": 10.0736556273372,
+        "value2": 21354105000000
+      },
+      {
+        "year": "2021",
+        "value1": 10.7909781995156,
+        "value2": 23681171000000
+      },
+      {
+        "year": "2022",
+        "value1": 11.6022279170372,
+        "value2": 26006893000000
+      },
+      {
+        "year": "2023",
+        "value1": 11.0115112856601,
+        "value2": 27720709000000
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.403Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-exp-gnfs-zs_vs_ny-gdp-pcap-cd",
+    "title": "Exports of goods and services vs GDP per capita",
+    "description": "strong negative correlation between Exports of goods and services and GDP per capita",
+    "correlation": -0.72262118421511,
+    "rSquared": 0.522181375876448,
+    "variable1": {
+      "name": "Exports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "GDP per capita",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 12.3413554322086,
+        "value2": 48642.6312088213
+      },
+      {
+        "year": "2011",
+        "value1": 13.5634637825829,
+        "value2": 50024.8812320773
+      },
+      {
+        "year": "2012",
+        "value1": 13.6440512687054,
+        "value2": 51708.3940614082
+      },
+      {
+        "year": "2013",
+        "value1": 13.5534918818154,
+        "value2": 53297.3862901595
+      },
+      {
+        "year": "2014",
+        "value1": 13.5082142132235,
+        "value2": 55153.3940182967
+      },
+      {
+        "year": "2015",
+        "value1": 12.4111486301271,
+        "value2": 56849.4697923159
+      },
+      {
+        "year": "2016",
+        "value1": 11.8881592273253,
+        "value2": 57976.628204291
+      },
+      {
+        "year": "2017",
+        "value1": 12.177481026766,
+        "value2": 60047.7190728307
+      },
+      {
+        "year": "2018",
+        "value1": 12.2871107596266,
+        "value2": 62875.6661382728
+      },
+      {
+        "year": "2019",
+        "value1": 11.7891974097286,
+        "value2": 65227.9565911038
+      },
+      {
+        "year": "2020",
+        "value1": 10.0736556273372,
+        "value2": 64401.5074354212
+      },
+      {
+        "year": "2021",
+        "value1": 10.7909781995156,
+        "value2": 71307.4017277218
+      },
+      {
+        "year": "2022",
+        "value1": 11.6022279170372,
+        "value2": 77860.9112908848
+      },
+      {
+        "year": "2023",
+        "value1": 11.0115112856601,
+        "value2": 82304.6204272866
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.403Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-imp-gnfs-zs_vs_ny-gdp-mktp-cd",
+    "title": "Imports of goods and services vs GDP (current US$)",
+    "description": "strong negative correlation between Imports of goods and services and GDP (current US$)",
+    "correlation": -0.6905209295690663,
+    "rSquared": 0.4768191541729274,
+    "variable1": {
+      "name": "Imports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "GDP (current US$)",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15.878527508625,
+        "value2": 15048971000000
+      },
+      {
+        "year": "2011",
+        "value1": 17.2790147933311,
+        "value2": 15599732000000
+      },
+      {
+        "year": "2012",
+        "value1": 17.0377883064876,
+        "value2": 16253970000000
+      },
+      {
+        "year": "2013",
+        "value1": 16.3878144030073,
+        "value2": 16880683000000
+      },
+      {
+        "year": "2014",
+        "value1": 16.3983551242045,
+        "value2": 17608138000000
+      },
+      {
+        "year": "2015",
+        "value1": 15.2770653039497,
+        "value2": 18295019000000
+      },
+      {
+        "year": "2016",
+        "value1": 14.5644385592212,
+        "value2": 18804913000000
+      },
+      {
+        "year": "2017",
+        "value1": 14.9478571955214,
+        "value2": 19612102000000
+      },
+      {
+        "year": "2018",
+        "value1": 15.1582483706352,
+        "value2": 20656516000000
+      },
+      {
+        "year": "2019",
+        "value1": 14.4692832148142,
+        "value2": 21539982000000
+      },
+      {
+        "year": "2020",
+        "value1": 13.0061222420701,
+        "value2": 21354105000000
+      },
+      {
+        "year": "2021",
+        "value1": 14.422677831261,
+        "value2": 23681171000000
+      },
+      {
+        "year": "2022",
+        "value1": 15.2894619130397,
+        "value2": 26006893000000
+      },
+      {
+        "year": "2023",
+        "value1": 13.8878518583345,
+        "value2": 27720709000000
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.405Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-imp-gnfs-zs_vs_ny-gdp-pcap-cd",
+    "title": "Imports of goods and services vs GDP per capita",
+    "description": "strong negative correlation between Imports of goods and services and GDP per capita",
+    "correlation": -0.671604717140228,
+    "rSquared": 0.4510528960850056,
+    "variable1": {
+      "name": "Imports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "GDP per capita",
+      "unit": "Current US$",
+      "category": "economics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15.878527508625,
+        "value2": 48642.6312088213
+      },
+      {
+        "year": "2011",
+        "value1": 17.2790147933311,
+        "value2": 50024.8812320773
+      },
+      {
+        "year": "2012",
+        "value1": 17.0377883064876,
+        "value2": 51708.3940614082
+      },
+      {
+        "year": "2013",
+        "value1": 16.3878144030073,
+        "value2": 53297.3862901595
+      },
+      {
+        "year": "2014",
+        "value1": 16.3983551242045,
+        "value2": 55153.3940182967
+      },
+      {
+        "year": "2015",
+        "value1": 15.2770653039497,
+        "value2": 56849.4697923159
+      },
+      {
+        "year": "2016",
+        "value1": 14.5644385592212,
+        "value2": 57976.628204291
+      },
+      {
+        "year": "2017",
+        "value1": 14.9478571955214,
+        "value2": 60047.7190728307
+      },
+      {
+        "year": "2018",
+        "value1": 15.1582483706352,
+        "value2": 62875.6661382728
+      },
+      {
+        "year": "2019",
+        "value1": 14.4692832148142,
+        "value2": 65227.9565911038
+      },
+      {
+        "year": "2020",
+        "value1": 13.0061222420701,
+        "value2": 64401.5074354212
+      },
+      {
+        "year": "2021",
+        "value1": 14.422677831261,
+        "value2": 71307.4017277218
+      },
+      {
+        "year": "2022",
+        "value1": 15.2894619130397,
+        "value2": 77860.9112908848
+      },
+      {
+        "year": "2023",
+        "value1": 13.8878518583345,
+        "value2": 82304.6204272866
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2025-10-07T01:31:23.405Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  }
+]

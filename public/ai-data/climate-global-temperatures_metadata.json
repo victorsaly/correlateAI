@@ -1,0 +1,15 @@
+{
+  "id": "climate-global-temperatures",
+  "name": "Global City Temperatures",
+  "unit": "°C",
+  "category": "climate",
+  "source": "OpenWeather API",
+  "sourceUrl": "https://openweathermap.org/",
+  "lastUpdated": "2025-10-07T01:31:22.938Z",
+  "dataPoints": 10,
+  "dateRange": {
+    "start": 2025,
+    "end": 2025
+  },
+  "description": "Current temperature readings from major global cities for climate correlation analysis"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "ny-gdp-mktp-cd",
+  "name": "GDP (current US$)",
+  "unit": "Current US$",
+  "category": "economics",
+  "source": "World Bank",
+  "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+  "lastUpdated": "2025-10-07T01:31:07.923Z",
+  "dataPoints": 14,
+  "dateRange": {
+    "start": 2010,
+    "end": 2023
+  },
+  "description": "GDP (current US$) data from the World Bank Open Data"
+}

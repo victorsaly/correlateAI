@@ -1,0 +1,202 @@
+[
+  {
+    "city": "New York",
+    "country": "US",
+    "coordinates": {
+      "lat": 40.7128,
+      "lon": -74.006
+    },
+    "temperature": 20.66,
+    "humidity": 81,
+    "pressure": 1023,
+    "windSpeed": 6.17,
+    "cloudiness": 0,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-07T01:31:10.810Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "London",
+    "country": "GB",
+    "coordinates": {
+      "lat": 51.5074,
+      "lon": -0.1278
+    },
+    "temperature": 13.37,
+    "humidity": 83,
+    "pressure": 1024,
+    "windSpeed": 3.6,
+    "cloudiness": 100,
+    "visibility": 10000,
+    "weatherCondition": "Clouds",
+    "description": "overcast clouds",
+    "timestamp": "2025-10-07T01:31:12.021Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Tokyo",
+    "country": "JP",
+    "coordinates": {
+      "lat": 35.6762,
+      "lon": 139.6503
+    },
+    "temperature": 22.72,
+    "humidity": 67,
+    "pressure": 1022,
+    "windSpeed": 6.17,
+    "cloudiness": 75,
+    "visibility": 10000,
+    "weatherCondition": "Clouds",
+    "description": "broken clouds",
+    "timestamp": "2025-10-07T01:31:13.232Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Sydney",
+    "country": "AU",
+    "coordinates": {
+      "lat": -33.8688,
+      "lon": 151.2093
+    },
+    "temperature": 19.57,
+    "humidity": 78,
+    "pressure": 1015,
+    "windSpeed": 7.2,
+    "cloudiness": 75,
+    "visibility": 10000,
+    "weatherCondition": "Clouds",
+    "description": "broken clouds",
+    "timestamp": "2025-10-07T01:31:14.443Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Mumbai",
+    "country": "IN",
+    "coordinates": {
+      "lat": 19.076,
+      "lon": 72.8777
+    },
+    "temperature": 25,
+    "humidity": 94,
+    "pressure": 1013,
+    "windSpeed": 2.06,
+    "cloudiness": 40,
+    "visibility": 3000,
+    "weatherCondition": "Mist",
+    "description": "mist",
+    "timestamp": "2025-10-07T01:31:15.661Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "São Paulo",
+    "country": "BR",
+    "coordinates": {
+      "lat": -23.5505,
+      "lon": -46.6333
+    },
+    "temperature": 26.29,
+    "humidity": 59,
+    "pressure": 1015,
+    "windSpeed": 4.63,
+    "cloudiness": 0,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-07T01:31:16.871Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Cairo",
+    "country": "EG",
+    "coordinates": {
+      "lat": 30.0444,
+      "lon": 31.2357
+    },
+    "temperature": 22.33,
+    "humidity": 64,
+    "pressure": 1013,
+    "windSpeed": 4.63,
+    "cloudiness": 0,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-07T01:31:18.088Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Moscow",
+    "country": "RU",
+    "coordinates": {
+      "lat": 55.7558,
+      "lon": 37.6173
+    },
+    "temperature": 11.42,
+    "humidity": 85,
+    "pressure": 1020,
+    "windSpeed": 1.32,
+    "cloudiness": 100,
+    "visibility": 10000,
+    "weatherCondition": "Clouds",
+    "description": "overcast clouds",
+    "timestamp": "2025-10-07T01:31:19.308Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Dubai",
+    "country": "AE",
+    "coordinates": {
+      "lat": 25.2048,
+      "lon": 55.2708
+    },
+    "temperature": 29.01,
+    "humidity": 74,
+    "pressure": 1008,
+    "windSpeed": 1.54,
+    "cloudiness": 0,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-07T01:31:20.524Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  },
+  {
+    "city": "Toronto",
+    "country": "CA",
+    "coordinates": {
+      "lat": 43.6532,
+      "lon": -79.3832
+    },
+    "temperature": 22.39,
+    "humidity": 66,
+    "pressure": 1018,
+    "windSpeed": 6.71,
+    "cloudiness": 0,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-07T01:31:21.735Z",
+    "year": 2025,
+    "month": 10,
+    "day": 7
+  }
+]
