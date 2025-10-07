@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.headspace.com/blog/2021/07/06/meditation-statistics/",
     "citation": "Digital Wellness Institute Mindfulness App Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
+    "aiGeneratedAt": "2025-10-07T12:36:02.819Z",
     "filename": "health-meditation-app-active-users"
   },
   "data": [
     {
       "year": 2014,
-      "value": 21.58,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 21.64,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2015,
-      "value": 37.47,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 36.91,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2016,
-      "value": 47.03,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 46.84,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2017,
-      "value": 52.97,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 53.75,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2018,
-      "value": 71.74,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 72.38,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2019,
-      "value": 95.2,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 93.58,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2020,
-      "value": 98.32,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 99.41,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2021,
-      "value": 98.73,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 100.99,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2022,
-      "value": 125.51,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 122.21,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2023,
-      "value": 149.9,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 151.71,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2024,
-      "value": 150.9,
-      "generatedAt": "2025-10-07T12:15:44.636Z"
+      "value": 149.45,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     }
   ]
 }

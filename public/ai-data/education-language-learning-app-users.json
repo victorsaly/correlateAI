@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents",
     "citation": "Modern Language Association Technology in Language Learning (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
+    "aiGeneratedAt": "2025-10-07T12:36:02.819Z",
     "filename": "education-language-learning-app-users"
   },
   "data": [
     {
       "year": 2014,
-      "value": 37.54,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 38.15,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2015,
-      "value": 46.48,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 46.67,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2016,
-      "value": 56.24,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 54.28,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2017,
-      "value": 63.6,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 63.71,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2018,
-      "value": 71.61,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 74.48,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2019,
-      "value": 80.93,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 81.23,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2020,
-      "value": 90.32,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 89.3,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2021,
-      "value": 100.33,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 100.72,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2022,
-      "value": 107.32,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 109.63,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2023,
-      "value": 115.94,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 116.37,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     },
     {
       "year": 2024,
-      "value": 125.28,
-      "generatedAt": "2025-10-07T12:15:44.638Z"
+      "value": 124.02,
+      "generatedAt": "2025-10-07T12:36:02.828Z"
     }
   ]
 }

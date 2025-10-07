@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.ftc.gov/news-events/press-releases/2016/07/ftc-report-marketplace-lending",
     "citation": "Federal Trade Commission Alternative Lending Report (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
+    "aiGeneratedAt": "2025-10-07T12:36:02.819Z",
     "filename": "finance-peer-to-peer-lending-volume"
   },
   "data": [
     {
       "year": 2014,
-      "value": 20.83,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 20.43,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2015,
-      "value": 33.35,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 34.17,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2016,
-      "value": 46.14,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 47.66,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2017,
-      "value": 60.15,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 57.53,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2018,
-      "value": 75.38,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 73.63,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2019,
-      "value": 85.38,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 83.46,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2020,
-      "value": 99.36,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 99.98,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2021,
-      "value": 112.58,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 110.44,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2022,
-      "value": 120.6,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 127.68,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2023,
-      "value": 135.49,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 137.14,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     },
     {
       "year": 2024,
-      "value": 148.79,
-      "generatedAt": "2025-10-07T12:15:44.640Z"
+      "value": 152.35,
+      "generatedAt": "2025-10-07T12:36:02.830Z"
     }
   ]
 }

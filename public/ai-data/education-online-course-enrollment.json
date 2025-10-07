@@ -9,64 +9,64 @@
     "sourceUrl": "https://nces.ed.gov/programs/digest/d21/tables/dt21_311.15.asp",
     "citation": "National Center for Education Statistics Distance Learning (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
+    "aiGeneratedAt": "2025-10-07T12:36:02.819Z",
     "filename": "education-online-course-enrollment"
   },
   "data": [
     {
       "year": 2014,
-      "value": 61.24,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 64.44,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2015,
-      "value": 90.27,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 93.97,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2016,
-      "value": 104.01,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 101.74,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2017,
-      "value": 110.68,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 108.09,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2018,
-      "value": 136.44,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 138.64,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2019,
-      "value": 164.75,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 179.38,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2020,
-      "value": 176.17,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 173.83,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2021,
-      "value": 172.57,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 170.97,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2022,
-      "value": 203.66,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 217.55,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2023,
-      "value": 261.44,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 261.22,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     },
     {
       "year": 2024,
-      "value": 242.79,
-      "generatedAt": "2025-10-07T12:15:44.637Z"
+      "value": 239.49,
+      "generatedAt": "2025-10-07T12:36:02.827Z"
     }
   ]
 }

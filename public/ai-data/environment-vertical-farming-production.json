@@ -9,64 +9,64 @@
     "sourceUrl": "https://vertical-farming.net/industry-reports/",
     "citation": "Association for Vertical Farming Industry Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-07T12:15:44.623Z",
+    "aiGeneratedAt": "2025-10-07T12:36:02.819Z",
     "filename": "environment-vertical-farming-production"
   },
   "data": [
     {
       "year": 2014,
-      "value": 71.89,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 75.13,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2015,
-      "value": 101.02,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 103.92,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2016,
-      "value": 131.74,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 124.64,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2017,
-      "value": 158.31,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 157.6,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2018,
-      "value": 188.15,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 187.05,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2019,
-      "value": 219.29,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 214.71,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2020,
-      "value": 234.97,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 236.45,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2021,
-      "value": 264.55,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 271.26,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2022,
-      "value": 309.49,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 283.9,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2023,
-      "value": 324.46,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 336.46,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     },
     {
       "year": 2024,
-      "value": 352.55,
-      "generatedAt": "2025-10-07T12:15:44.632Z"
+      "value": 363.18,
+      "generatedAt": "2025-10-07T12:36:02.824Z"
     }
   ]
 }

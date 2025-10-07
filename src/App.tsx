@@ -15,6 +15,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
 import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/centralizedDataSourceService'
+import { DynamicDatasetService, type DynamicDataset } from '@/services/dynamicDatasetService'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -40,6 +41,7 @@ interface Dataset {
   trend: number
   seasonal: boolean
   category: string
+  dataSource?: string
 }
 
 const categories = {
@@ -122,6 +124,129 @@ const journals = [
   "Annals of Statistical Coincidence",
   "Quarterly Journal of Dubious Findings"
 ]
+
+// Fully dynamic correlation data generation with user preference control
+async function generateCorrelationDataWithRealSources(
+  selectedCategory?: string, 
+  dynamicSources?: Map<string, DataSourceInfo>,
+  preference: 'mixed' | 'real' | 'synthetic' = 'mixed'
+): Promise<CorrelationData> {
+  let availableDatasets: (Dataset | DynamicDataset)[] = datasets
+  let realDatasets: Dataset[] = []
+  
+  // Only discover real datasets if preference allows it
+  if (preference === 'mixed' || preference === 'real') {
+    // Use dynamic dataset service to discover real datasets from actual files
+    const dynamicDatasetService = new DynamicDatasetService()
+    
+    try {
+      // Discover all available datasets from real data files
+      const discoveredRealDatasets = await dynamicDatasetService.discoverDatasets()
+      
+      // Convert DynamicDataset to Dataset format for compatibility
+      realDatasets = discoveredRealDatasets.map(dd => ({
+        name: dd.name,
+        unit: dd.unit,
+        baseValue: dd.baseValue,
+        trend: dd.trend,
+        seasonal: dd.seasonal,
+        category: dd.category,
+        dataSource: dd.dataSource
+      }))
+      
+      console.log(`🔍 Dynamic Discovery: Found ${discoveredRealDatasets.length} real datasets from ${new Set(discoveredRealDatasets.map(d => d.sourceKey)).size} sources`)
+      
+    } catch (error) {
+      console.warn('Failed to discover dynamic datasets, falling back to synthetic:', error)
+      // If real data fails and user wants real only, still use synthetic as fallback
+    }
+  }
+  
+  // Build dataset pool based on preference
+  switch (preference) {
+    case 'real':
+      availableDatasets = realDatasets.length >= 2 ? realDatasets : datasets // Fallback to synthetic if not enough real data
+      break
+    case 'synthetic':
+      availableDatasets = datasets // Only synthetic datasets
+      break
+    case 'mixed':
+    default:
+      availableDatasets = [...realDatasets, ...datasets] // Combine both
+      break
+  }
+  
+  // Filter by category if specified
+  if (selectedCategory && selectedCategory !== 'all') {
+    availableDatasets = availableDatasets.filter(d => d.category === selectedCategory)
+  }
+  
+  // Ensure we have at least 2 datasets
+  if (availableDatasets.length < 2) {
+    availableDatasets = datasets // Ultimate fallback to synthetic
+  }
+  
+  const var1 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
+  let var2 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
+  while (var2 === var1 && availableDatasets.length > 1) {
+    var2 = availableDatasets[Math.floor(Math.random() * availableDatasets.length)]
+  }
+
+  const correlation = (Math.random() * 1.8 - 0.9) // -0.9 to 0.9
+  const rSquared = Math.pow(Math.abs(correlation), 2) + Math.random() * 0.1
+
+  const years = Array.from({ length: 10 }, (_, i) => 2014 + i)
+  const data = years.map((year, i) => {
+    const baseYear1 = var1.baseValue * (1 + var1.trend * i)
+    const baseYear2 = var2.baseValue * (1 + var2.trend * i)
+    
+    const noise1 = (Math.random() - 0.5) * 0.2 * var1.baseValue
+    const noise2 = (Math.random() - 0.5) * 0.2 * var2.baseValue
+    
+    const seasonalFactor1 = var1.seasonal ? Math.sin((i / 10) * Math.PI * 2) * 0.1 * var1.baseValue : 0
+    const seasonalFactor2 = var2.seasonal ? Math.sin((i / 10) * Math.PI * 2) * 0.1 * var2.baseValue : 0
+    
+    const correlationEffect = correlation * 0.3 * var2.baseValue * ((baseYear1 - var1.baseValue) / var1.baseValue)
+    
+    return {
+      year,
+      value1: Math.max(0, baseYear1 + noise1 + seasonalFactor1),
+      value2: Math.max(0, baseYear2 + noise2 + seasonalFactor2 + correlationEffect)
+    }
+  })
+
+  const direction = correlation > 0 ? "increase" : "decrease"
+  const strongCorr = Math.abs(correlation) > 0.6
+  
+  // Determine if we're using real data sources
+  const hasRealData = !!(var1.dataSource && var1.dataSource !== 'Synthetic') || !!(var2.dataSource && var2.dataSource !== 'Synthetic')
+  const dataSourceName = hasRealData ? 
+    `${var1.dataSource || 'Synthetic'} / ${var2.dataSource || 'Synthetic'}` : 
+    "Synthetic"
+  
+  const descriptions = [
+    `A ${strongCorr ? 'strong' : 'notable'} ${direction} in ${var1.name.toLowerCase()} correlates with ${direction}d ${var2.name.toLowerCase()}`,
+    `Research indicates ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()} move in ${correlation > 0 ? 'tandem' : 'opposite directions'}`,
+    `Statistical analysis reveals ${var1.name.toLowerCase()} may predict ${var2.name.toLowerCase()} trends`,
+    hasRealData ? `Real-world data from ${dataSourceName} shows ${var1.name.toLowerCase()} influences ${var2.name.toLowerCase()}` : `Simulated data suggests correlation between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`
+  ]
+
+  return {
+    id: Math.random().toString(36).substr(2, 9),
+    title: `${var1.name} vs ${var2.name}`,
+    description: descriptions[Math.floor(Math.random() * descriptions.length)],
+    correlation: Math.round(correlation * 1000) / 1000,
+    rSquared: Math.round(rSquared * 1000) / 1000,
+    data,
+    variable1: var1,
+    variable2: var2,
+    citation: `Smith, J. et al. (${2020 + Math.floor(Math.random() * 4)})`,
+    journal: journals[Math.floor(Math.random() * journals.length)],
+    year: 2020 + Math.floor(Math.random() * 4),
+    isRealData: hasRealData,
+    dataSource: dataSourceName
+  }
+}
 
 function generateCorrelationData(selectedCategory?: string): CorrelationData {
   let availableDatasets = datasets
@@ -1295,6 +1420,8 @@ function App() {
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
   const [dynamicDataSources, setDynamicDataSources] = useState<Map<string, DataSourceInfo>>(new Map())
   const [dynamicDataSourceService] = useState(() => new CentralizedDataSourceService())
+  const [dynamicDatasetService] = useState(() => new DynamicDatasetService())
+  const [dataSourcePreference, setDataSourcePreference] = useState<'mixed' | 'real' | 'synthetic'>('real')
   const isMobile = useIsMobile()
   
   // Favorites using localStorage only
@@ -1325,6 +1452,11 @@ function App() {
         // Load dynamic data sources
         const sources = await dynamicDataSourceService.getDataSources()
         setDynamicDataSources(sources)
+        
+        // Clear dataset cache when sources change to force re-discovery
+        dynamicDatasetService.clearCache()
+        
+        console.log(`🔄 Loaded ${sources.size} dynamic data sources for dataset discovery`)
         
         // Calculate totals from dynamic sources
         let realDatasetCount = 0
@@ -1371,7 +1503,7 @@ function App() {
     }
     
     loadDatasetCount()
-  }, [])
+  }, [dynamicDataSourceService, dynamicDatasetService])
 
   // Function to refresh dataset count (can be called when datasets are updated)
   const refreshDatasetCount = useCallback(() => {
@@ -1411,15 +1543,37 @@ function App() {
     setIsGenerating(true)
     
     try {
-      toast.info("🤖 Generating AI-powered correlation analysis...")
+      const preferenceMessages = {
+        'mixed': "🤖 Generating AI-powered correlation from mixed data sources...",
+        'real': "📊 Generating correlation from real API data sources...",
+        'synthetic': "🎲 Generating correlation from synthetic datasets..."
+      }
+      
+      toast.info(preferenceMessages[dataSourcePreference])
       
       // Add small delay for better UX (simulate processing)
       await new Promise(resolve => setTimeout(resolve, 800))
       
-      // Use synthetic data generation which works with all our categories
-      const newCorrelation = generateCorrelationData(selectedCategory === 'all' ? undefined : selectedCategory)
+      // Use enhanced data generation with user preference
+      const newCorrelation = await generateCorrelationDataWithRealSources(
+        selectedCategory === 'all' ? undefined : selectedCategory,
+        dynamicDataSources,
+        dataSourcePreference
+      )
       setCurrentCorrelation(newCorrelation)
-      toast.success("✨ New correlation generated!")
+      
+      // Show appropriate success message based on preference and actual result
+      const successMessages = {
+        'mixed': newCorrelation.isRealData 
+          ? "✨ Generated correlation using real data sources!"
+          : "✨ Generated correlation using synthetic data!",
+        'real': newCorrelation.isRealData 
+          ? "📊 Generated correlation from real API data!"
+          : "⚠️ Generated with synthetic data (limited real data available)",
+        'synthetic': "🎲 Generated correlation from synthetic datasets!"
+      }
+      
+      toast.success(successMessages[dataSourcePreference])
       
     } catch (error) {
       console.error('Error generating correlation:', error)
@@ -1427,7 +1581,7 @@ function App() {
     } finally {
       setIsGenerating(false)
     }
-  }, [selectedCategory])
+  }, [selectedCategory, dynamicDataSources, dataSourcePreference])
 
   // Handle clicking on dynamic examples to generate that specific correlation
   const handleExampleClick = useCallback((exampleCorrelation: CorrelationData) => {
@@ -2095,6 +2249,26 @@ function App() {
               {/* Controls Row - Mobile-optimized */}
               <div className={`flex ${isMobile ? 'flex-col gap-3' : 'items-center gap-4'} justify-center w-full max-w-lg`}>
                 <div className="flex items-center gap-2 justify-center">
+                  <Database size={18} className="text-purple-400" />
+                  <Select value={dataSourcePreference} onValueChange={(value: 'mixed' | 'real' | 'synthetic') => setDataSourcePreference(value)}>
+                    <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
+                      <SelectValue placeholder="Select data source" />
+                    </SelectTrigger>
+                    <SelectContent className="bg-white border-gray-300 text-gray-900">
+                      <SelectItem value="mixed" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                        🔀 Mixed (Real + AI)
+                      </SelectItem>
+                      <SelectItem value="real" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                        📊 Real Data Only
+                      </SelectItem>
+                      <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                        🎲 Synthetic Only
+                      </SelectItem>
+                    </SelectContent>
+                  </Select>
+                </div>
+                
+                <div className="flex items-center gap-2 justify-center">
                   <Funnel size={18} className="text-cyan-400" />
                   <Select value={selectedCategory} onValueChange={setSelectedCategory}>
                     <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
@@ -2120,12 +2294,15 @@ function App() {
                   {isGenerating ? (
                     <>
                       <ArrowClockwise className="animate-spin mr-2" size={18} />
-                      {isMobile ? "Analyzing..." : "Analyzing Real Data..."}
+                      {isMobile ? "Analyzing..." : "Analyzing Data..."}
                     </>
                   ) : (
                     <>
                       <ArrowClockwise className="mr-2" size={18} />
-                      {isMobile ? "Generate AI Correlation" : "Generate AI Correlation"}
+                      {isMobile 
+                        ? `Generate ${dataSourcePreference === 'real' ? 'Real' : dataSourcePreference === 'synthetic' ? 'AI' : 'Mixed'} Correlation`
+                        : `Generate ${dataSourcePreference === 'real' ? 'Real Data' : dataSourcePreference === 'synthetic' ? 'AI/Synthetic' : 'Mixed Data'} Correlation`
+                      }
                     </>
                   )}
                 </Button>
