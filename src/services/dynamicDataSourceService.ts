@@ -24,11 +24,8 @@ export class DynamicDataSourceService {
    * Get all available data sources with real-time dataset counts
    */
   async getDataSources(): Promise<Map<string, DataSourceInfo>> {
-    console.log('🔍 DynamicDataSourceService: Getting data sources...')
-    
     // Check cache
     if (this.lastUpdate && Date.now() - this.lastUpdate.getTime() < this.CACHE_DURATION) {
-      console.log('📦 Using cached data sources:', this.cachedSources.size)
       return this.cachedSources
     }
 
@@ -70,8 +67,6 @@ export class DynamicDataSourceService {
       category: 'climate',
       icon: 'cloud'
     })
-
-    console.log('📊 Added static sources, checking dynamic sources...')
 
     // Dynamic sources (check availability and count)
     await this.checkDynamicSource(sources, 'NASA', {
@@ -116,11 +111,6 @@ export class DynamicDataSourceService {
 
     this.cachedSources = sources
     this.lastUpdate = new Date()
-    
-    console.log(`✅ Total data sources loaded: ${sources.size}`)
-    sources.forEach((source, key) => {
-      console.log(`  - ${key}: ${source.datasets} datasets`)
-    })
     
     return sources
   }

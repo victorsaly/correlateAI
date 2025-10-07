@@ -15,6 +15,7 @@ import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
 import { DynamicDataSourceService, type DataSourceInfo } from '@/services/dynamicDataSourceService'
+import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
   id: string
@@ -2034,46 +2035,7 @@ function App() {
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
-            <div className="flex items-center gap-2">
-              <Database size={14} className="text-cyan-400" />
-              <span>Powered by</span>
-              {dynamicDataSources.size > 0 ? (
-                // Dynamic sources display
-                Array.from(dynamicDataSources.entries()).slice(0, 5).map(([key, source], index) => (
-                  <span key={key} className="flex items-center gap-1">
-                    <span className={`font-semibold ${
-                      key === 'FRED' ? 'text-blue-400' :
-                      key === 'WorldBank' ? 'text-green-400' :
-                      key === 'AlphaVantage' ? 'text-orange-400' :
-                      key === 'OpenWeather' ? 'text-cyan-400' :
-                      key === 'NASA' ? 'text-indigo-400' :
-                      key === 'USGS' ? 'text-amber-400' :
-                      key === 'EIA' ? 'text-yellow-400' :
-                      'text-purple-400'
-                    }`}>
-                      {source.name}
-                    </span>
-                    {index < Math.min(4, dynamicDataSources.size - 1) && <span>+</span>}
-                  </span>
-                ))
-              ) : (
-                // Fallback static display
-                <>
-                  <span className="font-semibold text-blue-400">FRED</span>
-                  <span>+</span>
-                  <span className="font-semibold text-green-400">World Bank</span>
-                  <span>+</span>
-                  <span className="font-semibold text-orange-400">Alpha Vantage</span>
-                  <span>+</span>
-                  <span className="font-semibold text-cyan-400">OpenWeather</span>
-                  <span>+</span>
-                  <span className="font-semibold text-purple-400">AI Datasets</span>
-                </>
-              )}
-              {dynamicDataSources.size > 5 && (
-                <span className="text-gray-400">+ {dynamicDataSources.size - 5} more</span>
-              )}
-            </div>
+            <AnimatedPoweredBy sources={dynamicDataSources} isMobile={isMobile} />
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               {datasetStats ? (
@@ -2913,8 +2875,6 @@ function App() {
                             <Sparkle size={16} className="mr-2" />
                             GitHub Spark
                           </Button>
-                        </div>
-                        <div className="space-y-2">
                           <Button
                             variant="outline"
                             size="sm"
@@ -2934,6 +2894,57 @@ function App() {
                             World Bank API
                           </Button>
                         </div>
+                        <div className="space-y-2">
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => window.open('https://www.alphavantage.co/documentation/', '_blank')}
+                            className="w-full justify-start"
+                          >
+                            <TrendUp size={16} className="mr-2" />
+                            Alpha Vantage API
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => window.open('https://openweathermap.org/api', '_blank')}
+                            className="w-full justify-start"
+                          >
+                            <CloudSun size={16} className="mr-2" />
+                            OpenWeather API
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => window.open('https://api.nasa.gov/', '_blank')}
+                            className="w-full justify-start"
+                          >
+                            <Rocket size={16} className="mr-2" />
+                            NASA API Docs
+                          </Button>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => window.open('https://earthquake.usgs.gov/fdsnws/', '_blank')}
+                            className="w-full justify-start"
+                          >
+                            <Mountains size={16} className="mr-2" />
+                            USGS API Docs
+                          </Button>
+                        </div>
+                      </div>
+                      
+                      {/* Additional row for EIA */}
+                      <div className="mt-3">
+                        <Button
+                          variant="outline"
+                          size="sm"
+                          onClick={() => window.open('https://www.eia.gov/opendata/', '_blank')}
+                          className="w-full justify-start"
+                        >
+                          <Lightning size={16} className="mr-2" />
+                          EIA API Documentation
+                        </Button>
                       </div>
                     </div>
                   </CardContent>
@@ -3001,7 +3012,7 @@ function App() {
                       💻 GitHub
                     </a>
                   </div>
-                  <p className="text-xs text-gray-400 mt-1">Building the future with AI assistance</p>
+                  <p className="text-xs text-gray-400 mt-1">Building advanced AI-driven data correlation platforms</p>
                 </div>
               </div>
             </div>
@@ -3010,12 +3021,12 @@ function App() {
             <div className={`${isMobile ? 'w-full' : ''}`}>
               <div className={`grid ${isMobile ? 'grid-cols-2 gap-4' : 'grid-cols-3 gap-6'} text-center`}>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">31</div>
-                  <div className="text-xs sm:text-sm text-gray-300">Data Sources</div>
+                  <div className="text-lg sm:text-2xl font-bold text-cyan-400">7</div>
+                  <div className="text-xs sm:text-sm text-gray-300">API Sources</div>
                 </div>
                 <div className="bg-gray-700/50 rounded-lg p-3 sm:p-4 backdrop-blur-sm">
-                  <div className="text-lg sm:text-2xl font-bold text-purple-400">4h</div>
-                  <div className="text-xs sm:text-sm text-gray-300">Dev Time</div>
+                  <div className="text-lg sm:text-2xl font-bold text-purple-400">51+</div>
+                  <div className="text-xs sm:text-sm text-gray-300">Datasets</div>
                 </div>
                 {!isMobile && (
                   <div className="bg-gray-700/50 rounded-lg p-4 backdrop-blur-sm">
@@ -3030,7 +3041,7 @@ function App() {
           {/* Copyright */}
           <div className="mt-8 pt-6 border-t border-gray-700/30 text-center">
             <p className="text-xs sm:text-sm text-gray-400">
-              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic economic data.
+              © 2025 Victor Saly. Built with AI assistance using GitHub Spark, React, and authentic multi-domain data from 7 API sources.
             </p>
           </div>
         </div>
