@@ -9,7 +9,7 @@ export interface DataSourceConfig {
   displayName: string
   description: string
   url: string
-  category: 'economics' | 'financial' | 'climate' | 'space' | 'geology' | 'energy' | 'health' | 'synthetic'
+  category: 'economics' | 'financial' | 'climate' | 'space' | 'geology' | 'energy' | 'health' | 'synthetic' | 'cryptocurrency' | 'international' | 'environmental'
   icon: string
   color: string
   badgeColor: string
@@ -161,6 +161,45 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     dataPath: '/data/nasdaq/',
     isStatic: false,
     expectedDatasets: 5
+  },
+  {
+    key: 'CoinGecko',
+    name: 'CoinGecko',
+    displayName: 'CoinGecko Cryptocurrency Data',
+    description: 'Cryptocurrency market data and price tracking',
+    url: 'https://www.coingecko.com/',
+    category: 'cryptocurrency',
+    icon: 'currency',
+    color: 'text-purple-400',
+    badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
+    isStatic: false,
+    expectedDatasets: 7
+  },
+  {
+    key: 'OECD',
+    name: 'OECD',
+    displayName: 'OECD International Data',
+    description: 'International economic data from 38 member countries',
+    url: 'https://data.oecd.org/',
+    category: 'international',
+    icon: 'globe',
+    color: 'text-indigo-400',
+    badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
+    isStatic: true,
+    expectedDatasets: 6
+  },
+  {
+    key: 'WorldAirQuality',
+    name: 'World Air Quality Index',
+    displayName: 'World Air Quality Index',
+    description: 'Global air pollution and environmental data',
+    url: 'https://aqicn.org/',
+    category: 'environmental',
+    icon: 'wind',
+    color: 'text-teal-400',
+    badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
+    isStatic: true,
+    expectedDatasets: 8
   },
 
   // AI-Generated (special case)

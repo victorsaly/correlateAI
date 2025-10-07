@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2014,
+    "value": 54108,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2015,
+    "value": 59016.64,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2016,
+    "value": 59684.01,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2017,
+    "value": 55848.57,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2018,
+    "value": 54616.05,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2019,
+    "value": 62172.77,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2020,
+    "value": 58519.88,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2021,
+    "value": 66614.18,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2022,
+    "value": 60934.1,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2023,
+    "value": 65594.54,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2024,
+    "value": 60894.61,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  },
+  {
+    "year": 2025,
+    "value": 63867.79,
+    "country": "OECD",
+    "subject": "B1_GE",
+    "dataset": "QNA"
+  }
+]

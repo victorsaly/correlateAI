@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2014,
+    "value": 56,
+    "type": "volcano"
+  },
+  {
+    "year": 2015,
+    "value": 69.3,
+    "type": "volcano"
+  },
+  {
+    "year": 2016,
+    "value": 60.1,
+    "type": "volcano"
+  },
+  {
+    "year": 2017,
+    "value": 69.1,
+    "type": "volcano"
+  },
+  {
+    "year": 2018,
+    "value": 54.1,
+    "type": "volcano"
+  },
+  {
+    "year": 2019,
+    "value": 62,
+    "type": "volcano"
+  },
+  {
+    "year": 2020,
+    "value": 55,
+    "type": "volcano"
+  },
+  {
+    "year": 2021,
+    "value": 53.6,
+    "type": "volcano"
+  },
+  {
+    "year": 2022,
+    "value": 57.7,
+    "type": "volcano"
+  },
+  {
+    "year": 2023,
+    "value": 58.8,
+    "type": "volcano"
+  },
+  {
+    "year": 2024,
+    "value": 52.1,
+    "type": "volcano"
+  },
+  {
+    "year": 2025,
+    "value": 61.2,
+    "type": "volcano"
+  }
+]

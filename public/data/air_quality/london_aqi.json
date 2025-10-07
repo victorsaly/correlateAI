@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "london",
+    "aqi": 82,
+    "pm25": 49,
+    "pm10": 66,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "london",
+    "aqi": 61,
+    "pm25": 36,
+    "pm10": 48,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "london",
+    "aqi": 59,
+    "pm25": 35,
+    "pm10": 47,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "london",
+    "aqi": 60,
+    "pm25": 36,
+    "pm10": 48,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "london",
+    "aqi": 64,
+    "pm25": 38,
+    "pm10": 51,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "london",
+    "aqi": 84,
+    "pm25": 50,
+    "pm10": 67,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "london",
+    "aqi": 67,
+    "pm25": 40,
+    "pm10": 54,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "london",
+    "aqi": 81,
+    "pm25": 49,
+    "pm10": 65,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "london",
+    "aqi": 57,
+    "pm25": 34,
+    "pm10": 45,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "london",
+    "aqi": 47,
+    "pm25": 28,
+    "pm10": 37,
+    "category": "good",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "london",
+    "aqi": 42,
+    "pm25": 25,
+    "pm10": 34,
+    "category": "good",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "london",
+    "aqi": 66,
+    "pm25": 40,
+    "pm10": 53,
+    "category": "moderate",
+    "generated": true
+  }
+]

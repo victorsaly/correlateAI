@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "losangeles",
+    "aqi": 87,
+    "pm25": 52,
+    "pm10": 69,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "losangeles",
+    "aqi": 92,
+    "pm25": 55,
+    "pm10": 73,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "losangeles",
+    "aqi": 97,
+    "pm25": 58,
+    "pm10": 77,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "losangeles",
+    "aqi": 101,
+    "pm25": 61,
+    "pm10": 81,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "losangeles",
+    "aqi": 114,
+    "pm25": 69,
+    "pm10": 91,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "losangeles",
+    "aqi": 84,
+    "pm25": 50,
+    "pm10": 67,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "losangeles",
+    "aqi": 79,
+    "pm25": 47,
+    "pm10": 63,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "losangeles",
+    "aqi": 100,
+    "pm25": 60,
+    "pm10": 80,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "losangeles",
+    "aqi": 104,
+    "pm25": 62,
+    "pm10": 83,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "losangeles",
+    "aqi": 81,
+    "pm25": 49,
+    "pm10": 65,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "losangeles",
+    "aqi": 85,
+    "pm25": 51,
+    "pm10": 68,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "losangeles",
+    "aqi": 75,
+    "pm25": 45,
+    "pm10": 60,
+    "category": "moderate",
+    "generated": true
+  }
+]

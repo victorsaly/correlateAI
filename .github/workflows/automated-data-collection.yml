@@ -27,7 +27,7 @@ env:
   # GitHub token for committing data
   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   
-  # API Keys stored in GitHub repository secrets - All 10 Data Sources
+  # API Keys stored in GitHub repository secrets - All 13 Data Sources
   FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
   ALPHA_VANTAGE_API_KEY: ${{ secrets.ALPHA_VANTAGE_API_KEY }}
   OPENWEATHER_API_KEY: ${{ secrets.OPENWEATHER_API_KEY }}
@@ -38,6 +38,9 @@ env:
   WORLD_BANK_API_KEY: ${{ secrets.WORLD_BANK_API_KEY }}
   BLS_API_KEY: ${{ secrets.BLS_API_KEY }}
   CDC_API_KEY: ${{ secrets.CDC_API_KEY }}
+  COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
+  OECD_API_KEY: ${{ secrets.OECD_API_KEY }}
+  WAQI_API_KEY: ${{ secrets.WAQI_API_KEY }}
   
   # Alternative: Use VITE_ prefixed keys if main keys not available
   VITE_FRED_API_KEY: ${{ secrets.VITE_FRED_API_KEY }}
@@ -50,6 +53,9 @@ env:
   VITE_WORLD_BANK_API_KEY: ${{ secrets.VITE_WORLD_BANK_API_KEY }}
   VITE_BLS_API_KEY: ${{ secrets.VITE_BLS_API_KEY }}
   VITE_CDC_API_KEY: ${{ secrets.VITE_CDC_API_KEY }}
+  VITE_COINGECKO_API_KEY: ${{ secrets.VITE_COINGECKO_API_KEY }}
+  VITE_OECD_API_KEY: ${{ secrets.VITE_OECD_API_KEY }}
+  VITE_WAQI_API_KEY: ${{ secrets.VITE_WAQI_API_KEY }}
   
   # Data collection configuration
   MAX_DATASETS_PER_RUN: 50
@@ -848,7 +854,7 @@ jobs:
       - name: 🔄 Run Comprehensive Collection Script
         id: comprehensive-collection
         run: |
-          echo "🔄 Running comprehensive data collection for all 10 sources..."
+          echo "🔄 Running comprehensive data collection for all 13 sources..."
           
           # Use our enhanced collection script
           node scripts/collect-all-sources.mjs --force

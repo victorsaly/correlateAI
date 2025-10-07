@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2014,
+    "value": 21149,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2015,
+    "value": 23173,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2016,
+    "value": 20412,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2017,
+    "value": 23765,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2018,
+    "value": 23512,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2019,
+    "value": 22956,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2020,
+    "value": 25024,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2021,
+    "value": 22613,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2022,
+    "value": 22883,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2023,
+    "value": 26064,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2024,
+    "value": 23581,
+    "mission": "neo/rest/v1/stats"
+  },
+  {
+    "year": 2025,
+    "value": 24358,
+    "mission": "neo/rest/v1/stats"
+  }
+]

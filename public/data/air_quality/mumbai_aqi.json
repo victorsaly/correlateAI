@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "mumbai",
+    "aqi": 196,
+    "pm25": 117,
+    "pm10": 156,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "mumbai",
+    "aqi": 146,
+    "pm25": 88,
+    "pm10": 117,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "mumbai",
+    "aqi": 142,
+    "pm25": 85,
+    "pm10": 113,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "mumbai",
+    "aqi": 129,
+    "pm25": 78,
+    "pm10": 104,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "mumbai",
+    "aqi": 150,
+    "pm25": 90,
+    "pm10": 120,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "mumbai",
+    "aqi": 173,
+    "pm25": 104,
+    "pm10": 139,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "mumbai",
+    "aqi": 180,
+    "pm25": 108,
+    "pm10": 144,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "mumbai",
+    "aqi": 179,
+    "pm25": 107,
+    "pm10": 143,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "mumbai",
+    "aqi": 164,
+    "pm25": 99,
+    "pm10": 131,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "mumbai",
+    "aqi": 126,
+    "pm25": 76,
+    "pm10": 101,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "mumbai",
+    "aqi": 154,
+    "pm25": 93,
+    "pm10": 123,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "mumbai",
+    "aqi": 112,
+    "pm25": 67,
+    "pm10": 89,
+    "category": "unhealthy",
+    "generated": true
+  }
+]

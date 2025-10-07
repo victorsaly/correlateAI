@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2014,
+    "value": 147,
+    "type": "water"
+  },
+  {
+    "year": 2015,
+    "value": 145.6,
+    "type": "water"
+  },
+  {
+    "year": 2016,
+    "value": 143.2,
+    "type": "water"
+  },
+  {
+    "year": 2017,
+    "value": 120,
+    "type": "water"
+  },
+  {
+    "year": 2018,
+    "value": 143.1,
+    "type": "water"
+  },
+  {
+    "year": 2019,
+    "value": 130.2,
+    "type": "water"
+  },
+  {
+    "year": 2020,
+    "value": 134.8,
+    "type": "water"
+  },
+  {
+    "year": 2021,
+    "value": 136,
+    "type": "water"
+  },
+  {
+    "year": 2022,
+    "value": 123.8,
+    "type": "water"
+  },
+  {
+    "year": 2023,
+    "value": 120.1,
+    "type": "water"
+  },
+  {
+    "year": 2024,
+    "value": 114.7,
+    "type": "water"
+  },
+  {
+    "year": 2025,
+    "value": 143.8,
+    "type": "water"
+  }
+]

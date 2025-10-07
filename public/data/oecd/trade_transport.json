@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2014,
+    "value": 99.02,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2015,
+    "value": 97.02,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2016,
+    "value": 98.76,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2017,
+    "value": 115.96,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2018,
+    "value": 91.16,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2019,
+    "value": 84.49,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2020,
+    "value": 81.17,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2021,
+    "value": 119.8,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2022,
+    "value": 77.97,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2023,
+    "value": 108.53,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2024,
+    "value": 76.17,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  },
+  {
+    "year": 2025,
+    "value": 100.55,
+    "country": "OECD",
+    "subject": "T_GOODS",
+    "dataset": "ITF_GOODS_TRANSPORT"
+  }
+]

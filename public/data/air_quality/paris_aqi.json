@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "paris",
+    "aqi": 68,
+    "pm25": 41,
+    "pm10": 54,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "paris",
+    "aqi": 65,
+    "pm25": 39,
+    "pm10": 52,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "paris",
+    "aqi": 66,
+    "pm25": 40,
+    "pm10": 53,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "paris",
+    "aqi": 87,
+    "pm25": 52,
+    "pm10": 69,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "paris",
+    "aqi": 77,
+    "pm25": 46,
+    "pm10": 62,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "paris",
+    "aqi": 56,
+    "pm25": 34,
+    "pm10": 45,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "paris",
+    "aqi": 50,
+    "pm25": 30,
+    "pm10": 40,
+    "category": "good",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "paris",
+    "aqi": 63,
+    "pm25": 38,
+    "pm10": 51,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "paris",
+    "aqi": 74,
+    "pm25": 45,
+    "pm10": 60,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "paris",
+    "aqi": 59,
+    "pm25": 36,
+    "pm10": 48,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "paris",
+    "aqi": 64,
+    "pm25": 38,
+    "pm10": 51,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "paris",
+    "aqi": 58,
+    "pm25": 35,
+    "pm10": 46,
+    "category": "moderate",
+    "generated": true
+  }
+]

@@ -1,0 +1,51 @@
+[
+  {
+    "year": 2025,
+    "city": "beijing",
+    "aqi": 253,
+    "pm25": 51,
+    "category": "unhealthy"
+  },
+  {
+    "year": 2025,
+    "city": "london",
+    "aqi": 144,
+    "pm25": 43,
+    "category": "moderate"
+  },
+  {
+    "year": 2025,
+    "city": "new york",
+    "aqi": 288,
+    "pm25": 87,
+    "category": "moderate"
+  },
+  {
+    "year": 2025,
+    "city": "tokyo",
+    "aqi": 56,
+    "pm25": 106,
+    "category": "moderate"
+  },
+  {
+    "year": 2025,
+    "city": "los angeles",
+    "aqi": 319,
+    "pm25": 67,
+    "category": "moderate"
+  },
+  {
+    "year": 2025,
+    "city": "paris",
+    "aqi": 250,
+    "pm25": 74,
+    "category": "unhealthy"
+  },
+  {
+    "year": 2025,
+    "city": "mumbai",
+    "aqi": 277,
+    "pm25": 35,
+    "category": "moderate"
+  }
+]

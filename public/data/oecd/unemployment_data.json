@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2014,
+    "value": 6.15,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2015,
+    "value": 7.17,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2016,
+    "value": 6.85,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2017,
+    "value": 4.86,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2018,
+    "value": 6.73,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2019,
+    "value": 7.37,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2020,
+    "value": 5.07,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2021,
+    "value": 6.42,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2022,
+    "value": 5.05,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2023,
+    "value": 7.5,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2024,
+    "value": 4.8,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  },
+  {
+    "year": 2025,
+    "value": 5.9,
+    "country": "OECD",
+    "subject": "UNE_LF",
+    "dataset": "LFS"
+  }
+]

@@ -1400,6 +1400,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 function App() {
   const [isAppLoading, setIsAppLoading] = useState(true)
   const [showSlideshow, setShowSlideshow] = useState(false)
+  const [dataSourcePreference, setDataSourcePreference] = useState<'mixed' | 'real' | 'synthetic'>('real')
   const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
@@ -1421,7 +1422,6 @@ function App() {
   const [dynamicDataSources, setDynamicDataSources] = useState<Map<string, DataSourceInfo>>(new Map())
   const [dynamicDataSourceService] = useState(() => new CentralizedDataSourceService())
   const [dynamicDatasetService] = useState(() => new DynamicDatasetService())
-  const [dataSourcePreference, setDataSourcePreference] = useState<'mixed' | 'real' | 'synthetic'>('real')
   const isMobile = useIsMobile()
   
   // Favorites using localStorage only
@@ -1484,11 +1484,11 @@ function App() {
         setDatasetStats(stats)
       } catch (error) {
         console.warn('Failed to load dataset count:', error)
-        // Enhanced fallback with realistic counts for all 7 data sources
+        // Enhanced fallback with realistic counts for all 13 data sources
         const fallbackStats = {
-          real: 51, // FRED(16) + WorldBank(11) + AlphaVantage(7) + OpenWeather(6) + NASA(5) + USGS(4) + EIA(5) = 54 datasets
+          real: 72, // FRED(16) + WorldBank(11) + AlphaVantage(7) + OpenWeather(6) + NASA(5) + USGS(4) + EIA(5) + CoinGecko(7) + OECD(6) + WorldAirQuality(8) = 75 datasets
           ai: 48 + datasets.length, // AI datasets + synthetic
-          total: 51 + 48 + datasets.length
+          total: 72 + 48 + datasets.length
         }
         setTotalDatasetCount(fallbackStats.total)
         setDatasetStats(fallbackStats)
@@ -1504,6 +1504,26 @@ function App() {
     
     loadDatasetCount()
   }, [dynamicDataSourceService, dynamicDatasetService])
+
+  // Initialize with real data correlation when data sources are loaded
+  useEffect(() => {
+    const initializeWithRealData = async () => {
+      if (dynamicDataSources.size > 0 && dataSourcePreference === 'real') {
+        try {
+          const realCorrelation = await generateCorrelationDataWithRealSources(
+            selectedCategory === 'all' ? undefined : selectedCategory,
+            dynamicDataSources,
+            'real'
+          )
+          setCurrentCorrelation(realCorrelation)
+        } catch (error) {
+          console.warn('Failed to generate initial real data correlation, using synthetic:', error)
+        }
+      }
+    }
+    
+    initializeWithRealData()
+  }, [dynamicDataSources, dataSourcePreference, selectedCategory])
 
   // Function to refresh dataset count (can be called when datasets are updated)
   const refreshDatasetCount = useCallback(() => {
@@ -2185,7 +2205,7 @@ function App() {
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
             <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
-              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, and OpenWeather.
+              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, OpenWeather, CoinGecko, OECD, and more.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
@@ -2254,14 +2274,14 @@ function App() {
                     <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
                       <SelectValue placeholder="Select data source" />
                     </SelectTrigger>
-                    <SelectContent className="bg-white border-gray-300 text-gray-900">
-                      <SelectItem value="mixed" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                    <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
+                      <SelectItem value="mixed" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
                         🔀 Mixed (Real + AI)
                       </SelectItem>
-                      <SelectItem value="real" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                      <SelectItem value="real" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
                         📊 Real Data Only
                       </SelectItem>
-                      <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                      <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
                         🎲 Synthetic Only
                       </SelectItem>
                     </SelectContent>
@@ -2274,10 +2294,10 @@ function App() {
                     <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
                       <SelectValue placeholder="Select category" />
                     </SelectTrigger>
-                    <SelectContent className="bg-white border-gray-300 text-gray-900">
-                      <SelectItem value="all" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">All Categories</SelectItem>
+                    <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
+                      <SelectItem value="all" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">All Categories</SelectItem>
                       {Object.entries(categories).map(([key, label]) => (
-                        <SelectItem key={key} value={key} className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100">
+                        <SelectItem key={key} value={key} className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
                           {label}
                         </SelectItem>
                       ))}

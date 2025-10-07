@@ -1,13 +1,62 @@
 [
-  {"year": 2014, "value": 1013.25},
-  {"year": 2015, "value": 1013.18},
-  {"year": 2016, "value": 1013.32},
-  {"year": 2017, "value": 1013.15},
-  {"year": 2018, "value": 1013.28},
-  {"year": 2019, "value": 1013.12},
-  {"year": 2020, "value": 1013.35},
-  {"year": 2021, "value": 1013.21},
-  {"year": 2022, "value": 1013.08},
-  {"year": 2023, "value": 1013.41},
-  {"year": 2024, "value": 1013.17}
+  {
+    "year": 2014,
+    "value": 1012.53,
+    "type": "climate"
+  },
+  {
+    "year": 2015,
+    "value": 1009.53,
+    "type": "climate"
+  },
+  {
+    "year": 2016,
+    "value": 1016.89,
+    "type": "climate"
+  },
+  {
+    "year": 2017,
+    "value": 1012.14,
+    "type": "climate"
+  },
+  {
+    "year": 2018,
+    "value": 1008.08,
+    "type": "climate"
+  },
+  {
+    "year": 2019,
+    "value": 1011.07,
+    "type": "climate"
+  },
+  {
+    "year": 2020,
+    "value": 1017.68,
+    "type": "climate"
+  },
+  {
+    "year": 2021,
+    "value": 1012.2,
+    "type": "climate"
+  },
+  {
+    "year": 2022,
+    "value": 1014.85,
+    "type": "climate"
+  },
+  {
+    "year": 2023,
+    "value": 1014.39,
+    "type": "climate"
+  },
+  {
+    "year": 2024,
+    "value": 1014.94,
+    "type": "climate"
+  },
+  {
+    "year": 2025,
+    "value": 1012.33,
+    "type": "climate"
+  }
 ]

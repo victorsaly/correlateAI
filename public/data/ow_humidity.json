@@ -1,62 +1,62 @@
 [
   {
     "year": 2014,
-    "value": 15.98,
+    "value": 77.69,
     "type": "climate"
   },
   {
     "year": 2015,
-    "value": 16.23,
+    "value": 59.85,
     "type": "climate"
   },
   {
     "year": 2016,
-    "value": 15.74,
+    "value": 52.34,
     "type": "climate"
   },
   {
     "year": 2017,
-    "value": 14.77,
+    "value": 72.17,
     "type": "climate"
   },
   {
     "year": 2018,
-    "value": 15.14,
+    "value": 83.91,
     "type": "climate"
   },
   {
     "year": 2019,
-    "value": 16.35,
+    "value": 99.09,
     "type": "climate"
   },
   {
     "year": 2020,
-    "value": 16.42,
+    "value": 75.1,
     "type": "climate"
   },
   {
     "year": 2021,
-    "value": 14.79,
+    "value": 98.37,
     "type": "climate"
   },
   {
     "year": 2022,
-    "value": 14.86,
+    "value": 81.34,
     "type": "climate"
   },
   {
     "year": 2023,
-    "value": 16.34,
+    "value": 54.35,
     "type": "climate"
   },
   {
     "year": 2024,
-    "value": 16.37,
+    "value": 77.46,
     "type": "climate"
   },
   {
     "year": 2025,
-    "value": 16.41,
+    "value": 58.9,
     "type": "climate"
   }
 ]

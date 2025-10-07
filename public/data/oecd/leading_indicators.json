@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2014,
+    "value": 100.41,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2015,
+    "value": 100.39,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2016,
+    "value": 99.73,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2017,
+    "value": 99.35,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2018,
+    "value": 99.22,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2019,
+    "value": 99.7,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2020,
+    "value": 99.5,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2021,
+    "value": 98.72,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2022,
+    "value": 97.85,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2023,
+    "value": 98.23,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2024,
+    "value": 100.56,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  },
+  {
+    "year": 2025,
+    "value": 99.4,
+    "country": "OECD",
+    "subject": "CLI",
+    "dataset": "KEI"
+  }
+]

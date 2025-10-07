@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "newyork",
+    "aqi": 70,
+    "pm25": 42,
+    "pm10": 56,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "newyork",
+    "aqi": 87,
+    "pm25": 52,
+    "pm10": 69,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "newyork",
+    "aqi": 68,
+    "pm25": 41,
+    "pm10": 55,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "newyork",
+    "aqi": 110,
+    "pm25": 66,
+    "pm10": 88,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "newyork",
+    "aqi": 102,
+    "pm25": 61,
+    "pm10": 82,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "newyork",
+    "aqi": 72,
+    "pm25": 43,
+    "pm10": 58,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "newyork",
+    "aqi": 64,
+    "pm25": 39,
+    "pm10": 52,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "newyork",
+    "aqi": 80,
+    "pm25": 48,
+    "pm10": 64,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "newyork",
+    "aqi": 76,
+    "pm25": 46,
+    "pm10": 61,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "newyork",
+    "aqi": 99,
+    "pm25": 59,
+    "pm10": 79,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "newyork",
+    "aqi": 90,
+    "pm25": 54,
+    "pm10": 72,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "newyork",
+    "aqi": 54,
+    "pm25": 32,
+    "pm10": 43,
+    "category": "moderate",
+    "generated": true
+  }
+]

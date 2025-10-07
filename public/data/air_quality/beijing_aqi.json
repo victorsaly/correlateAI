@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "beijing",
+    "aqi": 247,
+    "pm25": 148,
+    "pm10": 197,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "beijing",
+    "aqi": 189,
+    "pm25": 113,
+    "pm10": 151,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "beijing",
+    "aqi": 164,
+    "pm25": 99,
+    "pm10": 131,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "beijing",
+    "aqi": 233,
+    "pm25": 140,
+    "pm10": 186,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "beijing",
+    "aqi": 214,
+    "pm25": 128,
+    "pm10": 171,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "beijing",
+    "aqi": 152,
+    "pm25": 91,
+    "pm10": 122,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "beijing",
+    "aqi": 189,
+    "pm25": 113,
+    "pm10": 151,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "beijing",
+    "aqi": 146,
+    "pm25": 88,
+    "pm10": 117,
+    "category": "unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "beijing",
+    "aqi": 209,
+    "pm25": 125,
+    "pm10": 167,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "beijing",
+    "aqi": 165,
+    "pm25": 99,
+    "pm10": 132,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "beijing",
+    "aqi": 229,
+    "pm25": 137,
+    "pm10": 183,
+    "category": "very_unhealthy",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "beijing",
+    "aqi": 181,
+    "pm25": 109,
+    "pm10": 145,
+    "category": "very_unhealthy",
+    "generated": true
+  }
+]

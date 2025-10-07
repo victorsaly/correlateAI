@@ -188,6 +188,33 @@ export class CentralizedDataSourceService {
         'nasdaq_emerging_markets.json',
         'nasdaq_commodities.json'
       ],
+      crypto: [
+        'bitcoin_price.json',
+        'ethereum_price.json',
+        'cardano_price.json',
+        'solana_price.json',
+        'global_market_cap.json',
+        'trending_coins.json',
+        'defi_data.json'
+      ],
+      oecd: [
+        'gdp_data.json',
+        'inflation_data.json',
+        'unemployment_data.json',
+        'economic_outlook.json',
+        'leading_indicators.json',
+        'trade_transport.json'
+      ],
+      air_quality: [
+        'beijing_aqi.json',
+        'london_aqi.json',
+        'newyork_aqi.json',
+        'tokyo_aqi.json',
+        'losangeles_aqi.json',
+        'paris_aqi.json',
+        'mumbai_aqi.json',
+        'global_summary.json'
+      ],
       'ai-data': [] // AI data is counted differently
     }
 

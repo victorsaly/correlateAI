@@ -123,6 +123,33 @@ export class DynamicDataSourceService {
       dataPath: '/data/nasdaq/'
     })
 
+    await this.checkDynamicSource(sources, 'CoinGecko', {
+      name: 'CoinGecko',
+      description: 'Cryptocurrency market data and price tracking',
+      url: 'https://www.coingecko.com/',
+      category: 'cryptocurrency',
+      icon: 'currency',
+      dataPath: '/data/crypto/'
+    })
+
+    await this.checkDynamicSource(sources, 'OECD', {
+      name: 'OECD',
+      description: 'International economic data from 38 member countries',
+      url: 'https://data.oecd.org/',
+      category: 'international',
+      icon: 'globe',
+      dataPath: '/data/oecd/'
+    })
+
+    await this.checkDynamicSource(sources, 'WorldAirQuality', {
+      name: 'World Air Quality Index',
+      description: 'Global air pollution and environmental data',
+      url: 'https://aqicn.org/',
+      category: 'environmental',
+      icon: 'cloud',
+      dataPath: '/data/air_quality/'
+    })
+
     // AI-generated datasets (check for AI data)
     const aiCount = await this.countAIDatasets()
     if (aiCount > 0) {

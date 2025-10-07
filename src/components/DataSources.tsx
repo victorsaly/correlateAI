@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart, ChartLine } from '@phosphor-icons/react'
+import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart, ChartLine, CurrencyBtc, Globe, Wind } from '@phosphor-icons/react'
 import { dataService } from '@/services/staticDataService'
-import { dynamicDataSourceService, DataSourceInfo as DynamicDataSourceInfo } from '@/services/dynamicDataSourceService'
+import { CentralizedDataSourceService, DataSourceInfo as DynamicDataSourceInfo } from '@/services/centralizedDataSourceService'
 import { getSourceConfig } from '@/config/dataSources'
 
 interface DataSourceInfo {
@@ -22,11 +22,12 @@ export function DataSourcesCard() {
   useEffect(() => {
     const loadSources = async () => {
       try {
-        const dynamicSources = await dynamicDataSourceService.getDataSources()
-        const total = await dynamicDataSourceService.getTotalDatasetCount()
+        const centralizedService = new CentralizedDataSourceService()
+        const dynamicSources = await centralizedService.getDataSources()
+        const stats = await centralizedService.getDataSourceStats()
         
         setSources(dynamicSources)
-        setTotalDatasets(total)
+        setTotalDatasets(stats.totalDatasets)
       } catch (error) {
         console.error('Failed to load data sources:', error)
         // Fallback to static sources with default categories
@@ -97,9 +98,11 @@ export function DataSourcesCard() {
         
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, and health data from 
-            authoritative sources including Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, 
-            USGS earthquakes and geological data, EIA energy statistics, Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), and Nasdaq Data Link.
+            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, health, 
+            cryptocurrency, international, and environmental data from authoritative sources including Federal Reserve (FRED), World Bank, 
+            Alpha Vantage financial markets, OpenWeather, NASA space weather, USGS earthquakes and geological data, EIA energy statistics, 
+            Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), Nasdaq Data Link, CoinGecko cryptocurrency markets, 
+            OECD international economic indicators, and World Air Quality Index environmental data.
           </p>
           
           {/* Quick Access Links */}
@@ -204,6 +207,36 @@ export function DataSourcesCard() {
               Explore Nasdaq Data
               <ArrowSquareOut className="w-3 h-3" />
             </a>
+            <a
+              href="https://www.coingecko.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-purple-50 text-purple-700 border border-purple-200 rounded-md hover:bg-purple-100 transition-colors"
+            >
+              <CurrencyBtc className="w-3 h-3" />
+              Explore CoinGecko
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://data.oecd.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-indigo-50 text-indigo-700 border border-indigo-200 rounded-md hover:bg-indigo-100 transition-colors"
+            >
+              <Globe className="w-3 h-3" />
+              Explore OECD Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://aqicn.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-teal-50 text-teal-700 border border-teal-200 rounded-md hover:bg-teal-100 transition-colors"
+            >
+              <Wind className="w-3 h-3" />
+              Explore Air Quality
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
           </div>
         </div>
       </CardContent>
@@ -224,7 +257,10 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
       'EIA': <Lightning className="w-4 h-4" />,
       'BLS': <Briefcase className="w-4 h-4" />,
       'CDC': <Heart className="w-4 h-4" />,
-      'Nasdaq': <ChartLine className="w-4 h-4" />
+      'Nasdaq': <ChartLine className="w-4 h-4" />,
+      'CoinGecko': <CurrencyBtc className="w-4 h-4" />,
+      'OECD': <Globe className="w-4 h-4" />,
+      'WorldAirQuality': <Wind className="w-4 h-4" />
     }
     
     return iconMap[key] || <Database className="w-4 h-4" />
@@ -244,6 +280,9 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
       'BLS': { label: 'Labor Statistics', className: 'bg-emerald-50 text-emerald-700 border-emerald-200' },
       'CDC': { label: 'Health Statistics', className: 'bg-red-50 text-red-700 border-red-200' },
       'Nasdaq': { label: 'Financial Markets', className: 'bg-blue-50 text-blue-700 border-blue-200' },
+      'CoinGecko': { label: 'Cryptocurrency', className: 'bg-purple-50 text-purple-700 border-purple-200' },
+      'OECD': { label: 'International Data', className: 'bg-indigo-50 text-indigo-700 border-indigo-200' },
+      'WorldAirQuality': { label: 'Air Quality', className: 'bg-teal-50 text-teal-700 border-teal-200' },
       'AI': { label: 'AI-Generated', className: 'bg-purple-50 text-purple-700 border-purple-200' }
     }
     

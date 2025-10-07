@@ -1,264 +1,87 @@
 {
-  "timestamp": "2025-10-07T12:36:02.647Z",
-  "total": 32,
-  "successful": 31,
-  "failed": 1,
-  "datasets": [
-    {
-      "id": "gdp",
-      "name": "US GDP",
-      "source": "FRED",
-      "seriesId": "GDP",
-      "dataPoints": 11,
-      "error": null
+  "timestamp": "2025-10-07T17:03:38.316Z",
+  "totalSources": 13,
+  "totalDatasets": 85,
+  "successful": 85,
+  "failed": 0,
+  "sources": {
+    "FRED": {
+      "name": "Federal Reserve Economic Data",
+      "enabled": true,
+      "datasets": 17,
+      "hasApiKey": false
     },
-    {
-      "id": "unemployment",
-      "name": "Unemployment Rate",
-      "source": "FRED",
-      "seriesId": "UNRATE",
-      "dataPoints": 11,
-      "error": null
+    "WorldBank": {
+      "name": "World Bank Open Data",
+      "enabled": true,
+      "datasets": 12,
+      "hasApiKey": true
     },
-    {
-      "id": "inflation",
-      "name": "Consumer Price Index",
-      "source": "FRED",
-      "seriesId": "CPIAUCSL",
-      "dataPoints": 11,
-      "error": null
+    "AlphaVantage": {
+      "name": "Alpha Vantage Financial Data",
+      "enabled": true,
+      "datasets": 7,
+      "hasApiKey": false
     },
-    {
-      "id": "interest_rate",
-      "name": "Federal Funds Rate",
-      "source": "FRED",
-      "seriesId": "FEDFUNDS",
-      "dataPoints": 11,
-      "error": null
+    "OpenWeather": {
+      "name": "OpenWeather Climate Data",
+      "enabled": true,
+      "datasets": 6,
+      "hasApiKey": false
     },
-    {
-      "id": "housing_starts",
-      "name": "Housing Starts",
-      "source": "FRED",
-      "seriesId": "HOUST",
-      "dataPoints": 11,
-      "error": null
+    "NASA": {
+      "name": "NASA Open Data",
+      "enabled": true,
+      "datasets": 5,
+      "hasApiKey": true
     },
-    {
-      "id": "personal_income",
-      "name": "Personal Income",
-      "source": "FRED",
-      "seriesId": "PI",
-      "dataPoints": 11,
-      "error": null
+    "USGS": {
+      "name": "USGS Geological Data",
+      "enabled": true,
+      "datasets": 4,
+      "hasApiKey": true
     },
-    {
-      "id": "retail_sales",
-      "name": "Retail Sales",
-      "source": "FRED",
-      "seriesId": "RSAFS",
-      "dataPoints": 11,
-      "error": null
+    "EIA": {
+      "name": "Energy Information Administration",
+      "enabled": true,
+      "datasets": 5,
+      "hasApiKey": false
     },
-    {
-      "id": "consumer_sentiment",
-      "name": "Consumer Sentiment",
-      "source": "FRED",
-      "seriesId": "UMCSENT",
-      "dataPoints": 11,
-      "error": null
+    "BLS": {
+      "name": "Bureau of Labor Statistics",
+      "enabled": true,
+      "datasets": 2,
+      "hasApiKey": false
     },
-    {
-      "id": "industrial_production",
-      "name": "Industrial Production",
-      "source": "FRED",
-      "seriesId": "INDPRO",
-      "dataPoints": 11,
-      "error": null
+    "CDC": {
+      "name": "Centers for Disease Control",
+      "enabled": true,
+      "datasets": 1,
+      "hasApiKey": true
     },
-    {
-      "id": "stock_market",
-      "name": "S&P 500",
-      "source": "FRED",
-      "seriesId": "SP500",
-      "dataPoints": 9,
-      "error": null
+    "NasdaqDataLink": {
+      "name": "Nasdaq Data Link",
+      "enabled": true,
+      "datasets": 5,
+      "hasApiKey": false
     },
-    {
-      "id": "oil_price",
-      "name": "Oil Price",
-      "source": "FRED",
-      "seriesId": "DCOILWTICO",
-      "dataPoints": 11,
-      "error": null
+    "CoinGecko": {
+      "name": "CoinGecko Cryptocurrency Data",
+      "enabled": true,
+      "datasets": 7,
+      "hasApiKey": true
     },
-    {
-      "id": "gold_price",
-      "name": "Gold Price",
-      "source": "FRED",
-      "seriesId": "GOLDAMGBD228NLBM",
-      "dataPoints": 0,
-      "error": "HTTP 400: Bad Request"
+    "OECD": {
+      "name": "OECD International Data",
+      "enabled": true,
+      "datasets": 6,
+      "hasApiKey": true
     },
-    {
-      "id": "labor_force_participation",
-      "name": "Labor Force Participation",
-      "source": "FRED",
-      "seriesId": "CIVPART",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "median_household_income",
-      "name": "Median Household Income",
-      "source": "FRED",
-      "seriesId": "MEHOINUSA646N",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "exports",
-      "name": "US Exports",
-      "source": "FRED",
-      "seriesId": "EXPGS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "imports",
-      "name": "US Imports",
-      "source": "FRED",
-      "seriesId": "IMPGS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "government_debt",
-      "name": "Federal Debt",
-      "source": "FRED",
-      "seriesId": "GFDEBTN",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "money_supply",
-      "name": "Money Supply M2",
-      "source": "FRED",
-      "seriesId": "M2SL",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "manufacturing_employment",
-      "name": "Manufacturing Employment",
-      "source": "FRED",
-      "seriesId": "MANEMP",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "construction_spending",
-      "name": "Construction Spending",
-      "source": "FRED",
-      "seriesId": "TTLCONS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_gdp_per_capita",
-      "name": "GDP Per Capita (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "NY.GDP.PCAP.CD",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_population",
-      "name": "Population (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "SP.POP.TOTL",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_life_expectancy",
-      "name": "Life Expectancy (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "SP.DYN.LE00.IN",
-      "dataPoints": 10,
-      "error": null
-    },
-    {
-      "id": "wb_co2_emissions",
-      "name": "CO2 Emissions (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "EN.ATM.CO2E.PC",
-      "dataPoints": 0,
-      "error": null
-    },
-    {
-      "id": "wb_internet_users",
-      "name": "Internet Users (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "IT.NET.USER.ZS",
-      "dataPoints": 10,
-      "error": null
-    },
-    {
-      "id": "wb_mobile_subscriptions",
-      "name": "Mobile Subscriptions (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "IT.CEL.SETS.P2",
-      "dataPoints": 10,
-      "error": null
-    },
-    {
-      "id": "wb_urban_population",
-      "name": "Urban Population (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "SP.URB.TOTL.IN.ZS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_energy_use",
-      "name": "Energy Use (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "EG.USE.PCAP.KG.OE",
-      "dataPoints": 10,
-      "error": null
-    },
-    {
-      "id": "wb_trade_balance",
-      "name": "Trade Balance (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "NE.RSB.GNFS.ZS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_foreign_investment",
-      "name": "Foreign Direct Investment (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "BX.KLT.DINV.WD.GD.ZS",
-      "dataPoints": 11,
-      "error": null
-    },
-    {
-      "id": "wb_school_enrollment",
-      "name": "School Enrollment (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "SE.TER.ENRR",
-      "dataPoints": 9,
-      "error": null
-    },
-    {
-      "id": "wb_inflation_rate",
-      "name": "Inflation Rate (World Bank)",
-      "source": "WorldBank",
-      "seriesId": "FP.CPI.TOTL.ZG",
-      "dataPoints": 11,
-      "error": null
+    "WorldAirQuality": {
+      "name": "World Air Quality Index",
+      "enabled": true,
+      "datasets": 8,
+      "hasApiKey": false
     }
-  ]
+  }
 }

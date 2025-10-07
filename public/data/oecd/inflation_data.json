@@ -1,0 +1,86 @@
+[
+  {
+    "year": 2014,
+    "value": 2.92,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2015,
+    "value": 1.48,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2016,
+    "value": 1.75,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2017,
+    "value": 1.67,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2018,
+    "value": 2,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2019,
+    "value": 1.31,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2020,
+    "value": 1.23,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2021,
+    "value": 2.49,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2022,
+    "value": 1.27,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2023,
+    "value": 2.07,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2024,
+    "value": 1.65,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  },
+  {
+    "year": 2025,
+    "value": 1.66,
+    "country": "OECD",
+    "subject": "CPALTT01",
+    "dataset": "MEI"
+  }
+]

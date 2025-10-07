@@ -1,0 +1,110 @@
+[
+  {
+    "year": 2014,
+    "city": "tokyo",
+    "aqi": 60,
+    "pm25": 36,
+    "pm10": 48,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2015,
+    "city": "tokyo",
+    "aqi": 86,
+    "pm25": 52,
+    "pm10": 69,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2016,
+    "city": "tokyo",
+    "aqi": 78,
+    "pm25": 47,
+    "pm10": 63,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2017,
+    "city": "tokyo",
+    "aqi": 71,
+    "pm25": 43,
+    "pm10": 57,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2018,
+    "city": "tokyo",
+    "aqi": 60,
+    "pm25": 36,
+    "pm10": 48,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2019,
+    "city": "tokyo",
+    "aqi": 52,
+    "pm25": 31,
+    "pm10": 41,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2020,
+    "city": "tokyo",
+    "aqi": 48,
+    "pm25": 29,
+    "pm10": 38,
+    "category": "good",
+    "generated": true
+  },
+  {
+    "year": 2021,
+    "city": "tokyo",
+    "aqi": 74,
+    "pm25": 44,
+    "pm10": 59,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2022,
+    "city": "tokyo",
+    "aqi": 51,
+    "pm25": 31,
+    "pm10": 41,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2023,
+    "city": "tokyo",
+    "aqi": 58,
+    "pm25": 35,
+    "pm10": 46,
+    "category": "moderate",
+    "generated": true
+  },
+  {
+    "year": 2024,
+    "city": "tokyo",
+    "aqi": 30,
+    "pm25": 18,
+    "pm10": 24,
+    "category": "good",
+    "generated": true
+  },
+  {
+    "year": 2025,
+    "city": "tokyo",
+    "aqi": 49,
+    "pm25": 29,
+    "pm10": 39,
+    "category": "good",
+    "generated": true
+  }
+]

@@ -1,0 +1,62 @@
+[
+  {
+    "year": 2014,
+    "value": 596,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2015,
+    "value": 267,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2016,
+    "value": 442,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2017,
+    "value": 569,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2018,
+    "value": 970,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2019,
+    "value": 726,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2020,
+    "value": 991,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2021,
+    "value": 918,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2022,
+    "value": 441,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2023,
+    "value": 998,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2024,
+    "value": 924,
+    "mission": "planetary/apod"
+  },
+  {
+    "year": 2025,
+    "value": 905,
+    "mission": "planetary/apod"
+  }
+]
