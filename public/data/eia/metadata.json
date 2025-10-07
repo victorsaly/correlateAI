@@ -1,0 +1,43 @@
+{
+  "source": "U.S. Energy Information Administration (EIA)",
+  "baseUrl": "https://api.eia.gov/v2",
+  "description": "Energy sector data including prices, generation, and consumption",
+  "lastUpdated": "2025-10-07T02:47:51.814Z",
+  "datasets": [
+    {
+      "name": "eia_crude_oil_prices.json",
+      "description": "Daily WTI crude oil spot prices",
+      "frequency": "daily",
+      "category": "energy_prices"
+    },
+    {
+      "name": "eia_natural_gas_prices.json",
+      "description": "Daily Henry Hub natural gas spot prices",
+      "frequency": "daily",
+      "category": "energy_prices"
+    },
+    {
+      "name": "eia_electricity_generation.json",
+      "description": "Daily total electricity generation",
+      "frequency": "daily",
+      "category": "energy_generation"
+    },
+    {
+      "name": "eia_renewable_energy.json",
+      "description": "Daily renewable energy percentage",
+      "frequency": "daily",
+      "category": "energy_generation"
+    },
+    {
+      "name": "eia_petroleum_consumption.json",
+      "description": "Weekly petroleum consumption",
+      "frequency": "weekly",
+      "category": "energy_consumption"
+    }
+  ],
+  "apiInfo": {
+    "keyRequired": true,
+    "rateLimit": "5000 requests per hour",
+    "documentation": "https://www.eia.gov/opendata/documentation.php"
+  }
+}

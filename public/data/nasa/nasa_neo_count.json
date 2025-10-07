@@ -1,0 +1,75 @@
+{
+  "name": "Near Earth Objects Daily Count",
+  "description": "Daily count of Near Earth Objects approaching Earth",
+  "unit": "objects per day",
+  "category": "space",
+  "source": "NASA NEO API",
+  "sourceUrl": "https://api.nasa.gov/api.html#neows",
+  "lastUpdated": "2025-10-07T02:47:12.327Z",
+  "data": [
+    {
+      "date": "2025-09-30",
+      "value": 16,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 0
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 22,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 1
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 23,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 0
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 20,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 0
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 19,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 1
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 14,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 0
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 20,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 1
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "value": 18,
+      "metadata": {
+        "averageSize": 0,
+        "potentiallyHazardous": 1
+      }
+    }
+  ]
+}

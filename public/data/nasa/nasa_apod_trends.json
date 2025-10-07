@@ -1,0 +1,227 @@
+{
+  "name": "Astronomy Picture Trends",
+  "description": "Daily astronomy content engagement and media type trends",
+  "unit": "engagement score",
+  "category": "space",
+  "source": "NASA APOD API",
+  "sourceUrl": "https://api.nasa.gov/api.html#apod",
+  "lastUpdated": "2025-10-07T02:47:15.449Z",
+  "data": [
+    {
+      "date": "2025-09-14",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "IRAS 04302: Butterfly Disk Planet Formation",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Up from the Earth: Gigantic Jet Lightning",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "The Great Lacerta Nebula",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "The Umbra of Earth",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Lunar Eclipse in Two Hemispheres",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Star Trails over One-Mile Radio Telescope",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 8,
+      "metadata": {
+        "mediaType": "video",
+        "title": "Planets of the Solar System: Tilts and Spins",
+        "hasVideo": true
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 6,
+      "metadata": {
+        "mediaType": "other",
+        "title": "Earth During a Powerful Solar Storm",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "New Comet SWAN25B over Mexico",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Nebulas and Clusters in Sagittarius",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Comet C/2025 R2 (SWAN)",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "The NGC 6914 Complex",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Gibbous vs Crescent",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Equinox Sunset",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Equinox at Saturn",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "NGC 6357: Cathedral to Massive Stars",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "GW250114: Rotating Black Holes Collide",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Saturn Opposite the Sun",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 7,
+      "metadata": {
+        "mediaType": "image",
+        "title": "A SWAN, an ATLAS, and Mars",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "A Rocket in the Sun",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Leopard Spots on Martian Rocks",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Two Camera Comets in One Sky",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Comet Lemmon Brightens",
+        "hasVideo": false
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "value": 6,
+      "metadata": {
+        "mediaType": "image",
+        "title": "Astronomy Picture of the Day",
+        "hasVideo": false
+      }
+    }
+  ]
+}

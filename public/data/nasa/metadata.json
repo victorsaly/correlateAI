@@ -1,0 +1,18 @@
+{
+  "generatedAt": "2025-10-07T02:47:15.452Z",
+  "apiKey": "CONFIGURED",
+  "collectionsSuccessful": 5,
+  "dataTypes": [
+    "Near Earth Objects",
+    "Space Weather",
+    "Astronomy Trends",
+    "Earth Observation",
+    "Mars Weather"
+  ],
+  "notes": [
+    "NASA API provides rich space and Earth science data",
+    "Some datasets may be representative/simulated when APIs are unavailable",
+    "DEMO_KEY has rate limits - consider getting a free NASA API key",
+    "Data useful for correlating space weather with terrestrial phenomena"
+  ]
+}

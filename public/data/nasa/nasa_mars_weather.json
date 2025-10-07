@@ -1,0 +1,10 @@
+{
+  "name": "Mars Weather Conditions",
+  "description": "Daily Mars atmospheric conditions and temperature data",
+  "unit": "temperature (°C)",
+  "category": "space",
+  "source": "NASA InSight Mars Weather API",
+  "sourceUrl": "https://api.nasa.gov/api.html#insight",
+  "lastUpdated": "2025-10-07T02:47:11.885Z",
+  "data": []
+}

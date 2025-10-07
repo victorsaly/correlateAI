@@ -8,12 +8,13 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
+import { DynamicDataSourceService, type DataSourceInfo } from '@/services/dynamicDataSourceService'
 
 interface CorrelationData {
   id: string
@@ -41,11 +42,18 @@ interface Dataset {
 }
 
 const categories = {
-  food: "🍎 Food & Consumption",
-  technology: "📱 Technology", 
-  weather: "⛅ Weather & Environment",
-  social: "👥 Social & Demographics",
-  health: "❤️ Health & Wellness"
+  economics: "📈 Economics & Finance",
+  finance: "💰 Financial Markets",
+  commodities: "� Commodities & Resources", 
+  demographics: "👥 Demographics & Social",
+  trade: "🌍 International Trade",
+  technology: "📱 Technology & Innovation",
+  environment: "🌱 Environment & Climate",
+  education: "� Education & Learning",
+  climate: "🌤️ Climate & Weather",
+  space: "🚀 Space & Astronomy",
+  geology: "🏔️ Geology & Seismology",
+  energy: "⚡ Energy & Power"
 }
 
 const datasets: Dataset[] = [
@@ -1284,6 +1292,8 @@ function App() {
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
+  const [dynamicDataSources, setDynamicDataSources] = useState<Map<string, DataSourceInfo>>(new Map())
+  const [dynamicDataSourceService] = useState(() => new DynamicDataSourceService())
   const isMobile = useIsMobile()
   
   // Favorites using localStorage only
@@ -1311,39 +1321,28 @@ function App() {
         // Simulate initial loading time for better UX
         await new Promise(resolve => setTimeout(resolve, 1000))
         
-        // Count real datasets from public/data/ folder
+        // Load dynamic data sources
+        const sources = await dynamicDataSourceService.getDataSources()
+        setDynamicDataSources(sources)
+        
+        // Calculate totals from dynamic sources
         let realDatasetCount = 0
-        try {
-          const response = await fetch('/data/summary.json')
-          if (response.ok) {
-            const summary = await response.json()
-            // Count datasets mentioned in summary, excluding summary itself
-            realDatasetCount = summary?.datasets?.length || 32 // Fallback to manual count
-          }
-        } catch (error) {
-          console.warn('Could not fetch real dataset summary, using fallback count')
-          realDatasetCount = 45 // Manual count based on FRED + World Bank + Alpha Vantage + OpenWeather data
-        }
-
-        // Count AI-generated datasets from public/ai-data/ folder
         let aiDatasetCount = 0
-        try {
-          const response = await fetch('/ai-data/generation_summary.json')
-          if (response.ok) {
-            const aiSummary = await response.json()
-            aiDatasetCount = aiSummary?.totalDatasets || 48 // Fallback based on directory listing
+        
+        sources.forEach((source, key) => {
+          if (key === 'AI') {
+            aiDatasetCount += source.datasets
+          } else {
+            realDatasetCount += source.datasets
           }
-        } catch (error) {
-          console.warn('Could not fetch AI dataset summary, using fallback count')
-          aiDatasetCount = 48 // Manual count based on generated files
-        }
+        })
 
         // Also count synthetic datasets used in the app
         const syntheticCount = datasets.length
 
         const totalCount = realDatasetCount + aiDatasetCount + syntheticCount
         const stats = {
-          real: realDatasetCount, // Real datasets from APIs (FRED, World Bank)
+          real: realDatasetCount, // Real datasets from all APIs
           ai: aiDatasetCount + syntheticCount, // AI-generated + synthetic datasets
           total: totalCount
         }
@@ -1352,11 +1351,11 @@ function App() {
         setDatasetStats(stats)
       } catch (error) {
         console.warn('Failed to load dataset count:', error)
-        // Enhanced fallback with realistic counts
+        // Enhanced fallback with realistic counts for all 7 data sources
         const fallbackStats = {
-          real: 32, // Known real datasets
+          real: 51, // FRED(16) + WorldBank(11) + AlphaVantage(7) + OpenWeather(6) + NASA(5) + USGS(4) + EIA(5) = 54 datasets
           ai: 48 + datasets.length, // AI datasets + synthetic
-          total: 32 + 48 + datasets.length
+          total: 51 + 48 + datasets.length
         }
         setTotalDatasetCount(fallbackStats.total)
         setDatasetStats(fallbackStats)
@@ -2038,25 +2037,52 @@ function App() {
             <div className="flex items-center gap-2">
               <Database size={14} className="text-cyan-400" />
               <span>Powered by</span>
-              <span className="font-semibold text-blue-400">FRED</span>
-              <span>+</span>
-              <span className="font-semibold text-green-400">World Bank</span>
-              <span>+</span>
-              <span className="font-semibold text-orange-400">Alpha Vantage</span>
-              <span>+</span>
-              <span className="font-semibold text-cyan-400">OpenWeather</span>
-              <span>+</span>
-              <span className="font-semibold text-purple-400">AI Datasets</span>
+              {dynamicDataSources.size > 0 ? (
+                // Dynamic sources display
+                Array.from(dynamicDataSources.entries()).slice(0, 5).map(([key, source], index) => (
+                  <span key={key} className="flex items-center gap-1">
+                    <span className={`font-semibold ${
+                      key === 'FRED' ? 'text-blue-400' :
+                      key === 'WorldBank' ? 'text-green-400' :
+                      key === 'AlphaVantage' ? 'text-orange-400' :
+                      key === 'OpenWeather' ? 'text-cyan-400' :
+                      key === 'NASA' ? 'text-indigo-400' :
+                      key === 'USGS' ? 'text-amber-400' :
+                      key === 'EIA' ? 'text-yellow-400' :
+                      'text-purple-400'
+                    }`}>
+                      {source.name}
+                    </span>
+                    {index < Math.min(4, dynamicDataSources.size - 1) && <span>+</span>}
+                  </span>
+                ))
+              ) : (
+                // Fallback static display
+                <>
+                  <span className="font-semibold text-blue-400">FRED</span>
+                  <span>+</span>
+                  <span className="font-semibold text-green-400">World Bank</span>
+                  <span>+</span>
+                  <span className="font-semibold text-orange-400">Alpha Vantage</span>
+                  <span>+</span>
+                  <span className="font-semibold text-cyan-400">OpenWeather</span>
+                  <span>+</span>
+                  <span className="font-semibold text-purple-400">AI Datasets</span>
+                </>
+              )}
+              {dynamicDataSources.size > 5 && (
+                <span className="text-gray-400">+ {dynamicDataSources.size - 5} more</span>
+              )}
             </div>
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
               {datasetStats ? (
                 <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets`}>
+                  <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets from ${dynamicDataSources.size} sources`}>
                     {datasetStats.total} Sources
                   </span>
                   <span className="text-gray-500">•</span>
-                  <span className="text-blue-400 font-medium" title="Real economic data from FRED & World Bank">
+                  <span className="text-blue-400 font-medium" title="Real data from FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, and EIA">
                     {datasetStats.real} Real
                   </span>
                   <span className="text-gray-500">•</span>
@@ -2739,10 +2765,13 @@ function App() {
                           <h4 className={`font-semibold ${isMobile ? 'text-sm' : ''} text-purple-800`}>Data Sources Added:</h4>
                         </div>
                         <ul className={`space-y-2 ${isMobile ? 'text-xs' : 'text-sm'} text-purple-700`}>
-                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />FRED API - 20 economic datasets</li>
+                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />FRED API - 16 economic datasets</li>
                           <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />World Bank API - 11 global indicators</li>
-                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />Real-time data streaming</li>
-                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />Professional data validation</li>
+                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />Alpha Vantage - 7 financial datasets</li>
+                          <li className="flex items-center gap-2"><Database size={12} className="text-purple-500" />OpenWeather - 6 climate datasets</li>
+                          <li className="flex items-center gap-2"><Rocket size={12} className="text-purple-500" />NASA API - 5 space weather datasets</li>
+                          <li className="flex items-center gap-2"><Mountains size={12} className="text-purple-500" />USGS API - 4 geological datasets</li>
+                          <li className="flex items-center gap-2"><Lightning size={12} className="text-purple-500" />EIA API - 5 energy datasets</li>
                         </ul>
                       </div>
                     </div>
@@ -2832,8 +2861,13 @@ function App() {
                             <h5 className={`font-semibold mb-2 ${isMobile ? 'text-sm' : ''} text-blue-700`}>2. Data Sources:</h5>
                             <ul className={`space-y-1 ${isMobile ? 'text-xs' : 'text-sm'} text-blue-600`}>
                               <li>• FRED API (economic data)</li>
-                              <li>• World Bank API</li>
-                              <li>• Custom dataset APIs</li>
+                              <li>• Alpha Vantage API (financial data)</li>
+                              <li>• World Bank API (global indicators)</li>
+                              <li>• OpenWeather API (climate data)</li>
+                              <li>• NASA API (space weather)</li>
+                              <li>• USGS API (geological data)</li>
+                              <li>• EIA API (energy sector)</li>
+                              <li>• News APIs (trending content)</li>
                               <li>• CSV file uploads</li>
                               <li>• Real-time data feeds</li>
                             </ul>

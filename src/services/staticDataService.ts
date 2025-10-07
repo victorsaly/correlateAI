@@ -844,6 +844,30 @@ class StaticDataService {
       url: 'https://openweathermap.org/',
       datasets: openWeatherCount
     })
+
+    // Check for NASA datasets (from automated data collection)
+    this.checkAndAddDynamicSource(sources, 'NASA', {
+      name: 'NASA',
+      description: 'Space weather and astronomical data',
+      url: 'https://api.nasa.gov/',
+      category: 'space'
+    })
+
+    // Check for USGS datasets (from automated data collection)
+    this.checkAndAddDynamicSource(sources, 'USGS', {
+      name: 'USGS',
+      description: 'Geological and seismic activity data',
+      url: 'https://earthquake.usgs.gov/',
+      category: 'geology'
+    })
+
+    // Check for EIA datasets (from automated data collection)
+    this.checkAndAddDynamicSource(sources, 'EIA', {
+      name: 'EIA',
+      description: 'U.S. energy sector data and statistics',
+      url: 'https://www.eia.gov/',
+      category: 'energy'
+    })
     
     // AI-generated datasets
     sources.set('AI', {
@@ -854,6 +878,49 @@ class StaticDataService {
     })
     
     return sources
+  }
+
+  // Check for dynamic data sources and add them with live dataset counts
+  private checkAndAddDynamicSource(sources: Map<string, any>, sourceKey: string, sourceInfo: any) {
+    try {
+      let dataPath = ''
+      switch (sourceKey) {
+        case 'NASA':
+          dataPath = '/data/nasa/'
+          break
+        case 'USGS':
+          dataPath = '/data/usgs/'
+          break
+        case 'EIA':
+          dataPath = '/data/eia/'
+          break
+      }
+
+      // For now, we'll check if the data exists synchronously
+      // This will be updated to async when the UI supports it
+      fetch(`${dataPath}metadata.json`)
+        .then(response => {
+          if (response.ok) {
+            return response.json()
+          }
+          throw new Error('Not found')
+        })
+        .then(metadata => {
+          const datasetCount = metadata.datasets ? metadata.datasets.length : 0
+          sources.set(sourceKey, {
+            name: sourceInfo.name,
+            description: sourceInfo.description,
+            url: sourceInfo.url,
+            datasets: datasetCount
+          })
+          console.log(`✅ ${sourceKey}: Found ${datasetCount} datasets`)
+        })
+        .catch(() => {
+          console.log(`ℹ️ ${sourceKey}: Data not yet available (will be added during next data collection)`)
+        })
+    } catch (error) {
+      console.log(`ℹ️ ${sourceKey}: Error checking data availability`)
+    }
   }
 
   // Get datasets by source type

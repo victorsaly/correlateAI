@@ -1,0 +1,491 @@
+{
+  "name": "Renewable Energy Percentage",
+  "description": "Daily percentage of electricity generation from renewable sources",
+  "unit": "percentage",
+  "category": "energy",
+  "source": "U.S. Energy Information Administration (EIA)",
+  "sourceUrl": "https://www.eia.gov/electricity/data.php",
+  "lastUpdated": "2025-10-07T02:47:51.813Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 26,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.8,
+        "wind_contribution": 10.4,
+        "hydro_contribution": 5.2
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 27.5,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.2,
+        "wind_contribution": 11,
+        "hydro_contribution": 5.5
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 27.8,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.3,
+        "wind_contribution": 11.1,
+        "hydro_contribution": 5.6
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 27.5,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.2,
+        "wind_contribution": 11,
+        "hydro_contribution": 5.5
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 24.9,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.5,
+        "wind_contribution": 10,
+        "hydro_contribution": 5
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 23.4,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7,
+        "wind_contribution": 9.3,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 26,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.8,
+        "wind_contribution": 10.4,
+        "hydro_contribution": 5.2
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 24.1,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.2,
+        "wind_contribution": 9.7,
+        "hydro_contribution": 4.8
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 26,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.8,
+        "wind_contribution": 10.4,
+        "hydro_contribution": 5.2
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 27.8,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.4,
+        "wind_contribution": 11.1,
+        "hydro_contribution": 5.6
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 24.9,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.5,
+        "wind_contribution": 10,
+        "hydro_contribution": 5
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 25.9,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.8,
+        "wind_contribution": 10.4,
+        "hydro_contribution": 5.2
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 23.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.1,
+        "wind_contribution": 9.4,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 23.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.1,
+        "wind_contribution": 9.5,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 26.5,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.9,
+        "wind_contribution": 10.6,
+        "hydro_contribution": 5.3
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 23.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.1,
+        "wind_contribution": 9.5,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 25.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.7,
+        "wind_contribution": 10.3,
+        "hydro_contribution": 5.1
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 26.9,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.1,
+        "wind_contribution": 10.8,
+        "hydro_contribution": 5.4
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 23.5,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7,
+        "wind_contribution": 9.4,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 25.1,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.5,
+        "wind_contribution": 10,
+        "hydro_contribution": 5
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 24,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.2,
+        "wind_contribution": 9.6,
+        "hydro_contribution": 4.8
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 23.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.1,
+        "wind_contribution": 9.5,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 23.1,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 6.9,
+        "wind_contribution": 9.3,
+        "hydro_contribution": 4.6
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 27,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 8.1,
+        "wind_contribution": 10.8,
+        "hydro_contribution": 5.4
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 23.6,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.1,
+        "wind_contribution": 9.4,
+        "hydro_contribution": 4.7
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 25.2,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.6,
+        "wind_contribution": 10.1,
+        "hydro_contribution": 5
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 25.8,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.7,
+        "wind_contribution": 10.3,
+        "hydro_contribution": 5.2
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 22.8,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 6.8,
+        "wind_contribution": 9.1,
+        "hydro_contribution": 4.6
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 25.4,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.6,
+        "wind_contribution": 10.2,
+        "hydro_contribution": 5.1
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 26.3,
+      "metadata": {
+        "sources": [
+          "wind",
+          "solar",
+          "hydroelectric",
+          "geothermal",
+          "biomass"
+        ],
+        "solar_contribution": 7.9,
+        "wind_contribution": 10.5,
+        "hydro_contribution": 5.3
+      }
+    }
+  ]
+}

@@ -1,0 +1,281 @@
+{
+  "name": "Daily Electricity Generation",
+  "description": "Daily total electricity generation from all sources",
+  "unit": "thousand MWh",
+  "category": "energy",
+  "source": "U.S. Energy Information Administration (EIA)",
+  "sourceUrl": "https://www.eia.gov/electricity/data.php",
+  "lastUpdated": "2025-10-07T02:47:51.812Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 3873,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 4055,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 4085,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 29.1
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 4229,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 24.4
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 4251,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 25.1
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 4198,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 20.1
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 4185,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 3884,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 29.8
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 4072,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 25
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 4256,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 24.4
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 4178,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 29.2
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 4316,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28.2
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 4186,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 27.9
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 4298,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 3967,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 21.6
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 3864,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 23.6
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 4227,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 24.8
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 4138,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 29.3
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 4143,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 20
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 4270,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 26.7
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 4332,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 21.3
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 3952,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28.6
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 4000,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 28.6
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 4084,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 22.7
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 4263,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 22.4
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 4135,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 20.9
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 3994,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 20.6
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 4228,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 21.3
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 3965,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 22
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 3864,
+      "metadata": {
+        "source": "all_sources",
+        "unit": "thousand megawatthours",
+        "renewable_percentage": 25.1
+      }
+    }
+  ]
+}

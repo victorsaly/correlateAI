@@ -1,0 +1,259 @@
+{
+  "name": "Average Daily Seismic Magnitude",
+  "description": "Daily average magnitude of earthquakes worldwide",
+  "unit": "magnitude (Richter scale)",
+  "category": "geology",
+  "source": "USGS Earthquake API",
+  "sourceUrl": "https://earthquake.usgs.gov/fdsnws/event/1/",
+  "lastUpdated": "2025-10-07T02:47:39.315Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 3.97,
+      "metadata": {
+        "earthquakeCount": 57,
+        "maxMagnitude": 5.1
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 3.93,
+      "metadata": {
+        "earthquakeCount": 65,
+        "maxMagnitude": 6.4
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 3.85,
+      "metadata": {
+        "earthquakeCount": 67,
+        "maxMagnitude": 5.8
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 3.73,
+      "metadata": {
+        "earthquakeCount": 39,
+        "maxMagnitude": 5.1
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 3.96,
+      "metadata": {
+        "earthquakeCount": 49,
+        "maxMagnitude": 5.3
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 4.05,
+      "metadata": {
+        "earthquakeCount": 47,
+        "maxMagnitude": 5.6
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 4.06,
+      "metadata": {
+        "earthquakeCount": 46,
+        "maxMagnitude": 7.4
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 3.8,
+      "metadata": {
+        "earthquakeCount": 39,
+        "maxMagnitude": 5.5
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 4.31,
+      "metadata": {
+        "earthquakeCount": 35,
+        "maxMagnitude": 6
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 3.91,
+      "metadata": {
+        "earthquakeCount": 25,
+        "maxMagnitude": 6
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 3.74,
+      "metadata": {
+        "earthquakeCount": 32,
+        "maxMagnitude": 5.4
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 4.48,
+      "metadata": {
+        "earthquakeCount": 76,
+        "maxMagnitude": 7.8
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 4.44,
+      "metadata": {
+        "earthquakeCount": 83,
+        "maxMagnitude": 5.9
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 4.08,
+      "metadata": {
+        "earthquakeCount": 58,
+        "maxMagnitude": 5.3
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 4.11,
+      "metadata": {
+        "earthquakeCount": 44,
+        "maxMagnitude": 5.7
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 4.36,
+      "metadata": {
+        "earthquakeCount": 42,
+        "maxMagnitude": 5.6
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 4.37,
+      "metadata": {
+        "earthquakeCount": 37,
+        "maxMagnitude": 5.5
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 3.88,
+      "metadata": {
+        "earthquakeCount": 37,
+        "maxMagnitude": 6.2
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 4.22,
+      "metadata": {
+        "earthquakeCount": 50,
+        "maxMagnitude": 6.3
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 4.17,
+      "metadata": {
+        "earthquakeCount": 34,
+        "maxMagnitude": 5.9
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 3.9,
+      "metadata": {
+        "earthquakeCount": 36,
+        "maxMagnitude": 5.5
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 3.75,
+      "metadata": {
+        "earthquakeCount": 40,
+        "maxMagnitude": 5.5
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 3.91,
+      "metadata": {
+        "earthquakeCount": 31,
+        "maxMagnitude": 5.5
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 4.17,
+      "metadata": {
+        "earthquakeCount": 38,
+        "maxMagnitude": 6.9
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 4.08,
+      "metadata": {
+        "earthquakeCount": 32,
+        "maxMagnitude": 5.6
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 4.08,
+      "metadata": {
+        "earthquakeCount": 38,
+        "maxMagnitude": 5.7
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 4.32,
+      "metadata": {
+        "earthquakeCount": 48,
+        "maxMagnitude": 6.1
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 4.05,
+      "metadata": {
+        "earthquakeCount": 29,
+        "maxMagnitude": 6
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 4.15,
+      "metadata": {
+        "earthquakeCount": 48,
+        "maxMagnitude": 5.4
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 3.96,
+      "metadata": {
+        "earthquakeCount": 44,
+        "maxMagnitude": 5.6
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "value": 4.24,
+      "metadata": {
+        "earthquakeCount": 7,
+        "maxMagnitude": 5.1
+      }
+    }
+  ]
+}

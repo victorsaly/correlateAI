@@ -1,0 +1,259 @@
+{
+  "name": "Earth Observation Activity",
+  "description": "Daily Earth observation and satellite imagery activity index",
+  "unit": "observation index",
+  "category": "space",
+  "source": "NASA Earth Imagery API",
+  "sourceUrl": "https://api.nasa.gov/api.html#earth",
+  "lastUpdated": "2025-10-07T02:47:11.428Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 43,
+      "metadata": {
+        "cloudCover": 23,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 35,
+      "metadata": {
+        "cloudCover": 4,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 43,
+      "metadata": {
+        "cloudCover": 31,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 49,
+      "metadata": {
+        "cloudCover": 73,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 48,
+      "metadata": {
+        "cloudCover": 56,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 34,
+      "metadata": {
+        "cloudCover": 87,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 42,
+      "metadata": {
+        "cloudCover": 48,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 46,
+      "metadata": {
+        "cloudCover": 9,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 50,
+      "metadata": {
+        "cloudCover": 52,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 45,
+      "metadata": {
+        "cloudCover": 92,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 37,
+      "metadata": {
+        "cloudCover": 61,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 36,
+      "metadata": {
+        "cloudCover": 4,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 43,
+      "metadata": {
+        "cloudCover": 34,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 44,
+      "metadata": {
+        "cloudCover": 7,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 43,
+      "metadata": {
+        "cloudCover": 71,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 34,
+      "metadata": {
+        "cloudCover": 25,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 42,
+      "metadata": {
+        "cloudCover": 24,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 42,
+      "metadata": {
+        "cloudCover": 21,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 41,
+      "metadata": {
+        "cloudCover": 55,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 47,
+      "metadata": {
+        "cloudCover": 96,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 39,
+      "metadata": {
+        "cloudCover": 20,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 36,
+      "metadata": {
+        "cloudCover": 41,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 38,
+      "metadata": {
+        "cloudCover": 57,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 33,
+      "metadata": {
+        "cloudCover": 56,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 42,
+      "metadata": {
+        "cloudCover": 23,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 48,
+      "metadata": {
+        "cloudCover": 2,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 34,
+      "metadata": {
+        "cloudCover": 47,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 31,
+      "metadata": {
+        "cloudCover": 49,
+        "imageQuality": "good"
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 31,
+      "metadata": {
+        "cloudCover": 8,
+        "imageQuality": "excellent"
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 43,
+      "metadata": {
+        "cloudCover": 84,
+        "imageQuality": "fair"
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "value": 37,
+      "metadata": {
+        "cloudCover": 99,
+        "imageQuality": "fair"
+      }
+    }
+  ]
+}

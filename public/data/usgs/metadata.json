@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2025-10-07T02:47:39.315Z",
+  "apiAccess": "Public (no API key required)",
+  "collectionsSuccessful": 3,
+  "dataTypes": [
+    "Daily Earthquake Counts",
+    "Seismic Magnitude Averages",
+    "Significant Earthquakes",
+    "Seismic Activity Index"
+  ],
+  "notes": [
+    "USGS provides free access to global earthquake data",
+    "Data updated in real-time from global seismic networks",
+    "Useful for correlating geological activity with other phenomena",
+    "Activity index is calculated based on frequency and magnitude"
+  ]
+}

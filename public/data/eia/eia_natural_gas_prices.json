@@ -1,0 +1,281 @@
+{
+  "name": "Henry Hub Natural Gas Spot Price",
+  "description": "Daily Henry Hub natural gas spot prices (simulated)",
+  "unit": "USD per MMBtu",
+  "category": "energy",
+  "source": "EIA Data (Simulated)",
+  "sourceUrl": "https://www.eia.gov/naturalgas/data.php#prices",
+  "lastUpdated": "2025-10-07T02:47:51.811Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 2.6,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 3.09,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 3.13,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 3.49,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 3.47,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 3.28,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 3.27,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 3.54,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 3.32,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 3.28,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 2.93,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 3.06,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 3.28,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 3.25,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 3.11,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 2.8,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 3.37,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 2.61,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 3.56,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 3.32,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 3.5,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 3.17,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 3.4,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 3.52,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 2.82,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 3.24,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 3.46,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 3.43,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 3.66,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 3.09,
+      "metadata": {
+        "series": "RNGWHHD_SIM",
+        "seriesDescription": "Simulated Henry Hub Natural Gas Price",
+        "units": "Dollars per Million Btu"
+      }
+    }
+  ]
+}

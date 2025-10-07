@@ -1,0 +1,259 @@
+{
+  "name": "Daily Earthquake Count",
+  "description": "Daily count of earthquakes magnitude 2.5 or greater worldwide",
+  "unit": "earthquakes per day",
+  "category": "geology",
+  "source": "USGS Earthquake API",
+  "sourceUrl": "https://earthquake.usgs.gov/fdsnws/event/1/",
+  "lastUpdated": "2025-10-07T02:47:39.314Z",
+  "data": [
+    {
+      "date": "2025-09-07",
+      "value": 57,
+      "metadata": {
+        "maxMagnitude": 5.1,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-08",
+      "value": 65,
+      "metadata": {
+        "maxMagnitude": 6.4,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-09",
+      "value": 67,
+      "metadata": {
+        "maxMagnitude": 5.8,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-10",
+      "value": 39,
+      "metadata": {
+        "maxMagnitude": 5.1,
+        "minMagnitude": 2.52
+      }
+    },
+    {
+      "date": "2025-09-11",
+      "value": 49,
+      "metadata": {
+        "maxMagnitude": 5.3,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-12",
+      "value": 47,
+      "metadata": {
+        "maxMagnitude": 5.6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-13",
+      "value": 46,
+      "metadata": {
+        "maxMagnitude": 7.4,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-14",
+      "value": 39,
+      "metadata": {
+        "maxMagnitude": 5.5,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-15",
+      "value": 35,
+      "metadata": {
+        "maxMagnitude": 6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-16",
+      "value": 25,
+      "metadata": {
+        "maxMagnitude": 6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-17",
+      "value": 32,
+      "metadata": {
+        "maxMagnitude": 5.4,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-18",
+      "value": 76,
+      "metadata": {
+        "maxMagnitude": 7.8,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-19",
+      "value": 83,
+      "metadata": {
+        "maxMagnitude": 5.9,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-20",
+      "value": 58,
+      "metadata": {
+        "maxMagnitude": 5.3,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-21",
+      "value": 44,
+      "metadata": {
+        "maxMagnitude": 5.7,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-22",
+      "value": 42,
+      "metadata": {
+        "maxMagnitude": 5.6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-23",
+      "value": 37,
+      "metadata": {
+        "maxMagnitude": 5.5,
+        "minMagnitude": 2.6
+      }
+    },
+    {
+      "date": "2025-09-24",
+      "value": 37,
+      "metadata": {
+        "maxMagnitude": 6.2,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-25",
+      "value": 50,
+      "metadata": {
+        "maxMagnitude": 6.3,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-26",
+      "value": 34,
+      "metadata": {
+        "maxMagnitude": 5.9,
+        "minMagnitude": 2.6
+      }
+    },
+    {
+      "date": "2025-09-27",
+      "value": 36,
+      "metadata": {
+        "maxMagnitude": 5.5,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-28",
+      "value": 40,
+      "metadata": {
+        "maxMagnitude": 5.5,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-29",
+      "value": 31,
+      "metadata": {
+        "maxMagnitude": 5.5,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-09-30",
+      "value": 38,
+      "metadata": {
+        "maxMagnitude": 6.9,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-01",
+      "value": 32,
+      "metadata": {
+        "maxMagnitude": 5.6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-02",
+      "value": 38,
+      "metadata": {
+        "maxMagnitude": 5.7,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-03",
+      "value": 48,
+      "metadata": {
+        "maxMagnitude": 6.1,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-04",
+      "value": 29,
+      "metadata": {
+        "maxMagnitude": 6,
+        "minMagnitude": 2.51
+      }
+    },
+    {
+      "date": "2025-10-05",
+      "value": 48,
+      "metadata": {
+        "maxMagnitude": 5.4,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-06",
+      "value": 44,
+      "metadata": {
+        "maxMagnitude": 5.6,
+        "minMagnitude": 2.5
+      }
+    },
+    {
+      "date": "2025-10-07",
+      "value": 7,
+      "metadata": {
+        "maxMagnitude": 5.1,
+        "minMagnitude": 2.71
+      }
+    }
+  ]
+}
