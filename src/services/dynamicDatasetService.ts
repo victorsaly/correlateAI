@@ -475,31 +475,31 @@ export class DynamicDatasetService {
         'ow_wind_patterns.json'
       ],
       'CoinGecko': [
-        'crypto/bitcoin_price.json',
-        'crypto/ethereum_price.json',
-        'crypto/cardano_price.json',
-        'crypto/solana_price.json',
-        'crypto/trending_coins.json',
-        'crypto/defi_data.json',
-        'crypto/global_market_cap.json'
+        'bitcoin_price.json',
+        'ethereum_price.json',
+        'cardano_price.json',
+        'solana_price.json',
+        'trending_coins.json',
+        'defi_data.json',
+        'global_market_cap.json'
       ],
       'OECD': [
-        'oecd/gdp_data.json',
-        'oecd/inflation_data.json',
-        'oecd/unemployment_data.json',
-        'oecd/economic_outlook.json',
-        'oecd/leading_indicators.json',
-        'oecd/trade_transport.json'
+        'gdp_data.json',
+        'inflation_data.json',
+        'unemployment_data.json',
+        'economic_outlook.json',
+        'leading_indicators.json',
+        'trade_transport.json'
       ],
       'WorldAirQuality': [
-        'air_quality/beijing_aqi.json',
-        'air_quality/london_aqi.json',
-        'air_quality/losangeles_aqi.json',
-        'air_quality/mumbai_aqi.json',
-        'air_quality/newyork_aqi.json',
-        'air_quality/paris_aqi.json',
-        'air_quality/tokyo_aqi.json',
-        'air_quality/global_summary.json'
+        'beijing_aqi.json',
+        'london_aqi.json',
+        'losangeles_aqi.json',
+        'mumbai_aqi.json',
+        'newyork_aqi.json',
+        'paris_aqi.json',
+        'tokyo_aqi.json',
+        'global_summary.json'
       ],
       'NASA': [
         'asteroid_count.json',
