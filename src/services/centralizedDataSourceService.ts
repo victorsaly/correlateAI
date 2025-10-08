@@ -41,30 +41,23 @@ export class CentralizedDataSourceService {
 
     // Process each source from the registry
     for (const config of DATA_SOURCE_REGISTRY) {
-      if (config.isStatic) {
-        // Static sources are always available
+      if (config.key === 'AI') continue // Skip AI source
+      
+      // For all sources, check actual availability but use expectedDatasets as fallback
+      const actualDatasets = await this.checkSourceAvailability(config)
+      const datasets = actualDatasets > 0 ? actualDatasets : config.expectedDatasets
+      
+      // Only include if we have datasets (either actual or expected)
+      if (datasets > 0) {
         sources.set(config.key, {
           name: config.name,
           description: config.description,
           url: config.url,
-          datasets: config.expectedDatasets,
+          datasets: datasets,
           category: config.category,
-          icon: config.icon
+          icon: config.icon,
+          lastUpdated: config.isStatic ? undefined : new Date().toISOString()
         })
-      } else {
-        // Dynamic sources - check availability
-        const actualDatasets = await this.checkSourceAvailability(config)
-        if (actualDatasets > 0) {
-          sources.set(config.key, {
-            name: config.name,
-            description: config.description,
-            url: config.url,
-            datasets: actualDatasets,
-            category: config.category,
-            icon: config.icon,
-            lastUpdated: new Date().toISOString()
-          })
-        }
       }
     }
 
@@ -123,8 +116,8 @@ export class CentralizedDataSourceService {
     if (!config.dataPath) return 0
 
     try {
-      const sourceKey = config.dataPath.split('/').filter(p => p).pop() || ''
-      return await this.countAvailableFiles(sourceKey, config.dataPath)
+      // Use the config.key directly instead of extracting from dataPath
+      return await this.countAvailableFiles(config.key, config.dataPath)
     } catch (error) {
       return 0
     }
