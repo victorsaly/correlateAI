@@ -173,7 +173,8 @@ async function generateCorrelationDataWithRealSources(
   // Build dataset pool based on preference
   switch (preference) {
     case 'real':
-      availableDatasets = realDatasets.length >= 2 ? realDatasets : datasets // Fallback to synthetic if not enough real data
+      availableDatasets = realDatasets.length >= 2 ? realDatasets : []
+      console.log(`📊 Real Data Filtering: Found ${realDatasets.length} real datasets for preference="${preference}"`)
       break
     case 'synthetic':
       availableDatasets = datasets // Only synthetic datasets
@@ -184,12 +185,25 @@ async function generateCorrelationDataWithRealSources(
       break
   }
   
+  console.log(`🔧 Before category filter: ${availableDatasets.length} datasets available`)
+  
   // Filter by category if specified
   if (selectedCategory && selectedCategory !== 'all') {
+    const beforeFilter = availableDatasets.length
     availableDatasets = availableDatasets.filter(d => d.category === selectedCategory)
+    console.log(`🏷️ Category "${selectedCategory}" filter: ${beforeFilter} → ${availableDatasets.length} datasets`)
   }
   
-  // Ensure we have at least 2 datasets
+  console.log(`✅ Final dataset pool: ${availableDatasets.length} datasets available for correlation generation`)
+  
+  // For "real" preference, don't fall back to synthetic - throw error instead
+  if (preference === 'real' && availableDatasets.length < 2) {
+    console.error(`❌ Insufficient real data: Only ${availableDatasets.length} datasets available for category "${selectedCategory || 'all'}", need at least 2`)
+    console.log('Real datasets discovered:', realDatasets.map(d => `${d.name} (${d.category}) from ${d.dataSource}`))
+    throw new Error(`Insufficient real data available for category "${selectedCategory || 'all'}". Found ${availableDatasets.length} datasets, need at least 2.`)
+  }
+  
+  // For mixed/synthetic preference, ensure we have at least 2 datasets
   if (availableDatasets.length < 2) {
     availableDatasets = datasets // Ultimate fallback to synthetic
   }
@@ -1525,7 +1539,11 @@ function App() {
           )
           setCurrentCorrelation(realCorrelation)
         } catch (error) {
-          console.warn('Failed to generate initial real data correlation, using synthetic:', error)
+          console.warn('Failed to generate initial real data correlation:', error)
+          // For "real only" mode, show synthetic data but with clear messaging
+          const syntheticCorrelation = generateCorrelationData(selectedCategory === 'all' ? undefined : selectedCategory)
+          setCurrentCorrelation(syntheticCorrelation)
+          toast.warning(`⚠️ Not enough real data for "${selectedCategory || 'all categories'}". Showing synthetic data instead.`)
         }
       }
     }
@@ -1583,11 +1601,24 @@ function App() {
       await new Promise(resolve => setTimeout(resolve, 800))
       
       // Use enhanced data generation with user preference
-      const newCorrelation = await generateCorrelationDataWithRealSources(
-        selectedCategory === 'all' ? undefined : selectedCategory,
-        dynamicDataSources,
-        dataSourcePreference
-      )
+      let newCorrelation
+      try {
+        newCorrelation = await generateCorrelationDataWithRealSources(
+          selectedCategory === 'all' ? undefined : selectedCategory,
+          dynamicDataSources,
+          dataSourcePreference
+        )
+      } catch (error) {
+        if (dataSourcePreference === 'real') {
+          // For "real only" mode, fall back to synthetic but show clear messaging
+          console.warn('Not enough real data, falling back to synthetic:', error)
+          newCorrelation = generateCorrelationData(selectedCategory === 'all' ? undefined : selectedCategory)
+          toast.warning(`⚠️ Not enough real data for "${selectedCategory || 'all categories'}". Showing synthetic data instead.`)
+        } else {
+          throw error // Re-throw for other preferences
+        }
+      }
+      
       setCurrentCorrelation(newCorrelation)
       
       // Show appropriate success message based on preference and actual result
@@ -1597,11 +1628,14 @@ function App() {
           : "✨ Generated correlation using synthetic data!",
         'real': newCorrelation.isRealData 
           ? "📊 Generated correlation from real API data!"
-          : "⚠️ Generated with synthetic data (limited real data available)",
+          : "⚠️ Using synthetic data - not enough real data available",
         'synthetic': "🎲 Generated correlation from synthetic datasets!"
       }
       
-      toast.success(successMessages[dataSourcePreference])
+      // Only show success message if we didn't already show a warning
+      if (!(dataSourcePreference === 'real' && !newCorrelation.isRealData)) {
+        toast.success(successMessages[dataSourcePreference])
+      }
       
     } catch (error) {
       console.error('Error generating correlation:', error)
@@ -3543,19 +3577,36 @@ function CorrelationCard({
                 </div>
                 <ColorizedTitle title={correlation.title} isMobile={isMobile} />
               </div>
-              <Badge 
-                variant="secondary" 
-                className={`${getCorrelationColor(correlation.correlation)} ${isMobile ? 'text-xs' : ''} ${
-                  Math.abs(correlation.correlation) >= 0.7 ? 'animate-pulse' : ''
-                }`}
-              >
-                {correlation.correlation > 0 ? '+' : ''}
-                {(correlation.correlation * 100).toFixed(1)}% correlation
-              </Badge>
+              <div className="flex items-center gap-2">
+                <Badge 
+                  variant="outline"
+                  className={`${
+                    correlation.isRealData 
+                      ? 'bg-green-50 border-green-200 text-green-700' 
+                      : 'bg-orange-50 border-orange-200 text-orange-700'
+                  } ${isMobile ? 'text-xs px-1.5 py-0.5' : 'text-xs'}`}
+                >
+                  {correlation.isRealData ? '📊 Real Data' : '🤖 AI Generated'}
+                </Badge>
+                <Badge 
+                  variant="secondary" 
+                  className={`${getCorrelationColor(correlation.correlation)} ${isMobile ? 'text-xs' : ''} ${
+                    Math.abs(correlation.correlation) >= 0.7 ? 'animate-pulse' : ''
+                  }`}
+                >
+                  {correlation.correlation > 0 ? '+' : ''}
+                  {(correlation.correlation * 100).toFixed(1)}% correlation
+                </Badge>
+              </div>
             </CardTitle>
             <p className={`text-gray-300 mt-2 leading-relaxed ${isMobile ? 'text-xs' : 'text-sm'}`}>
               {correlation.description}
             </p>
+            {correlation.isRealData && (
+              <p className={`text-gray-400 mt-1 ${isMobile ? 'text-xs' : 'text-sm'} font-mono`}>
+                Sources: {correlation.variable1.dataSource || 'Unknown'} • {correlation.variable2.dataSource || 'Unknown'}
+              </p>
+            )}
           </div>
           
           {/* Action buttons in single row for mobile, 2x2 grid for desktop */}

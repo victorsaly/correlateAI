@@ -154,66 +154,127 @@ export class CentralizedDataSourceService {
    */
   private getKnownFilesForSource(sourceKey: string): string[] {
     const fileMap: Record<string, string[]> = {
+      fred: [
+        'gdp.json',
+        'unemployment.json',
+        'inflation.json',
+        'interest_rate.json',
+        'housing_starts.json',
+        'personal_income.json',
+        'retail_sales.json',
+        'consumer_sentiment.json',
+        'industrial_production.json',
+        'labor_force_participation.json',
+        'median_household_income.json',
+        'exports.json',
+        'imports.json',
+        'government_debt.json',
+        'money_supply.json',
+        'manufacturing_employment.json',
+        'construction_spending.json'
+      ],
+      worldbank: [
+        'wb_gdp_per_capita.json',
+        'wb_population.json',
+        'wb_life_expectancy.json',
+        'wb_co2_emissions.json',
+        'wb_internet_users.json',
+        'wb_mobile_subscriptions.json',
+        'wb_urban_population.json',
+        'wb_energy_use.json',
+        'wb_trade_balance.json',
+        'wb_foreign_investment.json',
+        'wb_school_enrollment.json',
+        'wb_inflation_rate.json'
+      ],
+      alphavantage: [
+        'stock_market.json',
+        'av_spy_price.json',
+        'oil_price.json',
+        'gold_price.json',
+        'av_aapl_price.json',
+        'av_nasdaq_index.json'
+      ],
+      openweather: [
+        'ow_global_temp.json',
+        'ow_climate_pressure.json',
+        'ow_humidity.json',
+        'ow_precipitation.json',
+        'ow_uv_index.json',
+        'ow_wind_patterns.json'
+      ],
       nasa: [
-        'nasa_neo_count.json',
-        'nasa_space_weather.json',
-        'nasa_apod_trends.json',
-        'nasa_earth_observation.json',
-        'nasa_mars_weather.json'
+        'nasa/asteroid_count.json',
+        'nasa/earth_temperature.json',
+        'nasa/solar_activity.json',
+        'nasa/space_missions.json',
+        'nasa/mars_data.json',
+        'nasa/nasa_apod_trends.json',
+        'nasa/nasa_earth_observation.json',
+        'nasa/nasa_mars_weather.json',
+        'nasa/nasa_neo_count.json',
+        'nasa/nasa_space_weather.json'
       ],
       usgs: [
-        'usgs_daily_earthquakes.json',
-        'usgs_seismic_magnitude.json',
-        'usgs_significant_earthquakes.json',
-        'usgs_seismic_activity_index.json'
+        'usgs/earthquake_data.json',
+        'usgs/volcano_activity.json',
+        'usgs/groundwater_levels.json',
+        'usgs/mineral_production.json',
+        'usgs/usgs_daily_earthquakes.json',
+        'usgs/usgs_seismic_magnitude.json',
+        'usgs/usgs_significant_earthquakes.json',
+        'usgs/usgs_seismic_activity_index.json'
       ],
       eia: [
-        'eia_crude_oil_prices.json',
-        'eia_natural_gas_prices.json',
-        'eia_electricity_generation.json',
-        'eia_renewable_energy.json',
-        'eia_petroleum_consumption.json'
+        'eia/eia_crude_oil_prices.json',
+        'eia/eia_natural_gas_prices.json',
+        'eia/eia_electricity_generation.json',
+        'eia/eia_renewable_energy.json',
+        'eia/eia_petroleum_consumption.json'
       ],
       bls: [
-        'bls_consumer_price_index.json',
-        'bls_producer_price_index.json'
+        'bls/employment_stats.json',
+        'bls/wage_data.json',
+        'bls/bls_consumer_price_index.json',
+        'bls/bls_producer_price_index.json'
       ],
       cdc: [
-        'cdc_covid_deaths.json'
+        'cdc/health_statistics.json',
+        'cdc/cdc_covid_deaths.json'
       ],
       nasdaq: [
-        'nasdaq_composite_index.json',
-        'nasdaq_tech_etf.json',
-        'nasdaq_bond_index.json',
-        'nasdaq_emerging_markets.json',
-        'nasdaq_commodities.json'
+        'nasdaq/nasdaq_composite_index.json',
+        'nasdaq/nasdaq_tech_etf.json',
+        'nasdaq/nasdaq_bond_index.json',
+        'nasdaq/nasdaq_emerging_markets.json',
+        'nasdaq/nasdaq_commodities.json'
       ],
       crypto: [
-        'bitcoin_price.json',
-        'ethereum_price.json',
-        'cardano_price.json',
-        'solana_price.json',
-        'global_market_cap.json',
-        'trending_coins.json',
-        'defi_data.json'
+        'crypto/bitcoin_price.json',
+        'crypto/ethereum_price.json',
+        'crypto/cardano_price.json',
+        'crypto/solana_price.json',
+        'crypto/global_market_cap.json',
+        'crypto/trending_coins.json',
+        'crypto/defi_data.json'
       ],
       oecd: [
-        'gdp_data.json',
-        'inflation_data.json',
-        'unemployment_data.json',
-        'economic_outlook.json',
-        'leading_indicators.json',
-        'trade_transport.json'
+        'oecd/gdp_data.json',
+        'oecd/inflation_data.json',
+        'oecd/unemployment_data.json',
+        'oecd/economic_outlook.json',
+        'oecd/leading_indicators.json',
+        'oecd/trade_transport.json'
       ],
       air_quality: [
-        'beijing_aqi.json',
-        'london_aqi.json',
-        'newyork_aqi.json',
-        'tokyo_aqi.json',
-        'losangeles_aqi.json',
-        'paris_aqi.json',
-        'mumbai_aqi.json',
-        'global_summary.json'
+        'air_quality/beijing_aqi.json',
+        'air_quality/london_aqi.json',
+        'air_quality/newyork_aqi.json',
+        'air_quality/tokyo_aqi.json',
+        'air_quality/losangeles_aqi.json',
+        'air_quality/paris_aqi.json',
+        'air_quality/mumbai_aqi.json',
+        'air_quality/global_summary.json'
       ],
       'ai-data': [] // AI data is counted differently
     }

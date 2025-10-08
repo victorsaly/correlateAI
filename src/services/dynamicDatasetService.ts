@@ -128,7 +128,7 @@ export class DynamicDatasetService {
   ): DynamicDataset | null {
     try {
       // Extract dataset name from filename or metadata
-      const baseName = fileName.replace('.json', '').replace(/^.*_/, '').replace(/-/g, ' ')
+      const baseName = fileName.replace('.json', '')
       const datasetName = metadata?.title || this.formatDatasetName(baseName)
       
       // Analyze actual data to extract characteristics
@@ -282,6 +282,138 @@ export class DynamicDatasetService {
    * Format dataset name from filename
    */
   private formatDatasetName(baseName: string): string {
+    // Enhanced mapping for real dataset names to more descriptive titles
+    const datasetNameMap: Record<string, string> = {
+      // NASA datasets
+      'asteroid_count': 'Near-Earth Asteroid Count',
+      'earth_temperature': 'Global Earth Temperature',
+      'solar_activity': 'Solar Activity Index',
+      'space_missions': 'Active Space Missions',
+      'mars_data': 'Mars Atmospheric Data',
+      'nasa_neo_count': 'NASA Near-Earth Objects',
+      'nasa_space_weather': 'Space Weather Events',
+      'nasa_apod_trends': 'Astronomy Picture Trends',
+      'nasa_earth_observation': 'Earth Observation Data',
+      'nasa_mars_weather': 'Mars Weather Monitoring',
+      
+      // USGS datasets
+      'earthquake_data': 'Earthquake Activity',
+      'volcano_activity': 'Volcanic Activity Index',
+      'groundwater_levels': 'Groundwater Level Measurements',
+      'mineral_production': 'Mineral Production Statistics',
+      'usgs_daily_earthquakes': 'Daily Earthquake Count',
+      'usgs_seismic_magnitude': 'Seismic Magnitude Readings',
+      'usgs_significant_earthquakes': 'Significant Earthquakes',
+      'usgs_seismic_activity_index': 'Seismic Activity Index',
+      
+      // EIA datasets
+      'eia_crude_oil_prices': 'Crude Oil Prices',
+      'eia_natural_gas_prices': 'Natural Gas Prices',
+      'eia_electricity_generation': 'Electricity Generation',
+      'eia_renewable_energy': 'Renewable Energy Production',
+      'eia_petroleum_consumption': 'Petroleum Consumption',
+      
+      // BLS datasets
+      'employment_stats': 'Employment Statistics',
+      'wage_data': 'Wage and Salary Data',
+      'bls_consumer_price_index': 'Consumer Price Index',
+      'bls_producer_price_index': 'Producer Price Index',
+      
+      // CDC datasets
+      'health_statistics': 'Public Health Statistics',
+      'cdc_covid_deaths': 'COVID-19 Death Statistics',
+      
+      // Nasdaq datasets
+      'nasdaq_composite_index': 'NASDAQ Composite Index',
+      'nasdaq_tech_etf': 'Technology ETF Performance',
+      'nasdaq_bond_index': 'Bond Index Performance',
+      'nasdaq_emerging_markets': 'Emerging Markets Index',
+      'nasdaq_commodities': 'Commodities Index',
+      
+      // FRED datasets
+      'gdp': 'Gross Domestic Product',
+      'unemployment': 'Unemployment Rate',
+      'inflation': 'Inflation Rate',
+      'interest_rate': 'Federal Interest Rate',
+      'housing_starts': 'Housing Construction Starts',
+      'personal_income': 'Personal Income Growth',
+      'retail_sales': 'Retail Sales Volume',
+      'consumer_sentiment': 'Consumer Sentiment Index',
+      'industrial_production': 'Industrial Production Index',
+      'labor_force_participation': 'Labor Force Participation Rate',
+      'median_household_income': 'Median Household Income',
+      'exports': 'Export Volume',
+      'imports': 'Import Volume',
+      'government_debt': 'Government Debt Levels',
+      'money_supply': 'Money Supply (M2)',
+      'construction_spending': 'Construction Spending',
+      'manufacturing_employment': 'Manufacturing Employment',
+      
+      // WorldBank datasets
+      'wb_gdp_per_capita': 'GDP Per Capita',
+      'wb_population': 'World Population',
+      'wb_life_expectancy': 'Life Expectancy',
+      'wb_co2_emissions': 'CO2 Emissions',
+      'wb_energy_use': 'Energy Consumption',
+      'wb_internet_users': 'Internet Users Percentage',
+      'wb_mobile_subscriptions': 'Mobile Phone Subscriptions',
+      'wb_school_enrollment': 'School Enrollment Rate',
+      'wb_urban_population': 'Urban Population Percentage',
+      'wb_inflation_rate': 'Inflation Rate (World Bank)',
+      'wb_trade_balance': 'Trade Balance',
+      'wb_foreign_investment': 'Foreign Direct Investment',
+      
+      // AlphaVantage datasets
+      'av_aapl_price': 'Apple Stock Price',
+      'av_nasdaq_index': 'NASDAQ Index',
+      'av_spy_price': 'S&P 500 ETF Price',
+      'stock_market': 'Stock Market Index',
+      'oil_price': 'Oil Price',
+      'gold_price': 'Gold Price',
+      
+      // OpenWeather datasets
+      'ow_global_temp': 'Global Temperature',
+      'ow_climate_pressure': 'Atmospheric Pressure',
+      'ow_humidity': 'Global Humidity Levels',
+      'ow_precipitation': 'Precipitation Patterns',
+      'ow_uv_index': 'UV Index Measurements',
+      'ow_wind_patterns': 'Wind Pattern Analysis',
+      
+      // Crypto datasets
+      'bitcoin_price': 'Bitcoin Price',
+      'ethereum_price': 'Ethereum Price',
+      'cardano_price': 'Cardano Price',
+      'solana_price': 'Solana Price',
+      'global_market_cap': 'Global Crypto Market Cap',
+      'trending_coins': 'Trending Cryptocurrencies',
+      'defi_data': 'DeFi Protocol Data',
+      
+      // OECD datasets
+      'gdp_data': 'OECD GDP Data',
+      'inflation_data': 'OECD Inflation Data',
+      'unemployment_data': 'OECD Unemployment Data',
+      'economic_outlook': 'OECD Economic Outlook',
+      'leading_indicators': 'OECD Leading Indicators',
+      'trade_transport': 'OECD Trade & Transport',
+      
+      // Air Quality datasets
+      'beijing_aqi': 'Beijing Air Quality Index',
+      'london_aqi': 'London Air Quality Index',
+      'newyork_aqi': 'New York Air Quality Index',
+      'tokyo_aqi': 'Tokyo Air Quality Index',
+      'losangeles_aqi': 'Los Angeles Air Quality Index',
+      'paris_aqi': 'Paris Air Quality Index',
+      'mumbai_aqi': 'Mumbai Air Quality Index',
+      'global_summary': 'Global Air Quality Summary'
+    }
+    
+    // Check if we have a specific mapping for this dataset
+    const fileName = baseName.toLowerCase().replace('.json', '')
+    if (datasetNameMap[fileName]) {
+      return datasetNameMap[fileName]
+    }
+    
+    // Fallback: format the base name nicely
     return baseName
       .split(/[_-\s]+/)
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
@@ -336,41 +468,72 @@ export class DynamicDatasetService {
       ],
       'OpenWeather': [
         'ow_global_temp.json',
-        'ow_climate_pressure.json'
+        'ow_climate_pressure.json',
+        'ow_humidity.json',
+        'ow_precipitation.json',
+        'ow_uv_index.json',
+        'ow_wind_patterns.json'
+      ],
+      'CoinGecko': [
+        'crypto/bitcoin_price.json',
+        'crypto/ethereum_price.json',
+        'crypto/cardano_price.json',
+        'crypto/solana_price.json',
+        'crypto/trending_coins.json',
+        'crypto/defi_data.json',
+        'crypto/global_market_cap.json'
+      ],
+      'OECD': [
+        'oecd/gdp_data.json',
+        'oecd/inflation_data.json',
+        'oecd/unemployment_data.json',
+        'oecd/economic_outlook.json',
+        'oecd/leading_indicators.json',
+        'oecd/trade_transport.json'
+      ],
+      'WorldAirQuality': [
+        'air_quality/beijing_aqi.json',
+        'air_quality/london_aqi.json',
+        'air_quality/losangeles_aqi.json',
+        'air_quality/mumbai_aqi.json',
+        'air_quality/newyork_aqi.json',
+        'air_quality/paris_aqi.json',
+        'air_quality/tokyo_aqi.json',
+        'air_quality/global_summary.json'
       ],
       'NASA': [
-        'nasa/asteroid_count.json',
-        'nasa/earth_temperature.json',
-        'nasa/solar_activity.json',
-        'nasa/space_missions.json',
-        'nasa/satellite_data.json'
+        'asteroid_count.json',
+        'earth_temperature.json',
+        'solar_activity.json',
+        'space_missions.json',
+        'mars_data.json'
       ],
       'USGS': [
-        'usgs/earthquake_data.json',
-        'usgs/volcano_activity.json',
-        'usgs/groundwater_levels.json',
-        'usgs/mineral_production.json'
+        'earthquake_data.json',
+        'volcano_activity.json',
+        'groundwater_levels.json',
+        'mineral_production.json'
       ],
       'EIA': [
-        'eia/crude_oil_production.json',
-        'eia/natural_gas_prices.json',
-        'eia/electricity_generation.json',
-        'eia/renewable_capacity.json',
-        'eia/energy_consumption.json'
+        'eia_crude_oil_prices.json',
+        'eia_natural_gas_prices.json',
+        'eia_electricity_generation.json',
+        'eia_renewable_energy.json',
+        'eia_petroleum_consumption.json'
       ],
       'BLS': [
-        'bls/employment_stats.json',
-        'bls/wage_data.json'
+        'employment_stats.json',
+        'wage_data.json'
       ],
       'CDC': [
-        'cdc/health_statistics.json'
+        'health_statistics.json'
       ],
-      'NasdaqDataLink': [
-        'nasdaq/nasdaq_composite.json',
-        'nasdaq/treasury_rates.json',
-        'nasdaq/volatility_index.json',
-        'nasdaq/commodity_prices.json',
-        'nasdaq/currency_rates.json'
+      'Nasdaq': [
+        'nasdaq_composite_index.json',
+        'nasdaq_bond_index.json',
+        'nasdaq_commodities.json',
+        'nasdaq_emerging_markets.json',
+        'nasdaq_tech_etf.json'
       ]
     }
 

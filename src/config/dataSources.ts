@@ -35,7 +35,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-blue-400',
     badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
     isStatic: true,
-    expectedDatasets: 16
+    expectedDatasets: 16,
+    dataPath: '/data/'
   },
   {
     key: 'WorldBank',
@@ -48,7 +49,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-green-400',
     badgeColor: 'bg-green-50 text-green-700 border-green-200',
     isStatic: true,
-    expectedDatasets: 11
+    expectedDatasets: 11,
+    dataPath: '/data/'
   },
   {
     key: 'AlphaVantage',
@@ -61,7 +63,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-orange-400',
     badgeColor: 'bg-orange-50 text-orange-700 border-orange-200',
     isStatic: true,
-    expectedDatasets: 7
+    expectedDatasets: 7,
+    dataPath: '/data/'
   },
   {
     key: 'OpenWeather',
@@ -74,7 +77,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-cyan-400',
     badgeColor: 'bg-cyan-50 text-cyan-700 border-cyan-200',
     isStatic: true,
-    expectedDatasets: 6
+    expectedDatasets: 6,
+    dataPath: '/data/'
   },
 
   // Dynamic Sources (check for data availability)
@@ -173,7 +177,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-purple-400',
     badgeColor: 'bg-purple-50 text-purple-700 border-purple-200',
     isStatic: true,
-    expectedDatasets: 7
+    expectedDatasets: 7,
+    dataPath: '/data/crypto/'
   },
   {
     key: 'OECD',
@@ -186,7 +191,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-indigo-400',
     badgeColor: 'bg-indigo-50 text-indigo-700 border-indigo-200',
     isStatic: true,
-    expectedDatasets: 6
+    expectedDatasets: 6,
+    dataPath: '/data/oecd/'
   },
   {
     key: 'WorldAirQuality',
@@ -199,7 +205,8 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     color: 'text-teal-400',
     badgeColor: 'bg-teal-50 text-teal-700 border-teal-200',
     isStatic: true,
-    expectedDatasets: 8
+    expectedDatasets: 8,
+    dataPath: '/data/air_quality/'
   },
 
   // AI-Generated (special case)
