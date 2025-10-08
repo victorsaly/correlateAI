@@ -1,39 +1,39 @@
 [
   {
     "location": "New York, US",
-    "temperature": 18.93,
+    "temperature": 21.75,
     "year": 2025,
-    "value": 18.93
+    "value": 21.75
   },
   {
     "location": "London, GB",
-    "temperature": 12.42,
+    "temperature": 13.22,
     "year": 2025,
-    "value": 12.42
+    "value": 13.22
   },
   {
     "location": "Tokyo, JP",
-    "temperature": 24.28,
+    "temperature": 27.96,
     "year": 2025,
-    "value": 24.28
+    "value": 27.96
   },
   {
     "location": "Sydney, AU",
-    "temperature": 21.13,
+    "temperature": 26.01,
     "year": 2025,
-    "value": 21.13
+    "value": 26.01
   },
   {
     "location": "Mumbai, IN",
-    "temperature": 28.01,
+    "temperature": 31,
     "year": 2025,
-    "value": 28.01
+    "value": 31
   },
   {
     "location": "São Paulo, BR",
-    "temperature": 19.69,
+    "temperature": 15.4,
     "year": 2025,
-    "value": 19.69
+    "value": 15.4
   },
   {
     "location": "Cairo, EG",
@@ -43,20 +43,20 @@
   },
   {
     "location": "Moscow, RU",
-    "temperature": 11.4,
+    "temperature": 12.28,
     "year": 2025,
-    "value": 11.4
+    "value": 12.28
   },
   {
     "location": "Dubai, AE",
-    "temperature": 34.01,
+    "temperature": 32.01,
     "year": 2025,
-    "value": 34.01
+    "value": 32.01
   },
   {
     "location": "Toronto, CA",
-    "temperature": 19.15,
+    "temperature": 13.56,
     "year": 2025,
-    "value": 19.15
+    "value": 13.56
   }
 ]
