@@ -34,13 +34,19 @@ export default defineConfig(({ mode }) => {
             ui: ['@radix-ui/react-select', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
             charts: ['recharts'],
             icons: ['@phosphor-icons/react']
-          }
+          },
+          // Ensure proper file extensions for GitHub Pages
+          entryFileNames: 'assets/[name]-[hash].js',
+          chunkFileNames: 'assets/[name]-[hash].js',
+          assetFileNames: 'assets/[name]-[hash].[ext]'
         }
       },
       assetsDir: 'assets',
       // Ensure proper CSS and JS handling
       cssCodeSplit: true,
-      emptyOutDir: true
+      emptyOutDir: true,
+      // Better GitHub Pages compatibility
+      assetsInlineLimit: 0
     },
     server: {
       // Development server configuration (only used in dev mode)

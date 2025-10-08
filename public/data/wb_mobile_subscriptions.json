@@ -1,57 +1,42 @@
 [
   {
-    "year": "2014",
-    "value": 96.7,
-    "country": "World"
+    "year": 2014,
+    "value": 99.8396
   },
   {
-    "year": "2015",
-    "value": 96.1,
-    "country": "World"
+    "year": 2015,
+    "value": 101.832
   },
   {
-    "year": "2016",
-    "value": 99.3,
-    "country": "World"
+    "year": 2016,
+    "value": 102.752
   },
   {
-    "year": "2017",
-    "value": 101.4,
-    "country": "World"
+    "year": 2017,
+    "value": 102.381
   },
   {
-    "year": "2018",
-    "value": 103.1,
-    "country": "World"
+    "year": 2018,
+    "value": 103.935
   },
   {
-    "year": "2019",
-    "value": 105.9,
-    "country": "World"
+    "year": 2019,
+    "value": 105.321
   },
   {
-    "year": "2020",
-    "value": 104.9,
-    "country": "World"
+    "year": 2020,
+    "value": 103.855
   },
   {
-    "year": "2021",
-    "value": 106.7,
-    "country": "World"
+    "year": 2021,
+    "value": 106.325
   },
   {
-    "year": "2022",
-    "value": 108.1,
-    "country": "World"
+    "year": 2022,
+    "value": 108.786
   },
   {
-    "year": "2023",
-    "value": 109.4,
-    "country": "World"
-  },
-  {
-    "year": "2024",
-    "value": 112.1,
-    "country": "World"
+    "year": 2023,
+    "value": 112.411
   }
 ]

@@ -10,7 +10,7 @@
   "citation": "JMIR Mental Health Digital Therapeutics Report (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-10-07T12:36:02.827Z",
+  "aiGeneratedAt": "2025-10-08T10:49:50.649Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "Low",
   "seasonal": "No",
   "covidImpact": "None",
-  "lastUpdated": "2025-10-07T12:36:02.827Z",
+  "lastUpdated": "2025-10-08T10:49:50.649Z",
   "tags": [
     "health",
     "ai-generated",

@@ -9,13 +9,25 @@
   # Performance Headers
   Cache-Control: public, max-age=31536000, immutable
 
-# JavaScript modules - proper MIME type
+# JavaScript modules - proper MIME type for GitHub Pages
 /*.js
-  Content-Type: application/javascript
+  Content-Type: text/javascript; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
 
 /*.mjs
-  Content-Type: application/javascript
+  Content-Type: text/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.jsx
+  Content-Type: text/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ts
+  Content-Type: text/javascript; charset=utf-8
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.tsx
+  Content-Type: text/javascript; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
 
 # CSS files

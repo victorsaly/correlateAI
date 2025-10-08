@@ -1,57 +1,46 @@
 [
   {
-    "year": "2014",
-    "value": 53.2720421527374,
-    "country": "World"
+    "year": 2014,
+    "value": 81.483
   },
   {
-    "year": "2015",
-    "value": 53.7372524306533,
-    "country": "World"
+    "year": 2015,
+    "value": 81.671
   },
   {
-    "year": "2016",
-    "value": 54.1987359505442,
-    "country": "World"
+    "year": 2016,
+    "value": 81.862
   },
   {
-    "year": "2017",
-    "value": 54.6501253213613,
-    "country": "World"
+    "year": 2017,
+    "value": 82.058
   },
   {
-    "year": "2018",
-    "value": 55.0928852332806,
-    "country": "World"
+    "year": 2018,
+    "value": 82.256
   },
   {
-    "year": "2019",
-    "value": 55.5315178075519,
-    "country": "World"
+    "year": 2019,
+    "value": 82.459
   },
   {
-    "year": "2020",
-    "value": 55.9623738261611,
-    "country": "World"
+    "year": 2020,
+    "value": 82.664
   },
   {
-    "year": "2021",
-    "value": 56.3752739801048,
-    "country": "World"
+    "year": 2021,
+    "value": 82.873
   },
   {
-    "year": "2022",
-    "value": 56.815715402616,
-    "country": "World"
+    "year": 2022,
+    "value": 83.084
   },
   {
-    "year": "2023",
-    "value": 57.2603934495146,
-    "country": "World"
+    "year": 2023,
+    "value": 83.298
   },
   {
-    "year": "2024",
-    "value": 57.7006387971638,
-    "country": "World"
+    "year": 2024,
+    "value": 83.515
   }
 ]

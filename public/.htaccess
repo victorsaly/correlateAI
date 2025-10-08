@@ -1,0 +1,27 @@
+# GitHub Pages compatible configurations
+# Force MIME types for JavaScript modules
+<IfModule mod_mime.c>
+    AddType text/javascript .js .mjs .jsx .ts .tsx
+    AddType application/json .json
+    AddType image/svg+xml .svg
+    AddType text/css .css
+</IfModule>
+
+# Security Headers
+<IfModule mod_headers.c>
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-Frame-Options DENY
+    Header always set X-XSS-Protection "1; mode=block"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # Cache static assets
+    <FilesMatch "\.(js|css|json|svg|png|jpg|gif|ico|woff|woff2)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+</IfModule>
+
+# Disable directory browsing
+Options -Indexes
+
+# Custom error pages
+ErrorDocument 404 /404.html

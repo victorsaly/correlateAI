@@ -37,6 +37,9 @@ jobs:
           VITE_APP_NAME: "CorrelateAI Pro"
           VITE_APP_VERSION: "1.0.0"
 
+      - name: Add .nojekyll file for GitHub Pages
+        run: touch ./dist/.nojekyll
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
