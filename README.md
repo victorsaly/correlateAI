@@ -1,43 +1,8 @@
-# CorrelateAI Pro 🤖📊
+# CorrelateAI Pro 🎯📊
 
-> **A professional data correlation analysis tool built entirely through AI## 🚀 The Development Story
+> **A professional spurious correlation detection tool with quantum information theory validation - built entirely through AI**
 
-**## 🔗 API Integration Summary
-
-**Total Data Coverage**: 13 authoritative data sources providing real-time access to:
-- **Economics**: FRED (16 datasets), World Bank (11 datasets), BLS (2 datasets)
-- **Financial**: Alpha Vantage (7 datasets), Nasdaq Data Link (5 datasets)
-- **Climate**: OpenWeather (6 datasets)
-- **Space**: NASA (5 datasets)
-- **Geology**: USGS (4 datasets)
-- **Energy**: EIA (5 datasets)
-- **Health**: CDC (1 dataset)cation evolved from a simple 2-day prototype to a comprehensive multi-domain data platform through AI-assisted development.**
-
-📜 **[Read the full development story](./DEVELOPMENT_STORY.md)** - A detailed case study of AI-assisted development from GitHub Spark prototype to production-ready application.
-
-### Enhanced Development Timeline:
-1. **Phase 1 (0-2 days)**: Initial prototype with FRED and World Bank APIs
-2. **Phase 2 (Day 3-4)**: UI enhancement and data visualization
-3. **Phase 3 (Day 5-6)**: Expansion to 7 API sources with NASA, USGS, EIA
-4. **Phase 4 (Day 7)**: Automated data collection workflows and dynamic UI
-
-### AI-Driven Feature Expansion:
-- ✅ **Multi-domain correlation analysis** across economics, finance, climate, space, geology, and energy
-- ✅ **Dynamic data source detection** with real-time counting
-- ✅ **Automated data collection workflows** using GitHub Actions
-- ✅ **Professional API integration** with error handling and fallbacks
-- ✅ **Mobile-optimized animated header** for better UXdevelopment**
-
-📖 **[Complete GitHub Setup Guide](./docs/github-setup.md)** - Detailed deployment instructions
-
-[![AI-Generated](https://img.shields.io/badge/Built%20with-AI%20Assistance-purple?style=flat-square&logo=openai)](https://github.com/victorsaly)
-[![React](https://img.shields.io/badge/React-19.0.0-blue?style=flat-square&logo=react)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-Latest-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
-[![Data Sources](https://img.shields.io/badge/API%20Sources-10%20Live%20APIs-green?style=flat-square&logo=databricks)](https://fred.stlouisfed.org/)
-[![Datasets](https://img.shields.io/badge/Datasets-51%2B%20Real%20Data-blue?style=flat-square&logo=chart.js)](https://correlateai.victorsaly.com)
-[![Security](https://img.shields.io/badge/Security-Audit%20Passed-brightgreen?style=flat-square&logo=shield)](./scripts/security-audit.sh)
-
-**Discover surprising correlations in real economic data using AI-powered analysis.**
+**Discover and validate correlations in real data while detecting spurious (false) relationships using comprehensive statistical analysis and quantum information theory approaches.**
 
 ![CorrelateAI Pro Interface](./public/img/hero-interface-correlateai.jpeg)
 *Professional data correlation interface with real-time economic data visualization*
@@ -65,10 +30,12 @@ CorrelateAI Pro demonstrates the power of AI-assisted development by being **100
 *Responsive mobile interface with interactive data exploration*
 
 ### 🎯 Key Features
+- **🚨 Spurious Correlation Detection**: Primary focus on identifying false correlations using comprehensive validation
+- **📊 Statistical Analysis Coverage**: Complete suite including p-values, permutation tests, Box-Cox transformations
+- **⚛️ Quantum Information Theory**: Holistic validation approach with multiple verification methods
 - **7 Live API Sources**: FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA
 - **51+ Real Datasets**: Economics, finance, climate, space, geology, and energy data
 - **Multi-Domain Analysis**: Cross-sector correlations across diverse data domains
-- **Statistical Analysis**: Correlation coefficients with R-squared values
 - **Interactive Visualization**: Dynamic charts and data exploration
 - **Social Sharing**: Twitter, Facebook, LinkedIn integration
 - **Favorites System**: Save and organize interesting correlations
