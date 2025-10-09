@@ -4,8 +4,10 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Separator } from '@/components/ui/separator'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Brain, Calculator, ChevronDown, TrendingUp, AlertTriangle, BookOpen, ArrowLeft } from 'lucide-react'
+import { Brain, Calculator, ChevronDown, TrendingUp, AlertTriangle, BookOpen, ArrowLeft, Atom, Zap } from 'lucide-react'
 import { SpuriousCorrelationCalculator } from './SpuriousCorrelationCalculator'
+import { QuantumCorrelationDisplay } from './QuantumCorrelationDisplay'
+import { quantumCorrelationService } from '@/services/quantumCorrelationService'
 
 interface SpuriousCorrelationPageProps {
   onBack?: () => void
@@ -16,12 +18,28 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
     examples: boolean
     methodology: boolean
     calculator: boolean
+    quantum: boolean
     advanced: boolean
   }>({
     examples: true,
     methodology: false,
     calculator: false,
+    quantum: true,
     advanced: false
+  })
+
+  // Sample data for quantum analysis demonstration
+  const [quantumResult, setQuantumResult] = useState(() => {
+    // Generate sample correlation data
+    const sampleData1 = Array.from({ length: 10 }, (_, i) => ({
+      year: 2014 + i,
+      value: 100 + Math.random() * 50 + i * 5
+    }))
+    const sampleData2 = Array.from({ length: 10 }, (_, i) => ({
+      year: 2014 + i,
+      value: 200 + Math.random() * 80 + i * 7
+    }))
+    return quantumCorrelationService.calculateQuantumCorrelation(sampleData1, sampleData2)
   })
 
   const toggleSection = (section: keyof typeof expandedSections) => {
@@ -52,8 +70,8 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
               <div className="flex items-center gap-3">
                 <Brain className="w-8 h-8 text-purple-400" />
                 <div>
-                  <h1 className="text-2xl font-bold">Spurious Correlation Analysis</h1>
-                  <p className="text-sm text-gray-400">Mathematical detection and statistical analysis tools</p>
+                  <h1 className="text-2xl font-bold">Advanced Statistical Analysis</h1>
+                  <p className="text-sm text-gray-400">Quantum-inspired correlation and spurious relationship detection</p>
                 </div>
               </div>
             </div>
@@ -323,6 +341,85 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
             <CollapsibleContent>
               <CardContent>
                 <SpuriousCorrelationCalculator />
+              </CardContent>
+            </CollapsibleContent>
+          </Collapsible>
+        </Card>
+
+        {/* Quantum-Inspired Correlation Analysis */}
+        <Card className="bg-gray-800/50 border-gray-700">
+          <Collapsible open={expandedSections.quantum} onOpenChange={() => toggleSection('quantum')}>
+            <CollapsibleTrigger asChild>
+              <CardHeader className="cursor-pointer hover:bg-gray-700/50 transition-colors">
+                <CardTitle className="flex items-center justify-between text-white">
+                  <span className="flex items-center gap-2">
+                    <Atom className="w-5 h-5 text-purple-400" />
+                    Quantum-Inspired Analysis
+                  </span>
+                  <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections.quantum ? 'rotate-180' : ''}`} />
+                </CardTitle>
+              </CardHeader>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <CardContent>
+                <div className="space-y-6">
+                  <div className="bg-gradient-to-r from-purple-900/20 to-blue-900/20 border border-purple-500/30 rounded-lg p-4">
+                    <h4 className="text-lg font-semibold text-purple-300 mb-3 flex items-center gap-2">
+                      <Zap className="w-5 h-5" />
+                      Quantum Correlation Metrics
+                    </h4>
+                    <p className="text-gray-300 mb-4">
+                      Our quantum-inspired analysis uses advanced algorithms to detect non-linear relationships, 
+                      entanglement patterns, and coherence levels that traditional correlation methods might miss.
+                    </p>
+                    
+                    {/* Live Quantum Analysis Demo */}
+                    <div className="bg-gray-900/50 rounded-lg p-4 border border-gray-600/50">
+                      <h5 className="text-md font-medium text-cyan-300 mb-3">Live Analysis Example</h5>
+                      <QuantumCorrelationDisplay
+                        result={quantumResult}
+                        title="Sample Quantum Analysis"
+                        variable1Name="Economic Indicator A"
+                        variable2Name="Market Factor B"
+                      />
+                    </div>
+
+                    {/* Quantum vs Classical Comparison */}
+                    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+                      <div className="bg-gray-900/30 p-4 rounded-lg border border-blue-500/20">
+                        <h6 className="font-semibold text-blue-300 mb-2">🔬 Quantum-Inspired Metrics</h6>
+                        <ul className="text-sm text-gray-300 space-y-1">
+                          <li>• Quantum Confidence: {(quantumResult.quantumConfidence).toFixed(1)}%</li>
+                          <li>• Entanglement Strength: {quantumResult.entanglementStrength.toFixed(3)}</li>
+                          <li>• Coherence Score: {quantumResult.coherenceScore.toFixed(3)}</li>
+                          <li>• Quantum Significance: {(quantumResult.quantumSignificance).toFixed(1)}%</li>
+                        </ul>
+                      </div>
+                      <div className="bg-gray-900/30 p-4 rounded-lg border border-green-500/20">
+                        <h6 className="font-semibold text-green-300 mb-2">📊 Classical Metrics</h6>
+                        <ul className="text-sm text-gray-300 space-y-1">
+                          <li>• Pearson Correlation: {quantumResult.correlation.toFixed(3)}</li>
+                          <li>• R-Squared: {quantumResult.rSquared.toFixed(3)}</li>
+                          <li>• Statistical Significance: {(quantumResult.significance).toFixed(1)}%</li>
+                          <li>• Direction: {quantumResult.direction}</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                    {/* Key Advantages */}
+                    <div className="mt-6 bg-purple-900/20 border border-purple-500/30 rounded-lg p-4">
+                      <h6 className="font-semibold text-purple-300 mb-3">🚀 Quantum Analysis Advantages</h6>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm text-gray-300">
+                        <div>• Detects non-linear relationships</div>
+                        <div>• Measures data entanglement patterns</div>
+                        <div>• Evaluates coherence levels</div>
+                        <div>• Provides quantum confidence intervals</div>
+                        <div>• Identifies hidden correlations</div>
+                        <div>• Advanced significance testing</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </CardContent>
             </CollapsibleContent>
           </Collapsible>

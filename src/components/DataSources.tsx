@@ -103,11 +103,10 @@ export function DataSourcesCard() {
         
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
-            <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, health, 
-            cryptocurrency, international, environmental, crime, education, housing, social, and transportation data from authoritative sources including 
-            Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, USGS earthquakes and geological data, 
-            EIA energy statistics, Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), Nasdaq Data Link, CoinGecko cryptocurrency markets, 
-            OECD international economic indicators, World Air Quality Index environmental data, National Center for Health Statistics (NCHS), 
+            <strong>Data Quality Commitment:</strong> We combine high-quality real data from authoritative sources with carefully curated AI-generated datasets. 
+            Real data comes from trusted sources including Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, 
+            USGS earthquakes and geological data, EIA energy statistics, Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), Nasdaq Data Link, 
+            CoinGecko cryptocurrency markets, OECD international economic indicators, World Air Quality Index environmental data, National Center for Health Statistics (NCHS), 
             US Census Bureau economic data, FBI Uniform Crime Reporting, National Center for Education Statistics (NCES), Housing and Urban Development (HUD), 
             Pew Research Center social trends, Bureau of Economic Analysis (BEA) trade data, and Department of Transportation (DOT) safety statistics.
           </p>

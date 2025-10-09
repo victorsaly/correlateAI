@@ -959,4 +959,5 @@ class StaticDataService {
   }
 }
 
+export { StaticDataService }
 export const dataService = new StaticDataService()

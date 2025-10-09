@@ -7,10 +7,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
-import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck, Brain, Calculator } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck, Calculator } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -20,6 +19,8 @@ import { SpuriousCorrelationCalculator } from '@/components/SpuriousCorrelationC
 import { SpuriousCorrelationPage } from '@/components/SpuriousCorrelationPage'
 import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/centralizedDataSourceService'
 import { DynamicDatasetService, type DynamicDataset } from '@/services/dynamicDatasetService'
+import { quantumCorrelationService, type QuantumCorrelationResult } from '@/services/quantumCorrelationService'
+import { QuantumCorrelationDisplay, QuantumCorrelationCard } from '@/components/QuantumCorrelationDisplay'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -36,6 +37,8 @@ interface CorrelationData {
   year: number
   isRealData: boolean
   dataSource: string
+  quantumAnalysis?: QuantumCorrelationResult
+  quantumMetrics?: QuantumCorrelationResult
 }
 
 interface Dataset {
@@ -144,6 +147,96 @@ const journals = [
   "Annals of Statistical Coincidence",
   "Quarterly Journal of Dubious Findings"
 ]
+
+// Import StaticDataService for real data loading
+import { StaticDataService } from './services/staticDataService'
+
+// Test quantum correlation service on app load
+console.log('🧪 Testing quantum correlation service...')
+try {
+  const testData1 = [
+    { year: 2020, value: 100 },
+    { year: 2021, value: 110 },
+    { year: 2022, value: 120 }
+  ]
+  const testData2 = [
+    { year: 2020, value: 50 },
+    { year: 2021, value: 55 },
+    { year: 2022, value: 60 }
+  ]
+  const testResult = quantumCorrelationService.calculateQuantumCorrelation(testData1, testData2)
+  console.log('✅ Quantum service working! Test result:', testResult)
+} catch (error) {
+  console.error('❌ Quantum service error:', error)
+}
+
+// Generate correlation data using ACTUAL real datasets from static files
+async function generateRealDataCorrelation(enableQuantum = false): Promise<CorrelationData> {
+  const dataService = new StaticDataService()
+  const allDatasets = dataService.getAllDatasets()
+  
+  // Select random datasets for correlation
+  const dataset1 = allDatasets[Math.floor(Math.random() * allDatasets.length)]
+  let dataset2 = allDatasets[Math.floor(Math.random() * allDatasets.length)]
+  while (dataset2.id === dataset1.id) {
+    dataset2 = allDatasets[Math.floor(Math.random() * allDatasets.length)]
+  }
+  
+  // Generate correlation using static data service with REAL data
+  const correlationResult = await dataService.generateCorrelation(dataset1, dataset2)
+  
+  // Apply quantum analysis if enabled
+  let quantumMetrics
+  if (enableQuantum) {
+    const data1 = correlationResult.data1
+    const data2 = correlationResult.data2
+    quantumMetrics = quantumCorrelationService.calculateQuantumCorrelation(data1, data2)
+  }
+  
+  // Convert to CorrelationData format
+  const result: CorrelationData = {
+    id: `real-${Date.now()}`,
+    title: `${dataset1.name} vs ${dataset2.name}`,
+    description: correlationResult.description,
+    correlation: correlationResult.correlation,
+    rSquared: correlationResult.rSquared,
+    variable1: {
+      name: dataset1.name,
+      unit: dataset1.unit,
+      category: dataset1.category,
+      dataSource: dataset1.source,
+      baseValue: correlationResult.data1[0]?.value || 0,
+      trend: 0.05,
+      seasonal: false
+    },
+    variable2: {
+      name: dataset2.name,
+      unit: dataset2.unit,
+      category: dataset2.category,
+      dataSource: dataset2.source,
+      baseValue: correlationResult.data2[0]?.value || 0,
+      trend: 0.05,
+      seasonal: false
+    },
+    data: correlationResult.data1.map((d1, i) => ({
+      year: d1.year,
+      value1: d1.value,
+      value2: correlationResult.data2[i]?.value || 0
+    })).filter(d => d.value2 !== 0),
+    citation: `${dataset1.source} & ${dataset2.source}`,
+    journal: 'Real Data Analysis',
+    year: 2023,
+    isRealData: true,
+    dataSource: `${dataset1.source} / ${dataset2.source}`
+  }
+
+  // Add quantum metrics if calculated
+  if (quantumMetrics) {
+    result.quantumMetrics = quantumMetrics
+  }
+
+  return result
+}
 
 // Fully dynamic correlation data generation with user preference control
 async function generateCorrelationDataWithRealSources(
@@ -301,6 +394,16 @@ async function generateCorrelationDataWithRealSources(
     hasRealData ? `Real-world data from ${dataSourceName} shows ${var1.name.toLowerCase()} influences ${var2.name.toLowerCase()}` : `Simulated data suggests correlation between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`
   ]
 
+  // Always generate quantum analysis for all correlations
+  const data1 = data.map(d => ({ year: d.year, value: d.value1 }))
+  const data2 = data.map(d => ({ year: d.year, value: d.value2 }))
+  
+  console.log('📊 Input data for quantum analysis (real sources):', { data1: data1.slice(0, 3), data2: data2.slice(0, 3) })
+  
+  const quantumMetrics = quantumCorrelationService.calculateQuantumCorrelation(data1, data2)
+  
+  console.log('🔬 Quantum metrics calculated (real sources):', quantumMetrics)
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -314,7 +417,8 @@ async function generateCorrelationDataWithRealSources(
     journal: journals[Math.floor(Math.random() * journals.length)],
     year: 2020 + Math.floor(Math.random() * 4),
     isRealData: hasRealData,
-    dataSource: dataSourceName
+    dataSource: dataSourceName,
+    quantumMetrics: quantumMetrics // Add quantum analysis to the result
   }
 }
 
@@ -364,6 +468,16 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
     `Statistical analysis reveals ${var1.name.toLowerCase()} may predict ${var2.name.toLowerCase()} trends`
   ]
 
+  // Always generate quantum analysis
+  const data1 = data.map(d => ({ year: d.year, value: d.value1 }))
+  const data2 = data.map(d => ({ year: d.year, value: d.value2 }))
+  
+  console.log('📊 Input data for quantum analysis:', { data1: data1.slice(0, 3), data2: data2.slice(0, 3) })
+  
+  const quantumMetrics = quantumCorrelationService.calculateQuantumCorrelation(data1, data2)
+  
+  console.log('🔬 Quantum metrics calculated:', quantumMetrics)
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -377,7 +491,8 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
     journal: journals[Math.floor(Math.random() * journals.length)],
     year: 2020 + Math.floor(Math.random() * 4),
     isRealData: false,
-    dataSource: "Synthetic"
+    dataSource: "Synthetic",
+    quantumMetrics
   }
 }
 
@@ -1664,7 +1779,7 @@ function App() {
   const [isAppLoading, setIsAppLoading] = useState(true)
   const [showSlideshow, setShowSlideshow] = useState(false)
   const [dataSourcePreference, setDataSourcePreference] = useState<'mixed' | 'real' | 'synthetic'>('real')
-  const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData())
+  const [currentCorrelation, setCurrentCorrelation] = useState<CorrelationData>(() => generateCorrelationData(undefined))
   const [isGenerating, setIsGenerating] = useState(false)
   const [selectedCategory, setSelectedCategory] = useState<string>('all')
   const [correlationFilters, setCorrelationFilters] = useState<{
@@ -1703,7 +1818,7 @@ function App() {
     }
   }, [])
 
-  // Function to get available categories for real data only mode
+  // Function to get available categories for authentic data priority mode
   const getAvailableCategories = async () => {
     if (dataSourcePreference !== 'real') {
       return categories // Return all categories for mixed/synthetic mode
@@ -1904,11 +2019,19 @@ function App() {
       // Use enhanced data generation with user preference
       let newCorrelation
       try {
-        newCorrelation = await generateCorrelationDataWithRealSources(
-          selectedCategory === 'all' ? undefined : selectedCategory,
-          dynamicDataSources,
-          dataSourcePreference
-        )
+        // Always apply quantum analysis to real data
+        if (dataSourcePreference === 'real') {
+          newCorrelation = await generateRealDataCorrelation(true)
+          toast.success("🔬 Generated quantum correlation analysis using real data!")
+        } else {
+          // Quantum analysis is now automatically applied in generateCorrelationDataWithRealSources
+          newCorrelation = await generateCorrelationDataWithRealSources(
+            selectedCategory === 'all' ? undefined : selectedCategory,
+            dynamicDataSources,
+            dataSourcePreference
+          )
+          // No need to manually apply quantum analysis - it's already included
+        }
       } catch (error) {
         if (dataSourcePreference === 'real') {
           // For "real only" mode, fall back to synthetic but show clear messaging
@@ -1934,7 +2057,7 @@ function App() {
       }
       
       // Only show success message if we didn't already show a warning
-      if (!(dataSourcePreference === 'real' && !newCorrelation.isRealData)) {
+      if (!(dataSourcePreference === 'real' && !newCorrelation.isRealData) && dataSourcePreference !== 'real') {
         toast.success(successMessages[dataSourcePreference])
       }
       
@@ -2386,7 +2509,7 @@ function App() {
       const recommendations: CorrelationData[] = []
       
       // Generate high-correlation examples
-      const strongCorrelation = generateCorrelationData()
+      const strongCorrelation = generateCorrelationData(undefined)
       strongCorrelation.correlation = 0.85 + Math.random() * 0.1
       strongCorrelation.rSquared = strongCorrelation.correlation * strongCorrelation.correlation
       strongCorrelation.title = `🔥 Strong: ${strongCorrelation.title}`
@@ -2783,11 +2906,11 @@ function App() {
               <div className="mt-4 space-y-2 text-xs text-gray-500">
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse"></div>
-                  <span>Loading synthetic datasets</span>
+                  <span>Loading authentic & AI datasets</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse" style={{ animationDelay: '0.3s' }}></div>
-                  <span>Initializing correlation engine</span>
+                  <span>Initializing quantum-enhanced correlation engine</span>
                 </div>
                 <div className="flex items-center justify-center gap-2">
                   <div className="w-2 h-2 bg-blue-400 rounded-full animate-pulse" style={{ animationDelay: '0.6s' }}></div>
@@ -2833,11 +2956,11 @@ function App() {
           </div>
           <div className="text-gray-300 max-w-2xl mx-auto px-4 sm:px-0 space-y-1">
             <h2 className="text-lg sm:text-xl font-semibold text-white">
-              Discover <span className="text-orange-400 font-bold">strong links</span> between real-world data
+              Discover <span className="text-orange-400 font-bold">strong links</span> between real-world data with <span className="text-purple-400 font-bold">quantum-enhanced</span> analysis
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
             <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
-              Using only authentic data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, and more - no AI-generated content, just real correlations.
+              Using authentic data from trusted sources like the Federal Reserve, World Bank, NASA, USGS, and more, plus AI-generated datasets. Advanced quantum-inspired algorithms provide deeper insights beyond traditional correlation analysis.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
@@ -2891,7 +3014,7 @@ function App() {
               value="spurious" 
               className={`text-gray-300 data-[state=active]:text-orange-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
             >
-              {isMobile ? "🧮 Math" : "🧮 Spurious Analysis"}
+              {isMobile ? "🔬 Analysis" : "🔬 Advanced Analysis"}
             </TabsTrigger>
             <TabsTrigger 
               value="story" 
@@ -2917,7 +3040,7 @@ function App() {
                         🔀 Mixed (Real + AI)
                       </SelectItem>
                       <SelectItem value="real" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
-                        📊 Real Data Only
+                        📊 Authentic Data Priority
                       </SelectItem>
                       <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
                         🎲 Synthetic Only
@@ -3167,7 +3290,7 @@ function App() {
                         </SelectTrigger>
                         <SelectContent className="bg-white border-gray-300">
                           <SelectItem value="all" className="text-gray-900 hover:bg-gray-100">All Data</SelectItem>
-                          <SelectItem value="real" className="text-gray-900 hover:bg-gray-100">Real Data Only</SelectItem>
+                          <SelectItem value="real" className="text-gray-900 hover:bg-gray-100">Authentic Data Priority</SelectItem>
                           <SelectItem value="ai" className="text-gray-900 hover:bg-gray-100">AI Generated Only</SelectItem>
                         </SelectContent>
                       </Select>
@@ -5003,6 +5126,56 @@ function CorrelationCard({
                 <span>View All Sources</span>
               </button>
             </div>
+          </div>
+        </div>
+        
+        {/* Quantum Correlation Analysis - Enhanced correlation insights */}
+        <div className="mt-6 pt-6 border-t border-gray-700/50">
+          <div className="bg-gradient-to-r from-purple-900/30 to-blue-900/30 border border-purple-500/30 rounded-lg p-4 mb-4">
+            <h3 className="text-lg font-semibold text-purple-300 mb-2">🔬 Quantum-Inspired Analysis</h3>
+            {correlation.quantumMetrics ? (
+              <QuantumCorrelationDisplay
+                result={correlation.quantumMetrics}
+                title="Quantum-Inspired Analysis"
+                variable1Name={correlation.variable1.name}
+                variable2Name={correlation.variable2.name}
+              />
+            ) : correlation.quantumAnalysis ? (
+              <QuantumCorrelationDisplay
+                result={correlation.quantumAnalysis}
+                title="Quantum-Inspired Analysis"
+                variable1Name={correlation.variable1.name}
+                variable2Name={correlation.variable2.name}
+              />
+            ) : (
+              <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-4">
+                <div className="flex items-start gap-3">
+                  <div className="text-blue-400 mt-1">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h4 className="text-blue-300 font-semibold mb-2">Quantum Analysis Not Yet Available</h4>
+                    <p className="text-blue-200 text-sm mb-3">
+                      This correlation is using {correlation.isRealData ? 'authentic data from official sources' : 'AI-generated synthetic data'} but quantum-enhanced 
+                      analysis hasn't been calculated yet. Here's why:
+                    </p>
+                    <ul className="text-blue-200/80 text-sm space-y-1 ml-4">
+                      <li>• Quantum analysis requires additional processing time</li>
+                      <li>• All data correlations benefit from quantum algorithm enhancement</li>
+                      <li>• Complex calculations include temporal weighting and coherence analysis</li>
+                    </ul>
+                    <div className="mt-3 p-3 bg-blue-800/30 rounded border border-blue-600/30">
+                      <p className="text-blue-200 text-xs">
+                        <strong>What you can do:</strong> Try generating a new correlation or visit the 
+                        "🔬 Advanced Analysis" tab to see quantum analysis in action with sample data.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </CardContent>
