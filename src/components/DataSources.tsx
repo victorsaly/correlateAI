@@ -296,19 +296,21 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
   }
 
   return (
-    <div className="flex items-center justify-between p-3 border rounded-lg hover:bg-muted/50 transition-colors">
-      <div className="flex items-center gap-3">
+    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-3 border rounded-lg hover:bg-muted/50 transition-colors gap-3">
+      <div className="flex items-center gap-3 min-w-0 flex-1">
         {getSourceIcon(sourceKey)}
-        <div className="flex-1">
-          <div className="flex items-center gap-2 mb-1">
-            <h4 className="font-medium text-sm">{source.name}</h4>
-            {getSourceBadge(sourceKey)}
+        <div className="flex-1 min-w-0">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-2 mb-1">
+            <h4 className="font-medium text-sm truncate">{source.name}</h4>
+            <div className="flex-shrink-0">
+              {getSourceBadge(sourceKey)}
+            </div>
           </div>
-          <p className="text-xs text-muted-foreground">{source.description}</p>
+          <p className="text-xs text-muted-foreground line-clamp-2">{source.description}</p>
         </div>
       </div>
       
-      <div className="flex items-center gap-2">
+      <div className="flex items-center justify-between sm:justify-end gap-2 flex-shrink-0">
         <Badge variant="secondary" className="text-xs">
           {source.datasets} datasets
         </Badge>
@@ -317,7 +319,7 @@ function DataSourceItem({ sourceKey, source }: { sourceKey: string, source: Dyna
             href={source.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="p-1 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors"
+            className="p-1 hover:bg-muted rounded text-muted-foreground hover:text-foreground transition-colors flex-shrink-0"
             title={`Visit ${source.name}`}
           >
             <ArrowSquareOut className="w-3 h-3" />

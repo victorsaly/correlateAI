@@ -334,11 +334,86 @@
     backface-visibility: hidden;
   }
 
+  /* Prevent text outline artifacts during animations */
+  .intro-slideshow h1,
+  .intro-slideshow h2,
+  .intro-slideshow h3,
+  .intro-slideshow h4,
+  .intro-slideshow p,
+  .intro-slideshow span {
+    text-shadow: none;
+    outline: none;
+    border: none;
+    -webkit-text-stroke: 0;
+    text-rendering: optimizeLegibility;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: auto;
+  }
+
+  /* Specifically target slide titles to prevent white line artifacts */
+  .intro-slideshow .text-center h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    will-change: auto;
+  }
+
   /* Fix for thin line rendering */
   .intro-slideshow .h-px,
   .intro-slideshow .h-0\.5 {
     min-height: 1px;
     -webkit-transform: translateZ(0);
     transform: translateZ(0);
+  }
+
+  /* Prevent white line artifacts during slide transitions */
+  .intro-slideshow .transition-all {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* Prevent scale transform artifacts on text */
+  .intro-slideshow .scale-75,
+  .intro-slideshow .scale-95,
+  .intro-slideshow .scale-100 {
+    -webkit-transform: translateZ(0) scale(var(--tw-scale-x), var(--tw-scale-y));
+    transform: translateZ(0) scale(var(--tw-scale-x), var(--tw-scale-y));
+    backface-visibility: hidden;
+  }
+
+  /* GPU acceleration for transforms */
+  .intro-slideshow .transform-gpu {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    will-change: transform;
+    backface-visibility: hidden;
+  }
+
+  /* Clean text rendering */
+  .intro-slideshow h1,
+  .intro-slideshow .text-center h1 {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    text-shadow: none;
+    outline: none;
+    border: none;
+    -webkit-text-stroke: 0;
+  }
+
+  /* Line clamp utility for text truncation */
+  .line-clamp-2 {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
   }
 }

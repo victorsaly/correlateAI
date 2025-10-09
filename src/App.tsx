@@ -453,7 +453,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             </h1>
           </div>
           <p className={`text-lg sm:text-xl text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out transform delay-300 ${
-            animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+            animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             Discover hidden relationships between economic indicators and market trends
           </p>
@@ -544,7 +544,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             }`}></div>
           </div>
           <p className={`text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-900 ${
-            animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-4 blur-sm'
+            animationStep >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
           }`}>
             Lower rates drive construction activity! <span className={`text-yellow-400 font-semibold transition-all duration-500 delay-1000 ${
               animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
@@ -560,28 +560,28 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
       icon: <TrendUp size={48} className="text-blue-400" />,
       content: (
         <div className="min-h-80 sm:min-h-96 flex flex-col items-center justify-center space-y-3 sm:space-y-5">
-          <div className={`w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-3 sm:p-5 border border-gray-700/30 transition-all duration-1000 ease-out transform ${
-            animationStep >= 1 ? 'opacity-100 translate-y-0 scale-100 rotate-0' : 'opacity-0 translate-y-8 scale-95 rotate-1'
+          <div className={`w-full max-w-2xl bg-gradient-to-br from-gray-800/50 to-gray-900/50 rounded-xl p-3 sm:p-5 border border-gray-700/30 transition-opacity duration-1000 ease-out ${
+            animationStep >= 1 ? 'opacity-100' : 'opacity-0'
           }`}>
             {/* Mock Chart */}
-            <div className={`mb-3 sm:mb-4 text-center transition-all duration-800 delay-300 ${
-              animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+            <div className={`mb-3 sm:mb-4 text-center transition-opacity duration-800 delay-300 ${
+              animationStep >= 2 ? 'opacity-100' : 'opacity-0'
             }`}>
               <h3 className="text-base sm:text-lg font-semibold mb-1">
-                <span className={`text-cyan-400 transition-all duration-600 delay-400 ${
-                  animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
+                <span className={`text-cyan-400 transition-opacity duration-600 delay-400 ${
+                  animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                 }`}>GDP Growth</span>
-                <span className={`text-gray-300 mx-1 sm:mx-2 transition-all duration-400 delay-600 ${
-                  animationStep >= 2 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                <span className={`text-gray-300 mx-1 sm:mx-2 transition-opacity duration-400 delay-600 ${
+                  animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                 }`}> vs </span>
-                <span className={`text-purple-400 transition-all duration-600 delay-800 ${
-                  animationStep >= 2 ? 'opacity-100 scale-100 blur-0' : 'opacity-0 scale-75 blur-sm'
+                <span className={`text-purple-400 transition-opacity duration-600 delay-800 ${
+                  animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                 }`}>Unemployment Rate</span>
               </h3>
               <p className={`text-xs sm:text-sm text-gray-400 transition-all duration-500 delay-1000 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
               }`}>Correlation: <span className={`text-red-400 font-bold transition-all duration-600 delay-1100 ${
-                animationStep >= 2 ? 'scale-110 opacity-100' : 'scale-75 opacity-0'
+                animationStep >= 2 ? 'scale-105 opacity-100' : 'scale-95 opacity-0'
               }`}>-0.732</span> (Strong Negative)</p>
             </div>
             <div className={`h-24 sm:h-32 w-full relative bg-gray-900/50 rounded-lg border border-gray-700/30 overflow-hidden transition-all duration-1200 ease-out delay-1200 transform ${
@@ -657,8 +657,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                       cx={point.cx} 
                       cy={point.cy} 
                       r="2" 
-                      className={`transition-all duration-400 ease-out ${
-                        animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                      className={`transition-opacity duration-400 ease-out ${
+                        animationStep >= 3 ? 'opacity-100' : 'opacity-0'
                       }`}
                       style={{ transitionDelay: `${point.delay}ms` }}
                     />
@@ -678,8 +678,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                       cx={point.cx} 
                       cy={point.cy} 
                       r="2" 
-                      className={`transition-all duration-400 ease-out ${
-                        animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-0'
+                      className={`transition-opacity duration-400 ease-out ${
+                        animationStep >= 3 ? 'opacity-100' : 'opacity-0'
                       }`}
                       style={{ transitionDelay: `${point.delay}ms` }}
                     />
@@ -687,23 +687,23 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 </g>
               </svg>
             </div>
-            <div className={`flex justify-between text-xs text-gray-400 mt-2 transition-all duration-600 ease-out delay-2600 ${
-              animationStep >= 3 ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4'
+            <div className={`flex justify-between text-xs text-gray-400 mt-2 transition-opacity duration-600 ease-out delay-2600 ${
+              animationStep >= 3 ? 'opacity-100' : 'opacity-0'
             }`}>
-              <span className={`transition-all duration-300 delay-2600 ${
-                animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              <span className={`transition-opacity duration-300 delay-2600 ${
+                animationStep >= 3 ? 'opacity-100' : 'opacity-0'
               }`}>2019</span>
-              <span className={`transition-all duration-300 delay-2700 ${
-                animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
+              <span className={`transition-opacity duration-300 delay-2700 ${
+                animationStep >= 3 ? 'opacity-100' : 'opacity-0'
               }`}>2024</span>
             </div>
           </div>
-          <p className={`text-sm sm:text-lg text-gray-300 text-center max-w-lg transition-all duration-1000 ease-out delay-2800 ${
-            animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+          <p className={`text-sm sm:text-lg text-gray-300 text-center max-w-lg transition-opacity duration-1000 ease-out delay-2800 ${
+            animationStep >= 4 ? 'opacity-100' : 'opacity-0'
           }`}>
             As streaming services grew, so did home food delivery. 
-            <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-2900 ${
-              animationStep >= 4 ? 'opacity-100 scale-100 text-shadow' : 'opacity-0 scale-75'
+            <span className={`text-cyan-400 font-semibold transition-opacity duration-600 delay-2900 ${
+              animationStep >= 4 ? 'opacity-100' : 'opacity-0'
             }`}> Real data</span> reveals unexpected connections!
           </p>
         </div>
@@ -736,7 +736,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                       animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
                     }`}></div>
                     <span className={`text-sm text-green-400 transition-all duration-400 delay-600 ${
-                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                      animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                     }`}>Analyzing patterns...</span>
                   </div>
                   <div className={`flex items-center gap-2 mt-1 transition-all duration-500 delay-700 ${
@@ -746,7 +746,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                       animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
                     }`} style={{ animationDelay: '0.3s' }}></div>
                     <span className={`text-sm text-blue-400 transition-all duration-400 delay-900 ${
-                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                      animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                     }`}>Processing datasets...</span>
                   </div>
                   <div className={`flex items-center gap-2 mt-1 transition-all duration-500 delay-1000 ${
@@ -756,7 +756,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                       animationStep >= 2 ? 'animate-pulse scale-100' : 'scale-0'
                     }`} style={{ animationDelay: '0.6s' }}></div>
                     <span className={`text-sm text-yellow-400 transition-all duration-400 delay-1200 ${
-                      animationStep >= 2 ? 'opacity-100 blur-0' : 'opacity-0 blur-sm'
+                      animationStep >= 2 ? 'opacity-100' : 'opacity-0'
                     }`}>Calculating correlations...</span>
                   </div>
                 </div>
@@ -789,7 +789,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             </div>
           </div>
           <p className={`text-sm sm:text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-2000 ${
-            animationStep >= 4 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+            animationStep >= 4 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             Our AI processes <span className={`text-cyan-400 font-semibold transition-all duration-600 delay-2100 ${
               animationStep >= 4 ? 'opacity-100 scale-100 text-shadow' : 'opacity-0 scale-75'
@@ -817,7 +817,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 <MagnifyingGlass size={20} className="text-cyan-400 mx-auto mb-2" />
               </div>
               <h4 className={`font-semibold text-cyan-400 text-sm text-center transition-all duration-500 delay-400 ${
-                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+                animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}>Explore</h4>
               <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-500 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
@@ -832,7 +832,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 <TrendUp size={20} className="text-purple-400 mx-auto mb-2" />
               </div>
               <h4 className={`font-semibold text-purple-400 text-sm text-center transition-all duration-500 delay-600 ${
-                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+                animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}>Analyze</h4>
               <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-700 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
@@ -847,7 +847,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
                 <Share size={20} className="text-green-400 mx-auto mb-2" />
               </div>
               <h4 className={`font-semibold text-green-400 text-sm text-center transition-all duration-500 delay-800 ${
-                animationStep >= 2 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-2 blur-sm'
+                animationStep >= 2 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2'
               }`}>Share</h4>
               <p className={`text-xs text-gray-300 text-center transition-all duration-400 delay-900 ${
                 animationStep >= 2 ? 'opacity-100' : 'opacity-0'
@@ -855,7 +855,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             </div>
           </div>
           <p className={`text-sm sm:text-lg text-gray-300 max-w-lg text-center transition-all duration-1000 ease-out delay-1000 ${
-            animationStep >= 3 ? 'opacity-100 translate-y-0 blur-0' : 'opacity-0 translate-y-6 blur-sm'
+            animationStep >= 3 ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'
           }`}>
             Every <span className={`text-cyan-400 font-semibold transition-all duration-500 delay-1100 ${
               animationStep >= 3 ? 'opacity-100 scale-100' : 'opacity-0 scale-75'
@@ -917,50 +917,55 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             {/* Data Sources Links */}
             <div className="space-y-2">
               <p className="text-xs text-gray-400 mb-2">Data sourced from:</p>
-              <div className="flex flex-wrap justify-center gap-2 text-xs">
+              <div className="flex flex-wrap justify-center gap-1 sm:gap-2 text-xs max-w-xs sm:max-w-none mx-auto">
                 <a 
                   href="https://fred.stlouisfed.org/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md hover:bg-blue-500/30 transition-colors"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md hover:bg-blue-500/30 transition-colors text-xs"
                 >
-                  <Database size={12} />
-                  <span>FRED Database</span>
-                  <ArrowSquareOut size={10} />
+                  <Database size={10} />
+                  <span className="hidden sm:inline">FRED Database</span>
+                  <span className="sm:hidden">FRED</span>
+                  <ArrowSquareOut size={8} />
                 </a>
                 <a 
                   href="https://data.worldbank.org/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-green-500/20 text-green-400 rounded-md hover:bg-green-500/30 transition-colors"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1 bg-green-500/20 text-green-400 rounded-md hover:bg-green-500/30 transition-colors text-xs"
                 >
-                  <Database size={12} />
-                  <span>World Bank</span>
-                  <ArrowSquareOut size={10} />
+                  <Database size={10} />
+                  <span className="hidden sm:inline">World Bank</span>
+                  <span className="sm:hidden">WB</span>
+                  <ArrowSquareOut size={8} />
                 </a>
                 <a 
                   href="https://www.alphavantage.co/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 transition-colors text-xs"
                 >
-                  <TrendUp size={12} />
-                  <span>Alpha Vantage</span>
-                  <ArrowSquareOut size={10} />
+                  <TrendUp size={10} />
+                  <span className="hidden sm:inline">Alpha Vantage</span>
+                  <span className="sm:hidden">Alpha</span>
+                  <ArrowSquareOut size={8} />
                 </a>
                 <a 
                   href="https://openweathermap.org/" 
                   target="_blank" 
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1 px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 transition-colors"
+                  className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1 bg-cyan-500/20 text-cyan-400 rounded-md hover:bg-cyan-500/30 transition-colors text-xs"
                 >
-                  <CloudSun size={12} />
-                  <span>OpenWeather</span>
-                  <ArrowSquareOut size={10} />
+                  <CloudSun size={10} />
+                  <span className="hidden sm:inline">OpenWeather</span>
+                  <span className="sm:hidden">Weather</span>
+                  <ArrowSquareOut size={8} />
                 </a>
-                <span className="inline-flex items-center gap-1 px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md">
-                  <Robot size={12} />
-                  <span>AI Generated</span>
+                <span className="inline-flex items-center gap-0.5 sm:gap-1 px-1.5 sm:px-2 py-1 bg-purple-500/20 text-purple-400 rounded-md text-xs">
+                  <Robot size={10} />
+                  <span className="hidden sm:inline">AI Generated</span>
+                  <span className="sm:hidden">AI</span>
                 </span>
               </div>
             </div>
@@ -1324,10 +1329,12 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
             {/* Fixed Header */}
             <div className="text-center mb-3 sm:mb-4">
-              <div className="flex justify-center mb-1 sm:mb-2 scale-75 sm:scale-100">
-                {currentSlideData.icon}
+              <div className="flex justify-center mb-1 sm:mb-2">
+                <div className="scale-75 sm:scale-100 transform-gpu">
+                  {currentSlideData.icon}
+                </div>
               </div>
-              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2">
+              <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-1 sm:mb-2 transform-gpu">
                 {currentSlideData.title}
               </h1>
               <p className="text-sm sm:text-base md:text-lg text-gray-400">
@@ -1337,8 +1344,8 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
 
             {/* Transitioning Content Container - Flex Grow with Scroll */}
             <div className="flex-1 flex items-start justify-center mb-3 sm:mb-4 overflow-y-auto overscroll-y-contain scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-gray-600 hover:scrollbar-thumb-gray-500 touch-scroll relative">
-              <div className={`w-full max-w-4xl py-2 sm:py-4 transition-all duration-500 ${
-                isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
+              <div className={`w-full max-w-4xl py-2 sm:py-4 transition-opacity duration-500 ${
+                isAnimating ? 'opacity-0' : 'opacity-100'
               }`}>
                 {currentSlideData.content}
               </div>
@@ -3862,15 +3869,26 @@ function CorrelationCard({
               {Math.abs(correlation.correlation * 100).toFixed(1)}%
             </span>
           </div>
-          <div className="w-full bg-gray-700/50 rounded-full h-2">
+          <div className="w-full bg-gray-800/60 rounded-full h-3 shadow-inner relative overflow-hidden">
+            {/* Background glow effect */}
+            <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent rounded-full"></div>
+            
             <div 
-              className={`h-2 rounded-full transition-all duration-500 ${
-                Math.abs(correlation.correlation) >= 0.7 ? 'bg-gradient-to-r from-red-500 to-red-600' :
-                Math.abs(correlation.correlation) >= 0.5 ? 'bg-gradient-to-r from-orange-500 to-orange-600' :
-                'bg-gradient-to-r from-yellow-500 to-yellow-600'
+              className={`h-3 rounded-full transition-all duration-700 ease-out relative overflow-hidden shadow-lg ${
+                Math.abs(correlation.correlation) >= 0.7 ? 
+                  'bg-gradient-to-r from-purple-600 via-pink-500 to-red-500 shadow-purple-500/30' :
+                Math.abs(correlation.correlation) >= 0.5 ? 
+                  'bg-gradient-to-r from-blue-500 via-cyan-400 to-teal-400 shadow-cyan-400/30' :
+                  'bg-gradient-to-r from-amber-400 via-orange-400 to-yellow-400 shadow-orange-400/30'
               }`}
               style={{ width: `${Math.abs(correlation.correlation) * 100}%` }}
-            ></div>
+            >
+              {/* Animated shimmer effect */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent skew-x-12 animate-pulse"></div>
+              
+              {/* Moving highlight */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent w-1/3 animate-bounce opacity-60"></div>
+            </div>
           </div>
         </div>
         
