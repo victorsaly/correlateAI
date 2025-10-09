@@ -112,24 +112,47 @@ export function DataSourcesCard() {
             Pew Research Center social trends, Bureau of Economic Analysis (BEA) trade data, and Department of Transportation (DOT) safety statistics.
           </p>
           
-          {/* Spurious Correlation Education Section */}
-          <div className="mt-4 p-3 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-lg">
-            <h4 className="flex items-center gap-2 text-sm font-semibold text-orange-800 mb-2">
+          {/* Advanced Spurious Correlation Education Section - Based on ScienceDirect Research */}
+          <div className="mt-4 p-4 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-lg">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-orange-800 mb-3">
               <Brain className="w-4 h-4" />
-              Understanding Spurious Correlations
+              Understanding Spurious Correlations (Scientific Foundation)
             </h4>
-            <p className="text-xs text-orange-700 leading-relaxed mb-2">
-              <strong>Spurious correlation</strong> occurs when two variables appear statistically correlated due to a shared relationship with a third variable (confounding factor), 
-              despite being unrelated in reality. This can lead to false conclusions about causation.
+            <p className="text-xs text-orange-700 leading-relaxed mb-3">
+              <strong>Spurious correlation</strong> was first mathematically defined by Karl Pearson in 1897 as correlations that arise when two independent variables 
+              are expressed as ratios with a common denominator. Modern research shows these correlations can be <em>calculated and predicted</em> using statistical formulas.
             </p>
-            <div className="space-y-1 text-xs text-orange-600">
-              <p><strong>Common Examples:</strong></p>
-              <ul className="ml-3 space-y-1 list-disc">
-                <li>Ice cream sales and drowning deaths (both increase in summer due to hot weather)</li>
-                <li>Economic indicators moving together due to business cycles, not direct causation</li>
-                <li>Social behaviors correlating due to generational or technological changes</li>
-              </ul>
-              <p className="mt-2 font-medium">Always ask: "What third variable might explain both of these trends?"</p>
+            
+            <div className="space-y-2 text-xs text-orange-600">
+              <div>
+                <p><strong>Scientific Examples from Research:</strong></p>
+                <ul className="ml-3 space-y-1 list-disc">
+                  <li><strong>Food Store vs Restaurant Spending</strong> (r=0.986): Strong correlation due to state population, not direct causation</li>
+                  <li><strong>Time Series Trending</strong>: Variables increasing over time often correlate due to shared temporal progression</li>
+                  <li><strong>Ratio-Based Variables</strong>: "Per capita" or "per 1,000" measures sharing denominators create artificial correlations</li>
+                  <li><strong>Economic Indicators</strong>: Many financial metrics move together due to business cycles, not causal relationships</li>
+                </ul>
+              </div>
+              
+              <div className="mt-3 p-2 bg-orange-100 rounded border">
+                <p className="font-medium mb-1">Pearson's Detection Formula (1897):</p>
+                <p className="font-mono text-xs">r(x/z,y/z) = V₁/z² × sgn(E(x)) × sgn(E(y)) / √[(Vₓ²(1+V₁/z²)+V₁/z²)(Vᵧ²(1+V₁/z²)+V₁/z²)]</p>
+                <p className="mt-1">Where V = coefficient of variation, z = common denominator</p>
+              </div>
+              
+              <div className="mt-2">
+                <p><strong>Modern Detection Methods:</strong></p>
+                <ul className="ml-3 space-y-1 list-disc">
+                  <li><strong>Permutation Testing</strong>: Establish null correlation baselines to test statistical significance</li>
+                  <li><strong>Box-Cox Transformations</strong>: Reduce spurious correlations from heteroscedastic noise patterns</li>
+                  <li><strong>Coefficient of Variation Analysis</strong>: Identify variables susceptible to ratio-based spurious correlation</li>
+                </ul>
+              </div>
+              
+              <p className="mt-3 font-medium bg-orange-50 p-2 rounded border">
+                🔬 <strong>Scientific Principle:</strong> Always investigate potential third variables, common denominators, 
+                and temporal trends before concluding causation from correlation. Statistical significance ≠ causal relationship.
+              </p>
             </div>
           </div>
           

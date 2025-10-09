@@ -9,12 +9,15 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck, Brain } from '@phosphor-icons/react'
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck, Brain, Calculator } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
 import SwirlBackground from '@/components/SwirlBackground'
 import { DataSourcesCard, SourceAttribution, DataSourceBadge } from '@/components/DataSources'
+import { SpuriousCorrelationCalculator } from '@/components/SpuriousCorrelationCalculator'
+import { SpuriousCorrelationPage } from '@/components/SpuriousCorrelationPage'
 import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/centralizedDataSourceService'
 import { DynamicDatasetService, type DynamicDataset } from '@/services/dynamicDatasetService'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
@@ -1969,6 +1972,224 @@ function App() {
     return similarCorrelations
   }, [])
 
+  // Advanced spurious correlation detection based on Karl Pearson's 1897 formula
+  // and modern statistical methods from ScienceDirect research
+  const calculateCoefficientOfVariation = useCallback((values: number[]) => {
+    const mean = values.reduce((sum, val) => sum + val, 0) / values.length
+    const variance = values.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / (values.length - 1)
+    const standardDeviation = Math.sqrt(variance)
+    return standardDeviation / Math.abs(mean)
+  }, [])
+
+  const calculatePearsonSpuriousCorrelation = useCallback((
+    xValues: number[], 
+    yValues: number[], 
+    zValues: number[]
+  ) => {
+    // Calculate coefficient of variation for each variable (Equation 1 from paper)
+    const vX = calculateCoefficientOfVariation(xValues)
+    const vY = calculateCoefficientOfVariation(yValues)
+    const vZ = calculateCoefficientOfVariation(zValues)
+    
+    // Calculate means for sign function
+    const meanX = xValues.reduce((sum, val) => sum + val, 0) / xValues.length
+    const meanY = yValues.reduce((sum, val) => sum + val, 0) / yValues.length
+    
+    // Sign function
+    const sgnX = meanX >= 0 ? 1 : -1
+    const sgnY = meanY >= 0 ? 1 : -1
+    
+    // Karl Pearson's exact formula (Equation 2 from ScienceDirect)
+    // r(x/z,y/z) = V(1/z²)sgn(E(x))sgn(E(y)) / sqrt((Vx²(1+V(1/z²))+V(1/z²))(Vy²(1+V(1/z²))+V(1/z²)))
+    const vOneOverZSquared = Math.pow(vZ, 2)
+    
+    const numerator = vOneOverZSquared * sgnX * sgnY
+    const denomX = vX * vX * (1 + vOneOverZSquared) + vOneOverZSquared
+    const denomY = vY * vY * (1 + vOneOverZSquared) + vOneOverZSquared
+    const denominator = Math.sqrt(denomX * denomY)
+    
+    return denominator !== 0 ? numerator / denominator : 0
+  }, [calculateCoefficientOfVariation])
+
+  const performPermutationTest = useCallback((xValues: number[], yValues: number[], numPermutations = 1000) => {
+    // Establish null correlation baseline through permutation testing
+    const originalCorr = Math.abs(calculateCorrelation(xValues, yValues))
+    let significantCount = 0
+    
+    for (let i = 0; i < numPermutations; i++) {
+      // Shuffle one variable to break correlation structure
+      const shuffledY = [...yValues].sort(() => Math.random() - 0.5)
+      const permutedCorr = Math.abs(calculateCorrelation(xValues, shuffledY))
+      if (permutedCorr >= originalCorr) {
+        significantCount++
+      }
+    }
+    
+    return significantCount / numPermutations // p-value
+  }, [])
+
+  const calculateCorrelation = useCallback((x: number[], y: number[]) => {
+    const n = x.length
+    const sumX = x.reduce((sum, val) => sum + val, 0)
+    const sumY = y.reduce((sum, val) => sum + val, 0)
+    const sumXY = x.reduce((sum, val, i) => sum + val * y[i], 0)
+    const sumXX = x.reduce((sum, val) => sum + val * val, 0)
+    const sumYY = y.reduce((sum, val) => sum + val * val, 0)
+    
+    const numerator = n * sumXY - sumX * sumY
+    const denominator = Math.sqrt((n * sumXX - sumX * sumX) * (n * sumYY - sumY * sumY))
+    
+    return denominator !== 0 ? numerator / denominator : 0
+  }, [])
+
+  const detectTimeSeriesSpuriousPattern = useCallback((data: Array<{ year: number; value1: number; value2: number }>) => {
+    const values1 = data.map(d => d.value1)
+    const values2 = data.map(d => d.value2)
+    const timeValues = data.map(d => d.year)
+    
+    // Check for monotonic trends (common cause of spurious correlation)
+    const trend1 = values1.every((val, i) => i === 0 || val >= values1[i-1])
+    const trend2 = values2.every((val, i) => i === 0 || val >= values2[i-1])
+    const bothIncreasing = trend1 && trend2
+    
+    const trend1Decreasing = values1.every((val, i) => i === 0 || val <= values1[i-1])
+    const trend2Decreasing = values2.every((val, i) => i === 0 || val <= values2[i-1])
+    const bothDecreasing = trend1Decreasing && trend2Decreasing
+    
+    // Calculate spurious correlation with time as common denominator
+    if (bothIncreasing || bothDecreasing) {
+      const spuriousCorr = calculatePearsonSpuriousCorrelation(values1, values2, timeValues)
+      return {
+        isSpurious: Math.abs(spuriousCorr) > 0.3,
+        spuriousStrength: Math.abs(spuriousCorr),
+        pattern: bothIncreasing ? 'both-increasing' : 'both-decreasing',
+        confidence: spuriousCorr
+      }
+    }
+    
+    return { isSpurious: false, spuriousStrength: 0, pattern: 'none', confidence: 0 }
+  }, [calculatePearsonSpuriousCorrelation])
+
+  const detectRatioBasedSpurious = useCallback((correlation: CorrelationData) => {
+    // Detect common denominators in variable names that might cause spurious correlation
+    const var1Name = correlation.variable1.name.toLowerCase()
+    const var2Name = correlation.variable2.name.toLowerCase()
+    
+    // Common ratio indicators
+    const ratioIndicators = ['per capita', 'per 1,000', 'per million', 'rate', 'percentage', '%', 'density', 'per sq mile']
+    const var1HasRatio = ratioIndicators.some(indicator => var1Name.includes(indicator))
+    const var2HasRatio = ratioIndicators.some(indicator => var2Name.includes(indicator))
+    
+    if (var1HasRatio && var2HasRatio) {
+      // Both variables are ratios - high potential for spurious correlation
+      return {
+        isRatioBased: true,
+        riskLevel: 'high',
+        explanation: 'Both variables appear to be ratios or rates, which can create spurious correlations due to shared denominators (e.g., population, area, time)'
+      }
+    } else if (var1HasRatio || var2HasRatio) {
+      return {
+        isRatioBased: true,
+        riskLevel: 'medium',
+        explanation: 'One variable appears to be a ratio or rate, which may create spurious correlation with the raw variable'
+      }
+    }
+    
+    return { isRatioBased: false, riskLevel: 'low', explanation: '' }
+  }, [])
+
+  const boxCoxTransformation = useCallback((values: number[], lambda: number) => {
+    // Box-Cox power transformation (Equations 10 and 11 from ScienceDirect)
+    // Reduces spurious correlations from heteroscedastic noise
+    return values.map(x => {
+      if (x <= 0) return 0 // Handle non-positive values
+      
+      if (Math.abs(lambda) < 1e-10) {
+        // λ = 0: y = ln(x)
+        return Math.log(x)
+      } else {
+        // λ ≠ 0: y = (x^λ - 1) / λ
+        return (Math.pow(x, lambda) - 1) / lambda
+      }
+    })
+  }, [])
+
+  const findOptimalBoxCoxLambda = useCallback((values: number[]) => {
+    // Find optimal λ that minimizes mean-variance dependence
+    let bestLambda = 1
+    let minVariance = Infinity
+    
+    // Test range of lambda values from -2 to 2
+    for (let lambda = -2; lambda <= 2; lambda += 0.2) {
+      const transformed = boxCoxTransformation(values, lambda)
+      const variance = transformed.reduce((sum, val, _, arr) => {
+        const mean = arr.reduce((s, v) => s + v, 0) / arr.length
+        return sum + Math.pow(val - mean, 2)
+      }, 0) / (transformed.length - 1)
+      
+      if (variance < minVariance && !isNaN(variance) && variance > 0) {
+        minVariance = variance
+        bestLambda = lambda
+      }
+    }
+    
+    return bestLambda
+  }, [boxCoxTransformation])
+
+  const detectHeteroscedasticNoise = useCallback((data: Array<{ year: number; value1: number; value2: number }>) => {
+    // Check for heteroscedastic noise patterns that can induce spurious correlations
+    const values1 = data.map(d => d.value1)
+    const values2 = data.map(d => d.value2)
+    
+    // Calculate variance in different segments of the time series
+    const segmentSize = Math.floor(data.length / 3)
+    const segments1 = [
+      values1.slice(0, segmentSize),
+      values1.slice(segmentSize, 2 * segmentSize),
+      values1.slice(2 * segmentSize)
+    ]
+    const segments2 = [
+      values2.slice(0, segmentSize),
+      values2.slice(segmentSize, 2 * segmentSize),
+      values2.slice(2 * segmentSize)
+    ]
+    
+    const variances1 = segments1.map(seg => {
+      const mean = seg.reduce((sum, val) => sum + val, 0) / seg.length
+      return seg.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / (seg.length - 1)
+    })
+    
+    const variances2 = segments2.map(seg => {
+      const mean = seg.reduce((sum, val) => sum + val, 0) / seg.length
+      return seg.reduce((sum, val) => sum + Math.pow(val - mean, 2), 0) / (seg.length - 1)
+    })
+    
+    // Check if variance changes significantly across segments
+    const maxVar1 = Math.max(...variances1)
+    const minVar1 = Math.min(...variances1)
+    const maxVar2 = Math.max(...variances2)
+    const minVar2 = Math.min(...variances2)
+    
+    const heteroscedastic1 = (maxVar1 / minVar1) > 2
+    const heteroscedastic2 = (maxVar2 / minVar2) > 2
+    
+    if (heteroscedastic1 || heteroscedastic2) {
+      // Recommend Box-Cox transformation
+      const lambda1 = findOptimalBoxCoxLambda(values1)
+      const lambda2 = findOptimalBoxCoxLambda(values2)
+      
+      return {
+        hasHeteroscedastic: true,
+        affectedVariable: heteroscedastic1 && heteroscedastic2 ? 'both' : 
+                         heteroscedastic1 ? 'variable1' : 'variable2',
+        recommendedLambda: { variable1: lambda1, variable2: lambda2 },
+        explanation: 'Variance changes over time detected - Box-Cox transformation recommended to reduce spurious correlations'
+      }
+    }
+    
+    return { hasHeteroscedastic: false, affectedVariable: 'none', recommendedLambda: null, explanation: '' }
+  }, [findOptimalBoxCoxLambda])
+
   const detectPatternAnomalies = useCallback((correlation: CorrelationData) => {
     const data = correlation.data
     const insights: string[] = []
@@ -2053,9 +2274,39 @@ function App() {
       const moreVolatile = volatility1 > volatility2 ? correlation.variable1.name : correlation.variable2.name
       insights.push(`🎢 High volatility detected in ${moreVolatile.toLowerCase()} - data shows significant fluctuations`)
     }
+
+    // Correlation strength for analysis 
+    const absCorr = Math.abs(correlation.correlation)
+
+    // Advanced spurious correlation analysis using Pearson's 1897 formula
+    const timeSeriesAnalysis = detectTimeSeriesSpuriousPattern(correlation.data)
+    if (timeSeriesAnalysis.isSpurious) {
+      const direction = timeSeriesAnalysis.pattern === 'both-increasing' ? 'increasing' : 'decreasing'
+      insights.push(`🚨 SPURIOUS CORRELATION DETECTED: Both variables follow ${direction} time trends (Pearson coefficient: ${timeSeriesAnalysis.spuriousStrength.toFixed(3)}) - correlation likely artificial due to shared temporal progression`)
+    }
+
+    // Ratio-based spurious correlation detection
+    const ratioAnalysis = detectRatioBasedSpurious(correlation)
+    if (ratioAnalysis.isRatioBased && absCorr > 0.5) {
+      insights.push(`⚠️ RATIO WARNING (${ratioAnalysis.riskLevel.toUpperCase()} RISK): ${ratioAnalysis.explanation}`)
+    }
+
+    // Permutation test for statistical significance
+    const corrValues1 = correlation.data.map(d => d.value1)
+    const corrValues2 = correlation.data.map(d => d.value2)
+    const pValue = performPermutationTest(corrValues1, corrValues2, 500)
+    
+    if (pValue > 0.05 && absCorr > 0.4) {
+      insights.push(`📊 STATISTICAL WARNING: Permutation test suggests correlation may be due to chance (p-value: ${pValue.toFixed(3)}) - relationship not statistically significant`)
+    }
+
+    // Heteroscedastic noise analysis with Box-Cox recommendations
+    const noiseAnalysis = detectHeteroscedasticNoise(correlation.data)
+    if (noiseAnalysis.hasHeteroscedastic && absCorr > 0.5) {
+      insights.push(`🔬 NOISE PATTERN DETECTED: ${noiseAnalysis.explanation} for ${noiseAnalysis.affectedVariable} (λ₁=${noiseAnalysis.recommendedLambda?.variable1?.toFixed(2)}, λ₂=${noiseAnalysis.recommendedLambda?.variable2?.toFixed(2)})`)
+    }
     
     // Correlation strength insights with context and spurious correlation warnings
-    const absCorr = Math.abs(correlation.correlation)
     if (absCorr > 0.8) {
       const direction = correlation.correlation > 0 ? 'positive' : 'negative'
       insights.push(`🔥 Exceptionally strong ${direction} correlation (${(correlation.correlation * 100).toFixed(1)}%) - highly predictive relationship`)
@@ -2617,28 +2868,34 @@ function App() {
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className={`grid w-full grid-cols-4 mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-14 rounded-xl p-1' : 'h-12 rounded-lg p-1'}`}>
+          <TabsList className={`grid w-full grid-cols-5 mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-14 rounded-xl p-1' : 'h-12 rounded-lg p-1'}`}>
             <TabsTrigger 
               value="generator" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
             >
               {isMobile ? "Generate" : "Generate"}
             </TabsTrigger>
             <TabsTrigger 
               value="favorites" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
             >
               {isMobile ? `❤ ${favorites?.length || 0}` : `Favorites (${favorites?.length || 0})`}
             </TabsTrigger>
             <TabsTrigger 
               value="discover" 
-              className={`text-gray-300 data-[state=active]:text-purple-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-purple-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
             >
               {isMobile ? "🔮 Discover" : "🔮 Discover"}
             </TabsTrigger>
             <TabsTrigger 
+              value="spurious" 
+              className={`text-gray-300 data-[state=active]:text-orange-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+            >
+              {isMobile ? "🧮 Math" : "🧮 Spurious Analysis"}
+            </TabsTrigger>
+            <TabsTrigger 
               value="story" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-3 py-2 text-sm rounded-lg font-medium' : 'px-4 py-2 text-base rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
             >
               {isMobile ? "Story" : "AI Story"}
             </TabsTrigger>
@@ -3574,6 +3831,10 @@ function App() {
             </div>
             </div>
           </TabsContent>
+
+          <TabsContent value="spurious">
+            <SpuriousCorrelationPage />
+          </TabsContent>
         </Tabs>
         </div>
       
@@ -4436,102 +4697,42 @@ function CorrelationCard({
 
           {/* Analysis Insights - Expandable */}
           <div className="border border-gray-700/50 rounded-lg overflow-hidden">
-            <Button
-              variant="ghost"
-              className="w-full justify-between text-left h-12 px-4 hover:bg-yellow-400/10"
-              onClick={() => setShowInsights(!showInsights)}
-            >
-              <div className="flex items-center gap-2">
-                <Lightbulb size={16} className="text-yellow-400" />
-                <span className="font-medium text-gray-200">Analysis Insights</span>
-                <Dialog>
-                  <DialogTrigger asChild>
-                    <Button
-                      variant="ghost"
-                      size="sm"
-                      className="h-6 w-6 p-0 hover:bg-blue-400/20 rounded-full"
-                      onClick={(e) => e.stopPropagation()}
-                    >
-                      <Info size={12} className="text-blue-400" />
-                    </Button>
-                  </DialogTrigger>
-                  <DialogContent className="max-w-2xl bg-gray-800 border-gray-700">
-                    <DialogHeader>
-                      <DialogTitle className="text-gray-100 flex items-center gap-2">
-                        <Brain size={20} className="text-orange-400" />
-                        Understanding Spurious Correlations
-                      </DialogTitle>
-                      <DialogDescription className="text-gray-300">
-                        Learn how to identify and avoid false conclusions from misleading correlations
-                      </DialogDescription>
-                    </DialogHeader>
-                    <div className="space-y-4 text-sm text-gray-300">
-                      <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 border border-orange-700/50 rounded-lg p-4">
-                        <h4 className="font-semibold text-orange-200 mb-2">What is Spurious Correlation?</h4>
-                        <p className="leading-relaxed mb-3">
-                          <strong>Spurious correlation</strong> occurs when two variables appear statistically correlated due to a shared relationship 
-                          with a third variable (confounding factor), despite being unrelated in reality. This can lead to false conclusions about causation.
-                        </p>
-                        <p className="text-orange-100 text-xs">
-                          <strong>Key principle:</strong> The apparent correlation is actually driven by a "common denominator" - an external factor affecting both variables simultaneously.
-                        </p>
-                      </div>
-                      
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div className="bg-blue-900/30 border border-blue-700/50 rounded-lg p-3">
-                          <h5 className="font-medium text-blue-200 mb-2">Classic Examples</h5>
-                          <ul className="space-y-1 text-xs text-blue-100">
-                            <li>• <strong>Ice cream sales & drowning deaths:</strong> Both increase in summer (third variable: hot weather)</li>
-                            <li>• <strong>Shoe size & reading ability:</strong> Correlated in children (third variable: age)</li>
-                            <li>• <strong>Economic indicators moving together:</strong> Due to business cycles, not direct causation</li>
-                          </ul>
-                        </div>
-                        
-                        <div className="bg-purple-900/30 border border-purple-700/50 rounded-lg p-3">
-                          <h5 className="font-medium text-purple-200 mb-2">Warning Signs</h5>
-                          <ul className="space-y-1 text-xs text-purple-100">
-                            <li>• Very high correlations (&gt;0.8) between unrelated domains</li>
-                            <li>• Time-series data showing similar trends</li>
-                            <li>• Cross-category correlations (economics vs social)</li>
-                            <li>• Seasonal or cyclical patterns in both variables</li>
-                          </ul>
-                        </div>
-                      </div>
-                      
-                      <div className="bg-green-900/30 border border-green-700/50 rounded-lg p-3">
-                        <h5 className="font-medium text-green-200 mb-2">How to Investigate</h5>
-                        <div className="text-xs text-green-100 space-y-1">
-                          <p><strong>Ask these questions:</strong></p>
-                          <ul className="ml-3 space-y-1 list-disc">
-                            <li>What external factors could influence both variables?</li>
-                            <li>Are there seasonal, economic, or technological trends at play?</li>
-                            <li>Does the correlation make logical sense from a causal perspective?</li>
-                            <li>What would happen if we controlled for potential third variables?</li>
-                          </ul>
-                        </div>
-                      </div>
-                      
-                      <div className="text-xs text-gray-400 border-t border-gray-700 pt-3">
-                        <p><strong>Remember:</strong> Strong correlation ≠ causation. Always look for the "hidden third variable" that might explain both trends.</p>
-                        <p className="mt-1">
-                          <a href="https://www.statsig.com/perspectives/misleading-correlations-avoid-false-conclusions" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-                            Learn more about avoiding misleading correlations →
-                          </a>
-                        </p>
-                      </div>
-                    </div>
-                  </DialogContent>
-                </Dialog>
-                {!showInsights && (
-                  <Badge variant="outline" className={`text-xs ml-2 ${getCorrelationColor(correlation.correlation).replace('text-', 'text-').replace(' font-bold', '').replace(' font-semibold', '')} border-current/30`}>
-                    {correlation.correlation > 0 ? 'Positive' : 'Negative'} Correlation
-                  </Badge>
-                )}
-              </div>
-              <div className={`transition-transform duration-200 ${showInsights ? 'rotate-180' : ''}`}>
-                <CaretDown size={16} className="text-gray-400" />
-              </div>
-            </Button>
+            <div className="flex items-center justify-between">
+              <Button
+                variant="ghost"
+                className="flex-1 justify-between text-left h-12 px-4 hover:bg-yellow-400/10"
+                onClick={() => setShowInsights(!showInsights)}
+              >
+                <div className="flex items-center gap-2">
+                  <Lightbulb size={16} className="text-yellow-400" />
+                  <span className="font-medium text-gray-200">Analysis Insights</span>
+                  {!showInsights && (
+                    <Badge variant="outline" className={`text-xs ml-2 ${getCorrelationColor(correlation.correlation).replace('text-', 'text-').replace(' font-bold', '').replace(' font-semibold', '')} border-current/30`}>
+                      {correlation.correlation > 0 ? 'Positive' : 'Negative'} Correlation
+                    </Badge>
+                  )}
+                </div>
+                <div className={`transition-transform duration-200 ${showInsights ? 'rotate-180' : ''}`}>
+                  <CaretDown size={16} className="text-gray-400" />
+                </div>
+              </Button>
+              
+              <Button
+                variant="ghost"
+                size="sm"
+                className="h-6 w-6 p-0 hover:bg-blue-400/20 rounded-full ml-2"
+                onClick={(e) => {
+                  e.stopPropagation()
+                  // Switch to spurious correlation tab
+                  const tabsElement = document.querySelector('[data-value="spurious"]')
+                  if (tabsElement) {
+                    (tabsElement as HTMLElement).click()
+                  }
+                }}
+              >
+                <Info size={12} className="text-blue-400" />
+              </Button>
+            </div>
             
             {showInsights && (
               <div className="px-4 pb-4 pt-2 bg-gray-800/20">
