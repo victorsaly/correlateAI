@@ -420,6 +420,7 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
   const [touchStart, setTouchStart] = useState<{ x: number; y: number } | null>(null)
   const [touchEnd, setTouchEnd] = useState<{ x: number; y: number } | null>(null)
   const [showSwipeHint, setShowSwipeHint] = useState(false)
+  const [showScrollIndicator, setShowScrollIndicator] = useState(false)
   
   const slides = [
     {
@@ -1190,6 +1191,34 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
     }
   }, [handleTouchStart, handleTouchMove, handleTouchEnd])
 
+  // Detect if content is scrollable and show/hide scroll indicator
+  useEffect(() => {
+    const checkScrollable = () => {
+      const slideContainer = document.getElementById('slide-container')
+      if (slideContainer) {
+        const isScrollable = slideContainer.scrollHeight > slideContainer.clientHeight
+        const isMobile = window.innerWidth < 640
+        setShowScrollIndicator(isScrollable && isMobile)
+      }
+    }
+
+    // Check on slide change, animation completion, and window resize
+    const timeouts = [
+      setTimeout(checkScrollable, 100),
+      setTimeout(checkScrollable, 500),
+      setTimeout(checkScrollable, 1000),
+      setTimeout(checkScrollable, 2000)
+    ]
+
+    // Also check on window resize
+    window.addEventListener('resize', checkScrollable)
+
+    return () => {
+      timeouts.forEach(timeout => clearTimeout(timeout))
+      window.removeEventListener('resize', checkScrollable)
+    }
+  }, [currentSlide, animationStep])
+
   // Handle click navigation
   const handleSlideClick = (e: any) => {
     // Don't handle clicks on interactive elements
@@ -1232,12 +1261,15 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
           {/* Main Slide Content - Card with Margin */}
           <div 
             id="slide-container"
-            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain select-none relative"
+            className="bg-gray-800/95 backdrop-blur-md rounded-2xl shadow-2xl border border-gray-700/50 min-h-[calc(100vh-2rem)] sm:min-h-[calc(100vh-3rem)] md:min-h-[calc(100vh-4rem)] max-h-[calc(100vh-2rem)] sm:max-h-[calc(100vh-3rem)] md:max-h-[calc(100vh-4rem)] flex flex-col p-6 sm:p-8 md:p-10 overflow-y-auto overscroll-y-contain select-none relative scrollbar-thin scrollbar-track-gray-700 scrollbar-thumb-gray-500 hover:scrollbar-thumb-gray-400 touch-scroll"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onClick={handleSlideClick}
             style={{ touchAction: 'pan-y' }} // Allow vertical scrolling but handle horizontal swipes
           >
+            {/* Scroll indicator for mobile devices */}
+            <div className={`scroll-indicator sm:hidden ${showScrollIndicator ? 'visible' : ''}`} />
+            
             {/* Click zones visual feedback - only show on hover on desktop */}
             <div className="absolute inset-0 pointer-events-none z-10 rounded-2xl overflow-hidden opacity-0 hover:opacity-100 transition-opacity duration-300 hidden sm:block">
               {/* Left click zone */}
@@ -1296,12 +1328,16 @@ function IntroSlideshow({ onComplete }: { onComplete: () => void }) {
             </div>
 
             {/* Transitioning Content Container - Flex Grow with Scroll */}
-            <div className="flex-1 flex items-start justify-center mb-4 sm:mb-6 overflow-y-auto overscroll-y-contain">
+            <div className="flex-1 flex items-start justify-center mb-4 sm:mb-6 overflow-y-auto overscroll-y-contain scrollbar-thin scrollbar-track-gray-800 scrollbar-thumb-gray-600 hover:scrollbar-thumb-gray-500 touch-scroll relative">
               <div className={`w-full max-w-4xl py-4 transition-all duration-500 ${
                 isAnimating ? 'opacity-0 scale-95 translate-y-4' : 'opacity-100 scale-100 translate-y-0'
               }`}>
                 {currentSlideData.content}
               </div>
+              {/* Scroll fade indicator at bottom */}
+              {showScrollIndicator && (
+                <div className="absolute bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-gray-800/95 to-transparent pointer-events-none z-10 sm:hidden" />
+              )}
             </div>
 
             {/* Navigation Controls */}
@@ -2243,11 +2279,11 @@ function App() {
           </div>
           <div className="text-gray-300 max-w-2xl mx-auto px-4 sm:px-0 space-y-1">
             <h2 className="text-lg sm:text-xl font-semibold text-white">
-              Ever wonder if <span className="text-orange-400 font-bold">2</span> things are connected?
+              Discover <span className="text-orange-400 font-bold">strong links</span> between real-world data
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
             <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
-              Our AI finds these hidden connections by comparing real-world data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, OpenWeather, CoinGecko, OECD, and more.
+              Using only authentic data from trusted sources like the Federal Reserve, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, and more - no AI-generated content, just real correlations.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">

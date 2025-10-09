@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm",
     "citation": "Federal Reserve Bank Payments Study (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T10:49:50.639Z",
+    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
     "filename": "finance-mobile-payment-volume"
   },
   "data": [
     {
       "year": 2014,
-      "value": 157.6,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 158.72,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2015,
-      "value": 247.32,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 256.47,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2016,
-      "value": 253.1,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 252.34,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2017,
-      "value": 288.8,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 283.27,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2018,
-      "value": 338.05,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 339.16,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2019,
-      "value": 473.54,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 417.76,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2020,
-      "value": 479.06,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 444.38,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2021,
-      "value": 428.98,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 429.19,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2022,
-      "value": 585.23,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 495.68,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2023,
-      "value": 700.05,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 649.95,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     },
     {
       "year": 2024,
-      "value": 647.85,
-      "generatedAt": "2025-10-08T10:49:50.651Z"
+      "value": 666.94,
+      "generatedAt": "2025-10-08T23:59:59.281Z"
     }
   ]
 }

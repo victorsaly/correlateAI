@@ -220,3 +220,95 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* 
+ * Scrollbar styles for intro slideshow and other scrollable areas 
+ */
+@layer utilities {
+  .scrollbar-thin {
+    scrollbar-width: thin;
+  }
+
+  .scrollbar-track-gray-700 {
+    scrollbar-color: #4b5563 #374151;
+  }
+
+  .scrollbar-track-gray-800 {
+    scrollbar-color: #4b5563 #1f2937;
+  }
+
+  .scrollbar-thumb-gray-500 {
+    scrollbar-color: #6b7280 transparent;
+  }
+
+  .scrollbar-thumb-gray-600 {
+    scrollbar-color: #4b5563 transparent;
+  }
+
+  .scrollbar-thumb-gray-400 {
+    scrollbar-color: #9ca3af transparent;
+  }
+
+  /* WebKit scrollbar styles for better cross-browser support */
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  .scrollbar-track-gray-700::-webkit-scrollbar-track,
+  .scrollbar-track-gray-800::-webkit-scrollbar-track {
+    background: #374151;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-gray-500::-webkit-scrollbar-thumb {
+    background: #6b7280;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-gray-400::-webkit-scrollbar-thumb {
+    background: #9ca3af;
+    border-radius: 3px;
+  }
+
+  .scrollbar-thumb-gray-500::-webkit-scrollbar-thumb:hover,
+  .hover\:scrollbar-thumb-gray-400::-webkit-scrollbar-thumb:hover {
+    background: #9ca3af;
+  }
+
+  .scrollbar-thumb-gray-600::-webkit-scrollbar-thumb:hover,
+  .hover\:scrollbar-thumb-gray-500::-webkit-scrollbar-thumb:hover {
+    background: #6b7280;
+  }
+
+  /* Scroll indicator for touch devices */
+  .scroll-indicator {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 40px;
+    background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.5), transparent);
+    border-radius: 2px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 10;
+  }
+
+  .scroll-indicator.visible {
+    opacity: 1;
+  }
+
+  /* Enhanced touch scrolling for mobile */
+  .touch-scroll {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+}

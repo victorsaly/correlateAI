@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/mobile/",
     "citation": "Pew Research Center Technology Surveys (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T10:49:50.639Z",
+    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
     "filename": "technology-smartphone-adoption-rate"
   },
   "data": [
     {
       "year": 2014,
-      "value": 60.96,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 61.23,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2015,
-      "value": 64.66,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 64.21,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2016,
-      "value": 67.37,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 67.45,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2017,
-      "value": 71.04,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 70.6,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2018,
-      "value": 74.15,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 74.06,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2019,
       "value": 77.08,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2020,
-      "value": 80.5,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 80.19,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2021,
-      "value": 83.56,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 83.9,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2022,
-      "value": 86.98,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 86.81,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2023,
-      "value": 90.29,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 89.98,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     },
     {
       "year": 2024,
-      "value": 92.98,
-      "generatedAt": "2025-10-08T10:49:50.640Z"
+      "value": 93.24,
+      "generatedAt": "2025-10-08T23:59:59.269Z"
     }
   ]
 }

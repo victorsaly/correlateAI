@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.cta.tech/Resources/Market-Research/Smart-Homes",
     "citation": "Consumer Technology Association Smart Home Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T10:49:50.639Z",
+    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
     "filename": "technology-smart-home-device-adoption"
   },
   "data": [
     {
       "year": 2014,
-      "value": 31.41,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 30.81,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2015,
-      "value": 44.08,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 43.77,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2016,
-      "value": 56.04,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 57.98,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2017,
-      "value": 70.47,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 70.02,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2018,
-      "value": 83.74,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 84.2,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2019,
-      "value": 96.04,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 96.07,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2020,
-      "value": 106.59,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 107.97,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2021,
-      "value": 122.4,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 123.26,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2022,
-      "value": 132.39,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 132.83,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2023,
-      "value": 144.5,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 144.88,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2024,
-      "value": 159.13,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 159.89,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     }
   ]
 }

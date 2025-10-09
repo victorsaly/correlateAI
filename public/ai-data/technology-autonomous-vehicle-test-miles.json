@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/",
     "citation": "California DMV Autonomous Vehicle Testing Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T10:49:50.639Z",
+    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
     "filename": "technology-autonomous-vehicle-test-miles"
   },
   "data": [
     {
       "year": 2014,
-      "value": 9.4,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 9.36,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2015,
-      "value": 18.45,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 18.63,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2016,
-      "value": 27.28,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 27.37,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2017,
-      "value": 35.92,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 35.73,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2018,
-      "value": 44.68,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 45.44,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2019,
-      "value": 53.31,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 55.02,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2020,
-      "value": 63.61,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 61.61,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2021,
-      "value": 71.41,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 71.14,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2022,
-      "value": 82.19,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 81.47,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2023,
-      "value": 89.21,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 89.48,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     },
     {
       "year": 2024,
-      "value": 97.87,
-      "generatedAt": "2025-10-08T10:49:50.643Z"
+      "value": 97.61,
+      "generatedAt": "2025-10-08T23:59:59.272Z"
     }
   ]
 }
