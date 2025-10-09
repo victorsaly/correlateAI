@@ -3,7 +3,7 @@ import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
 import { resolve } from 'path'
 
-const projectRoot = process.env.PROJECT_ROOT || import.meta.dirname
+const projectRoot = '.'
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
@@ -49,7 +49,13 @@ export default defineConfig(({ mode }) => {
       assetsInlineLimit: 0
     },
     server: {
-      // Development server configuration (only used in dev mode)
+      // Development server configuration
+      host: true,
+      cors: true,
+      // Force proper MIME types for modules
+      fs: {
+        strict: false
+      },
       proxy: !isProduction ? {
         '/api/fred': {
           target: 'https://api.stlouisfed.org',
