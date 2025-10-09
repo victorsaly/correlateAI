@@ -21,8 +21,10 @@ import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/ce
 import { DynamicDatasetService, type DynamicDataset } from '@/services/dynamicDatasetService'
 import { quantumCorrelationService, type QuantumCorrelationResult } from '@/services/quantumCorrelationService'
 import { advancedStatisticalService, type EnhancedStatisticalResult } from '@/services/advancedStatisticalService'
+import { advancedQuantumCorrelationService, type AdvancedQuantumCorrelationResult } from '@/services/advancedQuantumCorrelationService'
 import { QuantumCorrelationDisplay, QuantumCorrelationCard } from '@/components/QuantumCorrelationDisplay'
 import StatisticalAnalysisDisplay from '@/components/StatisticalAnalysisDisplay'
+import AdvancedQuantumDisplay from '@/components/AdvancedQuantumDisplay'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -42,6 +44,7 @@ interface CorrelationData {
   quantumAnalysis?: QuantumCorrelationResult
   quantumMetrics?: QuantumCorrelationResult
   advancedStats?: EnhancedStatisticalResult
+  advancedQuantumAnalysis?: AdvancedQuantumCorrelationResult
 }
 
 interface Dataset {
@@ -419,6 +422,18 @@ async function generateCorrelationDataWithRealSources(
     recommendedMethod: advancedStats.overallAssessment.recommendedMethod
   })
 
+  // Advanced quantum analysis inspired by "Beyond the Quantum"
+  console.log('🚀 Performing advanced quantum correlation analysis (real sources)...')
+  
+  const advancedQuantumAnalysis = advancedQuantumCorrelationService.analyzeAdvancedQuantumCorrelation(data1, data2)
+  
+  console.log('⚛️ Advanced quantum analysis completed (real sources):', {
+    bellState: advancedQuantumAnalysis.quantumEntanglement.bellStateClassification,
+    entanglementStrength: advancedQuantumAnalysis.quantumEntanglement.entanglementStrength,
+    chshValue: advancedQuantumAnalysis.nonLocalCorrelations.chshValue,
+    quantumAdvantage: advancedQuantumAnalysis.nonLocalCorrelations.quantumAdvantage
+  })
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -434,7 +449,8 @@ async function generateCorrelationDataWithRealSources(
     isRealData: hasRealData,
     dataSource: dataSourceName,
     quantumMetrics: quantumMetrics, // Add quantum analysis to the result
-    advancedStats: advancedStats // Add comprehensive statistical analysis
+    advancedStats: advancedStats, // Add comprehensive statistical analysis
+    advancedQuantumAnalysis: advancedQuantumAnalysis // Add cutting-edge quantum analysis
   }
 }
 
@@ -505,6 +521,18 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
     spuriousProbability: advancedStats.overallAssessment.spuriousProbability
   })
 
+  // Advanced quantum analysis inspired by "Beyond the Quantum"
+  console.log('🚀 Performing advanced quantum correlation analysis...')
+  
+  const advancedQuantumAnalysis = advancedQuantumCorrelationService.analyzeAdvancedQuantumCorrelation(data1, data2)
+  
+  console.log('⚛️ Advanced quantum analysis completed:', {
+    bellState: advancedQuantumAnalysis.quantumEntanglement.bellStateClassification,
+    entanglementStrength: advancedQuantumAnalysis.quantumEntanglement.entanglementStrength,
+    chshValue: advancedQuantumAnalysis.nonLocalCorrelations.chshValue,
+    quantumAdvantage: advancedQuantumAnalysis.nonLocalCorrelations.quantumAdvantage
+  })
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -520,7 +548,8 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
     isRealData: false,
     dataSource: "Synthetic",
     quantumMetrics,
-    advancedStats
+    advancedStats,
+    advancedQuantumAnalysis
   }
 }
 
@@ -5218,6 +5247,23 @@ function CorrelationCard({
               </div>
               <StatisticalAnalysisDisplay
                 analysis={correlation.advancedStats}
+                variable1Name={correlation.variable1.name}
+                variable2Name={correlation.variable2.name}
+              />
+            </div>
+          </div>
+        )}
+
+        {correlation.advancedQuantumAnalysis && (
+          <div className="mt-6 pt-6 border-t border-gray-700/50">
+            <div className="bg-gradient-to-r from-violet-900/30 to-purple-900/30 border border-violet-500/30 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-violet-300 mb-4">⚛️ Advanced Quantum Correlation Analysis</h3>
+              <div className="text-violet-200/80 text-sm mb-4">
+                Cutting-edge quantum computing concepts inspired by "Beyond the Quantum": Bell state analysis, 
+                quantum entanglement detection, non-local correlations, quantum interference patterns, and hybrid quantum-classical processing.
+              </div>
+              <AdvancedQuantumDisplay
+                result={correlation.advancedQuantumAnalysis}
                 variable1Name={correlation.variable1.name}
                 variable2Name={correlation.variable2.name}
               />
