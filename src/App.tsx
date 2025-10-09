@@ -5,10 +5,11 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { Badge } from '@/components/ui/badge'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu'
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck, Brain } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -2053,15 +2054,56 @@ function App() {
       insights.push(`🎢 High volatility detected in ${moreVolatile.toLowerCase()} - data shows significant fluctuations`)
     }
     
-    // Correlation strength insights with context
+    // Correlation strength insights with context and spurious correlation warnings
     const absCorr = Math.abs(correlation.correlation)
     if (absCorr > 0.8) {
       const direction = correlation.correlation > 0 ? 'positive' : 'negative'
       insights.push(`🔥 Exceptionally strong ${direction} correlation (${(correlation.correlation * 100).toFixed(1)}%) - highly predictive relationship`)
+      insights.push(`⚠️ CAUTION: Very strong correlations often indicate spurious relationships - investigate potential third variables like seasonal trends, economic cycles, or shared underlying causes`)
     } else if (absCorr > 0.6) {
       insights.push(`💪 Strong correlation suggests meaningful relationship between variables`)
+      insights.push(`🔍 Consider spurious correlation: Strong relationships may share a common denominator - look for external factors affecting both variables simultaneously`)
     } else if (absCorr < 0.3) {
       insights.push(`🎲 Weak correlation (${(absCorr * 100).toFixed(1)}%) - relationship may be coincidental or influenced by external factors`)
+    }
+    
+    // Additional spurious correlation warnings for high correlations
+    if (absCorr > 0.7 && correlation.isRealData) {
+      const var1Category = correlation.variable1.category?.toLowerCase() || 'unknown'
+      const var2Category = correlation.variable2.category?.toLowerCase() || 'unknown'
+      
+      if (var1Category !== var2Category) {
+        insights.push(`🚨 Cross-category correlation detected: ${var1Category} vs ${var2Category} variables often have spurious relationships due to shared time trends or external drivers`)
+      }
+      
+      // Common spurious correlation scenarios
+      if (var1Category.includes('economic') || var2Category.includes('economic')) {
+        insights.push(`💰 Economic data warning: Many economic indicators move together due to business cycles, not direct causation`)
+      }
+      
+      if (var1Category.includes('social') || var2Category.includes('social')) {
+        insights.push(`👥 Social trend warning: Demographics and social behaviors often correlate due to generational, technological, or cultural shifts`)
+      }
+      
+      // Additional spurious correlation warnings based on data patterns
+      const dataYears = correlation.data.map(d => d.year)
+      const timeSpan = Math.max(...dataYears) - Math.min(...dataYears)
+      if (timeSpan >= 10 && absCorr > 0.6) {
+        insights.push(`📊 Long-term trend alert: ${timeSpan}-year correlations often reflect shared time trends rather than causal relationships`)
+      }
+      
+      // Check for seasonal patterns that might indicate spurious correlation
+      const seasonalPattern1 = correlation.data.every((d, i) => {
+        if (i === 0) return true
+        return d.value1 >= correlation.data[i-1].value1 // Always increasing
+      }) || correlation.data.every((d, i) => {
+        if (i === 0) return true
+        return d.value1 <= correlation.data[i-1].value1 // Always decreasing
+      })
+      
+      if (seasonalPattern1 && absCorr > 0.7) {
+        insights.push(`🔄 Monotonic trend warning: Both variables follow similar directional trends - consider if external factors drive both patterns`)
+      }
     }
     
     // R-squared insights
@@ -4402,6 +4444,84 @@ function CorrelationCard({
               <div className="flex items-center gap-2">
                 <Lightbulb size={16} className="text-yellow-400" />
                 <span className="font-medium text-gray-200">Analysis Insights</span>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      className="h-6 w-6 p-0 hover:bg-blue-400/20 rounded-full"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Info size={12} className="text-blue-400" />
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent className="max-w-2xl bg-gray-800 border-gray-700">
+                    <DialogHeader>
+                      <DialogTitle className="text-gray-100 flex items-center gap-2">
+                        <Brain size={20} className="text-orange-400" />
+                        Understanding Spurious Correlations
+                      </DialogTitle>
+                      <DialogDescription className="text-gray-300">
+                        Learn how to identify and avoid false conclusions from misleading correlations
+                      </DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4 text-sm text-gray-300">
+                      <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 border border-orange-700/50 rounded-lg p-4">
+                        <h4 className="font-semibold text-orange-200 mb-2">What is Spurious Correlation?</h4>
+                        <p className="leading-relaxed mb-3">
+                          <strong>Spurious correlation</strong> occurs when two variables appear statistically correlated due to a shared relationship 
+                          with a third variable (confounding factor), despite being unrelated in reality. This can lead to false conclusions about causation.
+                        </p>
+                        <p className="text-orange-100 text-xs">
+                          <strong>Key principle:</strong> The apparent correlation is actually driven by a "common denominator" - an external factor affecting both variables simultaneously.
+                        </p>
+                      </div>
+                      
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div className="bg-blue-900/30 border border-blue-700/50 rounded-lg p-3">
+                          <h5 className="font-medium text-blue-200 mb-2">Classic Examples</h5>
+                          <ul className="space-y-1 text-xs text-blue-100">
+                            <li>• <strong>Ice cream sales & drowning deaths:</strong> Both increase in summer (third variable: hot weather)</li>
+                            <li>• <strong>Shoe size & reading ability:</strong> Correlated in children (third variable: age)</li>
+                            <li>• <strong>Economic indicators moving together:</strong> Due to business cycles, not direct causation</li>
+                          </ul>
+                        </div>
+                        
+                        <div className="bg-purple-900/30 border border-purple-700/50 rounded-lg p-3">
+                          <h5 className="font-medium text-purple-200 mb-2">Warning Signs</h5>
+                          <ul className="space-y-1 text-xs text-purple-100">
+                            <li>• Very high correlations (&gt;0.8) between unrelated domains</li>
+                            <li>• Time-series data showing similar trends</li>
+                            <li>• Cross-category correlations (economics vs social)</li>
+                            <li>• Seasonal or cyclical patterns in both variables</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-green-900/30 border border-green-700/50 rounded-lg p-3">
+                        <h5 className="font-medium text-green-200 mb-2">How to Investigate</h5>
+                        <div className="text-xs text-green-100 space-y-1">
+                          <p><strong>Ask these questions:</strong></p>
+                          <ul className="ml-3 space-y-1 list-disc">
+                            <li>What external factors could influence both variables?</li>
+                            <li>Are there seasonal, economic, or technological trends at play?</li>
+                            <li>Does the correlation make logical sense from a causal perspective?</li>
+                            <li>What would happen if we controlled for potential third variables?</li>
+                          </ul>
+                        </div>
+                      </div>
+                      
+                      <div className="text-xs text-gray-400 border-t border-gray-700 pt-3">
+                        <p><strong>Remember:</strong> Strong correlation ≠ causation. Always look for the "hidden third variable" that might explain both trends.</p>
+                        <p className="mt-1">
+                          <a href="https://www.statsig.com/perspectives/misleading-correlations-avoid-false-conclusions" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
+                            Learn more about avoiding misleading correlations →
+                          </a>
+                        </p>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
                 {!showInsights && (
                   <Badge variant="outline" className={`text-xs ml-2 ${getCorrelationColor(correlation.correlation).replace('text-', 'text-').replace(' font-bold', '').replace(' font-semibold', '')} border-current/30`}>
                     {correlation.correlation > 0 ? 'Positive' : 'Negative'} Correlation
@@ -4440,6 +4560,29 @@ function CorrelationCard({
                       Remember: Correlation does not imply causation
                     </p>
                   </div>
+                  
+                  {/* Spurious Correlation Warning */}
+                  {Math.abs(correlation.correlation) >= 0.5 && (
+                    <div className="bg-gradient-to-r from-orange-900/30 to-red-900/30 border border-orange-700/50 rounded-lg p-3 mt-3">
+                      <div className="flex items-start gap-3">
+                        <div className="w-4 h-4 bg-orange-400 rounded-full mt-0.5 flex-shrink-0 flex items-center justify-center">
+                          <span className="text-xs font-bold text-black">!</span>
+                        </div>
+                        <div className="space-y-2">
+                          <p className="text-orange-200 font-medium text-xs">
+                            ⚠️ Spurious Correlation Alert
+                          </p>
+                          <p className="text-orange-100 text-xs leading-relaxed">
+                            This {Math.abs(correlation.correlation) >= 0.7 ? 'strong' : 'moderate'} correlation might be <strong>spurious</strong> - appearing correlated due to a common third variable (confounding factor) despite the variables being unrelated in reality.
+                          </p>
+                          <p className="text-orange-200 text-xs leading-relaxed">
+                            Consider: Could weather, time trends, economic cycles, or other external factors explain both variables simultaneously?
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
                   <div className="mt-4 pt-3 border-t border-gray-700/30">
                     <div className="flex items-center justify-between text-xs">
                       <span className="text-gray-400">R-squared Value:</span>

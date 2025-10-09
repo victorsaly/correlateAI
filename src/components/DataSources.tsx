@@ -112,6 +112,27 @@ export function DataSourcesCard() {
             Pew Research Center social trends, Bureau of Economic Analysis (BEA) trade data, and Department of Transportation (DOT) safety statistics.
           </p>
           
+          {/* Spurious Correlation Education Section */}
+          <div className="mt-4 p-3 bg-gradient-to-r from-orange-50 to-amber-50 border border-orange-200 rounded-lg">
+            <h4 className="flex items-center gap-2 text-sm font-semibold text-orange-800 mb-2">
+              <Brain className="w-4 h-4" />
+              Understanding Spurious Correlations
+            </h4>
+            <p className="text-xs text-orange-700 leading-relaxed mb-2">
+              <strong>Spurious correlation</strong> occurs when two variables appear statistically correlated due to a shared relationship with a third variable (confounding factor), 
+              despite being unrelated in reality. This can lead to false conclusions about causation.
+            </p>
+            <div className="space-y-1 text-xs text-orange-600">
+              <p><strong>Common Examples:</strong></p>
+              <ul className="ml-3 space-y-1 list-disc">
+                <li>Ice cream sales and drowning deaths (both increase in summer due to hot weather)</li>
+                <li>Economic indicators moving together due to business cycles, not direct causation</li>
+                <li>Social behaviors correlating due to generational or technological changes</li>
+              </ul>
+              <p className="mt-2 font-medium">Always ask: "What third variable might explain both of these trends?"</p>
+            </div>
+          </div>
+          
           {/* Quick Access Links */}
           <div className="flex flex-wrap gap-2 mt-3">
             <a
