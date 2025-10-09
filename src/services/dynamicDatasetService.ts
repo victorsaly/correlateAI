@@ -28,18 +28,6 @@ export interface DatasetMetadata {
  * Service to dynamically discover and create datasets from actual data files
  */
 export class DynamicDatasetService {
-  /**
-   * Quietly fetch a resource without logging 404 errors to console
-   */
-  private async quietFetch(url: string): Promise<Response | null> {
-    try {
-      const response = await fetch(url)
-      return response.ok ? response : null
-    } catch (error) {
-      // Silently fail
-      return null
-    }
-  }
   private cachedDatasets: DynamicDataset[] | null = null
   private cacheTimestamp: number = 0
   private readonly CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
@@ -100,18 +88,9 @@ export class DynamicDatasetService {
 
           const data = await response.json()
           
-          // Try to load metadata file (optional, fail silently)
-          const metadataFileName = fileName.replace('.json', '_metadata.json')
-          let metadata: DatasetMetadata | null = null
-          
-          const metadataResponse = await this.quietFetch(`${config.dataPath}${metadataFileName}`)
-          if (metadataResponse) {
-            try {
-              metadata = await metadataResponse.json()
-            } catch (e) {
-              // Invalid JSON - ignore
-            }
-          }
+          // Skip metadata loading - files don't exist and aren't needed
+          // Metadata is optional and can be generated from the data itself
+          const metadata: DatasetMetadata | null = null
 
           // Create dataset from actual file data
           const dataset = this.createDatasetFromFile(fileName, data, metadata, config)
