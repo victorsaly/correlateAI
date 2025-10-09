@@ -9,7 +9,7 @@ export interface DataSourceConfig {
   displayName: string
   description: string
   url: string
-  category: 'economics' | 'financial' | 'climate' | 'space' | 'geology' | 'energy' | 'health' | 'synthetic' | 'cryptocurrency' | 'international' | 'environmental'
+  category: 'economics' | 'financial' | 'climate' | 'space' | 'geology' | 'energy' | 'health' | 'synthetic' | 'cryptocurrency' | 'international' | 'environmental' | 'retail' | 'demographics' | 'crime' | 'education' | 'housing' | 'social'
   icon: string
   color: string
   badgeColor: string
@@ -207,6 +207,134 @@ export const DATA_SOURCE_REGISTRY: DataSourceConfig[] = [
     isStatic: true,
     expectedDatasets: 8,
     dataPath: '/data/air_quality/'
+  },
+
+  // New Death & Mortality Statistics
+  {
+    key: 'NCHS',
+    name: 'NCHS',
+    displayName: 'National Center for Health Statistics',
+    description: 'Vital statistics including death rates and causes of mortality',
+    url: 'https://www.cdc.gov/nchs/',
+    category: 'health',
+    icon: 'activity',
+    color: 'text-rose-400',
+    badgeColor: 'bg-rose-50 text-rose-700 border-rose-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 5
+  },
+
+  // Retail & Sales Data
+  {
+    key: 'Census',
+    name: 'US Census Bureau',
+    displayName: 'US Census Bureau Economic Data',
+    description: 'Retail sales, housing, and demographic statistics',
+    url: 'https://www.census.gov/',
+    category: 'retail',
+    icon: 'shopping-bag',
+    color: 'text-violet-400',
+    badgeColor: 'bg-violet-50 text-violet-700 border-violet-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 5
+  },
+
+  // Crime Statistics
+  {
+    key: 'FBI',
+    name: 'FBI',
+    displayName: 'FBI Uniform Crime Reporting',
+    description: 'National crime statistics and public safety data',
+    url: 'https://ucr.fbi.gov/',
+    category: 'crime',
+    icon: 'shield',
+    color: 'text-red-500',
+    badgeColor: 'bg-red-50 text-red-700 border-red-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
+  },
+
+  // Education Data
+  {
+    key: 'NCES',
+    name: 'NCES',
+    displayName: 'National Center for Education Statistics',
+    description: 'Educational attainment, enrollment, and institutional data',
+    url: 'https://nces.ed.gov/',
+    category: 'education',
+    icon: 'book',
+    color: 'text-sky-400',
+    badgeColor: 'bg-sky-50 text-sky-700 border-sky-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
+  },
+
+  // Housing Market Data
+  {
+    key: 'HUD',
+    name: 'HUD',
+    displayName: 'Housing and Urban Development',
+    description: 'Housing market data, homelessness, and urban development statistics',
+    url: 'https://www.hud.gov/',
+    category: 'housing',
+    icon: 'home',
+    color: 'text-orange-500',
+    badgeColor: 'bg-orange-50 text-orange-700 border-orange-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
+  },
+
+  // Social Media & Technology Usage
+  {
+    key: 'Pew',
+    name: 'Pew Research',
+    displayName: 'Pew Research Center',
+    description: 'Social trends, technology adoption, and demographic shifts',
+    url: 'https://www.pewresearch.org/',
+    category: 'social',
+    icon: 'users',
+    color: 'text-emerald-500',
+    badgeColor: 'bg-emerald-50 text-emerald-700 border-emerald-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
+  },
+
+  // International Trade & Commerce
+  {
+    key: 'BEA',
+    name: 'BEA',
+    displayName: 'Bureau of Economic Analysis',
+    description: 'International trade, GDP components, and economic accounts',
+    url: 'https://www.bea.gov/',
+    category: 'international',
+    icon: 'globe-2',
+    color: 'text-blue-600',
+    badgeColor: 'bg-blue-50 text-blue-700 border-blue-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
+  },
+
+  // Transportation & Infrastructure
+  {
+    key: 'DOT',
+    name: 'DOT',
+    displayName: 'Department of Transportation',
+    description: 'Transportation statistics, traffic fatalities, and infrastructure data',
+    url: 'https://www.transportation.gov/',
+    category: 'demographics',
+    icon: 'truck',
+    color: 'text-gray-500',
+    badgeColor: 'bg-gray-50 text-gray-700 border-gray-200',
+    dataPath: '/data/',
+    isStatic: false,
+    expectedDatasets: 4
   },
 
   // AI-Generated (special case)

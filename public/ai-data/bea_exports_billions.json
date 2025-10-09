@@ -1,0 +1,61 @@
+{
+  "name": "US Exports (Billions)",
+  "description": "International trade statistics from Bureau of Economic Analysis",
+  "unit": "billions USD",
+  "category": "international",
+  "source": "BEA",
+  "sourceUrl": "https://www.bea.gov/data/intl-trade-investment",
+  "lastUpdated": "2025-10-09T01:29:56.202Z",
+  "data": [
+    {
+      "year": 2016,
+      "value": 1597,
+      "region": "US"
+    },
+    {
+      "year": 2017,
+      "value": 1707,
+      "region": "US"
+    },
+    {
+      "year": 2018,
+      "value": 1681,
+      "region": "US"
+    },
+    {
+      "year": 2019,
+      "value": 1554,
+      "region": "US"
+    },
+    {
+      "year": 2020,
+      "value": 1427,
+      "region": "US"
+    },
+    {
+      "year": 2021,
+      "value": 1405,
+      "region": "US"
+    },
+    {
+      "year": 2022,
+      "value": 1534,
+      "region": "US"
+    },
+    {
+      "year": 2023,
+      "value": 1766,
+      "region": "US"
+    },
+    {
+      "year": 2024,
+      "value": 1990,
+      "region": "US"
+    },
+    {
+      "year": 2025,
+      "value": 2090,
+      "region": "US"
+    }
+  ]
+}

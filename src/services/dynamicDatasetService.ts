@@ -132,13 +132,22 @@ export class DynamicDatasetService {
       // Map source category to dataset category
       const categoryMap: Record<string, string> = {
         'economics': 'economics',
-        'financial': 'economics', 
-        'climate': 'weather',
+        'financial': 'finance', 
+        'climate': 'climate',
         'space': 'space',
-        'geology': 'weather',
-        'energy': 'economics',
+        'geology': 'geology',
+        'energy': 'energy',
         'health': 'health',
-        'synthetic': 'technology'
+        'synthetic': 'technology',
+        'cryptocurrency': 'finance',
+        'international': 'trade',
+        'environmental': 'environment',
+        'retail': 'economics',
+        'demographics': 'demographics',
+        'crime': 'social',
+        'education': 'education',
+        'housing': 'economics',
+        'social': 'social'
       }
 
       return {
@@ -491,6 +500,100 @@ export class DynamicDatasetService {
         'paris_aqi.json',
         'tokyo_aqi.json',
         'global_summary.json'
+      ],
+      'NCHS': [
+        'nchs_death_rate_per_100k.json',
+        'nchs_drug_overdose_deaths.json',
+        'nchs_life_expectancy.json',
+        'nchs_infant_mortality.json',
+        'nchs_suicide_rate.json',
+        'nchs_heart_disease_deaths.json',
+        'nchs_cancer_deaths.json',
+        'nchs_stroke_deaths.json',
+        'nchs_diabetes_deaths.json',
+        'nchs_flu_deaths.json',
+        'nchs_covid_deaths.json',
+        'nchs_maternal_mortality.json'
+      ],
+      'Census': [
+        'census_retail_sales_billions.json',
+        'census_ecommerce_sales_billions.json',
+        'census_population_by_age.json',
+        'census_household_income.json',
+        'census_poverty_rate.json',
+        'census_housing_starts.json',
+        'census_building_permits.json',
+        'census_business_formation.json',
+        'census_employment_by_sector.json',
+        'census_consumer_spending.json',
+        'census_manufacturing_output.json',
+        'census_international_trade.json',
+        'census_migration_patterns.json',
+        'census_educational_attainment.json',
+        'census_vehicle_sales.json'
+      ],
+      'FBI': [
+        'fbi_violent_crime_rate_per_100k.json',
+        'fbi_property_crime_rate_per_100k.json',
+        'fbi_murder_rate.json',
+        'fbi_robbery_rate.json',
+        'fbi_burglary_rate.json',
+        'fbi_cybercrime_incidents.json',
+        'fbi_hate_crimes.json',
+        'fbi_law_enforcement_officers.json'
+      ],
+      'NCES': [
+        'nces_bachelors_degree_percentage.json',
+        'nces_student_loan_default_rate.json',
+        'nces_high_school_graduation_rate.json',
+        'nces_college_enrollment.json',
+        'nces_education_spending_per_pupil.json',
+        'nces_teacher_salaries.json',
+        'nces_stem_graduates.json',
+        'nces_dropout_rate.json',
+        'nces_adult_literacy_rate.json',
+        'nces_charter_school_enrollment.json'
+      ],
+      'HUD': [
+        'hud_median_home_price.json',
+        'hud_homeless_count.json',
+        'hud_housing_affordability_index.json',
+        'hud_rental_vacancy_rate.json',
+        'hud_homeownership_rate.json',
+        'hud_fair_market_rent.json',
+        'hud_housing_assistance_recipients.json',
+        'hud_foreclosure_rate.json',
+        'hud_new_housing_completions.json'
+      ],
+      'Pew': [
+        'pew_social_media_usage_percentage.json',
+        'pew_remote_work_percentage.json',
+        'pew_internet_adoption.json',
+        'pew_smartphone_ownership.json',
+        'pew_political_polarization.json',
+        'pew_religious_affiliation.json',
+        'pew_immigration_attitudes.json'
+      ],
+      'BEA': [
+        'bea_exports_billions.json',
+        'bea_imports_billions.json',
+        'bea_gdp_by_industry.json',
+        'bea_personal_consumption.json',
+        'bea_foreign_investment.json',
+        'bea_corporate_profits.json',
+        'bea_trade_deficit.json',
+        'bea_economic_growth_rate.json',
+        'bea_consumer_price_index.json',
+        'bea_business_investment.json',
+        'bea_government_spending.json'
+      ],
+      'DOT': [
+        'dot_traffic_fatalities.json',
+        'dot_vehicle_miles_traveled.json',
+        'dot_public_transit_ridership.json',
+        'dot_aviation_passengers.json',
+        'dot_freight_tonnage.json',
+        'dot_infrastructure_spending.json'
       ],
       'NASA': [
         'asteroid_count.json',

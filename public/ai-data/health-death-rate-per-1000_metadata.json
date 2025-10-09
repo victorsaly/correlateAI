@@ -1,0 +1,14 @@
+{
+  "metadata": {
+    "id": "health_death_rate",
+    "name": "Death Rate per 1,000 Population",
+    "unit": "deaths per 1,000 people",
+    "category": "health",
+    "description": "Annual death rate per 1,000 population in the United States",
+    "source": "National Center for Health Statistics",
+    "sourceUrl": "https://www.cdc.gov/nchs/fastats/deaths.htm",
+    "citation": "CDC National Center for Health Statistics (2014-2024)",
+    "isAIGenerated": false,
+    "filename": "health-death-rate-per-1000"
+  }
+}

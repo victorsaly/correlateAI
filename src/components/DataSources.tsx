@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart, ChartLine, CurrencyBtc, Globe, Wind } from '@phosphor-icons/react'
+import { ArrowSquareOut, Database, Brain, TrendUp, CloudSun, Rocket, Mountains, Lightning, Briefcase, Heart, ChartLine, CurrencyBtc, Globe, Wind, Pulse, ShoppingBag, Shield, BookOpen, House, Users, GlobeHemisphereWest, Truck } from '@phosphor-icons/react'
 import { dataService } from '@/services/staticDataService'
 import { CentralizedDataSourceService, DataSourceInfo as DynamicDataSourceInfo } from '@/services/centralizedDataSourceService'
 import { getSourceConfig } from '@/config/dataSources'
@@ -104,10 +104,12 @@ export function DataSourcesCard() {
         <div className="mt-6 p-4 bg-muted/50 rounded-lg">
           <p className="text-xs text-muted-foreground leading-relaxed mb-3">
             <strong>Data Quality Commitment:</strong> We exclusively use real economic, financial, climate, space, geological, energy, health, 
-            cryptocurrency, international, and environmental data from authoritative sources including Federal Reserve (FRED), World Bank, 
-            Alpha Vantage financial markets, OpenWeather, NASA space weather, USGS earthquakes and geological data, EIA energy statistics, 
-            Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), Nasdaq Data Link, CoinGecko cryptocurrency markets, 
-            OECD international economic indicators, and World Air Quality Index environmental data.
+            cryptocurrency, international, environmental, crime, education, housing, social, and transportation data from authoritative sources including 
+            Federal Reserve (FRED), World Bank, Alpha Vantage financial markets, OpenWeather, NASA space weather, USGS earthquakes and geological data, 
+            EIA energy statistics, Bureau of Labor Statistics (BLS), Centers for Disease Control (CDC), Nasdaq Data Link, CoinGecko cryptocurrency markets, 
+            OECD international economic indicators, World Air Quality Index environmental data, National Center for Health Statistics (NCHS), 
+            US Census Bureau economic data, FBI Uniform Crime Reporting, National Center for Education Statistics (NCES), Housing and Urban Development (HUD), 
+            Pew Research Center social trends, Bureau of Economic Analysis (BEA) trade data, and Department of Transportation (DOT) safety statistics.
           </p>
           
           {/* Quick Access Links */}
@@ -240,6 +242,88 @@ export function DataSourcesCard() {
             >
               <Wind className="w-3 h-3" />
               Explore Air Quality
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            
+            {/* Government Data Sources */}
+            <a
+              href="https://www.cdc.gov/nchs/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-rose-50 text-rose-700 border border-rose-200 rounded-md hover:bg-rose-100 transition-colors"
+            >
+              <Pulse className="w-3 h-3" />
+              Explore NCHS Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://www.census.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-violet-50 text-violet-700 border border-violet-200 rounded-md hover:bg-violet-100 transition-colors"
+            >
+              <ShoppingBag className="w-3 h-3" />
+              Explore Census Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://ucr.fbi.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-red-50 text-red-700 border border-red-200 rounded-md hover:bg-red-100 transition-colors"
+            >
+              <Shield className="w-3 h-3" />
+              Explore FBI Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://nces.ed.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-sky-50 text-sky-700 border border-sky-200 rounded-md hover:bg-sky-100 transition-colors"
+            >
+              <BookOpen className="w-3 h-3" />
+              Explore NCES Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://www.hud.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-orange-50 text-orange-700 border border-orange-200 rounded-md hover:bg-orange-100 transition-colors"
+            >
+              <House className="w-3 h-3" />
+              Explore HUD Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://www.pewresearch.org/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-emerald-50 text-emerald-700 border border-emerald-200 rounded-md hover:bg-emerald-100 transition-colors"
+            >
+              <Users className="w-3 h-3" />
+              Explore Pew Research
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://www.bea.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-blue-50 text-blue-700 border border-blue-200 rounded-md hover:bg-blue-100 transition-colors"
+            >
+              <GlobeHemisphereWest className="w-3 h-3" />
+              Explore BEA Data
+              <ArrowSquareOut className="w-3 h-3" />
+            </a>
+            <a
+              href="https://www.transportation.gov/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 px-3 py-1 text-xs bg-gray-50 text-gray-700 border border-gray-200 rounded-md hover:bg-gray-100 transition-colors"
+            >
+              <Truck className="w-3 h-3" />
+              Explore DOT Data
               <ArrowSquareOut className="w-3 h-3" />
             </a>
           </div>

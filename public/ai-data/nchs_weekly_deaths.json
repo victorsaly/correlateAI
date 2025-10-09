@@ -1,0 +1,10 @@
+{
+  "name": "NCHS Weekly Deaths",
+  "description": "Health and mortality statistics from National Center for Health Statistics",
+  "unit": "count",
+  "category": "health",
+  "source": "NCHS",
+  "sourceUrl": "https://data.cdc.gov/resource/muzy-jte6.json",
+  "lastUpdated": "2025-10-09T01:29:56.720Z",
+  "data": []
+}

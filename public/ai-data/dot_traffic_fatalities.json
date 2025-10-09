@@ -1,0 +1,61 @@
+{
+  "name": "Traffic Fatalities per 100k",
+  "description": "Annual traffic fatality statistics from Department of Transportation",
+  "unit": "fatalities per 100k population",
+  "category": "demographics",
+  "source": "DOT",
+  "sourceUrl": "https://www.transportation.gov/policy/transportation-policy/traffic-safety",
+  "lastUpdated": "2025-10-09T01:29:56.202Z",
+  "data": [
+    {
+      "year": 2016,
+      "value": 11.7,
+      "region": "US"
+    },
+    {
+      "year": 2017,
+      "value": 11.4,
+      "region": "US"
+    },
+    {
+      "year": 2018,
+      "value": 11.1,
+      "region": "US"
+    },
+    {
+      "year": 2019,
+      "value": 10.8,
+      "region": "US"
+    },
+    {
+      "year": 2020,
+      "value": 12,
+      "region": "US"
+    },
+    {
+      "year": 2021,
+      "value": 11.2,
+      "region": "US"
+    },
+    {
+      "year": 2022,
+      "value": 9.9,
+      "region": "US"
+    },
+    {
+      "year": 2023,
+      "value": 9.6,
+      "region": "US"
+    },
+    {
+      "year": 2024,
+      "value": 9.3,
+      "region": "US"
+    },
+    {
+      "year": 2025,
+      "value": 9,
+      "region": "US"
+    }
+  ]
+}

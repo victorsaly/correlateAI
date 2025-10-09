@@ -1,0 +1,61 @@
+{
+  "name": "US Retail Sales (Billions)",
+  "description": "Monthly retail sales data from US Census Bureau",
+  "unit": "billions USD",
+  "category": "retail",
+  "source": "US Census Bureau",
+  "sourceUrl": "https://www.census.gov/retail/index.html",
+  "lastUpdated": "2025-10-09T01:29:56.202Z",
+  "data": [
+    {
+      "year": 2016,
+      "value": 561,
+      "region": "US"
+    },
+    {
+      "year": 2017,
+      "value": 596,
+      "region": "US"
+    },
+    {
+      "year": 2018,
+      "value": 621,
+      "region": "US"
+    },
+    {
+      "year": 2019,
+      "value": 633,
+      "region": "US"
+    },
+    {
+      "year": 2020,
+      "value": 631,
+      "region": "US"
+    },
+    {
+      "year": 2021,
+      "value": 619,
+      "region": "US"
+    },
+    {
+      "year": 2022,
+      "value": 603,
+      "region": "US"
+    },
+    {
+      "year": 2023,
+      "value": 592,
+      "region": "US"
+    },
+    {
+      "year": 2024,
+      "value": 591,
+      "region": "US"
+    },
+    {
+      "year": 2025,
+      "value": 606,
+      "region": "US"
+    }
+  ]
+}

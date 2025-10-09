@@ -8,7 +8,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator'
 import { Switch } from '@/components/ui/switch'
 import { Label } from '@/components/ui/label'
-import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase } from '@phosphor-icons/react'
+import { Heart, ArrowClockwise, Copy, TrendUp, BookOpen, Funnel, Share, Download, TwitterLogo, LinkedinLogo, FacebookLogo, Database, Info, Sparkle, Code, Lightning, Check, Target, ArrowSquareOut, Rocket, ArrowsIn, MagnifyingGlass, Minus, FileCsv, FileText, Link, ImageSquare, Sliders, Robot, CaretDown, Lightbulb, CaretLeft, CaretRight, Play, CloudSun, Mountains, Briefcase, Shield, House, Users, Globe, Truck } from '@phosphor-icons/react'
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts'
 import { toast, Toaster } from 'sonner'
 import { useIsMobile } from '@/hooks/use-mobile'
@@ -52,11 +52,19 @@ const categories = {
   trade: "🌍 International Trade",
   technology: "📱 Technology & Innovation",
   environment: "🌱 Environment & Climate",
-  education: "� Education & Learning",
+  education: "📚 Education & Learning",
   climate: "🌤️ Climate & Weather",
   space: "🚀 Space & Astronomy",
   geology: "🏔️ Geology & Seismology",
-  energy: "⚡ Energy & Power"
+  energy: "⚡ Energy & Power",
+  health: "🏥 Health & Medicine",
+  retail: "🛍️ Retail & Sales",
+  crime: "🛡️ Crime & Safety",
+  housing: "🏠 Housing & Real Estate",
+  social: "👨‍👩‍👧‍👦 Social Trends",
+  international: "🌐 International Data",
+  environmental: "🌍 Environmental Data",
+  cryptocurrency: "₿ Cryptocurrency"
 }
 
 const datasets: Dataset[] = [
@@ -4272,6 +4280,94 @@ function CorrelationCard({
                             <ArrowSquareOut size={8} />
                           </a>
                         )}
+                        {correlation.dataSource === 'NCHS' && (
+                          <a
+                            href="https://www.cdc.gov/nchs/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-rose-500/20 text-rose-400 rounded text-xs hover:bg-rose-500/30 transition-colors"
+                          >
+                            <span>NCHS</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'Census' && (
+                          <a
+                            href="https://www.census.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-violet-500/20 text-violet-400 rounded text-xs hover:bg-violet-500/30 transition-colors"
+                          >
+                            <span>Census</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'FBI' && (
+                          <a
+                            href="https://ucr.fbi.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-red-500/20 text-red-400 rounded text-xs hover:bg-red-500/30 transition-colors"
+                          >
+                            <span>FBI</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'NCES' && (
+                          <a
+                            href="https://nces.ed.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-sky-500/20 text-sky-400 rounded text-xs hover:bg-sky-500/30 transition-colors"
+                          >
+                            <span>NCES</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'HUD' && (
+                          <a
+                            href="https://www.hud.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-orange-500/20 text-orange-400 rounded text-xs hover:bg-orange-500/30 transition-colors"
+                          >
+                            <span>HUD</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'Pew' && (
+                          <a
+                            href="https://www.pewresearch.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-emerald-500/20 text-emerald-400 rounded text-xs hover:bg-emerald-500/30 transition-colors"
+                          >
+                            <span>Pew</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'BEA' && (
+                          <a
+                            href="https://www.bea.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-blue-500/20 text-blue-400 rounded text-xs hover:bg-blue-500/30 transition-colors"
+                          >
+                            <span>BEA</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
+                        {correlation.dataSource === 'DOT' && (
+                          <a
+                            href="https://www.transportation.gov/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 px-1.5 py-0.5 bg-gray-500/20 text-gray-400 rounded text-xs hover:bg-gray-500/30 transition-colors"
+                          >
+                            <span>DOT</span>
+                            <ArrowSquareOut size={8} />
+                          </a>
+                        )}
                       </div>
                     </div>
                   </div>
@@ -4443,6 +4539,102 @@ function CorrelationCard({
                 >
                   <CloudSun size={10} />
                   <span>View OpenWeather</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'NCHS' && (
+                <a
+                  href="https://www.cdc.gov/nchs/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-rose-500/20 text-rose-400 rounded-md hover:bg-rose-500/30 text-xs transition-colors"
+                >
+                  <Heart size={10} />
+                  <span>View NCHS Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'Census' && (
+                <a
+                  href="https://www.census.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-violet-500/20 text-violet-400 rounded-md hover:bg-violet-500/30 text-xs transition-colors"
+                >
+                  <Database size={10} />
+                  <span>View Census Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'FBI' && (
+                <a
+                  href="https://ucr.fbi.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-red-500/20 text-red-400 rounded-md hover:bg-red-500/30 text-xs transition-colors"
+                >
+                  <Shield size={10} />
+                  <span>View FBI Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'NCES' && (
+                <a
+                  href="https://nces.ed.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-sky-500/20 text-sky-400 rounded-md hover:bg-sky-500/30 text-xs transition-colors"
+                >
+                  <BookOpen size={10} />
+                  <span>View NCES Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'HUD' && (
+                <a
+                  href="https://www.hud.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-orange-500/20 text-orange-400 rounded-md hover:bg-orange-500/30 text-xs transition-colors"
+                >
+                  <House size={10} />
+                  <span>View HUD Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'Pew' && (
+                <a
+                  href="https://www.pewresearch.org/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-emerald-500/20 text-emerald-400 rounded-md hover:bg-emerald-500/30 text-xs transition-colors"
+                >
+                  <Users size={10} />
+                  <span>View Pew Research</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'BEA' && (
+                <a
+                  href="https://www.bea.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-blue-500/20 text-blue-400 rounded-md hover:bg-blue-500/30 text-xs transition-colors"
+                >
+                  <Globe size={10} />
+                  <span>View BEA Data</span>
+                  <ArrowSquareOut size={10} />
+                </a>
+              )}
+              {correlation.dataSource === 'DOT' && (
+                <a
+                  href="https://www.transportation.gov/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1 px-2 py-1 bg-gray-500/20 text-gray-400 rounded-md hover:bg-gray-500/30 text-xs transition-colors"
+                >
+                  <Truck size={10} />
+                  <span>View DOT Data</span>
                   <ArrowSquareOut size={10} />
                 </a>
               )}

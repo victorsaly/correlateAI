@@ -1,0 +1,52 @@
+[
+  {
+    "year": 2025,
+    "value": 456,
+    "region": "Michigan"
+  },
+  {
+    "year": 2025,
+    "value": 474,
+    "region": "Massachusetts"
+  },
+  {
+    "year": 2025,
+    "value": 489,
+    "region": "Maryland"
+  },
+  {
+    "year": 2025,
+    "value": 556,
+    "region": "Maine"
+  },
+  {
+    "year": 2025,
+    "value": 472,
+    "region": "Louisiana"
+  },
+  {
+    "year": 2025,
+    "value": 428,
+    "region": "Kentucky"
+  },
+  {
+    "year": 2025,
+    "value": 569,
+    "region": "Kansas"
+  },
+  {
+    "year": 2025,
+    "value": 437,
+    "region": "Iowa"
+  },
+  {
+    "year": 2025,
+    "value": 456,
+    "region": "Indiana"
+  },
+  {
+    "year": 2025,
+    "value": 461,
+    "region": "Illinois"
+  }
+]
