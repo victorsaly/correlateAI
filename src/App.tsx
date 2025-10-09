@@ -20,7 +20,9 @@ import { SpuriousCorrelationPage } from '@/components/SpuriousCorrelationPage'
 import { CentralizedDataSourceService, type DataSourceInfo } from '@/services/centralizedDataSourceService'
 import { DynamicDatasetService, type DynamicDataset } from '@/services/dynamicDatasetService'
 import { quantumCorrelationService, type QuantumCorrelationResult } from '@/services/quantumCorrelationService'
+import { advancedStatisticalService, type EnhancedStatisticalResult } from '@/services/advancedStatisticalService'
 import { QuantumCorrelationDisplay, QuantumCorrelationCard } from '@/components/QuantumCorrelationDisplay'
+import StatisticalAnalysisDisplay from '@/components/StatisticalAnalysisDisplay'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -39,6 +41,7 @@ interface CorrelationData {
   dataSource: string
   quantumAnalysis?: QuantumCorrelationResult
   quantumMetrics?: QuantumCorrelationResult
+  advancedStats?: EnhancedStatisticalResult
 }
 
 interface Dataset {
@@ -404,6 +407,18 @@ async function generateCorrelationDataWithRealSources(
   
   console.log('🔬 Quantum metrics calculated (real sources):', quantumMetrics)
 
+  // Enhanced statistical analysis for real data
+  console.log('📈 Performing comprehensive statistical analysis (real sources)...')
+  
+  const advancedStats = advancedStatisticalService.analyzeCorrelation(data1, data2)
+  
+  console.log('🧮 Advanced statistical analysis completed (real sources):', {
+    permutationPValue: advancedStats.permutationTest.pValue,
+    reliability: advancedStats.overallAssessment.reliability,
+    spuriousProbability: advancedStats.overallAssessment.spuriousProbability,
+    recommendedMethod: advancedStats.overallAssessment.recommendedMethod
+  })
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -418,7 +433,8 @@ async function generateCorrelationDataWithRealSources(
     year: 2020 + Math.floor(Math.random() * 4),
     isRealData: hasRealData,
     dataSource: dataSourceName,
-    quantumMetrics: quantumMetrics // Add quantum analysis to the result
+    quantumMetrics: quantumMetrics, // Add quantum analysis to the result
+    advancedStats: advancedStats // Add comprehensive statistical analysis
   }
 }
 
@@ -478,6 +494,17 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
   
   console.log('🔬 Quantum metrics calculated:', quantumMetrics)
 
+  // Enhanced statistical analysis
+  console.log('📈 Performing comprehensive statistical analysis...')
+  
+  const advancedStats = advancedStatisticalService.analyzeCorrelation(data1, data2)
+  
+  console.log('🧮 Advanced statistical analysis completed:', {
+    permutationPValue: advancedStats.permutationTest.pValue,
+    reliability: advancedStats.overallAssessment.reliability,
+    spuriousProbability: advancedStats.overallAssessment.spuriousProbability
+  })
+
   return {
     id: Math.random().toString(36).substr(2, 9),
     title: `${var1.name} vs ${var2.name}`,
@@ -492,7 +519,8 @@ function generateCorrelationData(selectedCategory?: string): CorrelationData {
     year: 2020 + Math.floor(Math.random() * 4),
     isRealData: false,
     dataSource: "Synthetic",
-    quantumMetrics
+    quantumMetrics,
+    advancedStats
   }
 }
 
@@ -5178,6 +5206,24 @@ function CorrelationCard({
             )}
           </div>
         </div>
+
+        {/* Comprehensive Statistical Analysis - Modern detection methods */}
+        {correlation.advancedStats && (
+          <div className="mt-6 pt-6 border-t border-gray-700/50">
+            <div className="bg-gradient-to-r from-emerald-900/30 to-teal-900/30 border border-emerald-500/30 rounded-lg p-4">
+              <h3 className="text-lg font-semibold text-emerald-300 mb-4">📊 Comprehensive Statistical Analysis</h3>
+              <div className="text-emerald-200/80 text-sm mb-4">
+                Advanced analysis using permutation testing, Box-Cox transformations, coefficient of variation analysis, 
+                robust correlations, and non-parametric tests for comprehensive validation.
+              </div>
+              <StatisticalAnalysisDisplay
+                analysis={correlation.advancedStats}
+                variable1Name={correlation.variable1.name}
+                variable2Name={correlation.variable2.name}
+              />
+            </div>
+          </div>
+        )}
       </CardContent>
     </Card>
   )
