@@ -3070,8 +3070,8 @@ function App() {
     <div className="min-h-screen relative">
       <SwirlBackground />
       <div className="relative z-10 p-2 sm:p-4 min-h-screen">
-        <div className="max-w-6xl mx-auto bg-gray-800/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-4 sm:p-8">
-        <header className="text-center mb-6 sm:mb-8">
+        <div className="max-w-6xl mx-auto bg-gray-800/80 backdrop-blur-md rounded-xl sm:rounded-2xl shadow-2xl border border-gray-700/50 p-3 sm:p-4 md:p-8 overflow-hidden">
+        <header className="text-center mb-4 sm:mb-6 md:mb-8">
           <div className="flex items-center justify-center gap-2 sm:gap-3 mb-3 sm:mb-4 relative">
             {/* Restart Intro Button - positioned absolutely in top right */}
             <button
@@ -3086,45 +3086,45 @@ function App() {
               <span className="hidden sm:inline">Intro</span>
             </button>
 
-            <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center">
-              <Database size={isMobile ? 20 : 24} className="text-white" />
+            <div className="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 bg-gradient-to-r from-cyan-400 to-purple-400 rounded-lg flex items-center justify-center flex-shrink-0">
+              <Database size={isMobile ? 16 : 20} className="text-white" />
             </div>
-            <h1 className="text-2xl sm:text-4xl font-bold">
+            <h1 className="text-xl sm:text-2xl md:text-4xl font-bold truncate">
               <span className="bg-gradient-to-r from-cyan-400 via-blue-400 to-purple-400 bg-clip-text text-transparent">Correlate</span><span className="text-cyan-300">AI</span>
             </h1>
-            <div className="px-2 py-1 sm:px-3 sm:py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25">
+            <div className="px-2 py-1 sm:px-3 sm:py-1 bg-gradient-to-r from-cyan-500 to-purple-500 text-white text-xs font-semibold rounded-full border border-cyan-400/30 shadow-lg shadow-cyan-500/25 flex-shrink-0">
               AI-Powered
             </div>
           </div>
-          <div className="text-gray-300 max-w-2xl mx-auto px-4 sm:px-0 space-y-1">
-            <h2 className="text-lg sm:text-xl font-semibold text-white">
+          <div className="text-gray-300 max-w-2xl mx-auto px-2 sm:px-4 md:px-0 space-y-1">
+            <h2 className="text-base sm:text-lg md:text-xl font-semibold text-white leading-tight">
               Discover <span className="text-orange-400 font-bold">strong links</span> between real-world data with <span className="text-purple-400 font-bold">quantum-enhanced</span> analysis
             </h2>
             <DynamicExamples onExampleClick={handleExampleClick} />
-            <p className="text-xs sm:text-xs text-gray-400 leading-relaxed pt-2 italic">
+            <p className="text-xs sm:text-sm md:text-xs text-gray-400 leading-relaxed pt-2 italic">
               Using authentic data from trusted sources like the Federal Reserve, World Bank, NASA, USGS, and more, plus AI-generated datasets. Advanced quantum-inspired algorithms provide deeper insights beyond traditional correlation analysis.
             </p>
           </div>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-2 mt-4 text-xs sm:text-sm text-gray-400">
             <AnimatedPoweredBy sources={dynamicDataSources} isMobile={isMobile} />
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></div>
+            <div className="flex items-center gap-2 flex-wrap justify-center">
+              <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse flex-shrink-0"></div>
               {datasetStats ? (
-                <div className="flex items-center gap-2 text-xs sm:text-sm">
-                  <span className="text-green-400 font-medium" title={`Total: ${datasetStats.total} datasets from ${dynamicDataSources.size} sources`}>
+                <div className="flex items-center gap-2 text-xs sm:text-sm flex-wrap justify-center">
+                  <span className="text-green-400 font-medium whitespace-nowrap" title={`Total: ${datasetStats.total} datasets from ${dynamicDataSources.size} sources`}>
                     {dynamicDataSources.size} Sources
                   </span>
                   <span className="text-gray-500">•</span>
-                  <span className="text-blue-400 font-medium" title="Real data from FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA, BLS, CDC, and Nasdaq">
+                  <span className="text-blue-400 font-medium whitespace-nowrap" title="Real data from FRED, World Bank, Alpha Vantage, OpenWeather, NASA, USGS, EIA, BLS, CDC, and Nasdaq">
                     {datasetStats.real} Real
                   </span>
                   <span className="text-gray-500">•</span>
-                  <span className="text-purple-400 font-medium" title="AI-generated datasets">
+                  <span className="text-purple-400 font-medium whitespace-nowrap" title="AI-generated datasets">
                     {datasetStats.ai} AI
                   </span>
                 </div>
               ) : (
-                <span className="text-green-400 font-medium">
+                <span className="text-green-400 font-medium whitespace-nowrap">
                   {totalDatasetCount > 0 ? `${totalDatasetCount}+ Sources` : '80+ Sources'}
                 </span>
               )}
@@ -3133,36 +3133,36 @@ function App() {
         </header>
 
         <Tabs defaultValue="generator" className="w-full">
-          <TabsList className={`grid w-full grid-cols-5 mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-14 rounded-xl p-1' : 'h-12 rounded-lg p-1'}`}>
+          <TabsList className={`grid w-full grid-cols-5 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-12 rounded-lg p-1' : 'h-12 rounded-lg p-1'}`}>
             <TabsTrigger 
               value="generator" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
             >
-              {isMobile ? "Generate" : "Generate"}
+              {isMobile ? <Sparkle size={20} weight="fill" /> : "Generate"}
             </TabsTrigger>
             <TabsTrigger 
               value="favorites" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
             >
-              {isMobile ? `❤ ${favorites?.length || 0}` : `Favorites (${favorites?.length || 0})`}
+              {isMobile ? <><Heart size={20} weight="fill" /><span className="text-[10px]">{favorites?.length || 0}</span></> : `Favorites (${favorites?.length || 0})`}
             </TabsTrigger>
             <TabsTrigger 
               value="discover" 
-              className={`text-gray-300 data-[state=active]:text-purple-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-purple-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
             >
-              {isMobile ? "🔮 Discover" : "🔮 Discover"}
+              {isMobile ? <MagnifyingGlass size={20} weight="bold" /> : "🔮 Discover"}
             </TabsTrigger>
             <TabsTrigger 
               value="spurious" 
-              className={`text-gray-300 data-[state=active]:text-orange-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-orange-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
             >
-              {isMobile ? "🔬 Analysis" : "🔬 Advanced Analysis"}
+              {isMobile ? <Calculator size={20} weight="bold" /> : "🔬 Advanced Analysis"}
             </TabsTrigger>
             <TabsTrigger 
               value="story" 
-              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-2 py-2 text-xs rounded-lg font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200`}
+              className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
             >
-              {isMobile ? "Story" : "AI Story"}
+              {isMobile ? <BookOpen size={20} weight="fill" /> : "AI Story"}
             </TabsTrigger>
           </TabsList>
           
@@ -3170,14 +3170,14 @@ function App() {
             <div className="flex flex-col gap-4 items-center justify-center">
               
               {/* Controls Row - Mobile-optimized */}
-              <div className={`w-full max-w-4xl mx-auto space-y-4`}>
+              <div className={`w-full max-w-4xl mx-auto space-y-3 sm:space-y-4`}>
                 {/* Main Controls Row */}
                 <div className={`flex ${isMobile ? 'flex-col gap-3' : 'flex-wrap items-center justify-center gap-4'}`}>
                   {/* Data Source Selector */}
-                  <div className="flex items-center gap-2">
-                    <Database size={18} className="text-purple-400" />
+                  <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
+                    <Database size={16} className="text-purple-400 flex-shrink-0" />
                     <Select value={dataSourcePreference} onValueChange={(value: 'mixed' | 'real' | 'synthetic') => setDataSourcePreference(value)}>
-                      <SelectTrigger className={`${isMobile ? 'w-full' : 'w-44'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
+                      <SelectTrigger className={`${isMobile ? 'w-full min-w-0' : 'w-44'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700 text-sm`}>
                         <SelectValue placeholder="Data source" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
@@ -3195,10 +3195,10 @@ function App() {
                   </div>
                   
                   {/* Category Selector */}
-                  <div className="flex items-center gap-2">
-                    <Funnel size={18} className="text-cyan-400" />
+                  <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
+                    <Funnel size={16} className="text-cyan-400 flex-shrink-0" />
                     <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                      <SelectTrigger className={`${isMobile ? 'w-full' : 'w-40'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
+                      <SelectTrigger className={`${isMobile ? 'w-full min-w-0' : 'w-40'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700 text-sm`}>
                         <SelectValue placeholder="Category" />
                       </SelectTrigger>
                       <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
@@ -3219,20 +3219,18 @@ function App() {
                     onClick={generateNew}
                     disabled={isGenerating}
                     size={isMobile ? "lg" : "lg"}
-                    className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border border-purple-500/30 shadow-lg shadow-purple-500/25 text-sm sm:text-base`}
+                    className={`${isMobile ? 'w-auto px-4 py-3 text-sm' : 'px-8 text-base'} bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border border-purple-500/30 shadow-lg shadow-purple-500/25`}
                   >
                     {isGenerating ? (
                       <>
-                        <ArrowClockwise className="animate-spin mr-2" size={18} />
-                        {isMobile ? "Analyzing..." : "Validating Correlations..."}
+                        <ArrowClockwise className="animate-spin mr-2" size={16} />
+                        <span className="hidden sm:inline">Validating Correlations...</span>
+                        <span className="sm:hidden">Analyzing...</span>
                       </>
                     ) : (
                       <>
-                        <div className="mr-2 text-lg">⚛️</div>
-                        {isMobile 
-                          ? "Discover Correlations"
-                          : "Discover & Validate Correlations"
-                        }
+                        <div className="text-lg">⚛️</div>
+                        <span className="hidden sm:inline ml-2">Discover & Validate Correlations</span>
                       </>
                     )}
                   </Button>
@@ -4446,58 +4444,60 @@ function CorrelationCard({
   }, [])
 
   return (
-    <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md" ref={isShareable ? shareCardRef : undefined}>
-      <CardHeader className={`${isMobile ? 'p-3 pb-3' : ''}`}>
-        <div className={`flex justify-between ${isMobile ? 'flex-col gap-3' : 'items-start'}`}>
-          <div>
-            <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'}`}>
-              <div className={`flex items-center gap-2 ${isMobile ? 'w-full' : ''}`}>
-                <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center">
+    <Card className="w-full bg-gray-800/50 border-gray-700/50 backdrop-blur-md overflow-hidden" ref={isShareable ? shareCardRef : undefined}>
+      <CardHeader className={`${isMobile ? 'p-3 pb-3' : 'p-6 pb-4'}`}>
+        <div className={`flex justify-between ${isMobile ? 'flex-col gap-3' : 'items-start'} min-w-0`}>
+          <div className="min-w-0 flex-1">
+            <CardTitle className={`${isMobile ? 'text-base leading-tight' : 'text-xl'} font-semibold flex items-start gap-3 text-gray-100 ${isMobile ? 'flex-col' : 'items-center'} min-w-0`}>
+              <div className={`flex items-center gap-2 ${isMobile ? 'w-full min-w-0' : ''}`}>
+                <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center flex-shrink-0">
                   <TrendUp size={16} className="text-white" />
                 </div>
-                <ColorizedTitle title={correlation.title} isMobile={isMobile} />
+                <div className="min-w-0 flex-1">
+                  <ColorizedTitle title={correlation.title} isMobile={isMobile} />
+                </div>
               </div>
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <Badge 
                   variant="outline"
                   className={`${
                     correlation.isRealData 
                       ? 'bg-green-50 border-green-200 text-green-700' 
                       : 'bg-orange-50 border-orange-200 text-orange-700'
-                  } ${isMobile ? 'text-xs px-1.5 py-0.5' : 'text-xs'}`}
+                  } ${isMobile ? 'text-xs px-1.5 py-0.5' : 'text-xs'} whitespace-nowrap`}
                 >
                   {correlation.isRealData ? '📊 Real Data' : '🤖 AI Generated'}
                 </Badge>
                 <Badge 
                   variant="secondary" 
-                  className={`${getCorrelationColor(correlation.correlation)} ${isMobile ? 'text-xs' : ''} ${
+                  className={`${getCorrelationColor(correlation.correlation)} ${isMobile ? 'text-xs px-1.5 py-0.5' : 'text-xs'} ${
                     Math.abs(correlation.correlation) >= 0.7 ? 'animate-pulse' : ''
-                  }`}
+                  } whitespace-nowrap`}
                 >
                   {correlation.correlation > 0 ? '+' : ''}
                   {(correlation.correlation * 100).toFixed(1)}% correlation
                 </Badge>
               </div>
             </CardTitle>
-            <p className={`text-gray-300 mt-2 leading-relaxed ${isMobile ? 'text-xs' : 'text-sm'}`}>
+            <p className={`text-gray-300 mt-2 leading-relaxed ${isMobile ? 'text-xs' : 'text-sm'} break-words`}>
               {correlation.description}
             </p>
             {correlation.isRealData && (
-              <p className={`text-gray-400 mt-1 ${isMobile ? 'text-xs' : 'text-sm'} font-mono`}>
+              <p className={`text-gray-400 mt-1 ${isMobile ? 'text-xs' : 'text-sm'} font-mono break-all`}>
                 Sources: {correlation.variable1.dataSource || 'Unknown'} • {correlation.variable2.dataSource || 'Unknown'}
               </p>
             )}
           </div>
           
-          {/* Action buttons in single row for mobile, 2x2 grid for desktop */}
-          <div className={`grid gap-1 ${isMobile ? 'grid-cols-4 w-40' : 'grid-cols-2 w-20'}`}>
+          {/* Action buttons - improved mobile layout */}
+          <div className={`flex ${isMobile ? 'flex-row justify-end gap-1' : 'flex-col gap-1'} flex-shrink-0`}>
             {isShareable && (
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 h-8 w-8"
+                    className={`text-gray-300 hover:text-cyan-400 hover:bg-gray-700/50 ${isMobile ? 'h-8 w-8' : 'h-8 w-8'}`}
                     title="Export options"
                   >
                     <Download size={14} />

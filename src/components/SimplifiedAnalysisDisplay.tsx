@@ -102,16 +102,16 @@ const SimplifiedSummaryCard: React.FC<{
   return (
     <Card className="border border-gray-200 hover:shadow-md transition-shadow">
       <CardHeader className="pb-3">
-        <div className="flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            {icon}
-            <CardTitle className="text-lg">{title}</CardTitle>
+        <div className="flex items-center justify-between min-w-0">
+          <div className="flex items-center gap-2 min-w-0 flex-1">
+            <div className="flex-shrink-0">{icon}</div>
+            <CardTitle className="text-sm sm:text-lg leading-tight truncate">{title}</CardTitle>
           </div>
-          <Badge className={confidenceColor}>
+          <Badge className={`${confidenceColor} text-xs px-1 sm:px-2 py-1 flex-shrink-0 whitespace-nowrap`}>
             {confidence}
           </Badge>
         </div>
-        <CardDescription className="text-sm text-gray-600">
+        <CardDescription className="text-xs sm:text-sm text-gray-600 leading-tight">
           {summary}
         </CardDescription>
       </CardHeader>
@@ -119,9 +119,9 @@ const SimplifiedSummaryCard: React.FC<{
       <CardContent className="pt-0">
         <div className="space-y-2 mb-4">
           {insights.map((insight, index) => (
-            <div key={index} className="flex items-start gap-2">
-              <Lightbulb className="w-4 h-4 text-yellow-500 mt-0.5 flex-shrink-0" />
-              <span className="text-sm">{insight}</span>
+            <div key={index} className="flex items-start gap-2 min-w-0">
+              <Lightbulb className="w-3 h-3 sm:w-4 sm:h-4 text-yellow-500 mt-0.5 flex-shrink-0" />
+              <span className="text-xs sm:text-sm leading-tight break-words">{insight}</span>
             </div>
           ))}
         </div>
@@ -129,7 +129,7 @@ const SimplifiedSummaryCard: React.FC<{
         {details && (
           <Collapsible open={isExpanded} onOpenChange={setIsExpanded}>
             <CollapsibleTrigger asChild>
-              <Button variant="ghost" size="sm" className="w-full justify-center gap-2">
+              <Button variant="ghost" size="sm" className="w-full justify-center gap-2 text-xs sm:text-sm">
                 {isExpanded ? <ChevronDown className="w-4 h-4" /> : <ChevronRight className="w-4 h-4" />}
                 {isExpanded ? 'Hide Technical Details' : 'Show Technical Details'}
               </Button>
@@ -297,31 +297,31 @@ export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ c
           <Collapsible open={showQuantumAnalysis} onOpenChange={setShowQuantumAnalysis}>
             <CollapsibleTrigger asChild>
               <CardHeader className="hover:bg-purple-50 cursor-pointer pb-3">
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="text-lg">⚛️</div>
-                    <div>
-                      <CardTitle className="text-base">⚛️ Quantum Information Theory Analysis</CardTitle>
-                      <CardDescription className="text-sm">
+                <div className="flex items-center justify-between min-w-0">
+                  <div className="flex items-center gap-2 sm:gap-3 min-w-0 flex-1">
+                    <div className="text-lg flex-shrink-0">⚛️</div>
+                    <div className="min-w-0 flex-1">
+                      <CardTitle className="text-sm sm:text-base leading-tight">⚛️ Quantum Information Theory Analysis</CardTitle>
+                      <CardDescription className="text-xs sm:text-sm leading-tight">
                         Holistic approach with multiple validation methods using quantum information theory
                       </CardDescription>
                     </div>
                   </div>
-                  <div className="flex items-center gap-2">
-                    <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                  <div className="flex items-center gap-1 sm:gap-2 flex-shrink-0">
+                    <Badge variant="outline" className="bg-purple-100 text-purple-800 text-xs px-1 sm:px-2 py-1 whitespace-nowrap">
                       Multiple Validation
                     </Badge>
                     {showQuantumAnalysis ? (
-                      <ChevronDown className="w-4 h-4 text-gray-500" />
+                      <ChevronDown className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     ) : (
-                      <ChevronRight className="w-4 h-4 text-gray-500" />
+                      <ChevronRight className="w-4 h-4 text-gray-500 flex-shrink-0" />
                     )}
                   </div>
                 </div>
               </CardHeader>
             </CollapsibleTrigger>
             <CollapsibleContent>
-              <CardContent className="pt-0 space-y-4">
+              <CardContent className="pt-0 space-y-3 sm:space-y-4">
                 <SimplifiedSummaryCard
                   title="Information Entropy Analysis"
                   icon={<div className="text-lg">📊</div>}
