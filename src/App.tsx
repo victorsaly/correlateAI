@@ -25,6 +25,7 @@ import { advancedQuantumCorrelationService, type AdvancedQuantumCorrelationResul
 import { QuantumCorrelationDisplay, QuantumCorrelationCard } from '@/components/QuantumCorrelationDisplay'
 import StatisticalAnalysisDisplay from '@/components/StatisticalAnalysisDisplay'
 import AdvancedQuantumDisplay from '@/components/AdvancedQuantumDisplay'
+import SimplifiedAnalysisDisplay from '@/components/SimplifiedAnalysisDisplay'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
 
 interface CorrelationData {
@@ -1851,6 +1852,11 @@ function App() {
   const [recommendedCorrelations, setRecommendedCorrelations] = useState<CorrelationData[]>([])
   const [showRecommendations, setShowRecommendations] = useState(false)
   const [isGeneratingRecommendations, setIsGeneratingRecommendations] = useState(false)
+  
+  // Mode state variables
+  const [quantumPhysicsMode, setQuantumPhysicsMode] = useState(false)
+  const [isSimplifiedView, setIsSimplifiedView] = useState(false)
+  
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
   const [datasetStats, setDatasetStats] = useState<{real: number, ai: number, total: number} | null>(null)
@@ -3085,65 +3091,152 @@ function App() {
             <div className="flex flex-col gap-4 items-center justify-center">
               
               {/* Controls Row - Mobile-optimized */}
-              <div className={`flex ${isMobile ? 'flex-col gap-3' : 'items-center gap-4'} justify-center w-full max-w-lg`}>
-                <div className="flex items-center gap-2 justify-center">
-                  <Database size={18} className="text-purple-400" />
-                  <Select value={dataSourcePreference} onValueChange={(value: 'mixed' | 'real' | 'synthetic') => setDataSourcePreference(value)}>
-                    <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
-                      <SelectValue placeholder="Select data source" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
-                      <SelectItem value="mixed" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
-                        🔀 Mixed (Real + AI)
-                      </SelectItem>
-                      <SelectItem value="real" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
-                        📊 Authentic Data Priority
-                      </SelectItem>
-                      <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
-                        🎲 Synthetic Only
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
-                
-                <div className="flex items-center gap-2 justify-center">
-                  <Funnel size={18} className="text-cyan-400" />
-                  <Select value={selectedCategory} onValueChange={setSelectedCategory}>
-                    <SelectTrigger className={`${isMobile ? 'w-full' : 'w-48'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
-                      <SelectValue placeholder="Select category" />
-                    </SelectTrigger>
-                    <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
-                      <SelectItem value="all" className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">All Categories</SelectItem>
-                      {Object.entries(availableCategories).map(([key, label]) => (
-                        <SelectItem key={key} value={key} className="text-gray-900 hover:bg-gray-100 focus:bg-gray-100 focus:text-gray-900 cursor-pointer data-[highlighted]:bg-gray-100 data-[highlighted]:text-gray-900">
-                          {label}
+              <div className={`w-full max-w-4xl mx-auto space-y-4`}>
+                {/* Main Controls Row */}
+                <div className={`flex ${isMobile ? 'flex-col gap-3' : 'flex-wrap items-center justify-center gap-4'}`}>
+                  {/* Data Source Selector */}
+                  <div className="flex items-center gap-2">
+                    <Database size={18} className="text-purple-400" />
+                    <Select value={dataSourcePreference} onValueChange={(value: 'mixed' | 'real' | 'synthetic') => setDataSourcePreference(value)}>
+                      <SelectTrigger className={`${isMobile ? 'w-full' : 'w-44'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
+                        <SelectValue placeholder="Data source" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
+                        <SelectItem value="mixed" className="text-gray-900 hover:bg-gray-100">
+                          🔀 Mixed Data
                         </SelectItem>
-                      ))}
-                    </SelectContent>
-                  </Select>
+                        <SelectItem value="real" className="text-gray-900 hover:bg-gray-100">
+                          📊 Real Data Priority
+                        </SelectItem>
+                        <SelectItem value="synthetic" className="text-gray-900 hover:bg-gray-100">
+                          🎲 Synthetic Only
+                        </SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  
+                  {/* Category Selector */}
+                  <div className="flex items-center gap-2">
+                    <Funnel size={18} className="text-cyan-400" />
+                    <Select value={selectedCategory} onValueChange={setSelectedCategory}>
+                      <SelectTrigger className={`${isMobile ? 'w-full' : 'w-40'} bg-gray-700/50 border-gray-600 text-gray-200 hover:bg-gray-700`}>
+                        <SelectValue placeholder="Category" />
+                      </SelectTrigger>
+                      <SelectContent className="bg-white border-gray-300 text-gray-900 shadow-lg z-50">
+                        <SelectItem value="all" className="text-gray-900 hover:bg-gray-100">All Categories</SelectItem>
+                        {Object.entries(availableCategories).map(([key, label]) => (
+                          <SelectItem key={key} value={key} className="text-gray-900 hover:bg-gray-100">
+                            {label}
+                          </SelectItem>
+                        ))}
+                      </SelectContent>
+                    </Select>
+                  </div>
+
+                  {/* Mode Toggles - Compact Layout */}
+                  <div className={`flex ${isMobile ? 'flex-col gap-3' : 'items-center gap-3'}`}>
+                    {/* Quantum Physics Mode Toggle */}
+                    <div className="flex items-center gap-3 px-3 py-2 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                      <div className="text-sm">🌌</div>
+                      <span className="text-xs text-gray-300 font-medium whitespace-nowrap">
+                        Quantum Physics
+                      </span>
+                      <button
+                        onClick={() => setQuantumPhysicsMode(!quantumPhysicsMode)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors touch-manipulation ${
+                          quantumPhysicsMode 
+                            ? 'bg-gradient-to-r from-purple-600 to-cyan-600' 
+                            : 'bg-gray-600'
+                        }`}
+                      >
+                        <span
+                          className={`${
+                            quantumPhysicsMode ? 'translate-x-6' : 'translate-x-1'
+                          } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+                        />
+                      </button>
+                    </div>
+                    
+                    {/* View Mode Toggle */}
+                    <div className="flex items-center gap-3 px-3 py-2 bg-gray-700/30 rounded-lg border border-gray-600/30">
+                      <div className="text-sm">👥</div>
+                      <span className="text-xs text-gray-300 font-medium whitespace-nowrap">
+                        Simple View
+                      </span>
+                      <button
+                        onClick={() => setIsSimplifiedView(!isSimplifiedView)}
+                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors touch-manipulation ${
+                          isSimplifiedView 
+                            ? 'bg-gradient-to-r from-green-600 to-blue-600' 
+                            : 'bg-gray-600'
+                        }`}
+                      >
+                        <span
+                          className={`${
+                            isSimplifiedView ? 'translate-x-6' : 'translate-x-1'
+                          } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
+                        />
+                      </button>
+                    </div>
+                  </div>
                 </div>
-                
-                <Button 
-                  onClick={generateNew}
-                  disabled={isGenerating}
-                  size={isMobile ? "lg" : "lg"}
-                  className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25 text-sm sm:text-base`}
-                >
-                  {isGenerating ? (
-                    <>
-                      <ArrowClockwise className="animate-spin mr-2" size={18} />
-                      {isMobile ? "Analyzing..." : "Analyzing Data..."}
-                    </>
-                  ) : (
-                    <>
-                      <ArrowClockwise className="mr-2" size={18} />
-                      {isMobile 
-                        ? `Generate ${dataSourcePreference === 'real' ? 'Real' : dataSourcePreference === 'synthetic' ? 'AI' : 'Mixed'} Correlation`
-                        : `Generate ${dataSourcePreference === 'real' ? 'Real Data' : dataSourcePreference === 'synthetic' ? 'AI/Synthetic' : 'Mixed Data'} Correlation`
-                      }
-                    </>
-                  )}
-                </Button>
+
+                {/* Status Messages - Only show when active and on larger screens */}
+                {!isMobile && (quantumPhysicsMode || isSimplifiedView) && (
+                  <div className="flex items-center justify-center gap-4 text-xs">
+                    {quantumPhysicsMode && (
+                      <div className="text-center text-purple-300 bg-purple-900/20 rounded-lg px-3 py-1 border border-purple-600/30">
+                        ⚡ Quantum datasets with nonequilibrium conditions
+                      </div>
+                    )}
+                    {isSimplifiedView && (
+                      <div className="text-center text-green-300 bg-green-900/20 rounded-lg px-3 py-1 border border-green-600/30">
+                        📊 Plain English summaries
+                      </div>
+                    )}
+                  </div>
+                )}
+
+                {/* Generate Button */}
+                <div className="flex justify-center">
+                  <Button 
+                    onClick={generateNew}
+                    disabled={isGenerating}
+                    size={isMobile ? "lg" : "lg"}
+                    className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} ${
+                      quantumPhysicsMode 
+                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border border-purple-500/30 shadow-lg shadow-purple-500/25'
+                        : 'bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25'
+                    } text-sm sm:text-base`}
+                  >
+                    {isGenerating ? (
+                      <>
+                        <ArrowClockwise className="animate-spin mr-2" size={18} />
+                        {isMobile ? "Analyzing..." : quantumPhysicsMode ? "Analyzing Quantum..." : "Analyzing Data..."}
+                      </>
+                    ) : (
+                      <>
+                        {quantumPhysicsMode ? (
+                          <>
+                            <div className="mr-2 text-lg">⚛️</div>
+                            {isMobile 
+                              ? "Generate Quantum Physics"
+                              : "Generate Quantum Physics Correlation"
+                            }
+                          </>
+                        ) : (
+                          <>
+                            <ArrowClockwise className="mr-2" size={18} />
+                            {isMobile 
+                              ? `Generate ${dataSourcePreference === 'real' ? 'Real' : dataSourcePreference === 'synthetic' ? 'AI' : 'Mixed'} Correlation`
+                              : `Generate ${dataSourcePreference === 'real' ? 'Real Data' : dataSourcePreference === 'synthetic' ? 'AI/Synthetic' : 'Mixed Data'} Correlation`
+                            }
+                          </>
+                        )}
+                      </>
+                    )}
+                  </Button>
+                </div>
               </div>
             </div>
             
@@ -3194,16 +3287,25 @@ function App() {
                 </CardContent>
               </Card>
             ) : (
-              <CorrelationCard 
-                correlation={currentCorrelation} 
-                isShareable={true} 
-                favorites={favorites}
-                toggleFavorite={toggleFavorite}
-                shareToTwitter={shareToTwitter}
-                shareToLinkedIn={shareToLinkedIn}
-                shareToFacebook={shareToFacebook}
-                shareCorrelation={shareCorrelation}
-              />
+              <>
+                <CorrelationCard 
+                  correlation={currentCorrelation} 
+                  isShareable={true} 
+                  favorites={favorites}
+                  toggleFavorite={toggleFavorite}
+                  shareToTwitter={shareToTwitter}
+                  shareToLinkedIn={shareToLinkedIn}
+                  shareToFacebook={shareToFacebook}
+                  shareCorrelation={shareCorrelation}
+                />
+                
+                {/* Analysis Results - Simplified or Detailed View */}
+                {isSimplifiedView && (
+                  <div className="mt-6">
+                    <SimplifiedAnalysisDisplay correlation={currentCorrelation} />
+                  </div>
+                )}
+              </>
             )}
             
             {/* Data Sources Information */}
