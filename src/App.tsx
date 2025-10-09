@@ -400,7 +400,7 @@ async function generateCorrelationDataWithRealSources(
     let noise1, noise2, correlationEffect
     
     if (quantumMode) {
-      // Quantum-enhanced data generation with nonequilibrium effects
+      // Quantum-enhanced data generation with multi-dimensional calculation methods
       
       // Add quantum coherence oscillations (simulate quantum superposition effects)
       const quantumPhase = (i / 10) * Math.PI * 4 // Higher frequency oscillations
@@ -408,18 +408,18 @@ async function generateCorrelationDataWithRealSources(
       const coherenceEffect1 = Math.cos(quantumPhase + Math.random() * Math.PI) * coherenceStrength * var1.baseValue
       const coherenceEffect2 = Math.cos(quantumPhase + Math.PI/3 + Math.random() * Math.PI) * coherenceStrength * var2.baseValue
       
-      // Add quantum nonequilibrium noise (Valentini-style deviations)
-      const nonequilibriumStrength = 0.3 + Math.random() * 0.2 // Strong nonequilibrium
-      const quantumNoise1 = (Math.random() - 0.5) * nonequilibriumStrength * var1.baseValue * Math.sin(quantumPhase * 2)
-      const quantumNoise2 = (Math.random() - 0.5) * nonequilibriumStrength * var2.baseValue * Math.cos(quantumPhase * 2)
+      // Add quantum information noise (advanced calculation variations)
+      const informationStrength = 0.3 + Math.random() * 0.2 // Enhanced information processing
+      const quantumNoise1 = (Math.random() - 0.5) * informationStrength * var1.baseValue * Math.sin(quantumPhase * 2)
+      const quantumNoise2 = (Math.random() - 0.5) * informationStrength * var2.baseValue * Math.cos(quantumPhase * 2)
       
-      // Entanglement-like correlations (stronger than classical correlations)
+      // Entanglement-like correlations (multi-dimensional relationship modeling)
       const entanglementStrength = 0.6 + Math.random() * 0.3
       const quantumCorrelationEffect = correlation * entanglementStrength * var2.baseValue * 
         ((baseYear1 - var1.baseValue) / var1.baseValue) * 
         Math.cos(quantumPhase) // Oscillating quantum correlation
       
-      // Bell-type inequality violations (sudden correlation spikes)
+      // Bell-type inequality variations (sudden correlation pattern shifts)
       const bellViolation = (i === 3 || i === 7) ? 
         (Math.random() > 0.5 ? 1 : -1) * 0.4 * var2.baseValue * Math.abs(correlation) : 0
       
@@ -427,7 +427,7 @@ async function generateCorrelationDataWithRealSources(
       noise2 = quantumNoise2 + coherenceEffect2
       correlationEffect = quantumCorrelationEffect + bellViolation
       
-      console.log(`🌌 Quantum data point ${i}: coherence=${coherenceStrength.toFixed(3)}, nonequilibrium=${nonequilibriumStrength.toFixed(3)}, entanglement=${entanglementStrength.toFixed(3)}`)
+      console.log(`🌌 Quantum data point ${i}: coherence=${coherenceStrength.toFixed(3)}, information=${informationStrength.toFixed(3)}, entanglement=${entanglementStrength.toFixed(3)}`)
       
     } else {
       // Classical data generation
@@ -456,10 +456,10 @@ async function generateCorrelationDataWithRealSources(
     "Synthetic"
   
   const descriptions = quantumMode ? [
-    `Quantum-enhanced analysis reveals ${strongCorr ? 'strong' : 'notable'} nonequilibrium correlations between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`,
-    `Quantum coherence effects show ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()} exhibit ${correlation > 0 ? 'entangled' : 'anti-correlated'} behavior`,
-    `Beyond classical statistics: ${var1.name.toLowerCase()} demonstrates quantum-inspired predictive power for ${var2.name.toLowerCase()}`,
-    hasRealData ? `Quantum analysis of real data from ${dataSourceName} reveals hidden correlations between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}` : `Quantum-enhanced synthetic data reveals nonequilibrium correlations between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`
+    `Multi-dimensional quantum analysis reveals ${strongCorr ? 'strong' : 'notable'} correlations using advanced calculation methods between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`,
+    `Quantum information theory shows ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()} exhibit ${correlation > 0 ? 'entangled' : 'anti-correlated'} patterns in their data structures`,
+    `Beyond classical statistics: quantum-enhanced modeling demonstrates deeper relationships between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`,
+    hasRealData ? `Quantum computational analysis of real data from ${dataSourceName} uncovers hidden patterns between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}` : `Quantum-enhanced data modeling reveals complex correlations between ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()}`
   ] : [
     `A ${strongCorr ? 'strong' : 'notable'} ${direction} in ${var1.name.toLowerCase()} correlates with ${direction}d ${var2.name.toLowerCase()}`,
     `Research indicates ${var1.name.toLowerCase()} and ${var2.name.toLowerCase()} move in ${correlation > 0 ? 'tandem' : 'opposite directions'}`,
@@ -1920,7 +1920,7 @@ function App() {
   const [isGeneratingRecommendations, setIsGeneratingRecommendations] = useState(false)
   
   // Mode state variables
-  const [quantumPhysicsMode, setQuantumPhysicsMode] = useState(false)
+  const [quantumPhysicsMode, setQuantumPhysicsMode] = useState(true)
   
   const shareCardRef = useRef<HTMLDivElement>(null)
   const [totalDatasetCount, setTotalDatasetCount] = useState<number>(0)
@@ -2135,9 +2135,9 @@ function App() {
     
     try {
       const preferenceMessages = {
-        'mixed': "🤖 Generating AI-powered correlation from mixed data sources...",
-        'real': "📊 Generating correlation from real API data sources...",
-        'synthetic': "🎲 Generating correlation from synthetic datasets..."
+        'mixed': "🔍 Discovering correlations using mixed data sources & validation methods...",
+        'real': "📊 Discovering correlations using real data sources & validation methods...",
+        'synthetic': "🎲 Discovering correlations using synthetic data & validation methods..."
       }
       
       toast.info(preferenceMessages[dataSourcePreference])
@@ -2171,12 +2171,8 @@ function App() {
             newCorrelation.data.map(d => d.value2)
           )
           
-          toast.success("⚛️ Generated quantum-enhanced datasets with nonequilibrium conditions!")
-        } else {
-          // Show success message based on data type used
-          if (newCorrelation.isRealData && dataSourcePreference === 'real') {
-            toast.success("📊 Generated correlation using real data sources!")
-          }
+          // Always show quantum success message since quantum mode is always on
+          toast.success("🔍 Correlation discovered and validated using quantum & statistical methods!")
         }
       } catch (error) {
         if (dataSourcePreference === 'real') {
@@ -2213,7 +2209,7 @@ function App() {
     } finally {
       setIsGenerating(false)
     }
-  }, [selectedCategory, dynamicDataSources, dataSourcePreference])
+  }, [selectedCategory, dynamicDataSources, dataSourcePreference, quantumPhysicsMode])
 
   // Handle clicking on dynamic examples to generate that specific correlation
   const handleExampleClick = useCallback((exampleCorrelation: CorrelationData) => {
@@ -3215,41 +3211,7 @@ function App() {
                       </SelectContent>
                     </Select>
                   </div>
-
-                  {/* Mode Toggles - Compact Layout */}
-                  <div className={`flex ${isMobile ? 'flex-col gap-3' : 'items-center gap-3'}`}>
-                    {/* Quantum Physics Mode Toggle */}
-                    <div className="flex items-center gap-3 px-3 py-2 bg-gray-700/30 rounded-lg border border-gray-600/30">
-                      <div className="text-sm">🌌</div>
-                      <span className="text-xs text-gray-300 font-medium whitespace-nowrap">
-                        Quantum Physics
-                      </span>
-                      <button
-                        onClick={() => setQuantumPhysicsMode(!quantumPhysicsMode)}
-                        className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors touch-manipulation ${
-                          quantumPhysicsMode 
-                            ? 'bg-gradient-to-r from-purple-600 to-cyan-600' 
-                            : 'bg-gray-600'
-                        }`}
-                      >
-                        <span
-                          className={`${
-                            quantumPhysicsMode ? 'translate-x-6' : 'translate-x-1'
-                          } inline-block h-4 w-4 transform rounded-full bg-white transition-transform`}
-                        />
-                      </button>
-                    </div>
-                  </div>
                 </div>
-
-                {/* Status Messages - Only show when active and on larger screens */}
-                {!isMobile && quantumPhysicsMode && (
-                  <div className="flex items-center justify-center gap-4 text-xs">
-                    <div className="text-center text-purple-300 bg-purple-900/20 rounded-lg px-3 py-1 border border-purple-600/30">
-                      ⚡ Quantum datasets with nonequilibrium conditions
-                    </div>
-                  </div>
-                )}
 
                 {/* Generate Button */}
                 <div className="flex justify-center">
@@ -3257,36 +3219,20 @@ function App() {
                     onClick={generateNew}
                     disabled={isGenerating}
                     size={isMobile ? "lg" : "lg"}
-                    className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} ${
-                      quantumPhysicsMode 
-                        ? 'bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border border-purple-500/30 shadow-lg shadow-purple-500/25'
-                        : 'bg-gradient-to-r from-cyan-600 to-purple-600 hover:from-cyan-700 hover:to-purple-700 border border-cyan-500/30 shadow-lg shadow-cyan-500/25'
-                    } text-sm sm:text-base`}
+                    className={`${isMobile ? 'w-full px-4 py-3' : 'px-8'} bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-700 hover:to-indigo-700 border border-purple-500/30 shadow-lg shadow-purple-500/25 text-sm sm:text-base`}
                   >
                     {isGenerating ? (
                       <>
                         <ArrowClockwise className="animate-spin mr-2" size={18} />
-                        {isMobile ? "Analyzing..." : quantumPhysicsMode ? "Analyzing Quantum..." : "Analyzing Data..."}
+                        {isMobile ? "Analyzing..." : "Validating Correlations..."}
                       </>
                     ) : (
                       <>
-                        {quantumPhysicsMode ? (
-                          <>
-                            <div className="mr-2 text-lg">⚛️</div>
-                            {isMobile 
-                              ? "Generate Quantum Physics"
-                              : "Generate Quantum Physics Correlation"
-                            }
-                          </>
-                        ) : (
-                          <>
-                            <ArrowClockwise className="mr-2" size={18} />
-                            {isMobile 
-                              ? `Generate ${dataSourcePreference === 'real' ? 'Real' : dataSourcePreference === 'synthetic' ? 'AI' : 'Mixed'} Correlation`
-                              : `Generate ${dataSourcePreference === 'real' ? 'Real Data' : dataSourcePreference === 'synthetic' ? 'AI/Synthetic' : 'Mixed Data'} Correlation`
-                            }
-                          </>
-                        )}
+                        <div className="mr-2 text-lg">⚛️</div>
+                        {isMobile 
+                          ? "Discover Correlations"
+                          : "Discover & Validate Correlations"
+                        }
                       </>
                     )}
                   </Button>

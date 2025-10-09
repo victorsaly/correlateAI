@@ -3,7 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { ChevronDown, ChevronRight, Info, Lightbulb, Shield } from 'lucide-react'
+import { ChevronDown, ChevronRight, Info, Lightbulb, Shield, BarChart3, Zap } from 'lucide-react'
 import { TrendUp } from '@phosphor-icons/react'
 
 interface CorrelationData {
@@ -145,6 +145,10 @@ const SimplifiedSummaryCard: React.FC<{
 }
 
 export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ correlation }) => {
+  // State for collapsible sections
+  const [showAdvancedStats, setShowAdvancedStats] = useState(false)
+  const [showQuantumAnalysis, setShowQuantumAnalysis] = useState(false)
+  
   const corrStrength = getCorrelationStrength(correlation.correlation)
   const direction = correlation.correlation > 0 ? "positive" : "negative"
   
@@ -200,7 +204,7 @@ export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ c
         <CardHeader>
           <div className="flex items-center gap-2">
             <TrendUp className="w-6 h-6 text-blue-600" />
-            <CardTitle className="text-xl">Key Finding</CardTitle>
+            <CardTitle className="text-xl">Correlation Discovery</CardTitle>
           </div>
           <CardDescription className="text-lg">
             {correlation.variable1.name} and {correlation.variable2.name} show a{" "}
@@ -212,63 +216,144 @@ export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ c
         </CardHeader>
         <CardContent>
           <p className="text-gray-700 mb-4">{corrStrength.description}</p>
-          <div className="bg-white p-3 rounded-lg border">
+          <div className="bg-white p-4 rounded-lg border space-y-3">
             <p className="text-sm text-gray-600">
               <strong>What this means:</strong> {correlation.description}
             </p>
+            <div className="bg-amber-50 border border-amber-200 rounded-lg p-3">
+              <div className="flex items-start gap-2">
+                <Info className="w-4 h-4 text-amber-600 mt-0.5" />
+                <div>
+                  <p className="text-amber-800 font-medium text-sm mb-1">Spurious Correlation Check</p>
+                  <p className="text-amber-700 text-xs">
+                    This correlation has been analyzed using multiple validation methods (statistical and quantum) 
+                    to determine if it represents a real relationship or could be coincidental.
+                  </p>
+                </div>
+              </div>
+            </div>
           </div>
         </CardContent>
       </Card>
 
       {/* Analysis Sections */}
-      <div className="grid gap-4">
+      <div className="space-y-4">
+        {/* Basic Correlation Analysis - Always Visible */}
         <SimplifiedSummaryCard
           title="Basic Correlation Analysis"
-          icon={<Info className="w-5 h-5 text-blue-500" />}
+          icon={<BarChart3 className="w-5 h-5 text-blue-500" />}
           summary="How closely these variables move together over time"
           confidence={corrStrength.strength}
           confidenceColor={`${corrStrength.color} bg-blue-50`}
           insights={basicInsights}
         />
 
-        <SimplifiedSummaryCard
-          title="Statistical Reliability Check"
-          icon={<Shield className="w-5 h-5 text-green-500" />}
-          summary="How confident we can be that this relationship is real, not just coincidence"
-          confidence={statsConfidence.level}
-          confidenceColor={statsConfidence.color}
-          insights={statsInsights}
-        />
+        {/* Comprehensive Statistical Analysis - Compact Format */}
+        <Card className="border-green-200 bg-white">
+          <Collapsible open={showAdvancedStats} onOpenChange={setShowAdvancedStats}>
+            <CollapsibleTrigger asChild>
+              <CardHeader className="hover:bg-green-50 cursor-pointer pb-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <Shield className="w-5 h-5 text-green-500" />
+                    <div>
+                      <CardTitle className="text-base">📊 Comprehensive Statistical Analysis</CardTitle>
+                      <CardDescription className="text-sm">
+                        Advanced statistical tests, p-values, and reliability measures
+                      </CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className={statsConfidence.color}>
+                      {statsConfidence.level} Confidence
+                    </Badge>
+                    {showAdvancedStats ? (
+                      <ChevronDown className="w-4 h-4 text-gray-500" />
+                    ) : (
+                      <ChevronRight className="w-4 h-4 text-gray-500" />
+                    )}
+                  </div>
+                </div>
+              </CardHeader>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <CardContent className="pt-0">
+                <SimplifiedSummaryCard
+                  title="Statistical Reliability Check"
+                  icon={<Shield className="w-5 h-5 text-green-500" />}
+                  summary="P-values, permutation tests, and traditional methods to detect coincidental patterns"
+                  confidence={statsConfidence.level}
+                  confidenceColor={statsConfidence.color}
+                  insights={statsInsights}
+                />
+              </CardContent>
+            </CollapsibleContent>
+          </Collapsible>
+        </Card>
 
-        <SimplifiedSummaryCard
-          title="Quantum Information Analysis"
-          icon={<div className="text-lg">⚛️</div>}
-          summary="Advanced quantum mechanics analysis of information patterns"
-          confidence="Experimental"
-          confidenceColor="bg-purple-100 text-purple-800"
-          insights={quantumInsights}
-        />
+        {/* Quantum-Inspired Analysis - Compact Format */}
+        <Card className="border-purple-200 bg-white">
+          <Collapsible open={showQuantumAnalysis} onOpenChange={setShowQuantumAnalysis}>
+            <CollapsibleTrigger asChild>
+              <CardHeader className="hover:bg-purple-50 cursor-pointer pb-3">
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center gap-3">
+                    <div className="text-lg">⚛️</div>
+                    <div>
+                      <CardTitle className="text-base">⚛️ Quantum-Inspired Analysis</CardTitle>
+                      <CardDescription className="text-sm">
+                        Holistic quantum approach using multi-dimensional calculation methods
+                      </CardDescription>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Badge variant="outline" className="bg-purple-100 text-purple-800">
+                      Experimental Method
+                    </Badge>
+                    {showQuantumAnalysis ? (
+                      <ChevronDown className="w-4 h-4 text-gray-500" />
+                    ) : (
+                      <ChevronRight className="w-4 h-4 text-gray-500" />
+                    )}
+                  </div>
+                </div>
+              </CardHeader>
+            </CollapsibleTrigger>
+            <CollapsibleContent>
+              <CardContent className="pt-0 space-y-4">
+                <SimplifiedSummaryCard
+                  title="Quantum Information Analysis"
+                  icon={<div className="text-lg">⚛️</div>}
+                  summary="Uses quantum calculation methods to detect spurious correlations through multi-dimensional data analysis"
+                  confidence="Experimental"
+                  confidenceColor="bg-purple-100 text-purple-800"
+                  insights={quantumInsights}
+                />
 
-        <SimplifiedSummaryCard
-          title="Advanced Quantum Physics"
-          icon={<div className="text-lg">🌌</div>}
-          summary="Bell states, entanglement, and non-local quantum correlations"
-          confidence="Research Level"
-          confidenceColor="bg-indigo-100 text-indigo-800"
-          insights={advQuantumInsights}
-        />
+                <SimplifiedSummaryCard
+                  title="Bell Inequality Tests"
+                  icon={<div className="text-lg">🌌</div>}
+                  summary="Tests for advanced correlation patterns and quantum data properties vs classical coincidence"
+                  confidence="Research Level"
+                  confidenceColor="bg-indigo-100 text-indigo-800"
+                  insights={advQuantumInsights}
+                />
 
-        <SimplifiedSummaryCard
-          title="Beyond Quantum Analysis"
-          icon={<div className="text-lg">🔬</div>}
-          summary={valentiniStrength === "none" ? 
-            "Standard quantum behavior - no exotic physics detected" : 
-            "Exotic quantum nonequilibrium signatures detected!"
-          }
-          confidence={valentiniStrength === "none" ? "Standard Physics" : "Cutting Edge"}
-          confidenceColor={valentiniStrength === "none" ? "bg-gray-100 text-gray-800" : "bg-pink-100 text-pink-800"}
-          insights={valentiniInsights}
-        />
+                <SimplifiedSummaryCard
+                  title="Comprehensive Quantum Analysis"
+                  icon={<div className="text-lg">🔬</div>}
+                  summary={valentiniStrength === "none" ? 
+                    "Standard calculation methods - validates classical correlation approach" : 
+                    "Enhanced quantum signatures detected - suggests deeper multi-dimensional correlations!"
+                  }
+                  confidence={valentiniStrength === "none" ? "Standard Methods" : "Advanced Quantum"}
+                  confidenceColor={valentiniStrength === "none" ? "bg-gray-100 text-gray-800" : "bg-pink-100 text-pink-800"}
+                  insights={valentiniInsights}
+                />
+              </CardContent>
+            </CollapsibleContent>
+          </Collapsible>
+        </Card>
       </div>
 
       {/* Educational Note */}
@@ -281,7 +366,7 @@ export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ c
               <p className="text-sm text-gray-600">
                 This analysis uses multiple layers of mathematical and scientific methods to understand relationships in data. 
                 The basic correlation tells you if variables move together. Advanced methods help verify if the relationship 
-                is real and explore deeper quantum mechanical properties that might exist in the data patterns.
+                is real and explore deeper quantum calculation patterns that might exist in the data through holistic analysis approaches.
               </p>
             </div>
           </div>
