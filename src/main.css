@@ -311,4 +311,34 @@
     -webkit-overflow-scrolling: touch;
     overscroll-behavior: contain;
   }
+
+  /* Prevent white line artifacts in animations */
+  .intro-slideshow svg {
+    shape-rendering: geometricPrecision;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  .intro-slideshow svg line,
+  .intro-slideshow svg polyline {
+    vector-effect: non-scaling-stroke;
+  }
+
+  /* Smooth animations and prevent flickering */
+  .intro-slideshow * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+
+  /* Fix for thin line rendering */
+  .intro-slideshow .h-px,
+  .intro-slideshow .h-0\.5 {
+    min-height: 1px;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+  }
 }

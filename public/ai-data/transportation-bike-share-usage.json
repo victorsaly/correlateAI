@@ -9,64 +9,64 @@
     "sourceUrl": "https://nacto.org/bike-share-statistics-2020/",
     "citation": "National Association of City Transportation Officials Bike Share (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
+    "aiGeneratedAt": "2025-10-09T00:07:50.822Z",
     "filename": "transportation-bike-share-usage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 36.98,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 37.53,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2015,
-      "value": 50.81,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 50.14,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2016,
-      "value": 54.24,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 54.73,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2017,
-      "value": 56.51,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 58.11,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2018,
-      "value": 74.32,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 71.97,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2019,
-      "value": 90.81,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 91.79,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2020,
-      "value": 90.47,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 92.5,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2021,
-      "value": 89.25,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 90.92,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2022,
-      "value": 110.2,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 107.33,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2023,
-      "value": 130.67,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 130.77,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     },
     {
       "year": 2024,
-      "value": 124.86,
-      "generatedAt": "2025-10-08T23:59:59.284Z"
+      "value": 124.07,
+      "generatedAt": "2025-10-09T00:07:50.836Z"
     }
   ]
 }

@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.federalreserve.gov/publications/2021-economic-well-being-of-us-households-in-2020.htm",
     "citation": "Federal Reserve Bank Economic Well-Being Survey (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
+    "aiGeneratedAt": "2025-10-09T00:07:50.822Z",
     "filename": "finance-cryptocurrency-ownership"
   },
   "data": [
     {
       "year": 2014,
-      "value": 11.27,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 11.74,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2015,
-      "value": 19.77,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 19.38,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2016,
-      "value": 28.05,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 29.27,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2017,
-      "value": 38.76,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 38.12,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2018,
-      "value": 48.44,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 48.13,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2019,
-      "value": 57.95,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 53.49,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2020,
-      "value": 65.43,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 63,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2021,
-      "value": 76.44,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 71.9,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2022,
-      "value": 84.79,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 82.66,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2023,
-      "value": 88.23,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 91.19,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2024,
-      "value": 94.34,
-      "generatedAt": "2025-10-08T23:59:59.281Z"
+      "value": 99.85,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     }
   ]
 }

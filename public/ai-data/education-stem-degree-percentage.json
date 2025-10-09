@@ -9,64 +9,64 @@
     "sourceUrl": "https://ncses.nsf.gov/pubs/nsb20211",
     "citation": "National Science Foundation Science & Engineering Indicators (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-08T23:59:59.268Z",
+    "aiGeneratedAt": "2025-10-09T00:07:50.822Z",
     "filename": "education-stem-degree-percentage"
   },
   "data": [
     {
       "year": 2014,
-      "value": 20.37,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 20.35,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2015,
-      "value": 22.02,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 22.14,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2016,
-      "value": 23.85,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 23.96,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2017,
-      "value": 25.72,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 25.77,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2018,
       "value": 27.45,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2019,
-      "value": 29.4,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 29.39,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2020,
-      "value": 31.09,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 30.99,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2021,
-      "value": 32.89,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 32.94,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2022,
-      "value": 34.65,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 34.82,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2023,
-      "value": 36.62,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 36.44,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     },
     {
       "year": 2024,
-      "value": 38.21,
-      "generatedAt": "2025-10-08T23:59:59.280Z"
+      "value": 38.43,
+      "generatedAt": "2025-10-09T00:07:50.833Z"
     }
   ]
 }
