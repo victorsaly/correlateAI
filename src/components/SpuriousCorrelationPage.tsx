@@ -57,7 +57,7 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
                 </div>
               </div>
             </div>
-            <Badge variant="outline" className="bg-gray-800/70 border-blue-500/50 text-blue-300 shrink-0">
+            <Badge variant="outline" className="bg-blue-500/20 border-blue-400 text-blue-200 shadow-md shadow-blue-500/25 shrink-0 font-medium">
               <Calculator className="w-3 h-3 mr-1" />
               Pearson 1897 Formula
             </Badge>
@@ -306,7 +306,7 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
           </Collapsible>
         </Card>
 
-        {/* Interactive Calculator */}
+        {/* Spurious Correlation Calculator */}
         <Card className="bg-gray-800/50 border-gray-700">
           <Collapsible open={expandedSections.calculator} onOpenChange={() => toggleSection('calculator')}>
             <CollapsibleTrigger asChild>
@@ -314,7 +314,7 @@ export function SpuriousCorrelationPage({ onBack }: SpuriousCorrelationPageProps
                 <CardTitle className="flex items-center justify-between text-white">
                   <span className="flex items-center gap-2">
                     <Calculator className="w-5 h-5 text-green-400" />
-                    Interactive Calculator
+                    Spurious Correlation Calculator
                   </span>
                   <ChevronDown className={`w-5 h-5 text-gray-400 transition-transform ${expandedSections.calculator ? 'rotate-180' : ''}`} />
                 </CardTitle>
