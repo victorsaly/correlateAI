@@ -37,8 +37,50 @@ jobs:
           VITE_APP_NAME: "CorrelateAI Pro"
           VITE_APP_VERSION: "1.0.0"
 
-      - name: Add .nojekyll file for GitHub Pages
-        run: touch ./dist/.nojekyll
+      - name: Fix MIME types and add GitHub Pages configuration
+        run: |
+          # Add .nojekyll file for GitHub Pages
+          touch ./dist/.nojekyll
+          
+          # Verify build output
+          echo "Build output contents:"
+          ls -la ./dist/
+          echo "Assets directory:"
+          ls -la ./dist/assets/ || echo "No assets directory found"
+          
+          # Ensure site.webmanifest exists and has correct extension
+          if [ -f "./dist/site.webmanifest" ]; then
+            echo "✓ site.webmanifest found in dist"
+          else
+            echo "⚠️ Warning: site.webmanifest not found in dist"
+            echo "Checking public directory:"
+            ls -la ./public/site.webmanifest || echo "site.webmanifest not in public either"
+          fi
+          
+          # Check if main.tsx was properly built
+          if [ -f "./dist/assets/"*.js ]; then
+            echo "✓ JavaScript files found in assets"
+          else
+            echo "⚠️ Warning: No JavaScript files found in assets"
+          fi
+          
+          # Create a simple web.config for MIME types (fallback)
+          cat > ./dist/web.config << 'EOF'
+          <?xml version="1.0" encoding="UTF-8"?>
+          <configuration>
+            <system.webServer>
+              <staticContent>
+                <mimeMap fileExtension=".js" mimeType="text/javascript" />
+                <mimeMap fileExtension=".mjs" mimeType="text/javascript" />
+                <mimeMap fileExtension=".webmanifest" mimeType="application/manifest+json" />
+              </staticContent>
+              <httpErrors errorMode="Custom" defaultResponseMode="File">
+                <remove statusCode="404" />
+                <error statusCode="404" responseMode="File" path="/404.html" />
+              </httpErrors>
+            </system.webServer>
+          </configuration>
+          EOF
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
