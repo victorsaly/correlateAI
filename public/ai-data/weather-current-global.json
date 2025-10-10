@@ -6,18 +6,18 @@
       "lat": 40.7128,
       "lon": -74.006
     },
-    "temperature": 13.61,
-    "humidity": 63,
-    "pressure": 1023,
-    "windSpeed": 7.2,
+    "temperature": 11.19,
+    "humidity": 39,
+    "pressure": 1033,
+    "windSpeed": 2.66,
     "cloudiness": 0,
     "visibility": 10000,
     "weatherCondition": "Clear",
     "description": "clear sky",
-    "timestamp": "2025-10-09T06:16:55.065Z",
+    "timestamp": "2025-10-10T06:12:42.020Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "London",
@@ -26,18 +26,18 @@
       "lat": 51.5074,
       "lon": -0.1278
     },
-    "temperature": 8.71,
-    "humidity": 85,
-    "pressure": 1026,
-    "windSpeed": 0.89,
-    "cloudiness": 8,
+    "temperature": 12.3,
+    "humidity": 82,
+    "pressure": 1032,
+    "windSpeed": 1.5,
+    "cloudiness": 62,
     "visibility": 10000,
-    "weatherCondition": "Clear",
-    "description": "clear sky",
-    "timestamp": "2025-10-09T06:16:56.290Z",
+    "weatherCondition": "Clouds",
+    "description": "broken clouds",
+    "timestamp": "2025-10-10T06:12:43.273Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Tokyo",
@@ -46,18 +46,18 @@
       "lat": 35.6762,
       "lon": 139.6503
     },
-    "temperature": 21.68,
-    "humidity": 62,
-    "pressure": 1014,
-    "windSpeed": 10.8,
-    "cloudiness": 75,
+    "temperature": 23.47,
+    "humidity": 42,
+    "pressure": 1019,
+    "windSpeed": 3.46,
+    "cloudiness": 63,
     "visibility": 10000,
     "weatherCondition": "Clouds",
     "description": "broken clouds",
-    "timestamp": "2025-10-09T06:16:57.514Z",
+    "timestamp": "2025-10-10T06:12:44.536Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Sydney",
@@ -66,18 +66,18 @@
       "lat": -33.8688,
       "lon": 151.2093
     },
-    "temperature": 25.84,
-    "humidity": 52,
+    "temperature": 25.83,
+    "humidity": 44,
     "pressure": 1010,
-    "windSpeed": 9.26,
-    "cloudiness": 100,
+    "windSpeed": 1.31,
+    "cloudiness": 0,
     "visibility": 10000,
-    "weatherCondition": "Clouds",
-    "description": "overcast clouds",
-    "timestamp": "2025-10-09T06:16:58.738Z",
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-10T06:12:45.784Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Mumbai",
@@ -86,18 +86,18 @@
       "lat": 19.076,
       "lon": 72.8777
     },
-    "temperature": 32,
-    "humidity": 58,
-    "pressure": 1013,
-    "windSpeed": 3.6,
-    "cloudiness": 20,
-    "visibility": 3000,
-    "weatherCondition": "Haze",
-    "description": "haze",
-    "timestamp": "2025-10-09T06:16:59.963Z",
+    "temperature": 28.97,
+    "humidity": 61,
+    "pressure": 1011,
+    "windSpeed": 1.54,
+    "cloudiness": 2,
+    "visibility": 10000,
+    "weatherCondition": "Clear",
+    "description": "clear sky",
+    "timestamp": "2025-10-10T06:12:47.038Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "São Paulo",
@@ -106,18 +106,18 @@
       "lat": -23.5505,
       "lon": -46.6333
     },
-    "temperature": 13.74,
-    "humidity": 95,
-    "pressure": 1022,
-    "windSpeed": 5.14,
+    "temperature": 15.54,
+    "humidity": 94,
+    "pressure": 1020,
+    "windSpeed": 3.93,
     "cloudiness": 100,
     "visibility": 10000,
     "weatherCondition": "Clouds",
     "description": "overcast clouds",
-    "timestamp": "2025-10-09T06:17:01.187Z",
+    "timestamp": "2025-10-10T06:12:48.293Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Cairo",
@@ -126,18 +126,18 @@
       "lat": 30.0444,
       "lon": 31.2357
     },
-    "temperature": 24.36,
-    "humidity": 46,
-    "pressure": 1018,
-    "windSpeed": 2.06,
+    "temperature": 22.57,
+    "humidity": 65,
+    "pressure": 1020,
+    "windSpeed": 4.24,
     "cloudiness": 0,
     "visibility": 10000,
     "weatherCondition": "Clear",
     "description": "clear sky",
-    "timestamp": "2025-10-09T06:17:02.411Z",
+    "timestamp": "2025-10-10T06:12:49.545Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Moscow",
@@ -146,18 +146,18 @@
       "lat": 55.7558,
       "lon": 37.6173
     },
-    "temperature": 11.37,
-    "humidity": 76,
-    "pressure": 1019,
-    "windSpeed": 2.53,
+    "temperature": 9.95,
+    "humidity": 77,
+    "pressure": 1008,
+    "windSpeed": 3.03,
     "cloudiness": 100,
     "visibility": 10000,
     "weatherCondition": "Clouds",
     "description": "overcast clouds",
-    "timestamp": "2025-10-09T06:17:03.634Z",
+    "timestamp": "2025-10-10T06:12:50.799Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Dubai",
@@ -166,18 +166,18 @@
       "lat": 25.2048,
       "lon": 55.2708
     },
-    "temperature": 32.01,
-    "humidity": 45,
-    "pressure": 1013,
-    "windSpeed": 5.66,
+    "temperature": 31.68,
+    "humidity": 47,
+    "pressure": 1012,
+    "windSpeed": 2.48,
     "cloudiness": 0,
     "visibility": 10000,
     "weatherCondition": "Clear",
     "description": "clear sky",
-    "timestamp": "2025-10-09T06:17:04.858Z",
+    "timestamp": "2025-10-10T06:12:52.048Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   },
   {
     "city": "Toronto",
@@ -186,17 +186,17 @@
       "lat": 43.6532,
       "lon": -79.3832
     },
-    "temperature": 6.53,
-    "humidity": 77,
+    "temperature": 10.09,
+    "humidity": 54,
     "pressure": 1031,
-    "windSpeed": 9.39,
-    "cloudiness": 0,
+    "windSpeed": 3.37,
+    "cloudiness": 6,
     "visibility": 10000,
     "weatherCondition": "Clear",
     "description": "clear sky",
-    "timestamp": "2025-10-09T06:17:06.082Z",
+    "timestamp": "2025-10-10T06:12:53.305Z",
     "year": 2025,
     "month": 10,
-    "day": 9
+    "day": 10
   }
 ]

@@ -1,6 +1,6 @@
 {
-  "lastUpdated": "2025-10-09T06:19:55.951Z",
-  "totalDatasets": 59,
+  "lastUpdated": "2025-10-10T06:13:24.630Z",
+  "totalDatasets": 60,
   "totalDataPoints": 674,
   "categories": [
     "climate",
@@ -9,6 +9,7 @@
     "environment",
     "finance",
     "food",
+    "undefined",
     "health",
     "housing",
     "social",
@@ -26,7 +27,7 @@
       "category": "climate",
       "source": "OpenWeather API",
       "sourceUrl": "https://openweathermap.org/",
-      "lastUpdated": "2025-10-09T06:17:07.286Z",
+      "lastUpdated": "2025-10-10T06:12:54.508Z",
       "dataPoints": 10,
       "dateRange": {
         "start": 2025,
@@ -860,6 +861,20 @@
       "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
     },
     {
+      "metadata": {
+        "id": "health_death_rate",
+        "name": "Death Rate per 1,000 Population",
+        "unit": "deaths per 1,000 people",
+        "category": "health",
+        "description": "Annual death rate per 1,000 population in the United States",
+        "source": "National Center for Health Statistics",
+        "sourceUrl": "https://www.cdc.gov/nchs/fastats/deaths.htm",
+        "citation": "CDC National Center for Health Statistics (2014-2024)",
+        "isAIGenerated": false,
+        "filename": "health-death-rate-per-1000"
+      }
+    },
+    {
       "id": "ai_fitness_tracker_adoption",
       "filename": "health-fitness-tracker-usage",
       "name": "Fitness Tracker Usage",
@@ -1625,7 +1640,7 @@
       "category": "climate",
       "source": "OpenWeather API",
       "sourceUrl": "https://openweathermap.org/",
-      "lastUpdated": "2025-10-09T06:17:07.285Z",
+      "lastUpdated": "2025-10-10T06:12:54.507Z",
       "dataPoints": 10,
       "cities": [
         "New York, US",
@@ -1656,7 +1671,7 @@
       "category": "finance",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
-      "lastUpdated": "2025-10-09T06:16:54.436Z",
+      "lastUpdated": "2025-10-10T06:12:41.334Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1671,7 +1686,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
-      "lastUpdated": "2025-10-09T06:16:46.317Z",
+      "lastUpdated": "2025-10-10T06:12:39.976Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1686,7 +1701,7 @@
       "category": "trade",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-      "lastUpdated": "2025-10-09T06:16:53.044Z",
+      "lastUpdated": "2025-10-10T06:12:40.482Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1701,7 +1716,7 @@
       "category": "trade",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-      "lastUpdated": "2025-10-09T06:16:53.343Z",
+      "lastUpdated": "2025-10-10T06:12:40.792Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1716,7 +1731,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
-      "lastUpdated": "2025-10-09T06:12:34.322Z",
+      "lastUpdated": "2025-10-10T06:12:37.718Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1731,7 +1746,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
-      "lastUpdated": "2025-10-09T06:13:03.838Z",
+      "lastUpdated": "2025-10-10T06:12:38.258Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1746,7 +1761,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
-      "lastUpdated": "2025-10-09T06:13:30.063Z",
+      "lastUpdated": "2025-10-10T06:12:39.345Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1761,7 +1776,7 @@
       "category": "demographics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
-      "lastUpdated": "2025-10-09T06:13:29.522Z",
+      "lastUpdated": "2025-10-10T06:12:38.730Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1776,7 +1791,7 @@
       "category": "demographics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
-      "lastUpdated": "2025-10-09T06:13:29.788Z",
+      "lastUpdated": "2025-10-10T06:12:39.031Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1794,7 +1809,7 @@
         "category": "climate",
         "source": "OpenWeather API",
         "sourceUrl": "https://openweathermap.org/",
-        "lastUpdated": "2025-10-09T06:17:07.286Z",
+        "lastUpdated": "2025-10-10T06:12:54.508Z",
         "dataPoints": 10,
         "dateRange": {
           "start": 2025,
@@ -1809,7 +1824,7 @@
         "category": "climate",
         "source": "OpenWeather API",
         "sourceUrl": "https://openweathermap.org/",
-        "lastUpdated": "2025-10-09T06:17:07.285Z",
+        "lastUpdated": "2025-10-10T06:12:54.507Z",
         "dataPoints": 10,
         "cities": [
           "New York, US",
@@ -2508,7 +2523,7 @@
         "category": "finance",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
-        "lastUpdated": "2025-10-09T06:16:54.436Z",
+        "lastUpdated": "2025-10-10T06:12:41.334Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -2682,6 +2697,22 @@
           "with-source-url"
         ],
         "disclaimer": "This is AI-generated synthetic data based on real-world patterns. While realistic, it should not be used for actual economic analysis, policy decisions, or research citations."
+      }
+    ],
+    "undefined": [
+      {
+        "metadata": {
+          "id": "health_death_rate",
+          "name": "Death Rate per 1,000 Population",
+          "unit": "deaths per 1,000 people",
+          "category": "health",
+          "description": "Annual death rate per 1,000 population in the United States",
+          "source": "National Center for Health Statistics",
+          "sourceUrl": "https://www.cdc.gov/nchs/fastats/deaths.htm",
+          "citation": "CDC National Center for Health Statistics (2014-2024)",
+          "isAIGenerated": false,
+          "filename": "health-death-rate-per-1000"
+        }
       }
     ],
     "health": [
@@ -3461,7 +3492,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
-        "lastUpdated": "2025-10-09T06:16:46.317Z",
+        "lastUpdated": "2025-10-10T06:12:39.976Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3476,7 +3507,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
-        "lastUpdated": "2025-10-09T06:12:34.322Z",
+        "lastUpdated": "2025-10-10T06:12:37.718Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3491,7 +3522,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
-        "lastUpdated": "2025-10-09T06:13:03.838Z",
+        "lastUpdated": "2025-10-10T06:12:38.258Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3506,7 +3537,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
-        "lastUpdated": "2025-10-09T06:13:30.063Z",
+        "lastUpdated": "2025-10-10T06:12:39.345Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3523,7 +3554,7 @@
         "category": "trade",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-        "lastUpdated": "2025-10-09T06:16:53.044Z",
+        "lastUpdated": "2025-10-10T06:12:40.482Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3538,7 +3569,7 @@
         "category": "trade",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-        "lastUpdated": "2025-10-09T06:16:53.343Z",
+        "lastUpdated": "2025-10-10T06:12:40.792Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3555,7 +3586,7 @@
         "category": "demographics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
-        "lastUpdated": "2025-10-09T06:13:29.522Z",
+        "lastUpdated": "2025-10-10T06:12:38.730Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3570,7 +3601,7 @@
         "category": "demographics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
-        "lastUpdated": "2025-10-09T06:13:29.788Z",
+        "lastUpdated": "2025-10-10T06:12:39.031Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3607,6 +3638,7 @@
     "AI-Generated from local food movement data",
     "AI-Generated from meal kit market data",
     "AI-Generated from organic food market trends",
+    null,
     "AI-Generated from fitness technology studies",
     "AI-Generated from meditation app analytics",
     "AI-Generated from digital health adoption",
