@@ -8,8 +8,8 @@ permissions:
 
 on:
   schedule:
-    # Run daily at 6 AM UTC (adjust timezone as needed)
-    - cron: '0 6 * * *'
+    # Run weekly on Monday at 6 AM UTC
+    - cron: '0 6 * * 1'
   workflow_dispatch: # Allow manual triggering
     inputs:
       force_update:
@@ -1220,7 +1220,7 @@ jobs:
             DATASETS_UPDATED=${{ steps.generate-index.outputs.datasets-indexed || 0 }}
             CORRELATIONS_GENERATED=${{ steps.correlations.outputs.correlations-generated || 0 }}
             
-            git commit -m "🤖 Automated data update - $TIMESTAMP [skip ci]
+            git commit -m "🤖 Automated data update - $TIMESTAMP
             
             📊 Updated $DATASETS_UPDATED datasets
             🔗 Generated $CORRELATIONS_GENERATED correlations
