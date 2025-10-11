@@ -1220,7 +1220,7 @@ jobs:
             DATASETS_UPDATED=${{ steps.generate-index.outputs.datasets-indexed || 0 }}
             CORRELATIONS_GENERATED=${{ steps.correlations.outputs.correlations-generated || 0 }}
             
-            git commit -m "🤖 Automated data update - $TIMESTAMP
+            git commit -m "🤖 Automated data update - $TIMESTAMP [skip ci]
             
             📊 Updated $DATASETS_UPDATED datasets
             🔗 Generated $CORRELATIONS_GENERATED correlations
