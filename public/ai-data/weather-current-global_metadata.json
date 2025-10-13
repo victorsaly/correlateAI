@@ -5,7 +5,7 @@
   "category": "climate",
   "source": "OpenWeather API",
   "sourceUrl": "https://openweathermap.org/",
-  "lastUpdated": "2025-10-11T06:10:51.618Z",
+  "lastUpdated": "2025-10-13T06:06:15.736Z",
   "dataPoints": 10,
   "cities": [
     "New York, US",
