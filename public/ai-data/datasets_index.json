@@ -1,5 +1,5 @@
 {
-  "lastUpdated": "2025-10-13T06:07:04.572Z",
+  "lastUpdated": "2025-10-20T06:08:33.535Z",
   "totalDatasets": 60,
   "totalDataPoints": 674,
   "categories": [
@@ -27,7 +27,7 @@
       "category": "climate",
       "source": "OpenWeather API",
       "sourceUrl": "https://openweathermap.org/",
-      "lastUpdated": "2025-10-13T06:06:15.737Z",
+      "lastUpdated": "2025-10-20T06:04:47.526Z",
       "dataPoints": 10,
       "dateRange": {
         "start": 2025,
@@ -1640,7 +1640,7 @@
       "category": "climate",
       "source": "OpenWeather API",
       "sourceUrl": "https://openweathermap.org/",
-      "lastUpdated": "2025-10-13T06:06:15.736Z",
+      "lastUpdated": "2025-10-20T06:04:47.526Z",
       "dataPoints": 10,
       "cities": [
         "New York, US",
@@ -1671,7 +1671,7 @@
       "category": "finance",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
-      "lastUpdated": "2025-10-13T06:06:03.144Z",
+      "lastUpdated": "2025-10-20T06:04:34.690Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1686,7 +1686,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
-      "lastUpdated": "2025-10-13T06:05:51.922Z",
+      "lastUpdated": "2025-10-20T06:04:30.609Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1701,7 +1701,7 @@
       "category": "trade",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-      "lastUpdated": "2025-10-13T06:06:02.412Z",
+      "lastUpdated": "2025-10-20T06:04:31.220Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1716,7 +1716,7 @@
       "category": "trade",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-      "lastUpdated": "2025-10-13T06:06:02.677Z",
+      "lastUpdated": "2025-10-20T06:04:31.711Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1731,7 +1731,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
-      "lastUpdated": "2025-10-13T06:04:35.953Z",
+      "lastUpdated": "2025-10-20T06:04:27.567Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1746,7 +1746,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
-      "lastUpdated": "2025-10-13T06:04:36.452Z",
+      "lastUpdated": "2025-10-20T06:04:28.243Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1761,7 +1761,7 @@
       "category": "economics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
-      "lastUpdated": "2025-10-13T06:04:51.717Z",
+      "lastUpdated": "2025-10-20T06:04:30.162Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1776,7 +1776,7 @@
       "category": "demographics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
-      "lastUpdated": "2025-10-13T06:04:37.259Z",
+      "lastUpdated": "2025-10-20T06:04:29.228Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1791,7 +1791,7 @@
       "category": "demographics",
       "source": "World Bank",
       "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
-      "lastUpdated": "2025-10-13T06:04:51.455Z",
+      "lastUpdated": "2025-10-20T06:04:29.721Z",
       "dataPoints": 14,
       "dateRange": {
         "start": 2010,
@@ -1809,7 +1809,7 @@
         "category": "climate",
         "source": "OpenWeather API",
         "sourceUrl": "https://openweathermap.org/",
-        "lastUpdated": "2025-10-13T06:06:15.737Z",
+        "lastUpdated": "2025-10-20T06:04:47.526Z",
         "dataPoints": 10,
         "dateRange": {
           "start": 2025,
@@ -1824,7 +1824,7 @@
         "category": "climate",
         "source": "OpenWeather API",
         "sourceUrl": "https://openweathermap.org/",
-        "lastUpdated": "2025-10-13T06:06:15.736Z",
+        "lastUpdated": "2025-10-20T06:04:47.526Z",
         "dataPoints": 10,
         "cities": [
           "New York, US",
@@ -2523,7 +2523,7 @@
         "category": "finance",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/BX.KLT.DINV.CD.WD",
-        "lastUpdated": "2025-10-13T06:06:03.144Z",
+        "lastUpdated": "2025-10-20T06:04:34.690Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3492,7 +3492,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
-        "lastUpdated": "2025-10-13T06:05:51.922Z",
+        "lastUpdated": "2025-10-20T06:04:30.609Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3507,7 +3507,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
-        "lastUpdated": "2025-10-13T06:04:35.953Z",
+        "lastUpdated": "2025-10-20T06:04:27.567Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3522,7 +3522,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
-        "lastUpdated": "2025-10-13T06:04:36.452Z",
+        "lastUpdated": "2025-10-20T06:04:28.243Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3537,7 +3537,7 @@
         "category": "economics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
-        "lastUpdated": "2025-10-13T06:04:51.717Z",
+        "lastUpdated": "2025-10-20T06:04:30.162Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3554,7 +3554,7 @@
         "category": "trade",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
-        "lastUpdated": "2025-10-13T06:06:02.412Z",
+        "lastUpdated": "2025-10-20T06:04:31.220Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3569,7 +3569,7 @@
         "category": "trade",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
-        "lastUpdated": "2025-10-13T06:06:02.677Z",
+        "lastUpdated": "2025-10-20T06:04:31.711Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3586,7 +3586,7 @@
         "category": "demographics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
-        "lastUpdated": "2025-10-13T06:04:37.259Z",
+        "lastUpdated": "2025-10-20T06:04:29.228Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
@@ -3601,7 +3601,7 @@
         "category": "demographics",
         "source": "World Bank",
         "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
-        "lastUpdated": "2025-10-13T06:04:51.455Z",
+        "lastUpdated": "2025-10-20T06:04:29.721Z",
         "dataPoints": 14,
         "dateRange": {
           "start": 2010,
