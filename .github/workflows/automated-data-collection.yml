@@ -8,7 +8,7 @@ permissions:
 
 on:
   schedule:
-    # Run weekly on Monday at 6 AM UTC
+    # Run weekly on Monday at 6 AM UTC - only on main branch
     - cron: '0 6 * * 1'
   workflow_dispatch: # Allow manual triggering
     inputs:
@@ -22,6 +22,12 @@ on:
         required: false
         default: ''
         type: string
+  # Only allow this workflow on main branch to prevent deployment conflicts
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/automated-data-collection.yml'
 
 env:
   # GitHub token for committing data
@@ -80,6 +86,20 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           fetch-depth: 1
           persist-credentials: true
+          ref: main  # Always checkout main branch
+      
+      - name: ✅ Verify Branch
+        run: |
+          CURRENT_BRANCH=$(git branch --show-current)
+          echo "Current branch: $CURRENT_BRANCH"
+          
+          if [ "$CURRENT_BRANCH" != "main" ]; then
+            echo "❌ Error: This workflow must run on main branch"
+            echo "Current branch is: $CURRENT_BRANCH"
+            exit 1
+          fi
+          
+          echo "✅ Confirmed running on main branch"
       
       - name: 🟢 Setup Node.js
         uses: actions/setup-node@v4
@@ -1214,13 +1234,14 @@ jobs:
           if git diff --staged --quiet; then
             echo "No data changes to commit"
             echo "commit-sha=" >> $GITHUB_OUTPUT
+            echo "has-changes=false" >> $GITHUB_OUTPUT
           else
-            # Commit with detailed message
+            # Commit with detailed message including [skip ci] to prevent deployment
             TIMESTAMP=$(date -u +"%Y-%m-%d %H:%M UTC")
             DATASETS_UPDATED=${{ steps.generate-index.outputs.datasets-indexed || 0 }}
             CORRELATIONS_GENERATED=${{ steps.correlations.outputs.correlations-generated || 0 }}
             
-            git commit -m "🤖 Automated data update - $TIMESTAMP
+            git commit -m "🤖 Automated data update - $TIMESTAMP [skip ci]
             
             📊 Updated $DATASETS_UPDATED datasets
             🔗 Generated $CORRELATIONS_GENERATED correlations
@@ -1238,10 +1259,15 @@ jobs:
             Workflow: ${{ github.workflow }}
             Run: ${{ github.run_number }}"
             
-            git push
+            # Push to main branch
+            echo "🚀 Pushing data updates to main branch..."
+            git push origin main
             
-            echo "commit-sha=$(git rev-parse HEAD)" >> $GITHUB_OUTPUT
+            COMMIT_SHA=$(git rev-parse HEAD)
+            echo "commit-sha=$COMMIT_SHA" >> $GITHUB_OUTPUT
+            echo "has-changes=true" >> $GITHUB_OUTPUT
             echo "✅ Data committed and pushed to repository"
+            echo "📝 Commit SHA: $COMMIT_SHA"
           fi
       
       - name: 📱 Create Issue on Errors
