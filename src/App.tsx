@@ -26,6 +26,8 @@ import StatisticalAnalysisDisplay from '@/components/StatisticalAnalysisDisplay'
 import AdvancedQuantumDisplay from '@/components/AdvancedQuantumDisplay'
 import SimplifiedAnalysisDisplay from '@/components/SimplifiedAnalysisDisplay'
 import { AnimatedPoweredBy } from '@/components/AnimatedPoweredBy'
+import { BusinessHomePage } from '@/components/BusinessHomePage'
+import { ROICalculator } from '@/components/ROICalculator'
 
 interface CorrelationData {
   id: string
@@ -3132,8 +3134,20 @@ function App() {
           </div>
         </header>
 
-        <Tabs defaultValue="generator" className="w-full">
-          <TabsList className={`grid w-full grid-cols-5 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-12 rounded-lg p-1' : 'h-12 rounded-lg p-1'}`}>
+        <Tabs defaultValue="business" className="w-full">
+          <TabsList className={`grid w-full grid-cols-7 mb-4 sm:mb-6 bg-gray-700/50 border border-gray-600/50 ${isMobile ? 'h-12 rounded-lg p-1' : 'h-12 rounded-lg p-1'}`}>
+            <TabsTrigger 
+              value="business" 
+              className={`text-gray-300 data-[state=active]:text-green-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
+            >
+              {isMobile ? <Briefcase size={20} weight="fill" /> : "💼 Business"}
+            </TabsTrigger>
+            <TabsTrigger 
+              value="roi" 
+              className={`text-gray-300 data-[state=active]:text-green-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
+            >
+              {isMobile ? <Calculator size={20} weight="fill" /> : "💰 ROI"}
+            </TabsTrigger>
             <TabsTrigger 
               value="generator" 
               className={`text-gray-300 data-[state=active]:text-cyan-400 data-[state=active]:bg-gray-800 ${isMobile ? 'px-1 py-2 text-xs rounded-md font-medium' : 'px-3 py-2 text-sm rounded-md font-medium'} transition-all duration-200 truncate flex items-center justify-center gap-1`}
@@ -4112,6 +4126,31 @@ function App() {
 
           <TabsContent value="spurious">
             <SpuriousCorrelationPage />
+          </TabsContent>
+
+          <TabsContent value="business">
+            <BusinessHomePage 
+              onGetStarted={() => {
+                // Switch to ROI calculator tab
+                const roiTab = document.querySelector('[value="roi"]') as HTMLButtonElement
+                roiTab?.click()
+              }}
+              onViewDemo={() => {
+                // Switch to generator tab to show demo
+                const generatorTab = document.querySelector('[value="generator"]') as HTMLButtonElement
+                generatorTab?.click()
+                toast.success('Welcome! Generate a correlation to see the demo in action.')
+              }}
+            />
+          </TabsContent>
+
+          <TabsContent value="roi">
+            <ROICalculator 
+              onRequestDemo={() => {
+                toast.success('Demo requested! Check your email for next steps.')
+                // In production, this would trigger an actual demo request
+              }}
+            />
           </TabsContent>
         </Tabs>
         </div>
