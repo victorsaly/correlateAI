@@ -1,0 +1,18 @@
+# CorrelateAI MVP Demo Requirements
+# Minimal dependencies for customer demonstrations
+
+# Core demo framework
+streamlit>=1.28.0
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Visualization (customer-facing charts)
+plotly>=5.15.0
+
+# Business intelligence
+openpyxl>=3.1.0  # Excel file support
+
+# Optional: Enhanced features
+# anthropic>=0.7.0  # Claude AI integration (for full version)
+# sqlalchemy>=2.0.0  # Database connectivity (for customer data)
+# pyodbc>=4.0.39  # MSSQL integration (for pilot programs)
