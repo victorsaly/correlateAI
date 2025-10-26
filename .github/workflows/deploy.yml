@@ -41,6 +41,8 @@ jobs:
           VITE_FRED_API_KEY: ${{ secrets.VITE_FRED_API_KEY }}
           VITE_APP_NAME: "CorrelateAI Pro"
           VITE_APP_VERSION: "1.0.0"
+          # Skip network-heavy prefetch/generate steps in CI to make the build deterministic
+          SKIP_PREFETCH: 'true'
 
       - name: Fix MIME types and add GitHub Pages configuration
         run: |
