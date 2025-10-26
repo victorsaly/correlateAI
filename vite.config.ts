@@ -13,6 +13,9 @@ export default defineConfig(({ mode }) => {
     // Set base path for custom domain (root path)
     base: isProduction ? '/' : '/',
     
+    // Explicitly set publicDir to ensure all public assets are copied
+    publicDir: 'public',
+    
     plugins: [
       react(),
       tailwindcss(),
