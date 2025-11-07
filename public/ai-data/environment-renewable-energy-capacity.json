@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.eia.gov/renewable/",
     "citation": "Energy Information Administration Renewable Energy Reports (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z",
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z",
     "filename": "environment-renewable-energy-capacity"
   },
   "data": [
     {
       "year": 2014,
-      "value": 204.12,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 209.05,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2015,
-      "value": 228.93,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 230.03,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2016,
-      "value": 258.46,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 252.04,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2017,
-      "value": 273.08,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 279.44,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2018,
-      "value": 296.82,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 294.88,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2019,
-      "value": 309.18,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 330.88,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2020,
-      "value": 332.93,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 353.19,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2021,
-      "value": 357.28,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 362.29,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2022,
-      "value": 379.35,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 381.39,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2023,
-      "value": 409.63,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 409.19,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     },
     {
       "year": 2024,
-      "value": 435.23,
-      "generatedAt": "2025-10-09T00:07:50.827Z"
+      "value": 418.17,
+      "generatedAt": "2025-11-07T12:17:39.118Z"
     }
   ]
 }

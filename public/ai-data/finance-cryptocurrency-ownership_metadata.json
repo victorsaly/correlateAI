@@ -10,7 +10,7 @@
   "citation": "Federal Reserve Bank Economic Well-Being Survey (2014-2024)",
   "methodology": "AI-generated using realistic economic modeling based on observed market trends and patterns from authoritative sources",
   "isAIGenerated": true,
-  "aiGeneratedAt": "2025-10-09T00:07:50.833Z",
+  "aiGeneratedAt": "2025-11-07T12:17:39.188Z",
   "dataQuality": "Synthetic - High fidelity simulation based on real market data patterns",
   "updateFrequency": "Generated once during build process",
   "geographicScope": "United States",
@@ -20,7 +20,7 @@
   "volatility": "Medium",
   "seasonal": "No",
   "covidImpact": "None",
-  "lastUpdated": "2025-10-09T00:07:50.833Z",
+  "lastUpdated": "2025-11-07T12:17:39.188Z",
   "tags": [
     "finance",
     "ai-generated",

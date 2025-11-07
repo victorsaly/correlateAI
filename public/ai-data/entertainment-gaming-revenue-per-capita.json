@@ -9,64 +9,64 @@
     "sourceUrl": "https://www.theesa.com/resource/essential-facts-about-the-video-game-industry/",
     "citation": "Entertainment Software Association Essential Facts (2014-2024)",
     "isAIGenerated": true,
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z",
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z",
     "filename": "entertainment-gaming-revenue-per-capita"
   },
   "data": [
     {
       "year": 2014,
-      "value": 147.15,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 149.89,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2015,
-      "value": 158.32,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 168.87,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2016,
-      "value": 182.35,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 181.81,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2017,
-      "value": 193.75,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 194.58,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2018,
-      "value": 224.01,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 216.89,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2019,
-      "value": 238.56,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 245.18,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2020,
-      "value": 248.79,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 266.08,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2021,
-      "value": 266.52,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 265.28,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2022,
-      "value": 292.34,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 306.45,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2023,
-      "value": 322.86,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 301.76,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     },
     {
       "year": 2024,
-      "value": 337.69,
-      "generatedAt": "2025-10-09T00:07:50.835Z"
+      "value": 322.04,
+      "generatedAt": "2025-11-07T12:17:39.196Z"
     }
   ]
 }

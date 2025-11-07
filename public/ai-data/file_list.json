@@ -6,7 +6,7 @@
     "category": "technology",
     "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/mobile/",
     "description": "Percentage of population using smartphones",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "technology-electric-vehicle-sales.json",
@@ -15,7 +15,7 @@
     "category": "technology",
     "sourceUrl": "https://www.energy.gov/eere/vehicles/electric-vehicle-basics",
     "description": "Annual electric vehicle sales in the US",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "technology-ai-patent-applications.json",
@@ -24,7 +24,7 @@
     "category": "technology",
     "sourceUrl": "https://www.uspto.gov/web/offices/ac/ido/oeip/taf/reports.htm",
     "description": "Annual AI-related patent applications filed",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "technology-smart-home-device-adoption.json",
@@ -33,7 +33,7 @@
     "category": "technology",
     "sourceUrl": "https://www.cta.tech/Resources/Market-Research/Smart-Homes",
     "description": "Households with at least one smart home device",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "technology-autonomous-vehicle-test-miles.json",
@@ -42,7 +42,7 @@
     "category": "technology",
     "sourceUrl": "https://www.dmv.ca.gov/portal/vehicle-industry-services/autonomous-vehicles/",
     "description": "Annual autonomous vehicle testing miles",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "environment-renewable-energy-capacity.json",
@@ -51,7 +51,7 @@
     "category": "environment",
     "sourceUrl": "https://www.eia.gov/renewable/",
     "description": "Installed renewable energy generation capacity",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "environment-carbon-footprint-per-capita.json",
@@ -60,7 +60,7 @@
     "category": "environment",
     "sourceUrl": "https://www.epa.gov/ghgemissions/inventory-us-greenhouse-gas-emissions-and-sinks",
     "description": "Average carbon footprint per person",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "environment-municipal-recycling-rate.json",
@@ -69,7 +69,7 @@
     "category": "environment",
     "sourceUrl": "https://www.epa.gov/facts-and-figures-about-materials-waste-and-recycling",
     "description": "Percentage of municipal waste that gets recycled",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "environment-residential-solar-installations.json",
@@ -78,7 +78,7 @@
     "category": "environment",
     "sourceUrl": "https://www.seia.org/solar-industry-research-data",
     "description": "New residential solar panel installations",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "environment-vertical-farming-production.json",
@@ -87,7 +87,7 @@
     "category": "environment",
     "sourceUrl": "https://vertical-farming.net/industry-reports/",
     "description": "Annual vertical farming produce output",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "social-remote-work-adoption.json",
@@ -96,7 +96,7 @@
     "category": "social",
     "sourceUrl": "https://www.bls.gov/news.release/flex2.htm",
     "description": "Percentage of workforce working remotely",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "social-daily-social-media-usage.json",
@@ -105,7 +105,7 @@
     "category": "social",
     "sourceUrl": "https://www.pewresearch.org/internet/fact-sheet/social-media/",
     "description": "Average daily social media consumption",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "social-gig-economy-participation.json",
@@ -114,7 +114,7 @@
     "category": "social",
     "sourceUrl": "https://www.bls.gov/news.release/conemp.htm",
     "description": "Number of people participating in gig economy",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "social-creator-economy-participants.json",
@@ -123,7 +123,7 @@
     "category": "social",
     "sourceUrl": "https://influencermarketinghub.com/creator-economy-report/",
     "description": "People earning income from content creation",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "social-urban-gardening-participation.json",
@@ -132,7 +132,7 @@
     "category": "social",
     "sourceUrl": "https://gardenresearch.org/home-garden-statistics/",
     "description": "Urban households engaged in gardening",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "health-fitness-tracker-usage.json",
@@ -141,7 +141,7 @@
     "category": "health",
     "sourceUrl": "https://www.heart.org/en/news/2021/09/14/fitness-trackers-may-not-boost-weight-loss-but-research-continues",
     "description": "Percentage of adults using fitness trackers",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "health-plant-based-diet-adoption.json",
@@ -150,7 +150,7 @@
     "category": "health",
     "sourceUrl": "https://plantbasedfoods.org/market-research/",
     "description": "Percentage following primarily plant-based diets",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "health-telemedicine-usage.json",
@@ -159,7 +159,7 @@
     "category": "health",
     "sourceUrl": "https://www.ama-assn.org/practice-management/digital/ama-digital-health-study",
     "description": "Annual telemedicine consultations",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "health-meditation-app-active-users.json",
@@ -168,7 +168,7 @@
     "category": "health",
     "sourceUrl": "https://www.headspace.com/blog/2021/07/06/meditation-statistics/",
     "description": "Monthly active users of meditation apps",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "health-mental-health-app-downloads.json",
@@ -177,7 +177,7 @@
     "category": "health",
     "sourceUrl": "https://mental.jmir.org/",
     "description": "Annual mental health app downloads",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "education-online-course-enrollment.json",
@@ -186,7 +186,7 @@
     "category": "education",
     "sourceUrl": "https://nces.ed.gov/programs/digest/d21/tables/dt21_311.15.asp",
     "description": "Annual online course enrollments",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "education-coding-bootcamp-graduates.json",
@@ -195,7 +195,7 @@
     "category": "education",
     "sourceUrl": "https://cirr.org/data",
     "description": "Annual coding bootcamp graduates",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "education-stem-degree-percentage.json",
@@ -204,7 +204,7 @@
     "category": "education",
     "sourceUrl": "https://ncses.nsf.gov/pubs/nsb20211",
     "description": "Percentage of degrees awarded in STEM fields",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "education-language-learning-app-users.json",
@@ -213,7 +213,7 @@
     "category": "education",
     "sourceUrl": "https://www.mla.org/Resources/Research/Surveys-Reports-and-Other-Documents",
     "description": "Monthly active users of language learning apps",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "education-skills-based-hiring.json",
@@ -222,7 +222,7 @@
     "category": "education",
     "sourceUrl": "https://www.hbs.edu/managing-the-future-of-work/",
     "description": "Percentage of job postings emphasizing skills over degrees",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "finance-cryptocurrency-ownership.json",
@@ -231,7 +231,7 @@
     "category": "finance",
     "sourceUrl": "https://www.federalreserve.gov/publications/2021-economic-well-being-of-us-households-in-2020.htm",
     "description": "Percentage of adults owning cryptocurrency",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "finance-mobile-payment-volume.json",
@@ -240,7 +240,7 @@
     "category": "finance",
     "sourceUrl": "https://www.federalreserve.gov/paymentsystems/fr-payments-study.htm",
     "description": "Annual mobile payment transaction volume",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "finance-robo-advisor-assets.json",
@@ -249,7 +249,7 @@
     "category": "finance",
     "sourceUrl": "https://www.ici.org/research/stats/retirement/data_401k",
     "description": "Assets under management by robo-advisors",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "finance-peer-to-peer-lending-volume.json",
@@ -258,7 +258,7 @@
     "category": "finance",
     "sourceUrl": "https://www.ftc.gov/news-events/press-releases/2016/07/ftc-report-marketplace-lending",
     "description": "Annual peer-to-peer lending volume",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "finance-buy-now-pay-later-usage.json",
@@ -267,7 +267,7 @@
     "category": "finance",
     "sourceUrl": "https://www.consumerfinance.gov/about-us/newsroom/cfpb-report-buy-now-pay-later-credit/",
     "description": "Annual BNPL transaction volume",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "entertainment-streaming-service-subscriptions.json",
@@ -276,7 +276,7 @@
     "category": "entertainment",
     "sourceUrl": "https://www.nielsen.com/insights/2021/streaming-stats-how-covid-19-changed-the-way-we-watch/",
     "description": "Total streaming service subscriptions per capita",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "entertainment-podcast-listener-percentage.json",
@@ -285,7 +285,7 @@
     "category": "entertainment",
     "sourceUrl": "https://www.edisonresearch.com/the-podcast-consumer-2021/",
     "description": "Percentage of population listening to podcasts monthly",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "entertainment-gaming-revenue-per-capita.json",
@@ -294,7 +294,7 @@
     "category": "entertainment",
     "sourceUrl": "https://www.theesa.com/resource/essential-facts-about-the-video-game-industry/",
     "description": "Annual gaming industry revenue per capita",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "entertainment-virtual-event-attendance.json",
@@ -303,7 +303,7 @@
     "category": "entertainment",
     "sourceUrl": "https://www.eventscouncil.org/Research",
     "description": "Annual virtual event attendance",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "entertainment-live-streaming-hours-watched.json",
@@ -312,7 +312,7 @@
     "category": "entertainment",
     "sourceUrl": "https://streamelements.com/blog/state-of-the-stream-2021",
     "description": "Annual live streaming content consumption",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "transportation-ride-share-trip-volume.json",
@@ -321,7 +321,7 @@
     "category": "transportation",
     "sourceUrl": "https://www.bts.gov/browse-statistical-products-and-data/surveys/national-household-travel-survey",
     "description": "Annual ride sharing service trips",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "transportation-e-scooter-usage.json",
@@ -330,7 +330,7 @@
     "category": "transportation",
     "sourceUrl": "https://nacto.org/shared-micromobility-2020/",
     "description": "Annual e-scooter sharing trips",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "transportation-bike-share-usage.json",
@@ -339,7 +339,7 @@
     "category": "transportation",
     "sourceUrl": "https://nacto.org/bike-share-statistics-2020/",
     "description": "Annual bike share system usage",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "transportation-public-transit-ridership-index.json",
@@ -348,7 +348,7 @@
     "category": "transportation",
     "sourceUrl": "https://www.apta.com/research-technical-resources/transit-statistics/",
     "description": "Public transportation ridership relative to 2019",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "transportation-car-sharing-memberships.json",
@@ -357,7 +357,7 @@
     "category": "transportation",
     "sourceUrl": "https://carsharing.org/what-is-car-sharing/",
     "description": "Active car sharing service memberships",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "food-delivery-orders-per-capita.json",
@@ -366,7 +366,7 @@
     "category": "food",
     "sourceUrl": "https://restaurant.org/research/reports/state-of-restaurant-industry/",
     "description": "Annual food delivery orders per person",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "food-organic-food-sales.json",
@@ -375,7 +375,7 @@
     "category": "food",
     "sourceUrl": "https://ota.com/resources/market-analysis",
     "description": "Annual organic food sales revenue",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "food-alternative-protein-sales.json",
@@ -384,7 +384,7 @@
     "category": "food",
     "sourceUrl": "https://gfi.org/resource/alternative-protein-industry-annual-review/",
     "description": "Plant-based and lab-grown protein sales",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "food-local-food-market-share.json",
@@ -393,7 +393,7 @@
     "category": "food",
     "sourceUrl": "https://www.nass.usda.gov/Publications/Highlights/2016/LocalFoodsMarketingPractices/",
     "description": "Local food sales as percentage of total food market",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "food-meal-kit-subscriptions.json",
@@ -402,7 +402,7 @@
     "category": "food",
     "sourceUrl": "https://www.packagedfacts.com/Meal-Kit-Delivery-12973430/",
     "description": "Active meal kit delivery subscriptions",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "housing-co-living-space-occupancy.json",
@@ -411,7 +411,7 @@
     "category": "housing",
     "sourceUrl": "https://uli.org/wp-content/uploads/ULI-Documents/Co-Living-Market-Study.pdf",
     "description": "Co-living space units occupied annually",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "housing-co-working-space-memberships.json",
@@ -420,7 +420,7 @@
     "category": "housing",
     "sourceUrl": "https://www.deskmag.com/en/background/2021-state-of-coworking-spaces-2021",
     "description": "Active co-working space memberships",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   },
   {
     "filename": "housing-urban-walkability-index.json",
@@ -429,6 +429,6 @@
     "category": "housing",
     "sourceUrl": "https://www.walkscore.com/methodology.shtml",
     "description": "Average walkability score of major cities",
-    "aiGeneratedAt": "2025-10-09T00:07:50.822Z"
+    "aiGeneratedAt": "2025-11-07T12:17:39.100Z"
   }
 ]
