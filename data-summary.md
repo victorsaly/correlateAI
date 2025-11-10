@@ -7,7 +7,7 @@
 ## 📈 Data Collection Summary
 
 - **FRED Economic Data:** 0 datasets updated
-- **World Bank Data:** 9 datasets updated  
+- **World Bank Data:** 0 datasets updated  
 - **Financial Data:** 0 datasets updated
 - **Total Datasets Indexed:** 60
 - **Correlations Generated:** 14
