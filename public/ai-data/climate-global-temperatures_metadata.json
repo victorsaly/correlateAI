@@ -5,11 +5,11 @@
   "category": "climate",
   "source": "OpenWeather API",
   "sourceUrl": "https://openweathermap.org/",
-  "lastUpdated": "2025-12-29T06:05:33.642Z",
+  "lastUpdated": "2026-01-05T06:06:49.813Z",
   "dataPoints": 10,
   "dateRange": {
-    "start": 2025,
-    "end": 2025
+    "start": 2026,
+    "end": 2026
   },
   "description": "Current temperature readings from major global cities for climate correlation analysis"
 }
