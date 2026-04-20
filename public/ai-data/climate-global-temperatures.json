@@ -1,62 +1,62 @@
 [
   {
     "location": "New York, US",
-    "temperature": 11.78,
+    "temperature": 4.34,
     "year": 2026,
-    "value": 11.78
+    "value": 4.34
   },
   {
     "location": "London, GB",
-    "temperature": 4.97,
+    "temperature": 6.09,
     "year": 2026,
-    "value": 4.97
+    "value": 6.09
   },
   {
     "location": "Tokyo, JP",
-    "temperature": 22.11,
+    "temperature": 21.87,
     "year": 2026,
-    "value": 22.11
+    "value": 21.87
   },
   {
     "location": "Sydney, AU",
-    "temperature": 21.28,
+    "temperature": 20.43,
     "year": 2026,
-    "value": 21.28
+    "value": 20.43
   },
   {
     "location": "Mumbai, IN",
-    "temperature": 29.99,
+    "temperature": 30.52,
     "year": 2026,
-    "value": 29.99
+    "value": 30.52
   },
   {
     "location": "São Paulo, BR",
-    "temperature": 18.26,
+    "temperature": 17.45,
     "year": 2026,
-    "value": 18.26
+    "value": 17.45
   },
   {
     "location": "Cairo, EG",
-    "temperature": 21.29,
+    "temperature": 18.38,
     "year": 2026,
-    "value": 21.29
+    "value": 18.38
   },
   {
     "location": "Moscow, RU",
-    "temperature": 7.04,
+    "temperature": 2.93,
     "year": 2026,
-    "value": 7.04
+    "value": 2.93
   },
   {
     "location": "Dubai, AE",
-    "temperature": 25.72,
+    "temperature": 29.05,
     "year": 2026,
-    "value": 25.72
+    "value": 29.05
   },
   {
     "location": "Toronto, CA",
-    "temperature": 15.62,
+    "temperature": 0.04,
     "year": 2026,
-    "value": 15.62
+    "value": 0.04
   }
 ]
