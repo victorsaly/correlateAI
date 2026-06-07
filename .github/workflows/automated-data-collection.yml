@@ -1218,7 +1218,12 @@ jobs:
           EOF
           
           echo "📊 Data collection summary generated"
-      
+
+      - name: 🧹 Prune timestamp-only (unchanged) data
+        # Revert files whose only change vs HEAD is a regenerated timestamp, so the
+        # commit step below only commits genuinely-changed data (no weekly no-op commits).
+        run: node scripts/prune-unchanged-data.mjs
+
       - name: 🔄 Commit Updated Data
         id: commit-data
         run: |
