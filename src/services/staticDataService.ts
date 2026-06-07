@@ -759,7 +759,7 @@ class StaticDataService {
     }
     
     // Ensure we get two different datasets
-    let first = shuffled[0]
+    const first = shuffled[0]
     let second = shuffled[1]
     
     // If they're the same, try to get a different second dataset

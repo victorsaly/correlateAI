@@ -612,7 +612,7 @@ export class AdvancedStatisticalService {
       denominator = denominator * t + b[i]
     }
     
-    let result = t - numerator / denominator
+    const result = t - numerator / denominator
     return p < 0.5 ? -result : result
   }
   

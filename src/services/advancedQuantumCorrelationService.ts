@@ -183,7 +183,7 @@ export class AdvancedQuantumCorrelationService {
    */
   private analyzeQuantumEntanglement(quantumStates: Complex[][]): AdvancedQuantumCorrelationResult['quantumEntanglement'] {
     let totalEntanglement = 0
-    let bellStateClassifications: string[] = []
+    const bellStateClassifications: string[] = []
     let totalMutualInfo = 0
     let totalConcurrence = 0
     

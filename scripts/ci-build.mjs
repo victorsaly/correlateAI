@@ -30,8 +30,8 @@ if (!skipPrefetch) {
   console.log('Skipping prefetch and generate-ai (CI or SKIP_PREFETCH set).');
 }
 
-// TypeScript build and Vite build
-run('npx', ['tsc', '-b', '--noCheck']);
+// Type-check (fails the build on type errors), then Vite build
+run('npx', ['tsc', '--noEmit']);
 run('npx', ['vite', 'build']);
 
 console.log('\nci-build completed successfully.');

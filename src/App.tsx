@@ -348,8 +348,7 @@ async function generateCorrelationDataWithRealSources(
           availableDatasets = [...categoryDatasets, ...otherCategoryDatasets]
         }
       } else {
-        // For mixed/synthetic, we can use cross-category freely
-        availableDatasets = availableDatasets // Keep all available
+        // For mixed/synthetic, we can use cross-category freely — keep all available
       }
     }
   }

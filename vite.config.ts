@@ -20,6 +20,8 @@ export default defineConfig(({ mode }) => {
       react(),
       tailwindcss(),
     ],
+    // Strip console.* and debugger statements from production bundles only
+    esbuild: isProduction ? { drop: ['console', 'debugger'] } : {},
     resolve: {
       alias: {
         '@': resolve(projectRoot, 'src')
