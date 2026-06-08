@@ -2,7 +2,7 @@
 
 **Collection Date:** $(date -u +"%Y-%m-%d %H:%M:%S UTC")
 **Workflow:** Automated Data Pipeline
-**Trigger:** push
+**Trigger:** schedule
 
 ## 📈 Data Collection Summary
 
