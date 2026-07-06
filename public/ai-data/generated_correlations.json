@@ -3,8 +3,8 @@
     "id": "ny-gdp-mktp-cd_vs_sp-pop-totl",
     "title": "GDP (current US$) vs Population, total",
     "description": "very strong positive correlation between GDP (current US$) and Population, total",
-    "correlation": 0.9425167910570521,
-    "rSquared": 0.8883379014244828,
+    "correlation": 0.9410302013914122,
+    "rSquared": 0.8855378399307618,
     "variable1": {
       "name": "GDP (current US$)",
       "unit": "Current US$",
@@ -20,73 +20,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 15048964444000,
+        "value1": 15048971000000,
         "value2": 309378227
       },
       {
         "year": "2011",
-        "value1": 15599728123000,
+        "value1": 15599732000000,
         "value2": 311839461
       },
       {
         "year": "2012",
-        "value1": 16253972230000,
+        "value1": 16253970000000,
         "value2": 314339099
       },
       {
         "year": "2013",
-        "value1": 16843190993000,
+        "value1": 16880683000000,
         "value2": 316726282
       },
       {
         "year": "2014",
-        "value1": 17550680174000,
+        "value1": 17608138000000,
         "value2": 319257560
       },
       {
         "year": "2015",
-        "value1": 18206020741000,
+        "value1": 18295019000000,
         "value2": 321815121
       },
       {
         "year": "2016",
-        "value1": 18695110842000,
+        "value1": 18804913000000,
         "value2": 324353340
       },
       {
         "year": "2017",
-        "value1": 19477336549000,
+        "value1": 19612102000000,
         "value2": 326608609
       },
       {
         "year": "2018",
-        "value1": 20533057312000,
+        "value1": 20656516000000,
         "value2": 328529577
       },
       {
         "year": "2019",
-        "value1": 21380976119000,
+        "value1": 21539982000000,
         "value2": 330226227
       },
       {
         "year": "2020",
-        "value1": 21060473613000,
-        "value2": 331577720
+        "value1": 21375281000000,
+        "value2": 331578104
       },
       {
         "year": "2021",
-        "value1": 23315080560000,
-        "value2": 332099760
+        "value1": 23725645000000,
+        "value2": 332100166
       },
       {
         "year": "2022",
-        "value1": 25604848907611,
-        "value2": 334017321
+        "value1": 26054614000000,
+        "value2": 333996304
       },
       {
         "year": "2023",
-        "value1": 27292170793214.4,
-        "value2": 336806231
+        "value1": 27811517000000,
+        "value2": 336755052
       }
     ],
     "commonYears": 14,
@@ -94,7 +94,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.508Z",
+    "generatedAt": "2026-07-06T07:39:57.089Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -102,8 +102,8 @@
     "id": "ny-gdp-pcap-cd_vs_sp-pop-totl",
     "title": "GDP per capita vs Population, total",
     "description": "very strong positive correlation between GDP per capita and Population, total",
-    "correlation": 0.9307972850212433,
-    "rSquared": 0.8663835858029175,
+    "correlation": 0.9297775036196989,
+    "rSquared": 0.8644862062372792,
     "variable1": {
       "name": "GDP per capita",
       "unit": "Current US$",
@@ -119,73 +119,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 48642.6100179312,
+        "value1": 48642.6312088213,
         "value2": 309378227
       },
       {
         "year": "2011",
-        "value1": 50024.868799398,
+        "value1": 50024.8812320773,
         "value2": 311839461
       },
       {
         "year": "2012",
-        "value1": 51708.4011556577,
+        "value1": 51708.3940614082,
         "value2": 314339099
       },
       {
         "year": "2013",
-        "value1": 53179.0127634561,
+        "value1": 53297.3862901595,
         "value2": 316726282
       },
       {
         "year": "2014",
-        "value1": 54973.4207515712,
+        "value1": 55153.3940182967,
         "value2": 319257560
       },
       {
         "year": "2015",
-        "value1": 56572.9188996063,
+        "value1": 56849.4697923159,
         "value2": 321815121
       },
       {
         "year": "2016",
-        "value1": 57638.1018367192,
+        "value1": 57976.628204291,
         "value2": 324353340
       },
       {
         "year": "2017",
-        "value1": 59635.0984397965,
+        "value1": 60047.7190728307,
         "value2": 326608609
       },
       {
         "year": "2018",
-        "value1": 62499.8744390068,
+        "value1": 62875.6661382728,
         "value2": 328529577
       },
       {
         "year": "2019",
-        "value1": 64746.4506778863,
+        "value1": 65227.9565911038,
         "value2": 330226227
       },
       {
         "year": "2020",
-        "value1": 63515.9491807833,
-        "value2": 331577720
+        "value1": 64465.2971415748,
+        "value2": 331578104
       },
       {
         "year": "2021",
-        "value1": 70205.050916026,
-        "value2": 332099760
+        "value1": 71441.2319805947,
+        "value2": 332100166
       },
       {
         "year": "2022",
-        "value1": 76657.2488844403,
-        "value2": 334017321
+        "value1": 78008.6895811877,
+        "value2": 333996304
       },
       {
         "year": "2023",
-        "value1": 81032.262117545,
-        "value2": 336806231
+        "value1": 82586.7847707894,
+        "value2": 336755052
       }
     ],
     "commonYears": 14,
@@ -193,7 +193,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.509Z",
+    "generatedAt": "2026-07-06T07:39:57.091Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -201,8 +201,8 @@
     "id": "ny-gdp-mktp-cd_vs_sp-urb-totl-in-zs",
     "title": "GDP (current US$) vs Urban population",
     "description": "very strong negative correlation between GDP (current US$) and Urban population",
-    "correlation": -0.9009643622167639,
-    "rSquared": 0.8117367819846601,
+    "correlation": -0.9023114981147846,
+    "rSquared": 0.814166039630147,
     "variable1": {
       "name": "GDP (current US$)",
       "unit": "Current US$",
@@ -218,72 +218,72 @@
     "data": [
       {
         "year": "2010",
-        "value1": 15048964444000,
+        "value1": 15048971000000,
         "value2": 80.6997744673366
       },
       {
         "year": "2011",
-        "value1": 15599728123000,
+        "value1": 15599732000000,
         "value2": 80.6957554256024
       },
       {
         "year": "2012",
-        "value1": 16253972230000,
+        "value1": 16253970000000,
         "value2": 80.6837493386238
       },
       {
         "year": "2013",
-        "value1": 16843190993000,
+        "value1": 16880683000000,
         "value2": 80.660889281215
       },
       {
         "year": "2014",
-        "value1": 17550680174000,
+        "value1": 17608138000000,
         "value2": 80.6242231779766
       },
       {
         "year": "2015",
-        "value1": 18206020741000,
+        "value1": 18295019000000,
         "value2": 80.5707989535091
       },
       {
         "year": "2016",
-        "value1": 18695110842000,
+        "value1": 18804913000000,
         "value2": 80.4976645324131
       },
       {
         "year": "2017",
-        "value1": 19477336549000,
+        "value1": 19612102000000,
         "value2": 80.4018678392891
       },
       {
         "year": "2018",
-        "value1": 20533057312000,
+        "value1": 20656516000000,
         "value2": 80.2804567987377
       },
       {
         "year": "2019",
-        "value1": 21380976119000,
+        "value1": 21539982000000,
         "value2": 80.1304793353594
       },
       {
         "year": "2020",
-        "value1": 21060473613000,
+        "value1": 21375281000000,
         "value2": 79.997451762548
       },
       {
         "year": "2021",
-        "value1": 23315080560000,
+        "value1": 23725645000000,
         "value2": 80.0074765140272
       },
       {
         "year": "2022",
-        "value1": 25604848907611,
+        "value1": 26054614000000,
         "value2": 80.0324978239707
       },
       {
         "year": "2023",
-        "value1": 27292170793214.4,
+        "value1": 27811517000000,
         "value2": 80.071561119178
       }
     ],
@@ -292,7 +292,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.509Z",
+    "generatedAt": "2026-07-06T07:39:57.090Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -300,8 +300,8 @@
     "id": "ny-gdp-pcap-cd_vs_sp-urb-totl-in-zs",
     "title": "GDP per capita vs Urban population",
     "description": "very strong negative correlation between GDP per capita and Urban population",
-    "correlation": -0.890380631271126,
-    "rSquared": 0.7927776685427688,
+    "correlation": -0.8924173669131897,
+    "rSquared": 0.7964087567682707,
     "variable1": {
       "name": "GDP per capita",
       "unit": "Current US$",
@@ -317,72 +317,72 @@
     "data": [
       {
         "year": "2010",
-        "value1": 48642.6100179312,
+        "value1": 48642.6312088213,
         "value2": 80.6997744673366
       },
       {
         "year": "2011",
-        "value1": 50024.868799398,
+        "value1": 50024.8812320773,
         "value2": 80.6957554256024
       },
       {
         "year": "2012",
-        "value1": 51708.4011556577,
+        "value1": 51708.3940614082,
         "value2": 80.6837493386238
       },
       {
         "year": "2013",
-        "value1": 53179.0127634561,
+        "value1": 53297.3862901595,
         "value2": 80.660889281215
       },
       {
         "year": "2014",
-        "value1": 54973.4207515712,
+        "value1": 55153.3940182967,
         "value2": 80.6242231779766
       },
       {
         "year": "2015",
-        "value1": 56572.9188996063,
+        "value1": 56849.4697923159,
         "value2": 80.5707989535091
       },
       {
         "year": "2016",
-        "value1": 57638.1018367192,
+        "value1": 57976.628204291,
         "value2": 80.4976645324131
       },
       {
         "year": "2017",
-        "value1": 59635.0984397965,
+        "value1": 60047.7190728307,
         "value2": 80.4018678392891
       },
       {
         "year": "2018",
-        "value1": 62499.8744390068,
+        "value1": 62875.6661382728,
         "value2": 80.2804567987377
       },
       {
         "year": "2019",
-        "value1": 64746.4506778863,
+        "value1": 65227.9565911038,
         "value2": 80.1304793353594
       },
       {
         "year": "2020",
-        "value1": 63515.9491807833,
+        "value1": 64465.2971415748,
         "value2": 79.997451762548
       },
       {
         "year": "2021",
-        "value1": 70205.050916026,
+        "value1": 71441.2319805947,
         "value2": 80.0074765140272
       },
       {
         "year": "2022",
-        "value1": 76657.2488844403,
+        "value1": 78008.6895811877,
         "value2": 80.0324978239707
       },
       {
         "year": "2023",
-        "value1": 81032.262117545,
+        "value1": 82586.7847707894,
         "value2": 80.071561119178
       }
     ],
@@ -391,7 +391,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.509Z",
+    "generatedAt": "2026-07-06T07:39:57.091Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -399,8 +399,8 @@
     "id": "ne-exp-gnfs-zs_vs_sp-urb-totl-in-zs",
     "title": "Exports of goods and services vs Urban population",
     "description": "very strong positive correlation between Exports of goods and services and Urban population",
-    "correlation": 0.8657106624245158,
-    "rSquared": 0.7494549510354939,
+    "correlation": 0.8759156581131384,
+    "rSquared": 0.7672282401277724,
     "variable1": {
       "name": "Exports of goods and services",
       "unit": "% of GDP",
@@ -416,72 +416,72 @@
     "data": [
       {
         "year": "2010",
-        "value1": 12.3413608086534,
+        "value1": 12.3413554322086,
         "value2": 80.6997744673366
       },
       {
         "year": "2011",
-        "value1": 13.5634671535102,
+        "value1": 13.5634637825829,
         "value2": 80.6957554256024
       },
       {
         "year": "2012",
-        "value1": 13.6440493967794,
+        "value1": 13.6440512687054,
         "value2": 80.6837493386238
       },
       {
         "year": "2013",
-        "value1": 13.5836612014366,
+        "value1": 13.5534918818154,
         "value2": 80.660889281215
       },
       {
         "year": "2014",
-        "value1": 13.5524377198989,
+        "value1": 13.5082142132235,
         "value2": 80.6242231779766
       },
       {
         "year": "2015",
-        "value1": 12.4718192531032,
+        "value1": 12.4111486301271,
         "value2": 80.5707989535091
       },
       {
         "year": "2016",
-        "value1": 11.957982056879,
+        "value1": 11.8881592273253,
         "value2": 80.4976645324131
       },
       {
         "year": "2017",
-        "value1": 12.2617381180006,
+        "value1": 12.177481026766,
         "value2": 80.4018678392891
       },
       {
         "year": "2018",
-        "value1": 12.3609892157496,
+        "value1": 12.2871107596266,
         "value2": 80.2804567987377
       },
       {
         "year": "2019",
-        "value1": 11.8768712235892,
+        "value1": 11.7891974097286,
         "value2": 80.1304793353594
       },
       {
         "year": "2020",
-        "value1": 10.2141055302392,
+        "value1": 10.1230809550527,
         "value2": 79.997451762548
       },
       {
         "year": "2021",
-        "value1": 10.9604167715559,
+        "value1": 10.8266687797107,
         "value2": 80.0074765140272
       },
       {
         "year": "2022",
-        "value1": 11.7844046293243,
+        "value1": 11.6540970440015,
         "value2": 80.0324978239707
       },
       {
         "year": "2023",
-        "value1": 11.1844126402687,
+        "value1": 11.0506737190927,
         "value2": 80.071561119178
       }
     ],
@@ -490,16 +490,16 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.507Z",
+    "generatedAt": "2026-07-06T07:39:57.084Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
   {
     "id": "ne-imp-gnfs-zs_vs_sp-urb-totl-in-zs",
     "title": "Imports of goods and services vs Urban population",
-    "description": "strong positive correlation between Imports of goods and services and Urban population",
-    "correlation": 0.7954578936026142,
-    "rSquared": 0.6327532604947079,
+    "description": "very strong positive correlation between Imports of goods and services and Urban population",
+    "correlation": 0.8234166993923685,
+    "rSquared": 0.6780150608382222,
     "variable1": {
       "name": "Imports of goods and services",
       "unit": "% of GDP",
@@ -515,72 +515,72 @@
     "data": [
       {
         "year": "2010",
-        "value1": 15.8785344260197,
+        "value1": 15.878527508625,
         "value2": 80.6997744673366
       },
       {
         "year": "2011",
-        "value1": 17.2790190876841,
+        "value1": 17.2790147933311,
         "value2": 80.6957554256024
       },
       {
         "year": "2012",
-        "value1": 17.0377859689502,
+        "value1": 17.0377883064876,
         "value2": 80.6837493386238
       },
       {
         "year": "2013",
-        "value1": 16.4242927670279,
+        "value1": 16.3878144030073,
         "value2": 80.660889281215
       },
       {
         "year": "2014",
-        "value1": 16.4520404415866,
+        "value1": 16.3983551242045,
         "value2": 80.6242231779766
       },
       {
         "year": "2015",
-        "value1": 15.351745665684,
+        "value1": 15.2770653039497,
         "value2": 80.5707989535091
       },
       {
         "year": "2016",
-        "value1": 14.6499800035794,
+        "value1": 14.5644385592212,
         "value2": 80.4976645324131
       },
       {
         "year": "2017",
-        "value1": 15.0512827697199,
+        "value1": 14.9478571955214,
         "value2": 80.4018678392891
       },
       {
         "year": "2018",
-        "value1": 15.2493900563462,
+        "value1": 15.1582483706352,
         "value2": 80.2804567987377
       },
       {
         "year": "2019",
-        "value1": 14.5768882704583,
+        "value1": 14.4692832148142,
         "value2": 80.1304793353594
       },
       {
         "year": "2020",
-        "value1": 13.1874574667002,
+        "value1": 13.0168627958622,
         "value2": 79.997451762548
       },
       {
         "year": "2021",
-        "value1": 14.6491408906374,
+        "value1": 14.4060572431224,
         "value2": 80.0074765140272
       },
       {
         "year": "2022",
-        "value1": 15.529535106212,
+        "value1": 15.2538011117724,
         "value2": 80.0324978239707
       },
       {
         "year": "2023",
-        "value1": 14.1059171480679,
+        "value1": 13.878624456192,
         "value2": 80.071561119178
       }
     ],
@@ -589,7 +589,106 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.508Z",
+    "generatedAt": "2026-07-06T07:39:57.088Z",
+    "isRealData": true,
+    "dataSource": "Automated Pipeline"
+  },
+  {
+    "id": "ne-imp-gnfs-zs_vs_sp-pop-totl",
+    "title": "Imports of goods and services vs Population, total",
+    "description": "very strong negative correlation between Imports of goods and services and Population, total",
+    "correlation": -0.8200249293160508,
+    "rSquared": 0.672440884699794,
+    "variable1": {
+      "name": "Imports of goods and services",
+      "unit": "% of GDP",
+      "category": "trade",
+      "source": "World Bank"
+    },
+    "variable2": {
+      "name": "Population, total",
+      "unit": "People",
+      "category": "demographics",
+      "source": "World Bank"
+    },
+    "data": [
+      {
+        "year": "2010",
+        "value1": 15.878527508625,
+        "value2": 309378227
+      },
+      {
+        "year": "2011",
+        "value1": 17.2790147933311,
+        "value2": 311839461
+      },
+      {
+        "year": "2012",
+        "value1": 17.0377883064876,
+        "value2": 314339099
+      },
+      {
+        "year": "2013",
+        "value1": 16.3878144030073,
+        "value2": 316726282
+      },
+      {
+        "year": "2014",
+        "value1": 16.3983551242045,
+        "value2": 319257560
+      },
+      {
+        "year": "2015",
+        "value1": 15.2770653039497,
+        "value2": 321815121
+      },
+      {
+        "year": "2016",
+        "value1": 14.5644385592212,
+        "value2": 324353340
+      },
+      {
+        "year": "2017",
+        "value1": 14.9478571955214,
+        "value2": 326608609
+      },
+      {
+        "year": "2018",
+        "value1": 15.1582483706352,
+        "value2": 328529577
+      },
+      {
+        "year": "2019",
+        "value1": 14.4692832148142,
+        "value2": 330226227
+      },
+      {
+        "year": "2020",
+        "value1": 13.0168627958622,
+        "value2": 331578104
+      },
+      {
+        "year": "2021",
+        "value1": 14.4060572431224,
+        "value2": 332100166
+      },
+      {
+        "year": "2022",
+        "value1": 15.2538011117724,
+        "value2": 333996304
+      },
+      {
+        "year": "2023",
+        "value1": 13.878624456192,
+        "value2": 336755052
+      }
+    ],
+    "commonYears": 14,
+    "dateRange": {
+      "start": 2010,
+      "end": 2023
+    },
+    "generatedAt": "2026-07-06T07:39:57.088Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -597,8 +696,8 @@
     "id": "sl-uem-totl-zs_vs_sp-pop-totl",
     "title": "Unemployment, total vs Population, total",
     "description": "strong negative correlation between Unemployment, total and Population, total",
-    "correlation": -0.7938506503536665,
-    "rSquared": 0.6301988550669393,
+    "correlation": -0.7938435335330255,
+    "rSquared": 0.6301875557321998,
     "variable1": {
       "name": "Unemployment, total",
       "unit": "% of labor force",
@@ -665,22 +764,22 @@
       {
         "year": "2020",
         "value1": 8.055,
-        "value2": 331577720
+        "value2": 331578104
       },
       {
         "year": "2021",
         "value1": 5.349,
-        "value2": 332099760
+        "value2": 332100166
       },
       {
         "year": "2022",
         "value1": 3.65,
-        "value2": 334017321
+        "value2": 333996304
       },
       {
         "year": "2023",
         "value1": 3.638,
-        "value2": 336806231
+        "value2": 336755052
       }
     ],
     "commonYears": 14,
@@ -688,106 +787,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.509Z",
-    "isRealData": true,
-    "dataSource": "Automated Pipeline"
-  },
-  {
-    "id": "ne-imp-gnfs-zs_vs_sp-pop-totl",
-    "title": "Imports of goods and services vs Population, total",
-    "description": "strong negative correlation between Imports of goods and services and Population, total",
-    "correlation": -0.7921063935742932,
-    "rSquared": 0.6274325387412731,
-    "variable1": {
-      "name": "Imports of goods and services",
-      "unit": "% of GDP",
-      "category": "trade",
-      "source": "World Bank"
-    },
-    "variable2": {
-      "name": "Population, total",
-      "unit": "People",
-      "category": "demographics",
-      "source": "World Bank"
-    },
-    "data": [
-      {
-        "year": "2010",
-        "value1": 15.8785344260197,
-        "value2": 309378227
-      },
-      {
-        "year": "2011",
-        "value1": 17.2790190876841,
-        "value2": 311839461
-      },
-      {
-        "year": "2012",
-        "value1": 17.0377859689502,
-        "value2": 314339099
-      },
-      {
-        "year": "2013",
-        "value1": 16.4242927670279,
-        "value2": 316726282
-      },
-      {
-        "year": "2014",
-        "value1": 16.4520404415866,
-        "value2": 319257560
-      },
-      {
-        "year": "2015",
-        "value1": 15.351745665684,
-        "value2": 321815121
-      },
-      {
-        "year": "2016",
-        "value1": 14.6499800035794,
-        "value2": 324353340
-      },
-      {
-        "year": "2017",
-        "value1": 15.0512827697199,
-        "value2": 326608609
-      },
-      {
-        "year": "2018",
-        "value1": 15.2493900563462,
-        "value2": 328529577
-      },
-      {
-        "year": "2019",
-        "value1": 14.5768882704583,
-        "value2": 330226227
-      },
-      {
-        "year": "2020",
-        "value1": 13.1874574667002,
-        "value2": 331577720
-      },
-      {
-        "year": "2021",
-        "value1": 14.6491408906374,
-        "value2": 332099760
-      },
-      {
-        "year": "2022",
-        "value1": 15.529535106212,
-        "value2": 334017321
-      },
-      {
-        "year": "2023",
-        "value1": 14.1059171480679,
-        "value2": 336806231
-      }
-    ],
-    "commonYears": 14,
-    "dateRange": {
-      "start": 2010,
-      "end": 2023
-    },
-    "generatedAt": "2026-06-01T07:47:29.508Z",
+    "generatedAt": "2026-07-06T07:39:57.092Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -795,8 +795,8 @@
     "id": "ne-exp-gnfs-zs_vs_sp-pop-totl",
     "title": "Exports of goods and services vs Population, total",
     "description": "strong negative correlation between Exports of goods and services and Population, total",
-    "correlation": -0.7762995402429905,
-    "rSquared": 0.6026409761814785,
+    "correlation": -0.7920897475445091,
+    "rSquared": 0.6274061681651242,
     "variable1": {
       "name": "Exports of goods and services",
       "unit": "% of GDP",
@@ -812,73 +812,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 12.3413608086534,
+        "value1": 12.3413554322086,
         "value2": 309378227
       },
       {
         "year": "2011",
-        "value1": 13.5634671535102,
+        "value1": 13.5634637825829,
         "value2": 311839461
       },
       {
         "year": "2012",
-        "value1": 13.6440493967794,
+        "value1": 13.6440512687054,
         "value2": 314339099
       },
       {
         "year": "2013",
-        "value1": 13.5836612014366,
+        "value1": 13.5534918818154,
         "value2": 316726282
       },
       {
         "year": "2014",
-        "value1": 13.5524377198989,
+        "value1": 13.5082142132235,
         "value2": 319257560
       },
       {
         "year": "2015",
-        "value1": 12.4718192531032,
+        "value1": 12.4111486301271,
         "value2": 321815121
       },
       {
         "year": "2016",
-        "value1": 11.957982056879,
+        "value1": 11.8881592273253,
         "value2": 324353340
       },
       {
         "year": "2017",
-        "value1": 12.2617381180006,
+        "value1": 12.177481026766,
         "value2": 326608609
       },
       {
         "year": "2018",
-        "value1": 12.3609892157496,
+        "value1": 12.2871107596266,
         "value2": 328529577
       },
       {
         "year": "2019",
-        "value1": 11.8768712235892,
+        "value1": 11.7891974097286,
         "value2": 330226227
       },
       {
         "year": "2020",
-        "value1": 10.2141055302392,
-        "value2": 331577720
+        "value1": 10.1230809550527,
+        "value2": 331578104
       },
       {
         "year": "2021",
-        "value1": 10.9604167715559,
-        "value2": 332099760
+        "value1": 10.8266687797107,
+        "value2": 332100166
       },
       {
         "year": "2022",
-        "value1": 11.7844046293243,
-        "value2": 334017321
+        "value1": 11.6540970440015,
+        "value2": 333996304
       },
       {
         "year": "2023",
-        "value1": 11.1844126402687,
-        "value2": 336806231
+        "value1": 11.0506737190927,
+        "value2": 336755052
       }
     ],
     "commonYears": 14,
@@ -886,7 +886,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.506Z",
+    "generatedAt": "2026-07-06T07:39:57.084Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -894,8 +894,8 @@
     "id": "ne-exp-gnfs-zs_vs_ny-gdp-mktp-cd",
     "title": "Exports of goods and services vs GDP (current US$)",
     "description": "strong negative correlation between Exports of goods and services and GDP (current US$)",
-    "correlation": -0.7095791619487067,
-    "rSquared": 0.5035025870718289,
+    "correlation": -0.730834707063911,
+    "rSquared": 0.5341193690491925,
     "variable1": {
       "name": "Exports of goods and services",
       "unit": "% of GDP",
@@ -911,73 +911,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 12.3413608086534,
-        "value2": 15048964444000
+        "value1": 12.3413554322086,
+        "value2": 15048971000000
       },
       {
         "year": "2011",
-        "value1": 13.5634671535102,
-        "value2": 15599728123000
+        "value1": 13.5634637825829,
+        "value2": 15599732000000
       },
       {
         "year": "2012",
-        "value1": 13.6440493967794,
-        "value2": 16253972230000
+        "value1": 13.6440512687054,
+        "value2": 16253970000000
       },
       {
         "year": "2013",
-        "value1": 13.5836612014366,
-        "value2": 16843190993000
+        "value1": 13.5534918818154,
+        "value2": 16880683000000
       },
       {
         "year": "2014",
-        "value1": 13.5524377198989,
-        "value2": 17550680174000
+        "value1": 13.5082142132235,
+        "value2": 17608138000000
       },
       {
         "year": "2015",
-        "value1": 12.4718192531032,
-        "value2": 18206020741000
+        "value1": 12.4111486301271,
+        "value2": 18295019000000
       },
       {
         "year": "2016",
-        "value1": 11.957982056879,
-        "value2": 18695110842000
+        "value1": 11.8881592273253,
+        "value2": 18804913000000
       },
       {
         "year": "2017",
-        "value1": 12.2617381180006,
-        "value2": 19477336549000
+        "value1": 12.177481026766,
+        "value2": 19612102000000
       },
       {
         "year": "2018",
-        "value1": 12.3609892157496,
-        "value2": 20533057312000
+        "value1": 12.2871107596266,
+        "value2": 20656516000000
       },
       {
         "year": "2019",
-        "value1": 11.8768712235892,
-        "value2": 21380976119000
+        "value1": 11.7891974097286,
+        "value2": 21539982000000
       },
       {
         "year": "2020",
-        "value1": 10.2141055302392,
-        "value2": 21060473613000
+        "value1": 10.1230809550527,
+        "value2": 21375281000000
       },
       {
         "year": "2021",
-        "value1": 10.9604167715559,
-        "value2": 23315080560000
+        "value1": 10.8266687797107,
+        "value2": 23725645000000
       },
       {
         "year": "2022",
-        "value1": 11.7844046293243,
-        "value2": 25604848907611
+        "value1": 11.6540970440015,
+        "value2": 26054614000000
       },
       {
         "year": "2023",
-        "value1": 11.1844126402687,
-        "value2": 27292170793214.4
+        "value1": 11.0506737190927,
+        "value2": 27811517000000
       }
     ],
     "commonYears": 14,
@@ -985,7 +985,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.505Z",
+    "generatedAt": "2026-07-06T07:39:57.082Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -993,8 +993,8 @@
     "id": "ne-exp-gnfs-zs_vs_ny-gdp-pcap-cd",
     "title": "Exports of goods and services vs GDP per capita",
     "description": "strong negative correlation between Exports of goods and services and GDP per capita",
-    "correlation": -0.6949829080840727,
-    "rSquared": 0.4830012425289946,
+    "correlation": -0.71768427451123,
+    "rSquared": 0.5150707178807105,
     "variable1": {
       "name": "Exports of goods and services",
       "unit": "% of GDP",
@@ -1010,73 +1010,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 12.3413608086534,
-        "value2": 48642.6100179312
+        "value1": 12.3413554322086,
+        "value2": 48642.6312088213
       },
       {
         "year": "2011",
-        "value1": 13.5634671535102,
-        "value2": 50024.868799398
+        "value1": 13.5634637825829,
+        "value2": 50024.8812320773
       },
       {
         "year": "2012",
-        "value1": 13.6440493967794,
-        "value2": 51708.4011556577
+        "value1": 13.6440512687054,
+        "value2": 51708.3940614082
       },
       {
         "year": "2013",
-        "value1": 13.5836612014366,
-        "value2": 53179.0127634561
+        "value1": 13.5534918818154,
+        "value2": 53297.3862901595
       },
       {
         "year": "2014",
-        "value1": 13.5524377198989,
-        "value2": 54973.4207515712
+        "value1": 13.5082142132235,
+        "value2": 55153.3940182967
       },
       {
         "year": "2015",
-        "value1": 12.4718192531032,
-        "value2": 56572.9188996063
+        "value1": 12.4111486301271,
+        "value2": 56849.4697923159
       },
       {
         "year": "2016",
-        "value1": 11.957982056879,
-        "value2": 57638.1018367192
+        "value1": 11.8881592273253,
+        "value2": 57976.628204291
       },
       {
         "year": "2017",
-        "value1": 12.2617381180006,
-        "value2": 59635.0984397965
+        "value1": 12.177481026766,
+        "value2": 60047.7190728307
       },
       {
         "year": "2018",
-        "value1": 12.3609892157496,
-        "value2": 62499.8744390068
+        "value1": 12.2871107596266,
+        "value2": 62875.6661382728
       },
       {
         "year": "2019",
-        "value1": 11.8768712235892,
-        "value2": 64746.4506778863
+        "value1": 11.7891974097286,
+        "value2": 65227.9565911038
       },
       {
         "year": "2020",
-        "value1": 10.2141055302392,
-        "value2": 63515.9491807833
+        "value1": 10.1230809550527,
+        "value2": 64465.2971415748
       },
       {
         "year": "2021",
-        "value1": 10.9604167715559,
-        "value2": 70205.050916026
+        "value1": 10.8266687797107,
+        "value2": 71441.2319805947
       },
       {
         "year": "2022",
-        "value1": 11.7844046293243,
-        "value2": 76657.2488844403
+        "value1": 11.6540970440015,
+        "value2": 78008.6895811877
       },
       {
         "year": "2023",
-        "value1": 11.1844126402687,
-        "value2": 81032.262117545
+        "value1": 11.0506737190927,
+        "value2": 82586.7847707894
       }
     ],
     "commonYears": 14,
@@ -1084,7 +1084,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.506Z",
+    "generatedAt": "2026-07-06T07:39:57.083Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -1092,8 +1092,8 @@
     "id": "ne-imp-gnfs-zs_vs_ny-gdp-mktp-cd",
     "title": "Imports of goods and services vs GDP (current US$)",
     "description": "strong negative correlation between Imports of goods and services and GDP (current US$)",
-    "correlation": -0.6557611431044216,
-    "rSquared": 0.4300226768056177,
+    "correlation": -0.6951816947752767,
+    "rSquared": 0.483277588750626,
     "variable1": {
       "name": "Imports of goods and services",
       "unit": "% of GDP",
@@ -1109,73 +1109,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 15.8785344260197,
-        "value2": 15048964444000
+        "value1": 15.878527508625,
+        "value2": 15048971000000
       },
       {
         "year": "2011",
-        "value1": 17.2790190876841,
-        "value2": 15599728123000
+        "value1": 17.2790147933311,
+        "value2": 15599732000000
       },
       {
         "year": "2012",
-        "value1": 17.0377859689502,
-        "value2": 16253972230000
+        "value1": 17.0377883064876,
+        "value2": 16253970000000
       },
       {
         "year": "2013",
-        "value1": 16.4242927670279,
-        "value2": 16843190993000
+        "value1": 16.3878144030073,
+        "value2": 16880683000000
       },
       {
         "year": "2014",
-        "value1": 16.4520404415866,
-        "value2": 17550680174000
+        "value1": 16.3983551242045,
+        "value2": 17608138000000
       },
       {
         "year": "2015",
-        "value1": 15.351745665684,
-        "value2": 18206020741000
+        "value1": 15.2770653039497,
+        "value2": 18295019000000
       },
       {
         "year": "2016",
-        "value1": 14.6499800035794,
-        "value2": 18695110842000
+        "value1": 14.5644385592212,
+        "value2": 18804913000000
       },
       {
         "year": "2017",
-        "value1": 15.0512827697199,
-        "value2": 19477336549000
+        "value1": 14.9478571955214,
+        "value2": 19612102000000
       },
       {
         "year": "2018",
-        "value1": 15.2493900563462,
-        "value2": 20533057312000
+        "value1": 15.1582483706352,
+        "value2": 20656516000000
       },
       {
         "year": "2019",
-        "value1": 14.5768882704583,
-        "value2": 21380976119000
+        "value1": 14.4692832148142,
+        "value2": 21539982000000
       },
       {
         "year": "2020",
-        "value1": 13.1874574667002,
-        "value2": 21060473613000
+        "value1": 13.0168627958622,
+        "value2": 21375281000000
       },
       {
         "year": "2021",
-        "value1": 14.6491408906374,
-        "value2": 23315080560000
+        "value1": 14.4060572431224,
+        "value2": 23725645000000
       },
       {
         "year": "2022",
-        "value1": 15.529535106212,
-        "value2": 25604848907611
+        "value1": 15.2538011117724,
+        "value2": 26054614000000
       },
       {
         "year": "2023",
-        "value1": 14.1059171480679,
-        "value2": 27292170793214.4
+        "value1": 13.878624456192,
+        "value2": 27811517000000
       }
     ],
     "commonYears": 14,
@@ -1183,7 +1183,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.507Z",
+    "generatedAt": "2026-07-06T07:39:57.085Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   },
@@ -1191,8 +1191,8 @@
     "id": "ne-imp-gnfs-zs_vs_ny-gdp-pcap-cd",
     "title": "Imports of goods and services vs GDP per capita",
     "description": "strong negative correlation between Imports of goods and services and GDP per capita",
-    "correlation": -0.6346629257449403,
-    "rSquared": 0.4027970293151276,
+    "correlation": -0.6763584810703483,
+    "rSquared": 0.4574607949157888,
     "variable1": {
       "name": "Imports of goods and services",
       "unit": "% of GDP",
@@ -1208,73 +1208,73 @@
     "data": [
       {
         "year": "2010",
-        "value1": 15.8785344260197,
-        "value2": 48642.6100179312
+        "value1": 15.878527508625,
+        "value2": 48642.6312088213
       },
       {
         "year": "2011",
-        "value1": 17.2790190876841,
-        "value2": 50024.868799398
+        "value1": 17.2790147933311,
+        "value2": 50024.8812320773
       },
       {
         "year": "2012",
-        "value1": 17.0377859689502,
-        "value2": 51708.4011556577
+        "value1": 17.0377883064876,
+        "value2": 51708.3940614082
       },
       {
         "year": "2013",
-        "value1": 16.4242927670279,
-        "value2": 53179.0127634561
+        "value1": 16.3878144030073,
+        "value2": 53297.3862901595
       },
       {
         "year": "2014",
-        "value1": 16.4520404415866,
-        "value2": 54973.4207515712
+        "value1": 16.3983551242045,
+        "value2": 55153.3940182967
       },
       {
         "year": "2015",
-        "value1": 15.351745665684,
-        "value2": 56572.9188996063
+        "value1": 15.2770653039497,
+        "value2": 56849.4697923159
       },
       {
         "year": "2016",
-        "value1": 14.6499800035794,
-        "value2": 57638.1018367192
+        "value1": 14.5644385592212,
+        "value2": 57976.628204291
       },
       {
         "year": "2017",
-        "value1": 15.0512827697199,
-        "value2": 59635.0984397965
+        "value1": 14.9478571955214,
+        "value2": 60047.7190728307
       },
       {
         "year": "2018",
-        "value1": 15.2493900563462,
-        "value2": 62499.8744390068
+        "value1": 15.1582483706352,
+        "value2": 62875.6661382728
       },
       {
         "year": "2019",
-        "value1": 14.5768882704583,
-        "value2": 64746.4506778863
+        "value1": 14.4692832148142,
+        "value2": 65227.9565911038
       },
       {
         "year": "2020",
-        "value1": 13.1874574667002,
-        "value2": 63515.9491807833
+        "value1": 13.0168627958622,
+        "value2": 64465.2971415748
       },
       {
         "year": "2021",
-        "value1": 14.6491408906374,
-        "value2": 70205.050916026
+        "value1": 14.4060572431224,
+        "value2": 71441.2319805947
       },
       {
         "year": "2022",
-        "value1": 15.529535106212,
-        "value2": 76657.2488844403
+        "value1": 15.2538011117724,
+        "value2": 78008.6895811877
       },
       {
         "year": "2023",
-        "value1": 14.1059171480679,
-        "value2": 81032.262117545
+        "value1": 13.878624456192,
+        "value2": 82586.7847707894
       }
     ],
     "commonYears": 14,
@@ -1282,7 +1282,7 @@
       "start": 2010,
       "end": 2023
     },
-    "generatedAt": "2026-06-01T07:47:29.507Z",
+    "generatedAt": "2026-07-06T07:39:57.087Z",
     "isRealData": true,
     "dataSource": "Automated Pipeline"
   }
