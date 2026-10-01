@@ -11,7 +11,8 @@ import { useSavedPairs } from '@/hooks/useSavedPairs'
 import { useTheme } from '@/hooks/useTheme'
 import { useUrlState } from '@/hooks/useUrlState'
 import { loadPair, randomPair } from '@/lib/pair'
-import { VIEWS, type View } from '@/lib/shareUrl'
+import { canonicalPairPath, hasPairPage, pairDescription, pairTitle } from '@/lib/pairPages'
+import { siteOrigin, VIEWS, type View } from '@/lib/shareUrl'
 import type { PairResult } from '@/types'
 
 const GalleryView = lazy(() => import('@/features/gallery/GalleryView').then((m) => ({ default: m.GalleryView })))
@@ -26,7 +27,12 @@ const LABELS: Record<View, string> = { explore: 'Explore', gallery: 'Gallery', s
 export default function App() {
   const theme = useTheme()
   const { catalog, error: catalogError } = useCatalog()
-  const [url, setUrl] = useUrlState()
+  const hasPage = useCallback((aId: string, bId: string) => {
+    const a = catalog?.find((d) => d.id === aId)
+    const b = catalog?.find((d) => d.id === bId)
+    return !!a && !!b && hasPairPage(a, b)
+  }, [catalog])
+  const [url, setUrl] = useUrlState(hasPage)
   const { saved, isSaved, toggle } = useSavedPairs()
   const [pair, setPair] = useState<PairResult | null>(null)
   const [loading, setLoading] = useState(false)
@@ -41,6 +47,11 @@ export default function App() {
     if (!catalog) return
     const p = randomPair(catalog)
     if (p) setUrl({ a: p[0].id, b: p[1].id, view: 'explore' })
+  }, [catalog, setUrl])
+
+  // Once the catalog is known, move ?a=&b= links for pairs with a static page onto that page's path.
+  useEffect(() => {
+    if (catalog) setUrl({}, { replace: true })
   }, [catalog, setUrl])
 
   useEffect(() => {
@@ -66,6 +77,18 @@ export default function App() {
       live = false
     }
   }, [catalog, url.a, url.b]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Title, description and canonical follow the pair on screen (pair pages are prerendered with the same values).
+  useEffect(() => {
+    if (!pair || url.view !== 'explore') {
+      document.title = `${url.view === 'explore' ? 'CorrelateAI: is that correlation real or a coincidence?' : `${LABELS[url.view]} | CorrelateAI`}`
+      setHead(`${siteOrigin()}/${url.view === 'explore' ? '' : `?view=${url.view}`}`)
+      return
+    }
+    document.title = pairTitle(pair)
+    const page = hasPairPage(pair.a, pair.b)
+    setHead(page ? `${siteOrigin()}${canonicalPairPath(pair.a.id, pair.b.id)}` : `${siteOrigin()}/`, pairDescription(pair))
+  }, [pair, url.view])
 
   return (
     <div className="flex min-h-dvh flex-col">
@@ -130,4 +153,9 @@ export default function App() {
       <Toaster theme={theme.isDark ? 'dark' : 'light'} position="bottom-center" toastOptions={{ className: 'font-sans' }} />
     </div>
   )
+}
+
+function setHead(canonical: string, description?: string) {
+  document.querySelector('link[rel="canonical"]')?.setAttribute('href', canonical)
+  if (description) document.querySelector('meta[name="description"]')?.setAttribute('content', description)
 }

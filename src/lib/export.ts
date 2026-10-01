@@ -1,6 +1,6 @@
 import { fmtP } from '@/lib/correlationStats'
 import { fmtR } from '@/lib/format'
-import { pairUrl } from '@/lib/shareUrl'
+import { sharePairUrl } from '@/lib/shareUrl'
 import type { PairResult } from '@/types'
 
 function download(filename: string, blob: Blob) {
@@ -25,7 +25,7 @@ export function downloadCsv(pair: PairResult) {
     `# ${a.name} (${a.unit}) — ${a.source}: ${a.sourceUrl}`,
     `# ${b.name} (${b.unit}) — ${b.source}: ${b.sourceUrl}`,
     `# r = ${stats.r.toFixed(4)}, n = ${stats.n}, p = ${fmtP(stats.pValue)}, detrended r = ${stats.detrendedR.toFixed(4)}`,
-    `# ${pairUrl(a.id, b.id)}`,
+    `# ${sharePairUrl(pair)}`,
     ['year', a.name, b.name].map(csvCell).join(','),
     ...points.map((p) => [p.year, p.a, p.b].join(',')),
   ]
@@ -35,7 +35,7 @@ export function downloadCsv(pair: PairResult) {
 export function downloadJson(pair: PairResult) {
   const { a, b, points, stats } = pair
   const body = {
-    url: pairUrl(a.id, b.id),
+    url: sharePairUrl(pair),
     series: [a, b],
     stats: {
       n: stats.n,

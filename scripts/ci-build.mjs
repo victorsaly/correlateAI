@@ -33,5 +33,6 @@ if (!skipPrefetch) {
 // Type-check (fails the build on type errors), then Vite build
 run('npx', ['tsc', '--noEmit']);
 run('npx', ['vite', 'build']);
+run('node', ['scripts/build-pages.mjs']);
 
 console.log('\nci-build completed successfully.');

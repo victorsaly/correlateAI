@@ -12,7 +12,7 @@ import {
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu'
 import { downloadBlob, downloadCsv, downloadJson, fileStem, shareText } from '@/lib/export'
-import { pairUrl } from '@/lib/shareUrl'
+import { sharePairUrl } from '@/lib/shareUrl'
 import type { PairResult } from '@/types'
 import { ShareCard } from '@/features/share/ShareCard'
 import { nodeToPng } from '@/features/share/shareImage'
@@ -27,7 +27,7 @@ const intents = {
 export function ShareMenu({ pair }: { pair: PairResult }) {
   const cardRef = useRef<HTMLDivElement>(null)
   const [rendering, setRendering] = useState(false)
-  const url = pairUrl(pair.a.id, pair.b.id)
+  const url = sharePairUrl(pair)
   const text = shareText(pair)
 
   const renderPng = async () => {

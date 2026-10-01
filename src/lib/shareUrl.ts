@@ -1,3 +1,6 @@
+import { hasPairPage, pairPath, parsePairPath } from '@/lib/pairPages'
+import type { PairResult } from '@/types'
+
 export type View = 'explore' | 'saved' | 'gallery' | 'learn'
 
 export const VIEWS: View[] = ['explore', 'saved', 'gallery', 'learn']
@@ -10,10 +13,11 @@ export interface UrlState {
   view: View
 }
 
-export function parseUrlState(search: string): UrlState {
+export function parseUrlState(search: string, pathname = '/'): UrlState {
   const params = new URLSearchParams(search)
-  const a = params.get('a') ?? undefined
-  const b = params.get('b') ?? undefined
+  const fromPath = parsePairPath(pathname)
+  const a = fromPath?.a ?? params.get('a') ?? undefined
+  const b = fromPath?.b ?? params.get('b') ?? undefined
   const view = params.get('view') as View | null
   const valid = a && b && a !== b && ID_PATTERN.test(a) && ID_PATTERN.test(b)
   return {
@@ -36,9 +40,23 @@ export function toSearch({ a, b, view }: UrlState): string {
 }
 
 /** Production links always name the canonical host, so cards exported from previews or forks stay correct. */
-const origin = () => (import.meta.env.PROD ? 'https://correlateai.victorsaly.com' : window.location.origin)
+export const siteOrigin = () => (import.meta.env.PROD ? 'https://correlateai.victorsaly.com' : window.location.origin)
+
+/**
+ * Path + query for a state. Pairs with a static page get their /pairs/… path
+ * (indexable, own preview); other pairs fall back to /?a=&b=.
+ */
+export function urlFor(state: UrlState, hasPage: boolean): string {
+  if (state.a && state.b && hasPage) {
+    return `${pairPath(state.a, state.b)}${state.view !== 'explore' ? `?view=${state.view}` : ''}`
+  }
+  return `/${toSearch(state)}`
+}
 
 /** Absolute, reproducible link to a pair. */
-export function pairUrl(aId: string, bId: string, base = origin()): string {
-  return `${base}${import.meta.env.BASE_URL}${toSearch({ a: aId, b: bId, view: 'explore' })}`
+export function pairUrl(aId: string, bId: string, hasPage = false, base = siteOrigin()): string {
+  return `${base}${urlFor({ a: aId, b: bId, view: 'explore' }, hasPage)}`
 }
+
+/** The link to share for a computed pair: its static page when one exists. */
+export const sharePairUrl = ({ a, b }: PairResult) => pairUrl(a.id, b.id, hasPairPage(a, b))
