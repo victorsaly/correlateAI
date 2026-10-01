@@ -34,7 +34,7 @@ The deployment happens automatically via `.github/workflows/deploy.yml`:
 1. **Trigger:** Push to `main` branch (or manual workflow dispatch)
 2. **Build:** 
    - Installs dependencies (`npm ci`)
-   - Runs `npm run build` (skips prefetch/generate in CI)
+   - Runs `npm run build` (type-check, data validation, Vite build; no network calls)
    - Outputs to `./dist/` directory
 3. **Verify:** 
    - Checks for `.nojekyll`, `site.webmanifest`, `index.html`
@@ -54,12 +54,7 @@ To manually trigger a deployment:
 
 ## Local Build
 
-To build locally (CI mode, skips prefetch/generate):
-```bash
-SKIP_PREFETCH=true npm run build
-```
-
-To build locally (full mode, runs prefetch/generate):
+To build locally (type-check, validate the committed data, then Vite build):
 ```bash
 npm run build
 ```
@@ -98,18 +93,12 @@ If `site.webmanifest` or other public assets return 404:
 - **`index.html`** (root) - Dev template, used by Vite dev server only, **NEVER deployed**
 - **`dist/index.html`** (generated) - Production build with compiled asset references
 - **`.github/workflows/deploy.yml`** - Automated deployment workflow
-- **`scripts/ci-build.mjs`** - CI-aware build script (skips prefetch/generate in CI)
+- **`scripts/ci-build.mjs`** - Build script: type-check, validate `public/data`, Vite build, static pages
 - **`vite.config.ts`** - Build configuration
 - **`public/.nojekyll`** - Prevents GitHub Pages Jekyll processing
 
 ## Environment Variables
 
-Set these as GitHub Secrets (Settings → Secrets and variables → Actions):
-
-- `VITE_FRED_API_KEY` - Federal Reserve Economic Data API key
-- (Other API keys as needed)
-
-The workflow also sets:
-- `VITE_APP_NAME="CorrelateAI Pro"`
-- `VITE_APP_VERSION="1.0.0"`
-- `SKIP_PREFETCH=true` (for CI builds)
+None. The app reads only the committed series in `public/data`, and the public
+sources the weekly data workflow (`automated-data-collection.yml`) collects from
+need no API keys.

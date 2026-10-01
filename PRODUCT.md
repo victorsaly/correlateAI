@@ -24,7 +24,7 @@ The product is honest by construction. Every number is computed in the browser f
 - Data refreshes weekly through a GitHub Actions job that commits `public/data/`. The site is hosted on GitHub Pages at correlateai.victorsaly.com.
 
 ## Capabilities and Constraints
-- **Catalog:** the 35 series in `public/data/real_list.json`, each `[{year, value}]` at annual resolution. Sources are World Bank, Our World in Data, USGS, Open-Meteo (ERA5) and Frankfurter (ECB). Most series cover the US.
+- **Catalog:** the 72 series in `public/data/real_list.json`, each `[{year, value}]` at annual resolution. Sources are World Bank, Our World in Data, Open-Meteo (ERA5), Frankfurter (ECB), NOAA, USGS, NSIDC, SILSO and the U.S. Treasury. Most series cover the US.
 - **Statistics:** all statistics come from `src/lib/correlationStats.ts`. Nothing is randomised except the choice of a random pair.
 - **Hosting:** static site with no backend or accounts. Saved pairs live in localStorage.
 - **Pro tier:** custom uploads, embeds and an API. None of it is built yet. A waitlist is collected via a mailto link to info@victorsaly.com.

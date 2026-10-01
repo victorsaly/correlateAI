@@ -14,12 +14,10 @@
     "scripts": {
         "dev": "vite",
         "build": "node scripts/ci-build.mjs",
-        "prefetch": "node scripts/prefetch-data.js",
         "collect:real": "node scripts/collect-real-sources.mjs",
         "generate-ai": "node scripts/generate-ai-datasets-enhanced.js",
         "lint": "eslint .",
         "preview": "vite preview",
-        "security-audit": "./scripts/security-audit.sh",
         "type-check": "tsc --noEmit",
         "test": "vitest run",
         "brand": "node scripts/build-brand-assets.mjs",
