@@ -1,12 +1,14 @@
 # CorrelateAI
 
-**Is that correlation real, or a coincidence?** Pair two real public datasets and get an honest verdict.
+Pair two real public datasets and get an honest verdict on whether their correlation is real or a coincidence. Built for journalists checking a claim, teachers and students learning why correlation isn't causation, and analysts exploring public indicators.
 
-[correlateai.victorsaly.com](https://correlateai.victorsaly.com)
+**Live: [correlateai.victorsaly.com](https://correlateai.victorsaly.com)**
 
-Two things that rise over the same decades will almost always correlate, whether or not they are related. CorrelateAI computes every statistic in the browser from source-linked public data, then checks whether the link survives once each series' time trend is removed.
+![Explore view: atmospheric CO2 against US adult obesity, r = +0.98, flipping to -0.79 once the time trend is removed](docs/images/explore.png)
 
-## What it shows
+Two things that rise over the same decades will almost always correlate, whether or not they are related. CorrelateAI computes every statistic in the browser from source-linked public data, then checks whether the link survives once each series' time trend is removed. Despite the name, there is no AI in the product: just statistics you can check.
+
+## What it offers
 
 For any pair of series:
 
@@ -14,20 +16,27 @@ For any pair of series:
 - **p-value** (two-tailed t-test) and a **95% confidence interval** (Fisher z)
 - **Detrended r**: the correlation after subtracting each series' straight-line trend
 - **A plain-language verdict**: *Not significant*, *Likely spurious (shared time trend)*, *Direction flips without the trend*, *Interpret with caution*, or *Holds up after detrending*
+- **Charts** over time or as a scatter (A against B), standardised or in actual units, with or without the trend
 
-Every result has a reproducible link (`/?a=<series>&b=<series>`). Pairs that share at least 15 years also get a static, indexable page at `/pairs/<a>--vs--<b>/`. You can export any result as a PNG card, as CSV, or as JSON with sources and statistics.
+Every result has a reproducible link (`/?a=<series>&b=<series>`). Pairs that share at least 15 years also get a static, indexable page at `/pairs/<a>--vs--<b>/`. Any result can be exported as a PNG card, as CSV, or as JSON with sources and statistics.
 
-**Views**
-- **Explore**: pick two series, or a random pair.
-- **Gallery**: notable pairs from every combination, with a note on multiple comparisons.
-- **Saved**: pairs saved in your browser.
-- **How it works**: methodology, a calculator for your own numbers, and every source.
+| View | What it does |
+|---|---|
+| **Explore** | Pick two series, or a random pair |
+| **Gallery** | Notable pairs from every combination, with a note on how many would look significant by chance |
+| **Saved** | Pairs saved in your browser (no account needed) |
+| **How it works** | The methodology, a calculator for your own numbers, and every source |
+
+<p>
+  <img src="docs/images/gallery.png" alt="Gallery view listing high correlations that collapse after detrending" width="66%">
+  <img src="docs/images/mobile.png" alt="Explore view on a phone" width="30%">
+</p>
 
 The verdict rules live in [`src/lib/correlationStats.ts`](src/lib/correlationStats.ts) and are covered by tests.
 
 ## Data
 
-Every series is yearly and comes from a public source that needs no API key:
+The catalog has 72 yearly series, mostly for the US, all from public sources that need no API key:
 
 | Source | Examples |
 |---|---|
@@ -41,7 +50,7 @@ Every series is yearly and comes from a public source that needs no API key:
 | Open-Meteo (ERA5) | Annual mean temperature for London, New York, Sydney and Tokyo |
 | Frankfurter (ECB) | USD to EUR, GBP and JPY |
 
-`npm run collect:real` runs every collector in [`scripts/collectors/`](scripts/collectors/), and a weekly GitHub Action runs it on `main`. Each series is written to `public/data/<id>.json` as `[{ year, value }]`. The catalog that the app loads is `public/data/real_list.json`, with a source URL for every series. If a source fails, or returns far fewer points than last time, the run keeps that series' last good copy, so saved pairs and `/pairs/` pages don't disappear.
+`npm run collect:real` runs every collector in [`scripts/collectors/`](scripts/collectors/), and a weekly GitHub Action runs it on `main`. Each series is written to `public/data/<id>.json` as `[{ year, value }]`. The catalog the app loads is `public/data/real_list.json`, with a source URL for every series. If a source fails, or returns far fewer points than last time, the run keeps that series' last good copy, so saved pairs and `/pairs/` pages don't disappear.
 
 To check the catalog and every file before committing data:
 
@@ -49,7 +58,13 @@ To check the catalog and every file before committing data:
 node scripts/validate-real-data.mjs
 ```
 
-## Develop
+## Tech stack
+
+React 19, TypeScript, Vite, Tailwind CSS v4, Radix primitives and Recharts. Vitest for unit tests, Playwright (with axe) for end-to-end tests. Static hosting on GitHub Pages; no backend. The design system is in [`DESIGN.md`](DESIGN.md).
+
+## Run locally
+
+Requires Node 18 or later. No API keys are needed.
 
 ```bash
 npm install
@@ -65,8 +80,6 @@ npm run brand        # regenerate favicons and app icons from src/app/logo.json
 
 The build makes no network calls. It reads only the committed data in `public/data/`. [`scripts/build-pages.mjs`](scripts/build-pages.mjs) prerenders the pair pages from the app's own TypeScript, so a static page can never disagree with the live app.
 
-Built with React 19, Vite, Tailwind CSS v4, Radix primitives and Recharts. The design system is in [`DESIGN.md`](DESIGN.md).
-
 ## Deploy
 
 Every push to `main` runs unit tests, the build and the Playwright suite, then deploys `dist/` to GitHub Pages ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)). In the repository settings, the Pages source must be **GitHub Actions**. Branch deploy would serve the unbuilt development `index.html`.
@@ -75,10 +88,10 @@ Every push to `main` runs unit tests, the build and the Playwright suite, then d
 
 The p-value assumes each year is independent of the last. Yearly series rarely are, so p-values are somewhat optimistic. Detrending helps, but it does not fully correct for this. A correlation that holds up still says nothing about cause.
 
-## Pro
-
-Custom uploads, embeds and an API are planned. [Join the waitlist](mailto:info@victorsaly.com?subject=CorrelateAI%20Pro%20waitlist).
+Custom uploads, embeds and an API are planned but not built. There is a waitlist link on the site's *How it works* page.
 
 ## License
 
-MIT © [Victor Saly](https://victorsaly.com)
+[MIT](LICENSE)
+
+Made by [Victor Saly](https://victorsaly.com).
