@@ -3,6 +3,7 @@ import { Github } from 'lucide-react'
 import { toast, Toaster } from 'sonner'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
 import { AppFooter } from '@/app/AppFooter'
+import { Logo } from '@/app/Logo'
 import { ThemeToggle } from '@/app/ThemeToggle'
 import { ExploreView } from '@/features/explore/ExploreView'
 import { useCatalog } from '@/hooks/useCatalog'
@@ -71,9 +72,17 @@ export default function App() {
       <Tabs value={url.view} onValueChange={(v) => setUrl({ view: v as View })} className="flex-1 gap-0">
         <header className="border-b">
           <div className="mx-auto flex max-w-6xl flex-wrap items-start gap-x-4 gap-y-1 px-4 pt-4 sm:px-6">
-            <div className="min-w-0 flex-1 py-1">
-              <h1 className="text-xl font-semibold tracking-[-0.02em]">CorrelateAI</h1>
-              <p className="text-sm text-muted-foreground">Real public data, honest statistics: is the correlation real or a coincidence?</p>
+            <div className="flex min-w-0 flex-1 items-center gap-4 py-1">
+              <h1 className="shrink-0">
+                <a href={import.meta.env.BASE_URL} aria-label="CorrelateAI home" className="rounded-md">
+                  <Logo size={36} />
+                </a>
+              </h1>
+              <p className="hidden border-l pl-4 text-sm leading-snug text-muted-foreground sm:block">
+                Real public data, honest statistics.
+                <br />
+                Is the correlation real, or a coincidence?
+              </p>
             </div>
             <div className="flex items-center gap-1">
               <ThemeToggle pref={theme.pref} isDark={theme.isDark} onChange={theme.setTheme} />

@@ -1,0 +1,17 @@
+{
+  "_comment": "Two lines, one ring. Single source of geometry for the in-app logo (Logo.tsx) and the generated icons (scripts/build-brand-assets.mjs). viewBox 0 0 64 64. 'full' is for 40px and up, 'small' for favicons.",
+  "full": {
+    "tile": { "x": 2, "y": 2, "size": 60, "radius": 10, "border": 1.5 },
+    "grid": ["M 22 2 V 62", "M 42 2 V 62", "M 2 22 H 62", "M 2 42 H 62"],
+    "a": { "d": "M 11 49 L 22 42 L 32 33 L 42 24 L 53 15", "width": 4.5 },
+    "b": { "d": "M 11 41 L 22 39 L 32 33 L 42 27.5 L 53 22", "width": 4.5, "dash": "6 4.5" },
+    "ring": { "d": "M 23.5 37.5 C 20.5 30 26 23.5 33 23.5 C 40 23.5 43.5 28.5 42.5 34 C 41.5 40 35.5 43 30 42 C 24.5 41 21.5 36 23.5 31 C 24.5 28.5 26.5 26.5 29 25.5", "width": 2.8 }
+  },
+  "small": {
+    "tile": { "x": 1, "y": 1, "size": 62, "radius": 12, "border": 0 },
+    "grid": [],
+    "a": { "d": "M 9 52 L 32 32 L 55 12", "width": 7 },
+    "b": { "d": "M 9 42 L 32 32 L 55 22", "width": 7, "dash": "9 6" },
+    "ring": { "d": "M 32 19 C 41 19 46 25 46 32 C 46 40 40 45 32 45 C 24 45 18 40 18 32 C 18 25 23 20 30 19", "width": 5 }
+  }
+}

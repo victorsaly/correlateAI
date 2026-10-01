@@ -21,7 +21,8 @@
         "preview": "vite preview",
         "security-audit": "./scripts/security-audit.sh",
         "type-check": "tsc --noEmit",
-        "test": "vitest run"
+        "test": "vitest run",
+        "brand": "node scripts/build-brand-assets.mjs"
     },
     "dependencies": {
         "@radix-ui/react-collapsible": "^1.1.3",

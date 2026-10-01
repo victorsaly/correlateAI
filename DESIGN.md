@@ -308,3 +308,17 @@ There is one authored moment, and everything else is near-instant. Toggling "Rem
 - **Don't** introduce hue outside the two series inks and three verdict inks.
 - **Don't** add motion beyond the trend toggle and the pencil ring, and never animate without honouring reduced motion.
 - **Don't** use emoji, or claim AI, "quantum" or "cutting-edge" anything.
+
+## Brand Mark
+
+**Two lines, one ring.** Two trends rise together on a graph-paper tile: series A is solid ink-blue and series B is dashed ochre. Their crossing is ringed in red pencil, marking the moment of doubt the product exists for. The mark is made only from the system's own materials (plate, grid, series inks, pencil), so it themes with the page.
+
+- **Source of truth:** `src/app/logo.json`. It holds the geometry, with viewBox 0 0 64 64.
+  - `full` is for 40 px and up: a bordered tile with a 3×3 grid.
+  - `small` is for favicons: no grid or border, heavier strokes, a larger ring.
+- **In the app:** `LogoMark` and `Logo` in `src/app/Logo.tsx`. They are coloured by CSS variables, so the mark follows light and dark.
+- **Wordmark:** "Correlate" in foreground ink, then "AI" in muted ink, in Atkinson Hyperlegible Next 600 at -0.02em tracking. The name keeps "AI", but the type never puts weight on it.
+- **Icons:** `npm run brand` regenerates `favicon.svg` (switches with prefers-color-scheme), the 16/32 px PNGs, `favicon.ico`, `apple-touch-icon.png`, and the 192/512 px and maskable PWA icons.
+- **Social image:** `public/og-image.png` is the real share card for the default pair, downscaled to 1200×630, not a separate illustration.
+- **Don't** recolour the mark outside the token inks, put it on gradients, or draw the ring as a perfect circle. It is a pencil loop.
+
