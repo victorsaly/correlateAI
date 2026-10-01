@@ -1,0 +1,492 @@
+[
+  {
+    "id": "climate-temp-london",
+    "name": "London Average Temperature",
+    "unit": "°C",
+    "source": "Open-Meteo (ERA5)",
+    "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api",
+    "category": "climate",
+    "description": "Annual mean 2m air temperature for London from the ERA5 reanalysis.",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "climate-temp-newyork",
+    "name": "New York Average Temperature",
+    "unit": "°C",
+    "source": "Open-Meteo (ERA5)",
+    "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api",
+    "category": "climate",
+    "description": "Annual mean 2m air temperature for New York from the ERA5 reanalysis.",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "climate-temp-sydney",
+    "name": "Sydney Average Temperature",
+    "unit": "°C",
+    "source": "Open-Meteo (ERA5)",
+    "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api",
+    "category": "climate",
+    "description": "Annual mean 2m air temperature for Sydney from the ERA5 reanalysis.",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "climate-temp-tokyo",
+    "name": "Tokyo Average Temperature",
+    "unit": "°C",
+    "source": "Open-Meteo (ERA5)",
+    "sourceUrl": "https://open-meteo.com/en/docs/historical-weather-api",
+    "category": "climate",
+    "description": "Annual mean 2m air temperature for Tokyo from the ERA5 reanalysis.",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "fx-usd-eur",
+    "name": "US Dollar to Euro",
+    "unit": "EUR per USD",
+    "source": "Frankfurter (ECB)",
+    "sourceUrl": "https://frankfurter.dev/",
+    "category": "financial",
+    "description": "Annual mean US Dollar to Euro exchange rate (European Central Bank reference rates).",
+    "dataPoints": 27,
+    "dateRange": {
+      "start": 1999,
+      "end": 2025
+    }
+  },
+  {
+    "id": "fx-usd-gbp",
+    "name": "US Dollar to British Pound",
+    "unit": "GBP per USD",
+    "source": "Frankfurter (ECB)",
+    "sourceUrl": "https://frankfurter.dev/",
+    "category": "financial",
+    "description": "Annual mean US Dollar to British Pound exchange rate (European Central Bank reference rates).",
+    "dataPoints": 27,
+    "dateRange": {
+      "start": 1999,
+      "end": 2025
+    }
+  },
+  {
+    "id": "fx-usd-jpy",
+    "name": "US Dollar to Japanese Yen",
+    "unit": "JPY per USD",
+    "source": "Frankfurter (ECB)",
+    "sourceUrl": "https://frankfurter.dev/",
+    "category": "financial",
+    "description": "Annual mean US Dollar to Japanese Yen exchange rate (European Central Bank reference rates).",
+    "dataPoints": 27,
+    "dateRange": {
+      "start": 1999,
+      "end": 2025
+    }
+  },
+  {
+    "id": "owid-alcohol",
+    "name": "US Alcohol Consumption",
+    "unit": "litres/person",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/total-alcohol-consumption-per-capita-litres-of-pure-alcohol",
+    "category": "health",
+    "description": "US Alcohol Consumption (Our World in Data: Alcohol consumption).",
+    "dataPoints": 21,
+    "dateRange": {
+      "start": 2000,
+      "end": 2020
+    }
+  },
+  {
+    "id": "owid-co2-emissions",
+    "name": "US Annual CO₂ Emissions",
+    "unit": "tonnes",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/annual-co2-emissions-per-country",
+    "category": "environment",
+    "description": "US Annual CO₂ Emissions (Our World in Data: Annual CO₂ emissions).",
+    "dataPoints": 225,
+    "dateRange": {
+      "start": 1800,
+      "end": 2024
+    }
+  },
+  {
+    "id": "owid-co2-per-capita",
+    "name": "US CO₂ Emissions per Capita",
+    "unit": "tonnes",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/co-emissions-per-capita",
+    "category": "environment",
+    "description": "US CO₂ Emissions per Capita (Our World in Data: CO₂ emissions per capita).",
+    "dataPoints": 225,
+    "dateRange": {
+      "start": 1800,
+      "end": 2024
+    }
+  },
+  {
+    "id": "owid-internet-share",
+    "name": "US Internet Usage",
+    "unit": "% of population",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/share-of-individuals-using-the-internet",
+    "category": "technology",
+    "description": "US Internet Usage (Our World in Data: Share of the population using the Internet).",
+    "dataPoints": 34,
+    "dateRange": {
+      "start": 1990,
+      "end": 2023
+    }
+  },
+  {
+    "id": "owid-obesity",
+    "name": "US Adult Obesity",
+    "unit": "% of adults",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/share-of-adults-defined-as-obese",
+    "category": "health",
+    "description": "US Adult Obesity (Our World in Data: Obesity among adults, BMI >= 30 kg/m2 (crude estimate) (%) - Sex: both sexes - Age group: 18+  years of age).",
+    "dataPoints": 45,
+    "dateRange": {
+      "start": 1980,
+      "end": 2024
+    }
+  },
+  {
+    "id": "owid-renewable-share",
+    "name": "US Renewable Energy Share",
+    "unit": "% of primary energy",
+    "source": "Our World in Data",
+    "sourceUrl": "https://ourworldindata.org/grapher/renewable-share-energy",
+    "category": "environment",
+    "description": "US Renewable Energy Share (Our World in Data: Renewables).",
+    "dataPoints": 60,
+    "dateRange": {
+      "start": 1965,
+      "end": 2024
+    }
+  },
+  {
+    "id": "usgs-quakes-m5",
+    "name": "Worldwide Major Earthquakes (M5+)",
+    "unit": "earthquakes per year",
+    "source": "USGS",
+    "sourceUrl": "https://earthquake.usgs.gov/fdsnws/event/1/",
+    "category": "geology",
+    "description": "Annual worldwide count of magnitude 5+ earthquakes (USGS ComCat).",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "usgs-quakes-m6",
+    "name": "Worldwide Strong Earthquakes (M6+)",
+    "unit": "earthquakes per year",
+    "source": "USGS",
+    "sourceUrl": "https://earthquake.usgs.gov/fdsnws/event/1/",
+    "category": "geology",
+    "description": "Annual worldwide count of magnitude 6+ earthquakes (USGS ComCat).",
+    "dataPoints": 66,
+    "dateRange": {
+      "start": 1960,
+      "end": 2025
+    }
+  },
+  {
+    "id": "wb-agriculture-gdp",
+    "name": "US Agriculture Value Added",
+    "unit": "% of GDP",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/NV.AGR.TOTL.ZS",
+    "category": "economics",
+    "description": "US Agriculture Value Added (World Bank indicator NV.AGR.TOTL.ZS).",
+    "dataPoints": 25,
+    "dateRange": {
+      "start": 1997,
+      "end": 2021
+    }
+  },
+  {
+    "id": "wb-birth-rate",
+    "name": "US Birth Rate",
+    "unit": "per 1,000 people",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.CBRT.IN",
+    "category": "demographics",
+    "description": "US Birth Rate (World Bank indicator SP.DYN.CBRT.IN).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-co2-per-capita",
+    "name": "US CO₂ Emissions per Capita",
+    "unit": "tonnes",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/EN.GHG.CO2.PC.CE.AR5",
+    "category": "environment",
+    "description": "US CO₂ Emissions per Capita (World Bank indicator EN.GHG.CO2.PC.CE.AR5).",
+    "dataPoints": 55,
+    "dateRange": {
+      "start": 1970,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-death-rate",
+    "name": "US Death Rate",
+    "unit": "per 1,000 people",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.CDRT.IN",
+    "category": "demographics",
+    "description": "US Death Rate (World Bank indicator SP.DYN.CDRT.IN).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-exports",
+    "name": "US Exports",
+    "unit": "% of GDP",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/NE.EXP.GNFS.ZS",
+    "category": "economics",
+    "description": "US Exports (World Bank indicator NE.EXP.GNFS.ZS).",
+    "dataPoints": 55,
+    "dateRange": {
+      "start": 1970,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-forest-area",
+    "name": "US Forest Area",
+    "unit": "% of land",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
+    "category": "environment",
+    "description": "US Forest Area (World Bank indicator AG.LND.FRST.ZS).",
+    "dataPoints": 34,
+    "dateRange": {
+      "start": 1990,
+      "end": 2023
+    }
+  },
+  {
+    "id": "wb-gdp",
+    "name": "US GDP (current US$)",
+    "unit": "USD",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.MKTP.CD",
+    "category": "economics",
+    "description": "US GDP (current US$) (World Bank indicator NY.GDP.MKTP.CD).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-gdp-per-capita",
+    "name": "US GDP per Capita",
+    "unit": "USD",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/NY.GDP.PCAP.CD",
+    "category": "economics",
+    "description": "US GDP per Capita (World Bank indicator NY.GDP.PCAP.CD).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-health-spending",
+    "name": "US Health Expenditure",
+    "unit": "% of GDP",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SH.XPD.CHEX.GD.ZS",
+    "category": "health",
+    "description": "US Health Expenditure (World Bank indicator SH.XPD.CHEX.GD.ZS).",
+    "dataPoints": 24,
+    "dateRange": {
+      "start": 2000,
+      "end": 2023
+    }
+  },
+  {
+    "id": "wb-imports",
+    "name": "US Imports",
+    "unit": "% of GDP",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/NE.IMP.GNFS.ZS",
+    "category": "economics",
+    "description": "US Imports (World Bank indicator NE.IMP.GNFS.ZS).",
+    "dataPoints": 55,
+    "dateRange": {
+      "start": 1970,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-inflation",
+    "name": "US Inflation Rate",
+    "unit": "% annual",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/FP.CPI.TOTL.ZG",
+    "category": "economics",
+    "description": "US Inflation Rate (World Bank indicator FP.CPI.TOTL.ZG).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-internet-users",
+    "name": "US Internet Users",
+    "unit": "% of population",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/IT.NET.USER.ZS",
+    "category": "technology",
+    "description": "US Internet Users (World Bank indicator IT.NET.USER.ZS).",
+    "dataPoints": 35,
+    "dateRange": {
+      "start": 1990,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-life-expectancy",
+    "name": "US Life Expectancy",
+    "unit": "years",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.DYN.LE00.IN",
+    "category": "health",
+    "description": "US Life Expectancy (World Bank indicator SP.DYN.LE00.IN).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-military-spending",
+    "name": "US Military Expenditure",
+    "unit": "% of GDP",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/MS.MIL.XPND.GD.ZS",
+    "category": "economics",
+    "description": "US Military Expenditure (World Bank indicator MS.MIL.XPND.GD.ZS).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-mobile-subscriptions",
+    "name": "US Mobile Subscriptions",
+    "unit": "per 100 people",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/IT.CEL.SETS.P2",
+    "category": "technology",
+    "description": "US Mobile Subscriptions (World Bank indicator IT.CEL.SETS.P2).",
+    "dataPoints": 50,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-population",
+    "name": "US Population",
+    "unit": "people",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.POP.TOTL",
+    "category": "demographics",
+    "description": "US Population (World Bank indicator SP.POP.TOTL).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-rural-population",
+    "name": "US Rural Population",
+    "unit": "% of total",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.RUR.TOTL.ZS",
+    "category": "demographics",
+    "description": "US Rural Population (World Bank indicator SP.RUR.TOTL.ZS).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  },
+  {
+    "id": "wb-school-enrollment",
+    "name": "US Secondary School Enrollment",
+    "unit": "% gross",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SE.SEC.ENRR",
+    "category": "education",
+    "description": "US Secondary School Enrollment (World Bank indicator SE.SEC.ENRR).",
+    "dataPoints": 35,
+    "dateRange": {
+      "start": 1971,
+      "end": 2022
+    }
+  },
+  {
+    "id": "wb-unemployment",
+    "name": "US Unemployment Rate",
+    "unit": "% of labor force",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SL.UEM.TOTL.ZS",
+    "category": "economics",
+    "description": "US Unemployment Rate (World Bank indicator SL.UEM.TOTL.ZS).",
+    "dataPoints": 35,
+    "dateRange": {
+      "start": 1991,
+      "end": 2025
+    }
+  },
+  {
+    "id": "wb-urban-population",
+    "name": "US Urban Population",
+    "unit": "% of total",
+    "source": "World Bank",
+    "sourceUrl": "https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS",
+    "category": "demographics",
+    "description": "US Urban Population (World Bank indicator SP.URB.TOTL.IN.ZS).",
+    "dataPoints": 65,
+    "dateRange": {
+      "start": 1960,
+      "end": 2024
+    }
+  }
+]

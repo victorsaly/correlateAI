@@ -884,7 +884,12 @@ jobs:
           echo "total-datasets=$TOTAL_DATASETS" >> $GITHUB_OUTPUT
           
           echo "✅ Comprehensive collection complete! Total datasets: $TOTAL_DATASETS"
-      
+
+      - name: 🌐 Collect real no-key sources
+        # Fetches real, no-key public APIs (World Bank, USGS, Open-Meteo, Frankfurter,
+        # Our World in Data) into public/data/ + public/data/real_list.json.
+        run: node scripts/collect-real-sources.mjs
+
       - name: �📈 Generate Dataset Index
         id: generate-index
         run: |
@@ -1233,6 +1238,7 @@ jobs:
           
           # Add all data files
           git add public/ai-data/
+          git add public/data/
           git add data-summary.md
           
           # Check if there are changes to commit

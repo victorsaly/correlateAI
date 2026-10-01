@@ -502,10 +502,50 @@ export const allDatasets: RealDataset[] = realDatasets
 class StaticDataService {
   private cache = new Map<string, RealDataPoint[]>()
   private aiDatasets: RealDataset[] = []
+  private manifestDatasets: RealDataset[] = []
   private combinedDatasets: RealDataset[] = []
 
   constructor() {
     this.loadAIDatasets()
+  }
+
+  // Load real (non-AI) datasets produced by the no-key collectors
+  // (scripts/collect-real-sources.mjs -> public/data/real_list.json).
+  // These are served from /data/{id}.json, matching fetchDataset's real path.
+  private async loadRealManifest(): Promise<RealDataset[]> {
+    try {
+      const res = await fetch('/data/real_list.json')
+      if (!res.ok) return []
+      const list = await res.json()
+      const mapped: RealDataset[] = list.map((d: {
+        id: string; name: string; unit?: string; source: string
+        sourceUrl?: string; category: string; description?: string
+      }) => ({
+        id: d.id,
+        name: d.name,
+        unit: d.unit || '',
+        source: d.source,
+        seriesId: d.id,
+        category: d.category,
+        description: d.description || '',
+        isAIGenerated: false,
+        sourceUrl: d.sourceUrl || '',
+      }))
+      console.log(`📈 Loaded ${mapped.length} real datasets from collector manifest`)
+      return mapped
+    } catch (error) {
+      console.warn('Real dataset manifest not found:', error)
+      return []
+    }
+  }
+
+  // Merge hardcoded + manifest + AI datasets, de-duplicating by id (first wins).
+  private rebuildCombined() {
+    const byId = new Map<string, RealDataset>()
+    for (const d of [...realDatasets, ...this.manifestDatasets, ...this.aiDatasets]) {
+      if (!byId.has(d.id)) byId.set(d.id, d)
+    }
+    this.combinedDatasets = [...byId.values()]
   }
 
   // Load AI datasets from the index
@@ -559,12 +599,14 @@ class StaticDataService {
         }
       }
       
-      // Combine real and AI datasets
-      this.combinedDatasets = [...realDatasets, ...this.aiDatasets]
-      
+      // Load collector-produced real datasets, then combine everything
+      this.manifestDatasets = await this.loadRealManifest()
+      this.rebuildCombined()
+
     } catch (error) {
       console.warn('Failed to load AI datasets:', error)
-      this.combinedDatasets = realDatasets
+      this.manifestDatasets = await this.loadRealManifest()
+      this.rebuildCombined()
     }
   }
 

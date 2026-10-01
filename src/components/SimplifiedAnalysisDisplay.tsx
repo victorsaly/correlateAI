@@ -3,8 +3,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
-import { ChevronDown, ChevronRight, Info, Lightbulb, Shield, BarChart3, Zap } from 'lucide-react'
+import { ChevronDown, ChevronRight, Info, Lightbulb, Shield, BarChart3, Zap, CheckCircle2, AlertTriangle, XCircle, HelpCircle } from 'lucide-react'
 import { TrendUp } from '@phosphor-icons/react'
+import { computeHonestStats, fmtP, type VerdictLevel } from '@/lib/correlationStats'
 
 interface CorrelationData {
   id: string
@@ -88,7 +89,102 @@ const getCorrelationStrength = (corr: number): { strength: string; color: string
   }
 }
 
-const SimplifiedSummaryCard: React.FC<{ 
+const VERDICT_STYLE: Record<
+  VerdictLevel,
+  { badge: string; ring: string; icon: React.ReactNode }
+> = {
+  significant: {
+    badge: 'bg-green-100 text-green-800',
+    ring: 'border-green-300',
+    icon: <CheckCircle2 className="w-5 h-5 text-green-600" />,
+  },
+  caution: {
+    badge: 'bg-amber-100 text-amber-800',
+    ring: 'border-amber-300',
+    icon: <AlertTriangle className="w-5 h-5 text-amber-600" />,
+  },
+  'likely-spurious': {
+    badge: 'bg-red-100 text-red-800',
+    ring: 'border-red-300',
+    icon: <XCircle className="w-5 h-5 text-red-600" />,
+  },
+  'not-significant': {
+    badge: 'bg-gray-100 text-gray-700',
+    ring: 'border-gray-300',
+    icon: <HelpCircle className="w-5 h-5 text-gray-500" />,
+  },
+  insufficient: {
+    badge: 'bg-gray-100 text-gray-700',
+    ring: 'border-gray-300',
+    icon: <HelpCircle className="w-5 h-5 text-gray-500" />,
+  },
+}
+
+const StatChip: React.FC<{ label: string; value: string; hint?: string }> = ({
+  label,
+  value,
+  hint,
+}) => (
+  <div className="bg-white rounded-lg border border-gray-200 px-3 py-2">
+    <div className="text-[10px] uppercase tracking-wide text-gray-500">{label}</div>
+    <div className="text-sm sm:text-base font-semibold text-gray-900 tabular-nums">{value}</div>
+    {hint && <div className="text-[10px] text-gray-400 leading-tight">{hint}</div>}
+  </div>
+)
+
+/**
+ * Honest, always-visible statistics computed directly from the plotted data
+ * (not the legacy generator's fabricated rSquared). Leads with a plain verdict
+ * on whether the correlation is trustworthy or a likely time-trend artifact.
+ */
+const HonestStatsCard: React.FC<{ correlation: CorrelationData }> = ({ correlation }) => {
+  const v1 = correlation.data.map((d) => d.value1)
+  const v2 = correlation.data.map((d) => d.value2)
+  const stats = computeHonestStats(v1, v2)
+  const style = VERDICT_STYLE[stats.verdict.level]
+
+  return (
+    <Card className={`border-2 ${style.ring} bg-white`}>
+      <CardHeader className="pb-3">
+        <div className="flex items-center justify-between gap-2 min-w-0">
+          <div className="flex items-center gap-2 min-w-0">
+            <BarChart3 className="w-5 h-5 text-blue-600 flex-shrink-0" />
+            <CardTitle className="text-base sm:text-lg">Statistical Evidence</CardTitle>
+          </div>
+          <Badge className={`${style.badge} text-xs px-2 py-1 whitespace-nowrap flex-shrink-0`}>
+            {stats.verdict.label}
+          </Badge>
+        </div>
+        <CardDescription className="text-xs sm:text-sm">
+          Computed directly from the {stats.n} plotted data points.
+        </CardDescription>
+      </CardHeader>
+      <CardContent className="space-y-3">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+          <StatChip label="Pearson r" value={stats.r.toFixed(3)} />
+          <StatChip label="R²" value={stats.rSquared.toFixed(3)} hint="variance explained" />
+          <StatChip label="p-value" value={fmtP(stats.pValue)} hint="two-tailed" />
+          <StatChip label="Sample size" value={`n = ${stats.n}`} />
+          <StatChip
+            label="95% CI for r"
+            value={stats.ci ? `${stats.ci[0].toFixed(2)} – ${stats.ci[1].toFixed(2)}` : '—'}
+          />
+          <StatChip
+            label="Detrended r"
+            value={stats.detrendedR.toFixed(3)}
+            hint="time trend removed"
+          />
+        </div>
+        <div className={`flex items-start gap-2 rounded-lg p-3 ${style.badge} bg-opacity-40`}>
+          <div className="flex-shrink-0 mt-0.5">{style.icon}</div>
+          <p className="text-xs sm:text-sm leading-snug">{stats.verdict.explanation}</p>
+        </div>
+      </CardContent>
+    </Card>
+  )
+}
+
+const SimplifiedSummaryCard: React.FC<{
   title: string
   icon: React.ReactNode
   summary: string
@@ -236,6 +332,9 @@ export const SimplifiedAnalysisDisplay: React.FC<SimplifiedAnalysisProps> = ({ c
           </div>
         </CardContent>
       </Card>
+
+      {/* Honest Statistical Evidence - Always Visible (computed from the plotted data) */}
+      <HonestStatsCard correlation={correlation} />
 
       {/* Analysis Sections */}
       <div className="space-y-4">
