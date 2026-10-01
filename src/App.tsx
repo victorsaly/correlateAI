@@ -92,15 +92,16 @@ export default function App() {
 
   return (
     <div className="flex min-h-dvh flex-col">
+      <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-50 focus:rounded-md focus:bg-primary focus:px-4 focus:py-2 focus:text-primary-foreground">
+        Skip to content
+      </a>
       <Tabs value={url.view} onValueChange={(v) => setUrl({ view: v as View })} className="flex-1 gap-0">
         <header className="border-b">
           <div className="mx-auto flex max-w-6xl flex-wrap items-start gap-x-4 gap-y-1 px-4 pt-4 sm:px-6">
             <div className="flex min-w-0 flex-1 items-center gap-4 py-1">
-              <h1 className="shrink-0">
-                <a href={import.meta.env.BASE_URL} aria-label="CorrelateAI home" className="rounded-md">
-                  <Logo size={36} />
-                </a>
-              </h1>
+              <a href={import.meta.env.BASE_URL} aria-label="CorrelateAI home" className="shrink-0 rounded-md">
+                <Logo size={36} draw />
+              </a>
               <p className="hidden border-l pl-4 text-sm leading-snug text-muted-foreground sm:block">
                 Real public data, honest statistics.
                 <br />
@@ -126,7 +127,7 @@ export default function App() {
           </div>
         </header>
 
-        <main className="mx-auto w-full max-w-6xl px-4 py-8 sm:px-6">
+        <main id="main" tabIndex={-1} className="mx-auto w-full max-w-6xl px-4 py-8 outline-none sm:px-6">
           {catalogError ? (
             <div role="alert" className="max-w-[60ch]">
               <h2 className="text-xl font-semibold">The data catalog didn’t load</h2>
@@ -134,17 +135,17 @@ export default function App() {
             </div>
           ) : !catalog ? null : (
             <Suspense fallback={null}>
-              <TabsContent value="explore">
+              <TabsContent className="rounded-md focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-ring" value="explore">
                 <ExploreView catalog={catalog} pair={pair} loading={loading} error={pairError}
                   saved={!!pair && isSaved(pair.a.id, pair.b.id)}
                   onChange={openPair} onRandom={random}
                   onToggleSave={() => pair && toggle(pair.a.id, pair.b.id)} />
               </TabsContent>
-              <TabsContent value="gallery"><GalleryView catalog={catalog} onOpen={openPair} /></TabsContent>
-              <TabsContent value="saved">
+              <TabsContent className="rounded-md focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-ring" value="gallery"><GalleryView catalog={catalog} onOpen={openPair} /></TabsContent>
+              <TabsContent className="rounded-md focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-ring" value="saved">
                 <SavedView catalog={catalog} saved={saved} onOpen={openPair} onRemove={toggle} onExplore={() => setUrl({ view: 'explore' })} />
               </TabsContent>
-              <TabsContent value="learn"><LearnView catalog={catalog} /></TabsContent>
+              <TabsContent className="rounded-md focus-visible:outline-2 focus-visible:outline-solid focus-visible:outline-offset-4 focus-visible:outline-ring" value="learn"><LearnView catalog={catalog} /></TabsContent>
             </Suspense>
           )}
         </main>

@@ -65,7 +65,7 @@ export function GalleryView({ catalog, onOpen }: { catalog: Dataset[]; onOpen: (
   return (
     <div className="flex flex-col gap-10">
       <header className="max-w-[65ch]">
-        <h2 className="text-2xl font-semibold tracking-[-0.02em]">Gallery</h2>
+        <h1 className="text-2xl font-semibold tracking-[-0.02em]">Gallery</h1>
         <p className="mt-2 text-muted-foreground">
           Pairs picked out of every combination of the series in the catalog. Searching this many pairs guarantees
           some striking results by chance alone, which is exactly the point.
@@ -81,7 +81,7 @@ export function GalleryView({ catalog, onOpen }: { catalog: Dataset[]; onOpen: (
         ? Array.from({ length: 3 }, (_, i) => <Skeleton key={i} className="h-64 rounded-md" />)
         : sections.map((s) => (
             <section key={s.title} aria-labelledby={s.title}>
-              <h3 id={s.title} className="text-lg font-semibold">{s.title}</h3>
+              <h2 id={s.title} className="text-lg font-semibold">{s.title}</h2>
               <p className="mt-1 max-w-[65ch] text-sm text-muted-foreground">{s.blurb}</p>
               {s.list.length === 0 ? (
                 <p className="mt-4 text-sm text-muted-foreground">No pairs in the current data fall here.</p>

@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { lazy, Suspense, useRef, useState } from 'react'
 import { createPortal } from 'react-dom'
 import { Download, Link2, Share2 } from 'lucide-react'
 import { toast } from 'sonner'
@@ -14,8 +14,6 @@ import {
 import { downloadBlob, downloadCsv, downloadJson, fileStem, shareText } from '@/lib/export'
 import { sharePairUrl } from '@/lib/shareUrl'
 import type { PairResult } from '@/types'
-import { ShareCard } from '@/features/share/ShareCard'
-import { nodeToPng } from '@/features/share/shareImage'
 
 
 const intents = {
@@ -23,6 +21,8 @@ const intents = {
   LinkedIn: (_: string, url: string) => `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(url)}`,
   Bluesky: (text: string, url: string) => `https://bsky.app/intent/compose?text=${encodeURIComponent(`${text} ${url}`)}`,
 }
+
+const ShareCard = lazy(() => import('@/features/share/ShareCard').then((m) => ({ default: m.ShareCard })))
 
 export function ShareMenu({ pair }: { pair: PairResult }) {
   const cardRef = useRef<HTMLDivElement>(null)
@@ -32,10 +32,10 @@ export function ShareMenu({ pair }: { pair: PairResult }) {
 
   const renderPng = async () => {
     setRendering(true)
-    // let the off-screen card mount and its chart lay out
-    await new Promise((r) => setTimeout(r, 120))
     try {
-      return await nodeToPng(cardRef.current!)
+      // the card and its chart load lazily: wait until the chart has drawn its lines
+      const [{ nodeToPng }, node] = await Promise.all([import('@/features/share/shareImage'), waitForCard(cardRef)])
+      return await nodeToPng(node)
     } finally {
       setRendering(false)
     }
@@ -102,10 +102,25 @@ export function ShareMenu({ pair }: { pair: PairResult }) {
       {rendering &&
         createPortal(
           <div aria-hidden className="pointer-events-none fixed top-0 left-[-10000px]">
-            <ShareCard ref={cardRef} pair={pair} url={url} />
+            <Suspense fallback={null}>
+              <ShareCard ref={cardRef} pair={pair} url={url} />
+            </Suspense>
           </div>,
           document.body
         )}
     </>
   )
+}
+
+async function waitForCard(ref: React.RefObject<HTMLDivElement | null>, timeout = 5000): Promise<HTMLDivElement> {
+  const start = performance.now()
+  while (performance.now() - start < timeout) {
+    const node = ref.current
+    if (node?.querySelector('.recharts-line-curve')) {
+      await new Promise((r) => requestAnimationFrame(() => r(null)))
+      return node
+    }
+    await new Promise((r) => setTimeout(r, 30))
+  }
+  throw new Error('Share card did not render')
 }

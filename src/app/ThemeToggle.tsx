@@ -7,7 +7,7 @@ export function ThemeToggle({ pref, isDark, onChange }: { pref: ThemePref; isDar
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="icon" aria-label="Theme">
+        <Button variant="ghost" size="icon" aria-label={`Theme: ${pref === 'system' ? 'match system' : pref === 'dark' ? 'blueprint' : 'graph paper'}`}>
           {isDark ? <Moon /> : <Sun />}
         </Button>
       </DropdownMenuTrigger>

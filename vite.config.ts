@@ -1,3 +1,4 @@
+/// <reference types="vitest/config" />
 import tailwindcss from "@tailwindcss/vite";
 import react from "@vitejs/plugin-react";
 import { defineConfig } from "vite";
@@ -34,10 +35,12 @@ export default defineConfig(({ mode }) => {
       target: 'esnext',
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['react', 'react-dom'],
-            ui: ['@radix-ui/react-select', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tabs'],
-            charts: ['recharts']
+          // React in its own long-cached chunk; Recharts (and the d3 modules it pulls in) stays lazy with the charts
+          manualChunks(id) {
+            // clsx is shared by the app and Recharts; without this it lands in the charts chunk and drags it into first load
+            if (/node_modules\/(react|react-dom|scheduler|clsx|tailwind-merge)\//.test(id)) return 'vendor'
+            if (/node_modules\/(recharts|d3-|victory-vendor|recharts-scale)/.test(id)) return 'charts'
+            if (/node_modules\/@radix-ui\//.test(id)) return 'ui'
           },
           // Ensure proper file extensions for GitHub Pages
           entryFileNames: 'assets/[name]-[hash].js',
@@ -52,56 +55,12 @@ export default defineConfig(({ mode }) => {
       // Better GitHub Pages compatibility
       assetsInlineLimit: 0
     },
+    // unit tests live next to the code; tests/e2e is Playwright's
+    test: { include: ['src/**/*.test.ts'] },
     server: {
-      // Development server configuration
-      host: true,
-      cors: true,
-      // Force proper MIME types for modules
-      fs: {
-        strict: false
-      },
-      proxy: !isProduction ? {
-        '/api/fred': {
-          target: 'https://api.stlouisfed.org',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api\/fred/, '/fred'),
-          secure: false,
-          configure: (proxy, options) => {
-            proxy.on('error', (err, req, res) => {
-              console.log('proxy error', err);
-            });
-            proxy.on('proxyReq', (proxyReq, req, res) => {
-              console.log('Sending Request to the Target:', req.method, req.url);
-            });
-            proxy.on('proxyRes', (proxyRes, req, res) => {
-              console.log('Received Response from the Target:', proxyRes.statusCode, req.url);
-            });
-          },
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; FRED-API-Client/1.0)'
-          }
-        },
-        '/api/worldbank': {
-          target: 'https://api.worldbank.org',
-          changeOrigin: true,
-          rewrite: (path) => path.replace(/^\/api\/worldbank/, ''),
-          secure: false,
-          configure: (proxy, options) => {
-            proxy.on('error', (err, req, res) => {
-              console.log('WorldBank proxy error', err);
-            });
-            proxy.on('proxyReq', (proxyReq, req, res) => {
-              console.log('Sending WorldBank Request:', req.method, req.url);
-            });
-            proxy.on('proxyRes', (proxyRes, req, res) => {
-              console.log('WorldBank Response:', proxyRes.statusCode, req.url);
-            });
-          },
-          headers: {
-            'User-Agent': 'Mozilla/5.0 (compatible; WorldBank-API-Client/1.0)'
-          }
-        }
-      } : undefined
-    }
+      // localhost only; run `npm run dev -- --host` to test on a phone
+      port: 5180,
+      strictPort: true,
+    },
   }
 });

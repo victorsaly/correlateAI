@@ -28,7 +28,7 @@ export function SavedView({ catalog, saved, onOpen, onRemove, onExplore }: {
   if (saved.length === 0) {
     return (
       <div className="max-w-[65ch] py-12">
-        <h2 className="text-2xl font-semibold tracking-[-0.02em]">Nothing saved yet</h2>
+        <h1 className="text-2xl font-semibold tracking-[-0.02em]">Nothing saved yet</h1>
         <p className="mt-2 text-muted-foreground">
           Save a pair from Explore to keep it here. Saved pairs are recomputed from the latest data each time you open them,
           and they stay in this browser only.
@@ -40,7 +40,7 @@ export function SavedView({ catalog, saved, onOpen, onRemove, onExplore }: {
 
   return (
     <div>
-      <h2 className="text-2xl font-semibold tracking-[-0.02em]">Saved pairs</h2>
+      <h1 className="text-2xl font-semibold tracking-[-0.02em]">Saved pairs</h1>
       <p className="mt-2 text-sm text-muted-foreground">Recomputed from the latest data. Stored in this browser only.</p>
       <ul className="mt-4 border-t">
         {pairs.map((p) => (

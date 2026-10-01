@@ -11,10 +11,13 @@ export function HeadlineR({ pair, detrend }: { pair: PairResult; detrend: boolea
   return (
     <div>
       <div className="text-sm text-muted-foreground">{detrend ? 'Correlation, trend removed' : 'Correlation'}</div>
-      <div className="tabular text-6xl font-semibold leading-none tracking-[-0.03em]" aria-live="polite">
-        <span className="sr-only">r equals </span>
+      {/* the count-up is visual only; screen readers get the settled value once, below */}
+      <div className="tabular text-6xl font-semibold leading-none tracking-[-0.03em]" aria-hidden>
         {fmtR(r)}
       </div>
+      <p className="sr-only" role="status">
+        {pair.a.name} versus {pair.b.name}: {detrend ? 'with the trend removed, ' : ''}r equals {fmtR(shownR)}. Verdict: {pair.stats.verdict.label}.
+      </p>
       <div className="mt-1 text-sm text-muted-foreground">{strengthLabel(shownR)} relationship</div>
     </div>
   )

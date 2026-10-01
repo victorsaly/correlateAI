@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { CartesianGrid, Line, LineChart, ReferenceLine, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { fmtValue } from '@/lib/format'
+import { fmtR, fmtValue } from '@/lib/format'
 import type { PairResult } from '@/types'
 import { PairTooltip } from './ChartTooltip'
 import { plotSeries, yearTicks, type Scale } from './transform'
@@ -14,7 +14,7 @@ export function PairTimeChart({ pair, scale, detrend, animate = true }: { pair: 
   // memoised: the animated r in the margin re-renders every frame, and fresh data would restart the line animation
   const data = useMemo(() => plotSeries(pair.points, scale, detrend), [pair, scale, detrend])
   const xAxis = useYearAxis(pair)
-  const label = `${pair.a.name} and ${pair.b.name}, ${pair.points[0]?.year}–${pair.points[pair.points.length - 1]?.year}${detrend ? ', trend removed' : ''}`
+  const label = `Line chart of ${pair.a.name} and ${pair.b.name}, ${pair.points[0]?.year}–${pair.points[pair.points.length - 1]?.year}${detrend ? ', trend removed' : ''}. r = ${fmtR(detrend ? pair.stats.detrendedR : pair.stats.r)}. The data table below lists every value`
 
   if (scale === 'actual') {
     return (

@@ -7,8 +7,8 @@ import { VerdictMark } from '@/features/explore/VerdictMark'
 export function PairRow({ pair, onOpen, action }: { pair: PairResult; onOpen: () => void; action?: React.ReactNode }) {
   const { a, b, stats } = pair
   return (
-    <li className="group relative grid grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-2 border-b py-4 sm:grid-cols-[minmax(0,1fr)_4.5rem_5.5rem_17rem_2.5rem]">
-      <button onClick={onOpen} className="min-w-0 text-left after:absolute after:inset-0 focus-visible:outline-none">
+    <li className="group relative grid rounded-sm has-[button:focus-visible]:outline-2 has-[button:focus-visible]:outline-offset-2 has-[button:focus-visible]:outline-ring grid-cols-[minmax(0,1fr)_auto] items-center gap-x-6 gap-y-2 border-b py-4 sm:grid-cols-[minmax(0,1fr)_4.5rem_5.5rem_17rem_2.5rem]">
+      <button onClick={onOpen} className="min-w-0 text-left outline-none after:absolute after:inset-0">
         <span className="font-semibold group-hover:underline">{a.name}</span>
         <span className="text-muted-foreground"> vs </span>
         <span className="font-semibold group-hover:underline">{b.name}</span>

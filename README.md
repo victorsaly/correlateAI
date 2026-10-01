@@ -15,7 +15,7 @@ For any pair of series:
 - **Detrended r**: the correlation after subtracting each series' straight-line trend
 - **A plain-language verdict**: *Not significant*, *Likely spurious (shared time trend)*, *Direction flips without the trend*, *Interpret with caution*, or *Holds up after detrending*
 
-Every result has a reproducible link (`/?a=<series>&b=<series>`). You can export it as a PNG card, as CSV, or as JSON with sources and statistics.
+Every result has a reproducible link (`/?a=<series>&b=<series>`). Pairs that share at least 15 years also get a static, indexable page at `/pairs/<a>--vs--<b>/`. You can export any result as a PNG card, as CSV, or as JSON with sources and statistics.
 
 **Views**
 - **Explore**: pick two series, or a random pair.
@@ -27,31 +27,49 @@ The verdict rules live in [`src/lib/correlationStats.ts`](src/lib/correlationSta
 
 ## Data
 
-35 yearly series from sources that need no API key. A weekly GitHub Action refreshes them via `npm run collect:real`:
+Every series is yearly and comes from a public source that needs no API key:
 
-| Source | Series |
+| Source | Examples |
 |---|---|
-| World Bank | US GDP, population, life expectancy, inflation, internet users, and more |
-| Our World in Data | CO₂ emissions, obesity, renewable share, alcohol, internet usage |
+| World Bank | US GDP, population, life expectancy, inflation, R&D spending, infant mortality |
+| Our World in Data | CO₂ emissions, obesity, renewables, meat and egg consumption, marriage rate, working hours |
+| NOAA | Atmospheric CO₂ (Mauna Loa), global methane, global temperature anomaly |
+| NSIDC | Arctic sea ice extent (September) |
+| SILSO | Sunspot number |
+| U.S. Treasury | Federal debt outstanding |
 | USGS | Worldwide M5+ and M6+ earthquakes per year |
 | Open-Meteo (ERA5) | Annual mean temperature for London, New York, Sydney and Tokyo |
 | Frankfurter (ECB) | USD to EUR, GBP and JPY |
 
-Each series is stored as `public/data/<id>.json` (`[{ year, value }]`). The catalog is `public/data/real_list.json`, with the source URL for every series.
+`npm run collect:real` runs every collector in [`scripts/collectors/`](scripts/collectors/), and a weekly GitHub Action runs it on `main`. Each series is written to `public/data/<id>.json` as `[{ year, value }]`. The catalog that the app loads is `public/data/real_list.json`, with a source URL for every series. If a source fails, or returns far fewer points than last time, the run keeps that series' last good copy, so saved pairs and `/pairs/` pages don't disappear.
+
+To check the catalog and every file before committing data:
+
+```bash
+node scripts/validate-real-data.mjs
+```
 
 ## Develop
 
 ```bash
 npm install
-npm run dev          # http://localhost:5173
-npm test             # statistics, year alignment, share URLs
+npm run dev          # http://localhost:5180
+npm test             # unit tests: statistics, year alignment, share URLs, pair pages
+npm run test:e2e     # Playwright on the production build, desktop and mobile, incl. axe a11y and SEO checks
 npm run type-check
 npm run lint
-npm run build        # set SKIP_PREFETCH=true to skip legacy prefetch
-npm run collect:real # refresh the real data series
+npm run build        # type-check, Vite build, then prerender /pairs/ pages and sitemap.xml
+npm run collect:real # refresh the data series
+npm run brand        # regenerate favicons and app icons from src/app/logo.json
 ```
 
-Built with React 19, Vite, Tailwind CSS v4, Radix primitives and Recharts. It deploys to GitHub Pages from `main` through GitHub Actions; the Pages source must be set to "GitHub Actions".
+The build makes no network calls. It reads only the committed data in `public/data/`. [`scripts/build-pages.mjs`](scripts/build-pages.mjs) prerenders the pair pages from the app's own TypeScript, so a static page can never disagree with the live app.
+
+Built with React 19, Vite, Tailwind CSS v4, Radix primitives and Recharts. The design system is in [`DESIGN.md`](DESIGN.md).
+
+## Deploy
+
+Every push to `main` runs unit tests, the build and the Playwright suite, then deploys `dist/` to GitHub Pages ([`.github/workflows/deploy.yml`](.github/workflows/deploy.yml)). In the repository settings, the Pages source must be **GitHub Actions**. Branch deploy would serve the unbuilt development `index.html`.
 
 ## Limits
 

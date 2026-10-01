@@ -37,3 +37,10 @@ pids
 .impeccable/review/
 .impeccable/mocks/
 .impeccable/questions/
+
+# playwright
+/test-results/
+/playwright-report/
+
+# local Claude Code permissions
+.claude/settings.local.json

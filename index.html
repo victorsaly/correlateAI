@@ -43,17 +43,22 @@
     <meta name="twitter:image" content="https://correlateai.victorsaly.com/og-image.png">
     <meta name="twitter:creator" content="@victorsaly">
 
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="icon" type="image/x-icon" href="/favicon.ico">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=2">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico?v=2">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png?v=2">
     <link rel="manifest" href="/site.webmanifest">
 
     <!-- Atkinson Hyperlegible: unambiguous digits for a page made of numbers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+    <!-- data the first view needs, fetched in parallel with the JS (pair pages swap in their own series) -->
+    <link rel="preload" href="/data/real_list.json" as="fetch" crossorigin>
+    <link rel="preload" href="/data/wb-internet-users.json" as="fetch" crossorigin data-series>
+    <link rel="preload" href="/data/wb-forest-area.json" as="fetch" crossorigin data-series>
 
     <link rel="canonical" href="https://correlateai.victorsaly.com/">
 

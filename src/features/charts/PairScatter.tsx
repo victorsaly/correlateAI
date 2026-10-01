@@ -17,7 +17,7 @@ export function PairScatter({ pair, detrend }: { pair: PairResult; detrend: bool
   const x1 = Math.max(...xs)
 
   return (
-    <div role="img" aria-label={`Scatter of ${pair.b.name} against ${pair.a.name}${detrend ? ', trend removed' : ''}`} className="h-full">
+    <div role="img" aria-label={`Scatter plot of ${pair.b.name} against ${pair.a.name}, one point per year${detrend ? ', trend removed' : ''}, with a least-squares line. The data table below lists every value`} className="h-full">
       <ResponsiveContainer width="100%" height="100%">
         <ScatterChart margin={{ top: 12, right: 16, bottom: 20, left: 0 }}>
           <CartesianGrid stroke="var(--grid-major)" />

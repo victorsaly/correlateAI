@@ -12,7 +12,7 @@ export function LearnView({ catalog }: { catalog: Dataset[] }) {
   return (
     <div className="flex flex-col gap-14">
       <article className="max-w-[68ch] space-y-5 leading-relaxed">
-        <h2 className="text-2xl font-semibold tracking-[-0.02em]">How the verdict is worked out</h2>
+        <h1 className="text-2xl font-semibold tracking-[-0.02em]">How the verdict is worked out</h1>
         <p>
           Two things rising over the same decades will almost always correlate, whether or not they have anything to do with
           each other. CorrelateAI runs the checks a careful analyst would, and shows every number it used.
@@ -89,7 +89,7 @@ export function LearnView({ catalog }: { catalog: Dataset[] }) {
 function Step({ term, children }: { term: string; children: React.ReactNode }) {
   return (
     <div>
-      <h3 className="font-semibold">{term}</h3>
+      <h2 className="font-semibold">{term}</h2>
       <p className="mt-1 text-muted-foreground">{children}</p>
     </div>
   )

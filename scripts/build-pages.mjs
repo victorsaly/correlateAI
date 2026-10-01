@@ -40,7 +40,7 @@ const today = new Date().toISOString().slice(0, 10)
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;')
 
-function setMeta(html, { title, description, url, canonical, jsonLd, body }) {
+function setMeta(html, { title, description, url, canonical, jsonLd, body, preloads }) {
   return html
     .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
     .replace(/(<meta name="description" content=")[^"]*(")/, `$1${esc(description)}$2`)
@@ -52,6 +52,7 @@ function setMeta(html, { title, description, url, canonical, jsonLd, body }) {
     .replace(/(<meta name="twitter:description" content=")[^"]*(")/, `$1${esc(description)}$2`)
     .replace('</head>', `    <script type="application/ld+json">${JSON.stringify(jsonLd)}</script>\n</head>`)
     .replace('<div id="root"></div>', `<div id="root">${body}</div>`)
+    .replace(/<link rel="preload" href="\/data\/[^"]+" as="fetch" crossorigin data-series>\n\s*<link rel="preload" href="\/data\/[^"]+" as="fetch" crossorigin data-series>/, preloads)
 }
 
 const dataset = (d, years) => ({
@@ -133,7 +134,8 @@ for (const pair of pages) {
       },
     ],
   }
-  const html = setMeta(template, { title, description, url: `${ORIGIN}${pagePath}`, canonical, jsonLd, body })
+  const preloads = [a, b].map((d) => `<link rel="preload" href="/data/${d.id}.json" as="fetch" crossorigin data-series>`).join('\n    ')
+  const html = setMeta(template, { title, description, url: `${ORIGIN}${pagePath}`, canonical, jsonLd, body, preloads })
   const dir = path.join(dist, pagePath)
   await fs.mkdir(dir, { recursive: true })
   await fs.writeFile(path.join(dir, 'index.html'), html)

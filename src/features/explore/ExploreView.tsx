@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { lazy, Suspense, useState } from 'react'
 import { Bookmark, BookmarkCheck, ExternalLink } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible'
@@ -7,14 +7,16 @@ import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group'
 import { fmtValue } from '@/lib/format'
 import { cn } from '@/lib/utils'
 import type { Dataset, PairResult } from '@/types'
-import { PairScatter } from '@/features/charts/PairScatter'
-import { PairTimeChart } from '@/features/charts/PairTimeChart'
 import type { Scale } from '@/features/charts/transform'
 import { PairPicker } from './PairPicker'
 import { ShareMenu } from './ShareMenu'
 import { HeadlineR, StatFigures, Verdict } from './StatsMargin'
 
 type Form = 'time' | 'scatter'
+
+// Recharts is the heaviest dependency; the headline r and verdict render without waiting for it.
+const PairTimeChart = lazy(() => import('@/features/charts/PairTimeChart').then((m) => ({ default: m.PairTimeChart })))
+const PairScatter = lazy(() => import('@/features/charts/PairScatter').then((m) => ({ default: m.PairScatter })))
 
 interface Props {
   catalog: Dataset[]
@@ -34,6 +36,7 @@ export function ExploreView({ catalog, pair, loading, error, saved, onChange, on
 
   return (
     <div className="flex flex-col gap-6">
+      <h1 className="sr-only">{pair ? `${pair.a.name} vs ${pair.b.name}` : 'Explore a pair of datasets'}</h1>
       <PairPicker catalog={catalog} a={pair?.a} b={pair?.b} onChange={onChange} onRandom={onRandom} />
 
       {error && !loading && (
@@ -90,11 +93,13 @@ export function ExploreView({ catalog, pair, loading, error, saved, onChange, on
             <Legend a={pair.a} b={pair.b} />
 
             <div className="graph-paper h-[22rem] rounded-md border p-2 sm:h-[26rem] sm:p-3">
-              {form === 'time' ? (
-                <PairTimeChart pair={pair} scale={scale} detrend={detrend} />
-              ) : (
-                <PairScatter pair={pair} detrend={detrend} />
-              )}
+              <Suspense fallback={null}>
+                {form === 'time' ? (
+                  <PairTimeChart pair={pair} scale={scale} detrend={detrend} />
+                ) : (
+                  <PairScatter pair={pair} detrend={detrend} />
+                )}
+              </Suspense>
             </div>
             <p className="text-xs text-muted-foreground">
               {form === 'time' && scale === 'standardised'
