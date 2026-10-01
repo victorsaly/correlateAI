@@ -3,96 +3,74 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- Primary Meta Tags -->
-    <title>CorrelateAI Pro - AI-Powered Data Correlation Analysis</title>
-    <meta name="title" content="CorrelateAI Pro - AI-Powered Data Correlation Analysis">
-    <meta name="description" content="Discover surprising correlations in real economic data using advanced AI analysis. Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.">
-    <meta name="keywords" content="AI, data correlation, economic data, FRED API, World Bank, data visualization, statistics, machine learning, data science, artificial intelligence">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+
+    <title>CorrelateAI: is that correlation real or a coincidence?</title>
+    <meta name="description" content="Pair two real public datasets and get an honest verdict: Pearson r, p-value, confidence interval and the correlation after removing each series' trend. Free, with sources linked.">
     <meta name="author" content="Victor Saly">
     <meta name="robots" content="index, follow">
-    <meta name="language" content="English">
-    
-    <!-- Open Graph / Facebook -->
+
+    <!-- Applies the saved or system theme before first paint (no flash) -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = t === 'dark' || (t !== 'light' && matchMedia('(prefers-color-scheme: dark)').matches);
+          if (dark) document.documentElement.classList.add('dark');
+        } catch (e) {}
+      })();
+    </script>
+    <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" content="#f7f8f4" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0a2a4c" media="(prefers-color-scheme: dark)">
+
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://correlateai.victorsaly.com/">
-    <meta property="og:title" content="CorrelateAI Pro - AI-Powered Data Correlation Analysis">
-    <meta property="og:description" content="Discover surprising correlations in real economic data using advanced AI analysis. Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.">
+    <meta property="og:title" content="CorrelateAI: is that correlation real or a coincidence?">
+    <meta property="og:description" content="Pair two real public datasets and see whether the link survives honest statistics, with every number traceable to its source.">
     <meta property="og:image" content="https://correlateai.victorsaly.com/og-image.png">
-    <meta property="og:image:alt" content="CorrelateAI Pro - AI-Powered Data Correlation Analysis with sample correlation chart showing r=+0.87">
+    <meta property="og:image:alt" content="CorrelateAI: two real data series plotted with their correlation and a verdict on whether it is spurious">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:site_name" content="CorrelateAI Pro">
+    <meta property="og:site_name" content="CorrelateAI">
     <meta property="og:locale" content="en_US">
-    
-    <!-- LinkedIn specific optimizations -->
-    <meta property="article:author" content="Victor Saly">
-    <meta property="article:publisher" content="CorrelateAI Pro">
-    <meta name="linkedin:owner" content="CorrelateAI Pro">
-    
+
     <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://correlateai.victorsaly.com/">
-    <meta property="twitter:title" content="CorrelateAI Pro - AI-Powered Data Correlation Analysis">
-    <meta property="twitter:description" content="Discover surprising correlations in real economic data using advanced AI analysis. Built with cutting-edge artificial intelligence and authentic data from Federal Reserve & World Bank APIs.">
-    <meta property="twitter:image" content="https://correlateai.victorsaly.com/og-image.png">
-    <meta property="twitter:image:alt" content="CorrelateAI Pro dashboard showing AI-powered data correlation analysis">
-    <meta property="twitter:creator" content="@victorsaly">
-    <meta property="twitter:site" content="@victorsaly">
-    
-    <!-- Favicons - Enhanced for production -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CorrelateAI: is that correlation real or a coincidence?">
+    <meta name="twitter:description" content="Pair two real public datasets and see whether the link survives honest statistics, with every number traceable to its source.">
+    <meta name="twitter:image" content="https://correlateai.victorsaly.com/og-image.png">
+    <meta name="twitter:creator" content="@victorsaly">
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
     <link rel="manifest" href="/site.webmanifest">
-    <meta name="msapplication-TileColor" content="#06B6D4">
-    <meta name="theme-color" content="#06B6D4">
-    
-    <!-- Theme Color -->
-    <meta name="theme-color" content="#06B6D4">
-    <meta name="msapplication-TileColor" content="#06B6D4">
-    
-    <!-- Preconnect for Performance -->
+
+    <!-- Atkinson Hyperlegible: unambiguous digits for a page made of numbers -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    
-    <!-- Canonical URL -->
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:wght@400;600&family=Atkinson+Hyperlegible+Next:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
     <link rel="canonical" href="https://correlateai.victorsaly.com/">
-    
-    <!-- Schema.org JSON-LD -->
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "CorrelateAI Pro",
-      "description": "AI-powered data correlation analysis tool that discovers surprising correlations in real economic data",
+      "name": "CorrelateAI",
+      "description": "Pair two real public datasets and get an honest verdict on whether their correlation is real or a coincidence.",
       "url": "https://correlateai.victorsaly.com/",
-      "applicationCategory": "DataVisualization",
+      "applicationCategory": "EducationalApplication",
       "operatingSystem": "Web",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Victor Saly",
-        "url": "https://victorsaly.com"
-      },
-      "creator": {
-        "@type": "Person",
-        "name": "Victor Saly",
-        "url": "https://victorsaly.com"
-      },
-      "dateCreated": "2025-09-15",
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "author": { "@type": "Person", "name": "Victor Saly", "url": "https://victorsaly.com" },
       "inLanguage": "en-US",
       "isAccessibleForFree": true,
-      "keywords": ["AI", "data correlation", "economic data", "data visualization", "statistics"]
+      "keywords": ["spurious correlation", "correlation", "statistics", "open data", "data journalism", "statistics education"]
     }
     </script>
 </head>

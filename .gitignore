@@ -32,3 +32,8 @@ pids
 .devcontainer/
 
 .spark-workbench-id
+
+# design review captures
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/

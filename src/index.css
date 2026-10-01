@@ -1,36 +1,82 @@
 @import 'tailwindcss';
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-}
+@custom-variant dark (&:where(.dark, .dark *));
 
+/*
+  Lab Notebook. Light: graph paper, graphite ink, red-pencil marks.
+  Dark: cyanotype blueprint with chalk lines.
+  Series colours were validated with the dataviz palette checker
+  (CVD + contrast) against --background in each mode.
+*/
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.25 0.08 240);
-  --card: oklch(0.98 0.01 240);
-  --card-foreground: oklch(0.25 0.08 240);
-  --popover: oklch(0.98 0.01 240);
-  --popover-foreground: oklch(0.25 0.08 240);
-  --primary: oklch(0.45 0.15 240);
-  --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.95 0.02 240);
-  --secondary-foreground: oklch(0.25 0.08 240);
-  --muted: oklch(0.95 0.02 240);
-  --muted-foreground: oklch(0.55 0.05 240);
-  --accent: oklch(0.65 0.18 45);
-  --accent-foreground: oklch(1 0 0);
-  --destructive: oklch(0.65 0.25 25);
-  --destructive-foreground: oklch(1 0 0);
-  --border: oklch(0.92 0.02 240);
-  --input: oklch(0.92 0.02 240);
-  --ring: oklch(0.45 0.15 240);
+  --background: #f7f8f4;
+  --foreground: #1d2a2e;
+  --card: #fbfcf9;
+  --card-foreground: #1d2a2e;
+  --popover: #fbfcf9;
+  --popover-foreground: #1d2a2e;
+  --primary: #1d2a2e;
+  --primary-foreground: #f7f8f4;
+  --secondary: #ebefe8;
+  --secondary-foreground: #1d2a2e;
+  --muted: #ebefe8;
+  --muted-foreground: #56656a;
+  --accent: #e3e9e3;
+  --accent-foreground: #1d2a2e;
+  --destructive: #b8322a;
+  --destructive-foreground: #ffffff;
+  --border: #cbd5cf;
+  --input: #b9c5bf;
+  --ring: #1a62ab;
 
-  --radius: 0.625rem;
+  --grid-fine: rgb(120 160 150 / 0.16);
+  --grid-major: rgb(120 160 150 / 0.32);
+
+  --series-a: #1a62ab;
+  --series-b: #b8631a;
+
+  /* verdict inks: always paired with an icon and a label */
+  --pencil: #b8322a;
+  --affirm: #2b7448;
+  --caution: #8a5a00;
+
+  --radius: 0.25rem;
 }
 
-@theme {
+.dark {
+  /* cyanotype: Prussian-blue sheet, chalk line work */
+  --background: #0a2a4c;
+  --foreground: #eef4fa;
+  --card: #0c3057;
+  --card-foreground: #eef4fa;
+  --popover: #10386a;
+  --popover-foreground: #eef4fa;
+  --primary: #eef4fa;
+  --primary-foreground: #0a2a4c;
+  --secondary: #113a66;
+  --secondary-foreground: #eef4fa;
+  --muted: #113a66;
+  --muted-foreground: #aac4de;
+  --accent: #154476;
+  --accent-foreground: #eef4fa;
+  --destructive: #ff8f80;
+  --destructive-foreground: #0a2a4c;
+  --border: #2d5d8f;
+  --input: #3b6c9f;
+  --ring: #7cc4ea;
+
+  --grid-fine: rgb(235 245 255 / 0.1);
+  --grid-major: rgb(235 245 255 / 0.24);
+
+  --series-a: #279fc6;
+  --series-b: #d07f2a;
+
+  --pencil: #ff8f80;
+  --affirm: #74d9a0;
+  --caution: #f0c060;
+}
+
+@theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-card: var(--card);
@@ -50,16 +96,89 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
+  --color-series-a: var(--series-a);
+  --color-series-b: var(--series-b);
+  --color-pencil: var(--pencil);
+  --color-affirm: var(--affirm);
+  --color-caution: var(--caution);
 
   --radius-sm: calc(var(--radius) * 0.5);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) * 1.5);
   --radius-xl: calc(var(--radius) * 2);
-  --radius-2xl: calc(var(--radius) * 3);
-  --radius-full: 9999px;
+
+  --font-sans: 'Atkinson Hyperlegible Next', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Atkinson Hyperlegible Mono', ui-monospace, monospace;
 }
 
-body {
-  font-family: 'Inter', system-ui, sans-serif;
-  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    color-scheme: light;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    min-height: 100dvh;
+  }
+
+  ::selection {
+    background: color-mix(in srgb, var(--series-a) 28%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
+
+  a {
+    text-underline-offset: 0.2em;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: max(16px, 1em);
+  }
+}
+
+@layer utilities {
+  /* The chart plate: millimetre graph paper (light) or cyanotype ruling (dark). */
+  .graph-paper {
+    background-color: var(--card);
+    /* fine ruling only; the chart draws the major lines on its own ticks so paper and scale register */
+    background-image:
+      linear-gradient(var(--grid-fine) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-fine) 1px, transparent 1px);
+    background-size: 8px 8px;
+    background-position: -1px -1px;
+  }
+
+  .tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@keyframes pencil-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
 }

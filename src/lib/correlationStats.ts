@@ -184,6 +184,16 @@ export function spuriousVerdict(args: {
     }
   }
 
+  if (Math.sign(r) !== Math.sign(detrendedR) && Math.abs(detrendedR) >= 0.3) {
+    return {
+      level: 'caution',
+      label: 'Direction flips without the trend',
+      explanation: `The raw correlation is ${r.toFixed(2)}, but once each series' time trend is removed it becomes ${detrendedR.toFixed(
+        2
+      )}. The year-to-year movements run the opposite way to the long-run trends, so the headline number is misleading.`,
+    }
+  }
+
   if (detrendedDrop > 0.4) {
     return {
       level: 'caution',

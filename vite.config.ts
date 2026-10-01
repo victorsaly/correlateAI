@@ -36,9 +36,8 @@ export default defineConfig(({ mode }) => {
         output: {
           manualChunks: {
             vendor: ['react', 'react-dom'],
-            ui: ['@radix-ui/react-select', '@radix-ui/react-dialog', '@radix-ui/react-dropdown-menu'],
-            charts: ['recharts'],
-            icons: ['@phosphor-icons/react']
+            ui: ['@radix-ui/react-select', '@radix-ui/react-dropdown-menu', '@radix-ui/react-tabs'],
+            charts: ['recharts']
           },
           // Ensure proper file extensions for GitHub Pages
           entryFileNames: 'assets/[name]-[hash].js',
