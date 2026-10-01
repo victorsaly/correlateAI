@@ -15,10 +15,13 @@ export function alignByYear(a: YearValue[], b: YearValue[]): PairPoint[] {
   return points.sort((x, y) => x.year - y.year)
 }
 
+/** Years for which both series have a value (gaps listed in the manifest are excluded). */
 export function overlapYears(a: Dataset, b: Dataset): number {
   const start = Math.max(a.dateRange.start, b.dateRange.start)
   const end = Math.min(a.dateRange.end, b.dateRange.end)
-  return Math.max(0, end - start + 1)
+  if (end < start) return 0
+  const gaps = new Set([...(a.missingYears ?? []), ...(b.missingYears ?? [])].filter((y) => y >= start && y <= end))
+  return end - start + 1 - gaps.size
 }
 
 export function computePair(a: Dataset, b: Dataset, sa: YearValue[], sb: YearValue[]): PairResult {

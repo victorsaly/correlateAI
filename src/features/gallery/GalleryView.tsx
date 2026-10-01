@@ -8,6 +8,9 @@ import { PairRow } from '@/features/PairRow'
 const MIN_YEARS = 15
 const PER_SECTION = 8
 
+// aria-labelledby takes space-separated ids, so headings need whitespace-free ones
+const headingId = (title: string) => `gallery-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`
+
 /**
  * Every cross-category pair with enough shared years, computed in the browser.
  * A series that fails to load is left out (and counted) rather than blocking the page.
@@ -93,8 +96,8 @@ export function GalleryView({ catalog, onOpen }: { catalog: Dataset[]; onOpen: (
       {!sections
         ? Array.from({ length: 3 }, (_, i) => <Skeleton key={i} className="h-64 rounded-md" />)
         : sections.map((s) => (
-            <section key={s.title} aria-labelledby={s.title}>
-              <h2 id={s.title} className="text-lg font-semibold">{s.title}</h2>
+            <section key={s.title} aria-labelledby={headingId(s.title)}>
+              <h2 id={headingId(s.title)} className="text-lg font-semibold">{s.title}</h2>
               <p className="mt-1 max-w-[65ch] text-sm text-muted-foreground">{s.blurb}</p>
               {s.list.length === 0 ? (
                 <p className="mt-4 text-sm text-muted-foreground">No pairs in the current data fall here.</p>

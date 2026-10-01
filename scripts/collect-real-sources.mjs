@@ -16,7 +16,7 @@
  */
 import { promises as fs } from 'node:fs'
 import path from 'node:path'
-import { DATA_DIR, writeDataset, writeManifest } from './lib/collectorUtils.mjs'
+import { DATA_DIR, withMissingYears, writeDataset, writeManifest } from './lib/collectorUtils.mjs'
 import { collect as worldbank } from './collectors/worldbank.mjs'
 import { collect as usgs } from './collectors/usgs.mjs'
 import { collect as openmeteo } from './collectors/openmeteo.mjs'
@@ -93,9 +93,10 @@ async function main() {
   // Keep the last good version of anything that didn't refresh this run.
   for (const [id, entry] of previous) {
     if (manifest.has(id)) continue
-    const fileExists = await fs.access(path.join(DATA_DIR, `${id}.json`)).then(() => true, () => false)
-    if (fileExists) {
-      manifest.set(id, entry)
+    const rows = await readJson(path.join(DATA_DIR, `${id}.json`), null)
+    if (Array.isArray(rows) && rows.length) {
+      // re-derive gap info from the file, so older manifest entries stay consistent
+      manifest.set(id, { ...entry, missingYears: undefined, ...withMissingYears(rows) })
       report.carriedForward.push(id)
     } else {
       report.dropped.push(id)

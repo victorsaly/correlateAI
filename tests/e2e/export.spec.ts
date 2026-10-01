@@ -18,6 +18,7 @@ test('CSV export carries sources, stats and the canonical link', async ({ page }
   const [dl] = await Promise.all([page.waitForEvent('download'), page.getByRole('menuitem', { name: 'Data (CSV)' }).click()])
   const csv = await fs.readFile((await dl.path())!, 'utf8')
   expect(csv).toContain('data.worldbank.org/indicator/IT.NET.USER.ZS')
-  expect(csv).toMatch(/r = 0\.9\d+, n = 34/)
+  // stats change as the weekly data refresh adds years, so check their shape, not values
+  expect(csv).toMatch(/r = -?[01]\.\d+, n = \d+/)
   expect(csv).toContain('https://correlateai.victorsaly.com/pairs/wb-internet-users--vs--wb-forest-area/')
 })

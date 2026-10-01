@@ -11,6 +11,8 @@ export interface Dataset {
   description: string
   dataPoints: number
   dateRange: { start: number; end: number }
+  /** years inside dateRange with no value (absent when the series has no gaps) */
+  missingYears?: number[]
 }
 
 export interface YearValue {

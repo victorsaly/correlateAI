@@ -117,6 +117,17 @@ async function ensureDir(dir) {
 }
 
 /**
+ * Years inside a sorted series' range that have no value. Kept in the manifest
+ * so the app can count the years two series really share without loading them.
+ */
+export function missingYearsOf(points) {
+  const have = new Set(points.map((p) => p.year))
+  const missing = []
+  for (let y = points[0].year; y <= points[points.length - 1].year; y++) if (!have.has(y)) missing.push(y)
+  return missing
+}
+
+/**
  * Write one dataset's data file and return its manifest entry.
  * meta: { name, unit, category, source, sourceUrl, description }
  * points: [{ year, value }]
@@ -144,7 +155,14 @@ export async function writeDataset(id, meta, points) {
     description: meta.description || '',
     dataPoints: clean.length,
     dateRange: { start: clean[0].year, end: clean[clean.length - 1].year },
+    ...withMissingYears(clean),
   }
+}
+
+/** `{ missingYears }` when the series has gaps, else nothing (keeps the manifest lean). */
+export function withMissingYears(points) {
+  const missing = missingYearsOf(points)
+  return missing.length ? { missingYears: missing } : {}
 }
 
 /** Write the manifest of real datasets the frontend should load from /data/. */

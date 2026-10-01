@@ -110,6 +110,12 @@ jobs:
             const body = `The weekly data collection on ${new Date().toISOString().slice(0, 10)} reported problems.\n\n` +
               `See the [run summary](${run}) for which sources failed. Series that failed kept their previous data, ` +
               `and invalid data is never committed, so the site is unaffected until this is fixed.`
+            // the label may not exist yet (first failure): create it, ignoring "already exists"
+            try {
+              await github.rest.issues.createLabel({ ...context.repo, name: 'data-pipeline', color: 'd93f0b', description: 'Automated data collection' })
+            } catch (e) {
+              if (e.status !== 422) throw e
+            }
             const { data: open } = await github.rest.issues.listForRepo({ ...context.repo, state: 'open', labels: 'data-pipeline' })
             const existing = open.find((i) => i.title === title)
             if (existing) {

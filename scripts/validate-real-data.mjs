@@ -64,6 +64,12 @@ for (const d of manifest) {
   if (d.dateRange?.start !== start || d.dateRange?.end !== end) {
     fail(id, `manifest range ${d.dateRange?.start}–${d.dateRange?.end} ≠ file ${start}–${end}`)
   }
+  const have = new Set(rows.map((r) => r.year))
+  const missing = []
+  for (let y = start; y <= end; y++) if (!have.has(y)) missing.push(y)
+  if (JSON.stringify(d.missingYears ?? []) !== JSON.stringify(missing)) {
+    fail(id, `missingYears doesn't match the file (file is missing ${missing.length} years)`)
+  }
   if (end > thisYear) fail(id, `ends in the future (${end})`)
   if (end < thisYear - STALE_YEARS) warnings.push(`${id}: latest value is from ${end}`)
 }
