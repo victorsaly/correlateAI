@@ -15,6 +15,7 @@ export default tseslint.config(
       'docs',
       'scripts',
       'correlateai-enterprise',
+      '.impeccable',
       '*.config.js',
       '*.config.ts',
       'test-*.js',

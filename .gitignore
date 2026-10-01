@@ -32,3 +32,15 @@ pids
 .devcontainer/
 
 .spark-workbench-id
+
+# design review captures
+.impeccable/review/
+.impeccable/mocks/
+.impeccable/questions/
+
+# playwright
+/test-results/
+/playwright-report/
+
+# local Claude Code permissions
+.claude/settings.local.json

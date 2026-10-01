@@ -24,7 +24,7 @@
 import { execFileSync } from 'node:child_process'
 import { readFileSync } from 'node:fs'
 
-const PATHS = ['public/ai-data', 'data-summary.md']
+const PATHS = ['public/ai-data', 'public/data', 'data-summary.md']
 
 // Object keys (case-insensitive) treated as volatile metadata, ignored when
 // deciding whether the underlying data actually changed.

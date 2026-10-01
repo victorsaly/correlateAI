@@ -1,0 +1,13 @@
+{
+  "_comment": "The ringed r. Single source of geometry for the in-app logo (Logo.tsx) and the generated icons (scripts/build-brand-assets.mjs). viewBox 0 0 64 64. 'full' is for 40px and up, 'small' for favicons and the header.",
+  "full": {
+    "tile": { "x": 2, "y": 2, "size": 60, "radius": 10, "border": 1.5 },
+    "r": { "d": ["M 27.5 44 V 25", "M 27.5 33.5 C 28 27 32.5 23.5 40 24"], "width": 6.5 },
+    "ring": { "d": "M 19 22 C 25 13.5 41 12.5 48.5 21 C 55 28.5 53.5 41.5 45 47.5 C 36 54 21.5 52 15.5 44 C 10.5 37 12 27.5 19.5 21.5 C 22 19.5 25 18 28.5 17", "width": 3.2 }
+  },
+  "small": {
+    "tile": { "x": 1, "y": 1, "size": 62, "radius": 12, "border": 0 },
+    "r": { "d": ["M 27.5 45 V 24.5", "M 27.5 34 C 28 26.5 32.5 23 40.5 23.5"], "width": 7.5 },
+    "ring": { "d": "M 18 21 C 24.5 12 41.5 11 49.5 20 C 56.5 28 55 42.5 45.5 48.5 C 36 55 20.5 53 14.5 44.5 C 9 37 10.5 27 18.5 20.5 C 21.5 18.5 24.5 17 28.5 16", "width": 4.4 }
+  }
+}

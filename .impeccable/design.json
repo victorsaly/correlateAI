@@ -1,0 +1,806 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-01T10:18:26+00:00",
+  "title": "Design System: CorrelateAI",
+  "extensions": {
+    "modes": {
+      "light": {
+        "name": "Graph paper",
+        "selector": ":root"
+      },
+      "dark": {
+        "name": "Cyanotype",
+        "selector": ".dark",
+        "note": "Class toggled on <html> before first paint by the inline script in index.html (saved preference or prefers-color-scheme)."
+      }
+    },
+    "colorMeta": {
+      "graphite-ink": {
+        "role": "primary",
+        "displayName": "Graphite Ink",
+        "canonical": "#1d2a2e",
+        "oklch": "oklch(27.5% 0.019 218.7)",
+        "purpose": "Light-mode text, primary button fill, headline r.",
+        "tonalRamp": [
+          "#050d0f",
+          "#1d272a",
+          "#384448",
+          "#566468",
+          "#76858a",
+          "#99a8ad",
+          "#beccd0",
+          "#e4f1f5"
+        ],
+        "darkCounterpart": "chalk"
+      },
+      "graph-paper": {
+        "role": "neutral",
+        "displayName": "Graph Paper",
+        "canonical": "#f7f8f4",
+        "oklch": "oklch(97.7% 0.005 117.9)",
+        "purpose": "Light-mode page ground.",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252523",
+          "#424240",
+          "#61625e",
+          "#82837f",
+          "#a5a5a2",
+          "#c9c9c6",
+          "#eeefec"
+        ],
+        "darkCounterpart": "cyanotype-sheet"
+      },
+      "plate-paper": {
+        "role": "neutral",
+        "displayName": "Plate Paper",
+        "canonical": "#fbfcf9",
+        "oklch": "oklch(98.9% 0.004 121.6)",
+        "purpose": "Light chart plate, selects, popovers.",
+        "tonalRamp": [
+          "#0b0b0a",
+          "#252524",
+          "#424240",
+          "#61615f",
+          "#828380",
+          "#a4a5a3",
+          "#c9c9c7",
+          "#eeefec"
+        ],
+        "darkCounterpart": "cyanotype-plate"
+      },
+      "ruled-wash": {
+        "role": "neutral",
+        "displayName": "Ruled Wash",
+        "canonical": "#ebefe8",
+        "oklch": "oklch(94.7% 0.010 131.4)",
+        "purpose": "Muted/secondary surfaces, table header, skeletons.",
+        "tonalRamp": [
+          "#0a0c09",
+          "#242622",
+          "#40433e",
+          "#5f625d",
+          "#80847d",
+          "#a3a6a0",
+          "#c7cac4",
+          "#ecf0ea"
+        ]
+      },
+      "pressed-wash": {
+        "role": "neutral",
+        "displayName": "Pressed Wash",
+        "canonical": "#e3e9e3",
+        "oklch": "oklch(92.8% 0.010 145.5)",
+        "purpose": "Hover and toggle 'on' state.",
+        "tonalRamp": [
+          "#090c09",
+          "#232623",
+          "#3f433f",
+          "#5e635e",
+          "#7f847f",
+          "#a1a7a1",
+          "#c6cbc6",
+          "#ebf0eb"
+        ]
+      },
+      "faded-graphite": {
+        "role": "neutral",
+        "displayName": "Faded Graphite",
+        "canonical": "#56656a",
+        "oklch": "oklch(49.6% 0.020 219.9)",
+        "purpose": "Muted text, labels, axis ticks; insufficient-data verdict.",
+        "tonalRamp": [
+          "#050d0f",
+          "#1d272a",
+          "#384448",
+          "#566469",
+          "#76858b",
+          "#99a8ad",
+          "#beccd1",
+          "#e4f1f6"
+        ]
+      },
+      "rule-line": {
+        "role": "neutral",
+        "displayName": "Rule Line",
+        "canonical": "#cbd5cf",
+        "oklch": "oklch(86.4% 0.014 159.9)",
+        "purpose": "Every 1px border and divider.",
+        "tonalRamp": [
+          "#080c0a",
+          "#212723",
+          "#3d4440",
+          "#5b645f",
+          "#7c857f",
+          "#9fa8a2",
+          "#c3ccc6",
+          "#e9f1ec"
+        ]
+      },
+      "input-rule": {
+        "role": "neutral",
+        "displayName": "Input Rule",
+        "canonical": "#b9c5bf",
+        "oklch": "oklch(81.2% 0.016 164.6)",
+        "purpose": "Form-control borders.",
+        "tonalRamp": [
+          "#070d0a",
+          "#202723",
+          "#3c4440",
+          "#5a645f",
+          "#7a8580",
+          "#9da8a3",
+          "#c2ccc7",
+          "#e7f1ec"
+        ]
+      },
+      "series-a-ink-blue": {
+        "role": "secondary",
+        "displayName": "Series A Ink Blue",
+        "canonical": "#1a62ab",
+        "oklch": "oklch(49.3% 0.135 252.9)",
+        "purpose": "Solid series A line and swatches; light focus ring. CVD-validated on #f7f8f4.",
+        "tonalRamp": [
+          "#000432",
+          "#002357",
+          "#00427e",
+          "#2262a6",
+          "#4185d0",
+          "#69a9f1",
+          "#92ceff",
+          "#bbf3ff"
+        ],
+        "darkCounterpart": "series-a-cyan"
+      },
+      "series-b-sienna": {
+        "role": "secondary",
+        "displayName": "Series B Sienna",
+        "canonical": "#b8631a",
+        "oklch": "oklch(58.8% 0.135 55.0)",
+        "purpose": "Dashed (6 4) series B line and swatches. CVD-validated on #f7f8f4.",
+        "tonalRamp": [
+          "#260000",
+          "#490c00",
+          "#6e2b00",
+          "#964900",
+          "#be6923",
+          "#e18e53",
+          "#ffb57e",
+          "#ffdca9"
+        ],
+        "darkCounterpart": "series-b-amber"
+      },
+      "red-pencil": {
+        "role": "tertiary",
+        "displayName": "Red Pencil",
+        "canonical": "#b8322a",
+        "oklch": "oklch(52.2% 0.172 28.1)",
+        "purpose": "Likely-spurious and not-significant verdicts; errors; destructive.",
+        "tonalRamp": [
+          "#2f0000",
+          "#560000",
+          "#7f0809",
+          "#aa2e27",
+          "#d54f44",
+          "#f9796b",
+          "#ffa192",
+          "#ffcbbb"
+        ],
+        "darkCounterpart": "chalk-pencil"
+      },
+      "affirm-green": {
+        "role": "tertiary",
+        "displayName": "Affirm Green",
+        "canonical": "#2b7448",
+        "oklch": "oklch(50.1% 0.101 153.9)",
+        "purpose": "Significant verdict only.",
+        "tonalRamp": [
+          "#001300",
+          "#003011",
+          "#0e4f2b",
+          "#2e7148",
+          "#4d9466",
+          "#75b78a",
+          "#9ddaaf",
+          "#c5ffd6"
+        ],
+        "darkCounterpart": "chalk-affirm"
+      },
+      "caution-ochre": {
+        "role": "tertiary",
+        "displayName": "Caution Ochre",
+        "canonical": "#8a5a00",
+        "oklch": "oklch(50.8% 0.108 73.3)",
+        "purpose": "Caution verdict only.",
+        "tonalRamp": [
+          "#1d0200",
+          "#3d1b00",
+          "#5f3800",
+          "#83570a",
+          "#a9772e",
+          "#cb9b5b",
+          "#eec085",
+          "#ffe6af"
+        ],
+        "darkCounterpart": "chalk-caution"
+      },
+      "cyanotype-sheet": {
+        "role": "neutral",
+        "displayName": "Cyanotype Sheet",
+        "canonical": "#0a2a4c",
+        "oklch": "oklch(28.2% 0.073 253.0)",
+        "purpose": "Dark-mode page ground.",
+        "tonalRamp": [
+          "#000b20",
+          "#0e2640",
+          "#294463",
+          "#456387",
+          "#6385ad",
+          "#87a8cf",
+          "#adccf2",
+          "#d4f2ff"
+        ]
+      },
+      "cyanotype-plate": {
+        "role": "neutral",
+        "displayName": "Cyanotype Plate",
+        "canonical": "#0c3057",
+        "oklch": "oklch(30.7% 0.081 253.5)",
+        "purpose": "Dark chart plate, selects.",
+        "tonalRamp": [
+          "#000a23",
+          "#0b2643",
+          "#264366",
+          "#42638b",
+          "#6085b2",
+          "#84a8d4",
+          "#aaccf6",
+          "#d1f2ff"
+        ]
+      },
+      "cyanotype-popover": {
+        "role": "neutral",
+        "displayName": "Cyanotype Popover",
+        "canonical": "#10386a",
+        "oklch": "oklch(34.3% 0.098 256.1)",
+        "purpose": "Dark floating layers.",
+        "tonalRamp": [
+          "#000828",
+          "#06244a",
+          "#21426e",
+          "#3d6294",
+          "#5b84bc",
+          "#7fa7de",
+          "#a6ccff",
+          "#cdf1ff"
+        ]
+      },
+      "cyanotype-wash": {
+        "role": "neutral",
+        "displayName": "Cyanotype Wash",
+        "canonical": "#113a66",
+        "oklch": "oklch(34.6% 0.089 253.2)",
+        "purpose": "Dark muted/secondary surfaces.",
+        "tonalRamp": [
+          "#000a25",
+          "#062546",
+          "#22436a",
+          "#3e6390",
+          "#5b85b6",
+          "#80a8d8",
+          "#a6cdfb",
+          "#cef2ff"
+        ]
+      },
+      "cyanotype-pressed": {
+        "role": "neutral",
+        "displayName": "Cyanotype Pressed",
+        "canonical": "#154476",
+        "oklch": "oklch(38.3% 0.099 253.1)",
+        "purpose": "Dark hover and toggle 'on'.",
+        "tonalRamp": [
+          "#000928",
+          "#02254a",
+          "#1d436e",
+          "#396394",
+          "#5685bc",
+          "#7ca9dd",
+          "#a2cdff",
+          "#caf2ff"
+        ]
+      },
+      "chalk": {
+        "role": "primary",
+        "displayName": "Chalk",
+        "canonical": "#eef4fa",
+        "oklch": "oklch(96.4% 0.010 247.9)",
+        "purpose": "Dark-mode text, primary button fill, headline r.",
+        "tonalRamp": [
+          "#090b0e",
+          "#222529",
+          "#3e4247",
+          "#5d6267",
+          "#7e8388",
+          "#a0a6ab",
+          "#c5cacf",
+          "#eaeff4"
+        ]
+      },
+      "faded-chalk": {
+        "role": "neutral",
+        "displayName": "Faded Chalk",
+        "canonical": "#aac4de",
+        "oklch": "oklch(80.9% 0.046 248.4)",
+        "purpose": "Dark muted text; insufficient-data verdict.",
+        "tonalRamp": [
+          "#020c19",
+          "#162736",
+          "#314457",
+          "#4e6479",
+          "#6d859d",
+          "#91a8bf",
+          "#b6cce3",
+          "#dcf1ff"
+        ]
+      },
+      "cyanotype-rule": {
+        "role": "neutral",
+        "displayName": "Cyanotype Rule",
+        "canonical": "#2d5d8f",
+        "oklch": "oklch(46.9% 0.097 251.4)",
+        "purpose": "Dark 1px borders and dividers.",
+        "tonalRamp": [
+          "#000927",
+          "#002549",
+          "#1b446d",
+          "#386493",
+          "#5586ba",
+          "#7ba9dc",
+          "#a1cdfe",
+          "#c9f3ff"
+        ]
+      },
+      "cyanotype-input-rule": {
+        "role": "neutral",
+        "displayName": "Cyanotype Input Rule",
+        "canonical": "#3b6c9f",
+        "oklch": "oklch(52.0% 0.097 251.0)",
+        "purpose": "Dark form-control borders.",
+        "tonalRamp": [
+          "#000927",
+          "#002649",
+          "#1b446d",
+          "#376493",
+          "#5486ba",
+          "#7aa9dc",
+          "#a1cefe",
+          "#c9f3ff"
+        ]
+      },
+      "cyanotype-ring": {
+        "role": "neutral",
+        "displayName": "Cyanotype Ring",
+        "canonical": "#7cc4ea",
+        "oklch": "oklch(78.7% 0.090 232.6)",
+        "purpose": "Dark focus ring.",
+        "tonalRamp": [
+          "#000d22",
+          "#002a42",
+          "#004864",
+          "#246989",
+          "#448baf",
+          "#6daed1",
+          "#96d3f4",
+          "#bff8ff"
+        ]
+      },
+      "series-a-cyan": {
+        "role": "secondary",
+        "displayName": "Series A Cyan",
+        "canonical": "#279fc6",
+        "oklch": "oklch(65.6% 0.115 225.4)",
+        "purpose": "Dark solid series A. CVD-validated on #0c3057.",
+        "tonalRamp": [
+          "#000e25",
+          "#002c46",
+          "#004b69",
+          "#006d8f",
+          "#0690b6",
+          "#4fb3d7",
+          "#7ed7fa",
+          "#abfcff"
+        ]
+      },
+      "series-b-amber": {
+        "role": "secondary",
+        "displayName": "Series B Amber",
+        "canonical": "#d07f2a",
+        "oklch": "oklch(66.9% 0.138 61.9)",
+        "purpose": "Dark dashed series B. CVD-validated on #0c3057.",
+        "tonalRamp": [
+          "#250000",
+          "#471000",
+          "#6c2e00",
+          "#934c00",
+          "#bb6c0a",
+          "#de9149",
+          "#ffb776",
+          "#ffdea2"
+        ]
+      },
+      "chalk-pencil": {
+        "role": "tertiary",
+        "displayName": "Chalk Pencil",
+        "canonical": "#ff8f80",
+        "oklch": "oklch(76.7% 0.138 28.7)",
+        "purpose": "Dark spurious / not-significant verdicts; errors.",
+        "tonalRamp": [
+          "#290000",
+          "#4e0000",
+          "#752019",
+          "#9d3e34",
+          "#c75e51",
+          "#ea8476",
+          "#ffab9d",
+          "#ffd3c5"
+        ]
+      },
+      "chalk-affirm": {
+        "role": "tertiary",
+        "displayName": "Chalk Affirm",
+        "canonical": "#74d9a0",
+        "oklch": "oklch(80.9% 0.126 157.2)",
+        "purpose": "Dark significant verdict.",
+        "tonalRamp": [
+          "#001400",
+          "#00320f",
+          "#005229",
+          "#007445",
+          "#2e9864",
+          "#5fbb88",
+          "#8bdfad",
+          "#b6ffd4"
+        ]
+      },
+      "chalk-caution": {
+        "role": "tertiary",
+        "displayName": "Chalk Caution",
+        "canonical": "#f0c060",
+        "oklch": "oklch(83.2% 0.126 82.8)",
+        "purpose": "Dark caution verdict.",
+        "tonalRamp": [
+          "#1d0300",
+          "#3c1d00",
+          "#5e3a00",
+          "#815900",
+          "#a77a00",
+          "#c99e45",
+          "#ecc374",
+          "#ffe9a0"
+        ]
+      },
+      "grid-fine": {
+        "role": "neutral",
+        "displayName": "Grid Fine",
+        "canonical": "rgb(120 160 150 / 0.16)",
+        "purpose": "Light 8px plate ruling (CSS)."
+      },
+      "grid-major": {
+        "role": "neutral",
+        "displayName": "Grid Major",
+        "canonical": "rgb(120 160 150 / 0.32)",
+        "purpose": "Light major lines, drawn by the chart on its ticks."
+      },
+      "cyanotype-grid-fine": {
+        "role": "neutral",
+        "displayName": "Cyanotype Grid Fine",
+        "canonical": "rgb(235 245 255 / 0.1)",
+        "purpose": "Dark 8px plate ruling."
+      },
+      "cyanotype-grid-major": {
+        "role": "neutral",
+        "displayName": "Cyanotype Grid Major",
+        "canonical": "rgb(235 245 255 / 0.24)",
+        "purpose": "Dark major lines on chart ticks."
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Display figure",
+        "purpose": "Headline r only (signed, mono, tabular); also on the share card."
+      },
+      "headline": {
+        "displayName": "Headline",
+        "purpose": "View titles; wordmark at 1.25rem."
+      },
+      "title": {
+        "displayName": "Title",
+        "purpose": "Section heads within a view."
+      },
+      "body": {
+        "displayName": "Body",
+        "purpose": "Running text and select values (16px floor so mobile never zooms). Prose capped at 60-65ch."
+      },
+      "body-small": {
+        "displayName": "Body small",
+        "purpose": "Margin explanations, legends, source notes, stat terms."
+      },
+      "label": {
+        "displayName": "Label",
+        "purpose": "Captions, units, axis ticks, coverage-ruler years."
+      },
+      "figure": {
+        "displayName": "Figure",
+        "purpose": "p, n, CI, r², raw and detrended r, table cells, counts. Atkinson Hyperlegible Mono with tabular-nums."
+      }
+    },
+    "fonts": {
+      "source": "Google Fonts",
+      "families": [
+        "Atkinson Hyperlegible Next: 400, 600, italic 400",
+        "Atkinson Hyperlegible Mono: 400, 600"
+      ]
+    },
+    "shadows": [
+      {
+        "name": "floating-layer",
+        "value": "0 4px 16px rgb(0 0 0 / 0.12)",
+        "purpose": "Chart tooltip only; transient layers over the sheet. Nothing at rest casts a shadow."
+      }
+    ],
+    "strokes": [
+      {
+        "name": "rule",
+        "value": "1px solid var(--border)",
+        "purpose": "Every border and divider."
+      },
+      {
+        "name": "series-line",
+        "value": "2px",
+        "purpose": "Chart lines; A solid, B strokeDasharray 6 4."
+      },
+      {
+        "name": "tab-active",
+        "value": "2px underline, foreground",
+        "purpose": "Active tab, overlapping the header rule."
+      },
+      {
+        "name": "pencil-ring",
+        "value": "2px (md) / 1.5px (sm), round caps",
+        "purpose": "Verdict ring; dashed 0.035 0.022, dotted 0.006 0.018 (pathLength 1)."
+      },
+      {
+        "name": "focus",
+        "value": "2px solid var(--ring), offset 2px",
+        "purpose": "Global focus-visible outline."
+      }
+    ],
+    "chart": {
+      "plate": "graph-paper utility: --card fill, fine ruling linear-gradient(var(--grid-fine) 1px) at 8px x 8px, background-position -1px -1px",
+      "majorGrid": "Drawn by Recharts CartesianGrid in var(--grid-major) with syncWithTicks; x ticks from transform.ts yearTicks (step 1/2/5/10/20/25/50 years, at most 8 ticks), y on whole standard deviations",
+      "zeroLine": "var(--muted-foreground) at 0.5 opacity",
+      "axis": "No dual axis: one standardised axis (z-scores) or stacked small multiples in actual units sharing the year axis",
+      "seriesValidation": {
+        "light": {
+          "background": "#f7f8f4",
+          "a": "#1a62ab",
+          "b": "#b8631a"
+        },
+        "dark": {
+          "background": "#0c3057",
+          "a": "#279fc6",
+          "b": "#d07f2a"
+        },
+        "tool": "dataviz CVD + contrast validator"
+      }
+    },
+    "motion": [
+      {
+        "name": "trend-tween",
+        "value": "700ms ease-out",
+        "purpose": "Remove trend: same line paths tween to residuals (Recharts)."
+      },
+      {
+        "name": "count-to",
+        "value": "700ms, quadratic ease-out (1-(1-t)^2)",
+        "purpose": "Headline r counts to the new value in step with the lines; snaps under reduced motion."
+      },
+      {
+        "name": "pencil-draw",
+        "value": "520ms cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Verdict ring draws on via an animated mask when the verdict level changes."
+      },
+      {
+        "name": "pencil-draw-second",
+        "value": "420ms cubic-bezier(0.16, 1, 0.3, 1), 380ms delay",
+        "purpose": "Second loop of the double ring."
+      },
+      {
+        "name": "loading-dim",
+        "value": "opacity 0.6",
+        "purpose": "Current pair dims while the next loads."
+      },
+      {
+        "name": "reduced-motion",
+        "value": "animation/transition-duration 0.01ms",
+        "purpose": "Global CSS collapse; useCountTo snaps. The Recharts tween is JS-driven and not yet covered."
+      }
+    ],
+    "breakpoints": [
+      {
+        "name": "sm",
+        "value": "640px",
+        "purpose": "Gutter 16px to 24px; plate 22rem to 26rem."
+      },
+      {
+        "name": "md",
+        "value": "768px",
+        "purpose": "Picker goes inline; source notes in two columns."
+      },
+      {
+        "name": "lg",
+        "value": "1024px",
+        "purpose": "Chart + 22rem margin column; below, everything stacks."
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The one primary action per view (Share); 'Remove trend' takes this fill while pressed.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><circle cx=\"18\" cy=\"5\" r=\"3\"/><circle cx=\"6\" cy=\"12\" r=\"3\"/><circle cx=\"18\" cy=\"19\" r=\"3\"/><line x1=\"8.59\" y1=\"13.51\" x2=\"15.42\" y2=\"17.49\"/><line x1=\"15.41\" y1=\"6.51\" x2=\"8.59\" y2=\"10.49\"/></svg>Share</button>",
+      "css": ".ds-btn-primary{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border:0;border-radius:4px;background:var(--primary, #1d2a2e);color:var(--primary-foreground, #f7f8f4);font:500 14px/1 'Atkinson Hyperlegible Next',system-ui,sans-serif;cursor:pointer;transition:background .15s}.ds-btn-primary:hover{background:color-mix(in srgb,var(--primary, #1d2a2e) 90%,transparent)}.ds-btn-primary:focus-visible{outline:2px solid var(--ring, #1a62ab);outline-offset:2px}"
+    },
+    {
+      "name": "Outline Button",
+      "kind": "button",
+      "refersTo": "button-outline",
+      "description": "Secondary actions: Copy link, Download, Swap, Random pair, Remove trend (unpressed).",
+      "html": "<button class=\"ds-btn-outline\">Remove trend</button>",
+      "css": ".ds-btn-outline{display:inline-flex;align-items:center;gap:8px;height:36px;padding:0 16px;border:1px solid var(--border, #cbd5cf);border-radius:4px;background:var(--background, #f7f8f4);color:var(--foreground, #1d2a2e);font:500 14px/1 'Atkinson Hyperlegible Next',system-ui,sans-serif;cursor:pointer;transition:background .15s}.ds-btn-outline:hover{background:var(--accent, #e3e9e3)}.ds-btn-outline:focus-visible{outline:2px solid var(--ring, #1a62ab);outline-offset:2px}.ds-btn-outline[aria-pressed=true]{background:var(--primary, #1d2a2e);color:var(--primary-foreground, #f7f8f4);border-color:transparent}"
+    },
+    {
+      "name": "Toggle Group",
+      "kind": "chip",
+      "refersTo": "toggle-item-on",
+      "description": "Joined segments for chart form and scale; the 'on' segment fills with the pressed wash.",
+      "html": "<div class=\"ds-toggle\" role=\"group\"><button class=\"ds-toggle-item\" aria-pressed=\"true\">Standardised</button><button class=\"ds-toggle-item\" aria-pressed=\"false\">Actual units</button></div>",
+      "css": ".ds-toggle{display:inline-flex}.ds-toggle-item{height:32px;padding:0 12px;border:1px solid var(--input, #b9c5bf);background:transparent;color:var(--foreground, #1d2a2e);font:500 14px/1 'Atkinson Hyperlegible Next',system-ui,sans-serif;cursor:pointer}.ds-toggle-item+.ds-toggle-item{border-left:0}.ds-toggle-item:first-child{border-radius:4px 0 0 4px}.ds-toggle-item:last-child{border-radius:0 4px 4px 0}.ds-toggle-item:hover{background:var(--accent, #e3e9e3)}.ds-toggle-item[aria-pressed=true]{background:var(--accent, #e3e9e3)}.ds-toggle-item:focus-visible{outline:2px solid var(--ring, #1a62ab);outline-offset:2px}"
+    },
+    {
+      "name": "Series Select",
+      "kind": "input",
+      "refersTo": "series-select",
+      "description": "Worksheet picker; a solid or dashed swatch leads the value so the picker teaches the legend.",
+      "html": "<button class=\"ds-select\"><span class=\"ds-select-swatch ds-b\"></span><span class=\"ds-select-value\">US Forest Area</span><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" aria-hidden=\"true\"><path d=\"m6 9 6 6 6-6\"/></svg></button>",
+      "css": ".ds-select{display:flex;align-items:center;gap:8px;width:320px;height:44px;padding:0 12px;border:1px solid var(--input, #b9c5bf);border-radius:4px;background:var(--card, #fbfcf9);color:var(--foreground, #1d2a2e);font:400 16px/1.5 'Atkinson Hyperlegible Next',system-ui,sans-serif;cursor:pointer}.ds-select svg{color:var(--muted-foreground, #56656a)}.ds-select-value{flex:1;text-align:left}.ds-select-swatch{width:20px;height:2px;background:var(--series-a, #1a62ab)}.ds-select-swatch.ds-b{background:var(--series-b, #b8631a);-webkit-mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 8px);mask:repeating-linear-gradient(90deg,#000 0 5px,transparent 5px 8px)}.ds-select:focus-visible{outline:2px solid var(--ring, #1a62ab);outline-offset:2px}"
+    },
+    {
+      "name": "Underline Tabs",
+      "kind": "nav",
+      "refersTo": "tab",
+      "description": "Top-bar navigation: text only, active tab gains a 2px graphite underline over the header rule.",
+      "html": "<nav class=\"ds-tabs\"><a class=\"ds-tab\" aria-current=\"page\">Explore</a><a class=\"ds-tab\">Saved</a><a class=\"ds-tab\">Gallery</a><a class=\"ds-tab\">How it works</a></nav>",
+      "css": ".ds-tabs{display:flex;gap:24px;border-bottom:1px solid var(--border, #cbd5cf)}.ds-tab{display:inline-flex;align-items:center;height:44px;margin-bottom:-1px;border-bottom:2px solid transparent;color:var(--muted-foreground, #56656a);font:400 15px/1 'Atkinson Hyperlegible Next',system-ui,sans-serif;cursor:pointer;text-decoration:none}.ds-tab:hover{color:var(--foreground, #1d2a2e)}.ds-tab[aria-current=page]{color:var(--foreground, #1d2a2e);border-bottom-color:var(--foreground, #1d2a2e)}.ds-tab:focus-visible{outline:2px solid var(--ring, #1a62ab);outline-offset:2px}"
+    },
+    {
+      "name": "Verdict Mark",
+      "kind": "custom",
+      "refersTo": "verdict-mark",
+      "description": "Signature: verdict ink + icon + hand-drawn pencil ring whose form (solid, dashed, dotted, double) encodes the level.",
+      "html": "<span class=\"ds-verdict\"><svg class=\"ds-verdict-ring\" viewBox=\"0 0 300 100\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><path d=\"M 6 52 C 2 22 60 4 150 6 C 240 8 298 22 296 48 C 294 76 230 96 150 95 C 66 94 8 82 4 56 C 3 44 14 30 34 22\" pathLength=\"1\" stroke-dasharray=\"1\" stroke-dashoffset=\"1\" vector-effect=\"non-scaling-stroke\"/><path d=\"M 10 46 C 10 20 70 9 152 11 C 236 13 291 27 290 50 C 289 74 226 90 150 90 C 70 90 12 78 10 50\" pathLength=\"1\" stroke-dasharray=\"1\" stroke-dashoffset=\"1\" stroke-width=\"1.6\" vector-effect=\"non-scaling-stroke\" class=\"ds-second\"/></svg><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" aria-hidden=\"true\"><polyline points=\"22 7 13.5 15.5 8.5 10.5 2 17\"/><polyline points=\"16 7 22 7 22 13\"/></svg>Likely spurious (shared time trend)</span>",
+      "css": ".ds-verdict{position:relative;display:inline-flex;align-items:center;gap:6px;padding:14px 24px;color:var(--pencil, #b8322a);font:600 15px/1.25 'Atkinson Hyperlegible Next',system-ui,sans-serif}.ds-verdict>svg{position:relative}.ds-verdict .ds-verdict-ring{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round}.ds-verdict .ds-verdict-ring path{animation:ds-pencil 520ms cubic-bezier(0.16,1,0.3,1) forwards}.ds-verdict .ds-verdict-ring path.ds-second{animation:ds-pencil 420ms cubic-bezier(0.16,1,0.3,1) 380ms forwards}@keyframes ds-pencil{to{stroke-dashoffset:0}}@media (prefers-reduced-motion:reduce){.ds-verdict .ds-verdict-ring path,.ds-verdict .ds-verdict-ring path.ds-second{animation:none;stroke-dashoffset:0}}"
+    },
+    {
+      "name": "Headline r",
+      "kind": "custom",
+      "refersTo": "headline-r",
+      "description": "The margin's lead figure: muted label, signed r in display mono, strength phrase.",
+      "html": "<div class=\"ds-headline-r\"><div class=\"ds-hr-label\">Correlation</div><div class=\"ds-hr-value\">+0.91</div><div class=\"ds-hr-label\">Strong positive relationship</div></div>",
+      "css": ".ds-headline-r{color:var(--foreground, #1d2a2e)}.ds-hr-label{font:400 14px/1.43 'Atkinson Hyperlegible Next',system-ui,sans-serif;color:var(--muted-foreground, #56656a)}.ds-hr-value{margin:2px 0 4px;font:600 60px/1 'Atkinson Hyperlegible Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;letter-spacing:-0.03em}"
+    },
+    {
+      "name": "Chart Plate",
+      "kind": "card",
+      "refersTo": "chart-plate",
+      "description": "The only framed region: plate tone, fine 8px CSS ruling, majors drawn by the chart on round-year ticks; A solid, B dashed 6 4.",
+      "html": "<div class=\"ds-plate\"><svg viewBox=\"0 0 400 200\" width=\"100%\" height=\"100%\" preserveAspectRatio=\"none\" aria-hidden=\"true\"><g class=\"ds-major\"><line x1=\"40\" y1=\"0\" x2=\"40\" y2=\"200\"/><line x1=\"160\" y1=\"0\" x2=\"160\" y2=\"200\"/><line x1=\"280\" y1=\"0\" x2=\"280\" y2=\"200\"/><line x1=\"0\" y1=\"100\" x2=\"400\" y2=\"100\"/></g><polyline class=\"ds-a\" points=\"10,170 60,160 110,120 160,95 210,80 260,70 310,50 390,40\"/><polyline class=\"ds-b\" points=\"10,150 60,145 110,140 160,110 210,85 260,60 310,55 390,58\"/></svg></div>",
+      "css": ".ds-plate{width:420px;height:220px;padding:12px;border:1px solid var(--border, #cbd5cf);border-radius:4px;background-color:var(--card, #fbfcf9);background-image:linear-gradient(var(--grid-fine, rgb(120 160 150 / 0.16)) 1px,transparent 1px),linear-gradient(90deg,var(--grid-fine, rgb(120 160 150 / 0.16)) 1px,transparent 1px);background-size:8px 8px;background-position:-1px -1px}.ds-plate svg{display:block;overflow:visible}.ds-major line{stroke:var(--grid-major, rgb(120 160 150 / 0.32));stroke-width:1;vector-effect:non-scaling-stroke}.ds-a,.ds-b{fill:none;stroke-width:2;vector-effect:non-scaling-stroke}.ds-a{stroke:var(--series-a, #1a62ab)}.ds-b{stroke:var(--series-b, #b8631a);stroke-dasharray:6 4}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lab Notebook",
+    "overview": "Every pair is a worked problem on graph paper. Two series are plotted, the arithmetic is checked in the margin, and the verdict is marked in red pencil. The system is a single sheet, not a dashboard: one ruled chart plate, one margin column of figures, and hairline rules doing the separating work that cards, tiles and gradients do elsewhere. In the light mode the sheet is pale graph paper with graphite ink. In the dark mode the same sheet becomes a cyanotype blueprint with chalk line work. The structure stays identical across modes and only the materials change.\n\nDensity is moderate and numerical. The figures are the content, so they get the hyperlegible mono face with tabular digits and the largest size on the page, while UI chrome stays small, quiet and graphite-toned. Colour is functional only: two series inks, three verdict inks, and nothing decorative. Any meaning that colour carries is also carried by form, whether that is a line dash, a ring style or an icon.\n\nThe voice is plain, exact and calm. Copy never uses emoji and never claims AI, \"quantum\" or \"cutting-edge\" anything. The surface rejects the category default of KPI tiles, chart cards with gradients and glowing accents.",
+    "keyCharacteristics": [
+      "One sheet with two materials: graph paper (light) and cyanotype (dark).",
+      "Figures are set in Atkinson Hyperlegible Mono with tabular numerals, and the headline r is the largest type on the page.",
+      "Series A is a solid line and series B is dashed (6 4), so the two differ in form as well as hue.",
+      "The verdict is always ink, icon and ring form together, never colour alone.",
+      "Corners are square 4px and separators are 1px rules. Containers are never nested.",
+      "One authored motion moment: removing the trend."
+    ],
+    "rules": [
+      {
+        "name": "The Two Inks Rule",
+        "body": "Only the two series and the three verdict states carry hue. A chromatic accent for decoration, branding or emphasis is not part of this system.",
+        "section": "colors"
+      },
+      {
+        "name": "The Never Colour Alone Rule",
+        "body": "A verdict always pairs its ink with an icon and a ring form: solid (significant, not significant), dashed (caution), double (likely spurious) or dotted (insufficient). A series is always told apart by line form, with A solid and B dashed. Grey out the screen and every meaning must survive.",
+        "section": "colors"
+      },
+      {
+        "name": "The Figures Are Mono Rule",
+        "body": "Any number that a reader might compare, copy or cite is set in the mono face with tabular numerals. Years in prose and running copy stay in the sans.",
+        "section": "typography"
+      },
+      {
+        "name": "The Two Weights Rule",
+        "body": "Only 400 and 600 are loaded. Hierarchy comes from size, ink (graphite against faded graphite) and position, never from more weights.",
+        "section": "typography"
+      },
+      {
+        "name": "The Margin Column Rule",
+        "body": "Statistics and the verdict live in the right-hand margin of the sheet, separated by a rule, not boxed. The chart is the page and the margin annotates it.",
+        "section": "layout"
+      },
+      {
+        "name": "The Flat Sheet Rule",
+        "body": "Surfaces that belong to the sheet never lift. If an element is part of the worksheet, separate it with a rule or a tone. Only something that floats over the sheet and then disappears gets a shadow.",
+        "section": "elevation"
+      },
+      {
+        "name": "The One Axis Rule",
+        "body": "Charts never use a dual axis. A pair is shown either standardised on one shared axis (z-scores, labelled with true minus signs, +2 to −2) or as small multiples in actual units, two panels stacked on a shared year axis. The scatter view (A against B) draws one dot per year with a dashed least-squares fit.",
+        "section": "shapes"
+      },
+      {
+        "name": "The No Nesting Rule",
+        "body": "A bordered container never sits inside another bordered container. The plate is the only framed region in a view.",
+        "section": "shapes"
+      }
+    ],
+    "dos": [
+      "Do set every comparable number in Atkinson Hyperlegible Mono with tabular numerals, and sign every r (+0.91, −0.01).",
+      "Do draw series A solid and series B dashed (6 4) in every chart, swatch, select and coverage bar.",
+      "Do pair every verdict ink with its icon and ring form (solid, dashed, dotted or double), followed by a plain-language explanation.",
+      "Do keep the major grid on the chart's own round-year ticks so paper and scale register. The plate CSS carries the fine 8px ruling only.",
+      "Do separate regions with 1px rules and the plate tone, and keep corners at 4px.",
+      "Do caption every chart in plain words, and offer the paired years as a table.",
+      "Do define both modes for every new token: graph paper and cyanotype.",
+      "Do write copy that is plain, exact and calm."
+    ],
+    "donts": [
+      "Don't put two series on a dual axis. Use one standardised axis or stacked small multiples in actual units.",
+      "Don't let colour alone carry a verdict or tell the series apart.",
+      "Don't nest a bordered container inside another, and don't turn statistics into KPI tiles or chart cards.",
+      "Don't add gradients, glows, or shadows on anything that belongs to the sheet.",
+      "Don't introduce hue outside the two series inks and three verdict inks.",
+      "Don't add motion beyond the trend toggle and the pencil ring, and never animate without honouring reduced motion.",
+      "Don't use emoji, or claim AI, \"quantum\" or \"cutting-edge\" anything."
+    ]
+  }
+}
