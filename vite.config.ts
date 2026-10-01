@@ -39,6 +39,9 @@ export default defineConfig(({ mode }) => {
           manualChunks(id) {
             // clsx is shared by the app and Recharts; without this it lands in the charts chunk and drags it into first load
             if (/node_modules\/(react|react-dom|scheduler|clsx|tailwind-merge)\//.test(id)) return 'vendor'
+            // Rollup's CommonJS interop helper is shared by React and Recharts 3; if it lands in the charts chunk,
+            // vendor and charts import each other and React initialises undefined ("reading 'forwardRef'")
+            if (id.includes('commonjsHelpers')) return 'vendor'
             if (/node_modules\/(recharts|d3-|victory-vendor|recharts-scale)/.test(id)) return 'charts'
             if (/node_modules\/@radix-ui\//.test(id)) return 'ui'
           },
