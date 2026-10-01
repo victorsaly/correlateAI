@@ -8,34 +8,42 @@ import { PairRow } from '@/features/PairRow'
 const MIN_YEARS = 15
 const PER_SECTION = 8
 
-/** Every cross-category pair with enough shared years, computed in the browser. */
+/**
+ * Every cross-category pair with enough shared years, computed in the browser.
+ * A series that fails to load is left out (and counted) rather than blocking the page.
+ */
 function useAllPairs(catalog: Dataset[]) {
   const [pairs, setPairs] = useState<PairResult[] | null>(null)
+  const [failed, setFailed] = useState(0)
   useEffect(() => {
     let live = true
-    Promise.all(catalog.map((d) => loadSeries(d.id).then((s) => [d.id, s] as const))).then((entries) => {
-      const series = new Map(entries)
+    Promise.allSettled(catalog.map((d) => loadSeries(d.id).then((s) => [d.id, s] as const))).then((results) => {
+      const series = new Map(results.flatMap((r) => (r.status === 'fulfilled' ? [r.value] : [])))
       const out: PairResult[] = []
       for (let i = 0; i < catalog.length; i++) {
         for (let j = i + 1; j < catalog.length; j++) {
           const a = catalog[i]
           const b = catalog[j]
+          if (!series.has(a.id) || !series.has(b.id)) continue
           if (a.category === b.category || overlapYears(a, b) < MIN_YEARS) continue
           const p = computePair(a, b, series.get(a.id)!, series.get(b.id)!)
           if (p.stats.n >= MIN_YEARS) out.push(p)
         }
       }
-      if (live) setPairs(out)
+      if (live) {
+        setFailed(catalog.length - series.size)
+        setPairs(out)
+      }
     })
     return () => {
       live = false
     }
   }, [catalog])
-  return pairs
+  return { pairs, failed }
 }
 
 export function GalleryView({ catalog, onOpen }: { catalog: Dataset[]; onOpen: (a: string, b: string) => void }) {
-  const pairs = useAllPairs(catalog)
+  const { pairs, failed } = useAllPairs(catalog)
 
   const sections = useMemo(() => {
     if (!pairs) return null
@@ -73,6 +81,11 @@ export function GalleryView({ catalog, onOpen }: { catalog: Dataset[]; onOpen: (
         {pairs && (
           <p className="tabular mt-3 text-sm">
             {pairs.length} pairs tested · {significantCount} have p &lt; 0.05 · about {Math.round(pairs.length * 0.05)} would by luck alone if nothing were related
+          </p>
+        )}
+        {failed > 0 && (
+          <p role="status" className="mt-2 text-sm text-destructive">
+            {failed} of {catalog.length} series couldn’t be loaded, so pairs using them are missing. Reload to try again.
           </p>
         )}
       </header>

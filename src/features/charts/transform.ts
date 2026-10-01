@@ -18,8 +18,9 @@ export function plotSeries(points: PairPoint[], scale: Scale, detrend: boolean) 
   let a = points.map((p) => p.a)
   let b = points.map((p) => p.b)
   if (detrend) {
-    a = linearDetrend(a)
-    b = linearDetrend(b)
+    const years = points.map((p) => p.year)
+    a = linearDetrend(a, years)
+    b = linearDetrend(b, years)
   }
   if (scale === 'standardised') {
     a = zScores(a)

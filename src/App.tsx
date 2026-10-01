@@ -65,7 +65,12 @@ export default function App() {
       random()
       return
     }
-    if (pair && pair.a.id === a.id && pair.b.id === b.id) return
+    if (pair && pair.a.id === a.id && pair.b.id === b.id) {
+      // Back on the pair already shown: an abandoned load may have left these set.
+      setLoading(false)
+      setPairError(null)
+      return
+    }
     let live = true
     setLoading(true)
     setPairError(null)

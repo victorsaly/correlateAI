@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { computeHonestStats, fisherConfidenceInterval, pearson, pValueFromR } from './correlationStats'
+import { computeHonestStats, fisherConfidenceInterval, linearDetrend, pearson, pValueFromR } from './correlationStats'
 
 describe('correlationStats', () => {
   it('pearson of a perfect line is 1', () => {
@@ -39,5 +39,14 @@ describe('correlationStats', () => {
 
   it('reports insufficient data for tiny samples', () => {
     expect(computeHonestStats([1, 2, 3], [3, 1, 2]).verdict.level).toBe('insufficient')
+  })
+
+  it('detrends against real years, so gaps do not bend the trend', () => {
+    // a perfect linear trend in time, sampled with a 50-year gap
+    const years = [1900, 1901, 1902, 1903, 1953, 1954, 1955, 1956]
+    const values = years.map((y) => 2 * y + 1)
+    for (const r of linearDetrend(values, years)) expect(r).toBeCloseTo(0, 6)
+    // positions alone would treat the gap as one step and leave large residuals
+    expect(Math.max(...linearDetrend(values).map(Math.abs))).toBeGreaterThan(10)
   })
 })

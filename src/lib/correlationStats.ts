@@ -68,11 +68,17 @@ export function pearson(xs: number[], ys: number[]): number {
   return clampR(sxy / denom)
 }
 
-/** Residuals of `values` after removing the best-fit linear trend vs. time index. */
-export function linearDetrend(values: number[]): number[] {
+const indexTimes = (n: number) => Array.from({ length: n }, (_, i) => i)
+
+/**
+ * Residuals of `values` after removing the best-fit linear trend vs. time.
+ * Pass the real years so gaps in a series don't bend the fitted trend; without
+ * them, points are assumed to be evenly spaced.
+ */
+export function linearDetrend(values: number[], times: number[] = indexTimes(values.length)): number[] {
   const n = values.length
   if (n < 2) return values.slice()
-  const t = values.map((_, i) => i)
+  const t = times
   const mt = mean(t)
   const mv = mean(values)
   let stt = 0
@@ -83,12 +89,12 @@ export function linearDetrend(values: number[]): number[] {
   }
   const slope = stt === 0 ? 0 : stv / stt
   const intercept = mv - slope * mt
-  return values.map((v, i) => v - (intercept + slope * i))
+  return values.map((v, i) => v - (intercept + slope * t[i]))
 }
 
 /** Correlation of the two series after each has had its linear time trend removed. */
-export function detrendedCorrelation(v1: number[], v2: number[]): number {
-  return pearson(linearDetrend(v1), linearDetrend(v2))
+export function detrendedCorrelation(v1: number[], v2: number[], times?: number[]): number {
+  return pearson(linearDetrend(v1, times), linearDetrend(v2, times))
 }
 
 /** Two-tailed p-value for a Pearson r under H0: ρ = 0 (Student's t, df = n-2). */
@@ -116,17 +122,20 @@ export function fisherConfidenceInterval(
 
 const STRONG_TREND = 0.7 // |corr(series, time)| above this = strongly trending
 
-/** Build the full honest-stats bundle from paired (value1, value2) series. */
-export function computeHonestStats(v1: number[], v2: number[]): HonestStats {
+/**
+ * Build the full honest-stats bundle from paired (value1, value2) series.
+ * `times` are the observations' years; omit them only for evenly spaced data.
+ */
+export function computeHonestStats(v1: number[], v2: number[], times?: number[]): HonestStats {
   const n = Math.min(v1.length, v2.length)
   const a = v1.slice(0, n)
   const b = v2.slice(0, n)
+  const t = times ? times.slice(0, n) : indexTimes(n)
   const r = pearson(a, b)
-  const detrendedR = detrendedCorrelation(a, b)
+  const detrendedR = detrendedCorrelation(a, b, t)
   const pValue = pValueFromR(r, n)
   const ci = fisherConfidenceInterval(r, n)
 
-  const t = a.map((_, i) => i)
   const trend1 = Math.abs(pearson(a, t))
   const trend2 = Math.abs(pearson(b, t))
   const bothTrend = trend1 >= STRONG_TREND && trend2 >= STRONG_TREND

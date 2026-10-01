@@ -25,7 +25,8 @@ export function computePair(a: Dataset, b: Dataset, sa: YearValue[], sb: YearVal
   const points = alignByYear(sa, sb)
   const stats = computeHonestStats(
     points.map((p) => p.a),
-    points.map((p) => p.b)
+    points.map((p) => p.b),
+    points.map((p) => p.year)
   )
   return { a, b, points, stats }
 }

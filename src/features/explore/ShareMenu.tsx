@@ -26,19 +26,29 @@ const ShareCard = lazy(() => import('@/features/share/ShareCard').then((m) => ({
 
 export function ShareMenu({ pair }: { pair: PairResult }) {
   const cardRef = useRef<HTMLDivElement>(null)
-  const [rendering, setRendering] = useState(false)
+  const pngRef = useRef<{ url: string; blob: Blob } | null>(null)
+  const [renders, setRenders] = useState(0) // in-flight PNG renders; the hidden card stays mounted while > 0
+  const rendering = renders > 0
   const url = sharePairUrl(pair)
   const text = shareText(pair)
 
   const renderPng = async () => {
-    setRendering(true)
+    setRenders((n) => n + 1)
     try {
       // the card and its chart load lazily: wait until the chart has drawn its lines
       const [{ nodeToPng }, node] = await Promise.all([import('@/features/share/shareImage'), waitForCard(cardRef)])
-      return await nodeToPng(node)
+      const blob = await nodeToPng(node)
+      pngRef.current = { url, blob }
+      return blob
     } finally {
-      setRendering(false)
+      setRenders((n) => n - 1)
     }
+  }
+
+  // Browsers (Safari especially) only open the share sheet straight after a tap,
+  // so the image is rendered ahead of time and attached only if it's ready.
+  const prepareImage = () => {
+    if (pngRef.current?.url !== url && !rendering) renderPng().catch(() => {})
   }
 
   const copyLink = async () => {
@@ -51,14 +61,17 @@ export function ShareMenu({ pair }: { pair: PairResult }) {
   }
 
   const nativeShare = async () => {
-    try {
-      const blob = await renderPng()
-      const file = new File([blob], `${fileStem(pair)}.png`, { type: 'image/png' })
-      const data: ShareData = { title: 'CorrelateAI', text, url }
+    const data: ShareData = { title: 'CorrelateAI', text, url }
+    const ready = pngRef.current?.url === url ? pngRef.current.blob : null
+    if (ready) {
+      const file = new File([ready], `${fileStem(pair)}.png`, { type: 'image/png' })
       if (navigator.canShare?.({ ...data, files: [file] })) data.files = [file]
-      await navigator.share(data)
+    }
+    try {
+      await navigator.share(data) // no await before this: keeps the tap's user activation
     } catch (e) {
-      if ((e as Error).name !== 'AbortError') copyLink()
+      // the clipboard needs the same activation, so show the link rather than retry
+      if ((e as Error).name !== 'AbortError') toast.error('Could not open the share sheet', { description: url })
     }
   }
 
@@ -73,7 +86,12 @@ export function ShareMenu({ pair }: { pair: PairResult }) {
   return (
     <>
       <div className="flex flex-wrap gap-2">
-        <Button onClick={'share' in navigator ? nativeShare : copyLink} disabled={rendering}>
+        <Button
+          onClick={'share' in navigator ? nativeShare : copyLink}
+          onPointerEnter={prepareImage}
+          onPointerDown={prepareImage}
+          onFocus={prepareImage}
+        >
           <Share2 /> Share
         </Button>
         <Button variant="outline" onClick={copyLink}>
