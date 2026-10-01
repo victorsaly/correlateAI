@@ -31,6 +31,20 @@ const INDICATORS = [
   ['NV.AGR.TOTL.ZS', { id: 'wb-agriculture-gdp', name: 'US Agriculture Value Added', unit: '% of GDP', category: 'economics' }],
   ['SH.XPD.CHEX.GD.ZS', { id: 'wb-health-spending', name: 'US Health Expenditure', unit: '% of GDP', category: 'health' }],
   ['EN.GHG.CO2.PC.CE.AR5', { id: 'wb-co2-per-capita', name: 'US CO₂ Emissions per Capita', unit: 'tonnes', category: 'environment' }],
+  ['SP.DYN.IMRT.IN', { id: 'wb-infant-mortality', name: 'US Infant Mortality', unit: 'per 1,000 live births', category: 'health' }],
+  ['SP.ADO.TFRT', { id: 'wb-adolescent-fertility', name: 'US Adolescent Birth Rate', unit: 'per 1,000 women 15–19', category: 'demographics' }],
+  ['SP.POP.65UP.TO.ZS', { id: 'wb-population-65plus', name: 'US Population Aged 65+', unit: '% of total', category: 'demographics' }],
+  ['SM.POP.NETM', { id: 'wb-net-migration', name: 'US Net Migration', unit: 'people', category: 'demographics' }],
+  ['SL.TLF.CACT.FE.ZS', { id: 'wb-female-labor-force', name: 'US Female Labor Force Participation', unit: '% of women 15+', category: 'economics' }],
+  ['SL.UEM.1524.ZS', { id: 'wb-youth-unemployment', name: 'US Youth Unemployment', unit: '% of labor force 15–24', category: 'economics' }],
+  ['NY.GNS.ICTR.ZS', { id: 'wb-gross-savings', name: 'US Gross Savings', unit: '% of GDP', category: 'economics' }],
+  ['FR.INR.LEND', { id: 'wb-lending-rate', name: 'US Bank Lending Interest Rate', unit: '%', category: 'economics' }],
+  ['GC.TAX.TOTL.GD.ZS', { id: 'wb-tax-revenue', name: 'US Tax Revenue', unit: '% of GDP', category: 'economics' }],
+  ['SE.TER.ENRR', { id: 'wb-tertiary-enrollment', name: 'US College Enrollment', unit: '% gross', category: 'education' }],
+  ['GB.XPD.RSDV.GD.ZS', { id: 'wb-rd-spending', name: 'US R&D Expenditure', unit: '% of GDP', category: 'technology' }],
+  ['IP.PAT.RESD', { id: 'wb-patents-residents', name: 'US Resident Patent Applications', unit: 'applications', category: 'technology' }],
+  ['EG.USE.ELEC.KH.PC', { id: 'wb-electricity-per-capita', name: 'US Electricity Use per Capita', unit: 'kWh', category: 'energy' }],
+  ['AG.YLD.CREL.KG', { id: 'wb-cereal-yield', name: 'US Cereal Yield', unit: 'kg per hectare', category: 'food' }],
 ]
 
 const SOURCE = 'World Bank'
