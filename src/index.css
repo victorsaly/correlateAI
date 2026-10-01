@@ -182,3 +182,12 @@
     stroke-dashoffset: 0;
   }
 }
+
+@keyframes pencil-sweep {
+  from {
+    clip-path: inset(-50% 100% -50% 0);
+  }
+  to {
+    clip-path: inset(-50% 0 -50% 0);
+  }
+}

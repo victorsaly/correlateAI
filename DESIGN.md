@@ -286,7 +286,7 @@ A 1200×630 static composition of the same world: the wordmark and URL, the pair
 
 ## Motion
 
-There is one authored moment, and everything else is near-instant. Toggling "Remove trend" tweens the same line paths into their residuals over **700ms ease-out**. At the same time the headline r counts to its new value over **700ms** with a quadratic ease-out, so the number and the lines settle together. When the verdict level changes, the pencil ring draws on through an animated mask (**520ms, cubic-bezier(0.16, 1, 0.3, 1)**), which keeps dashed and dotted rings intact as they draw. The double ring's second loop follows after **380ms**, over 420ms. While a new pair loads, the current one dims to 60% opacity. Under `prefers-reduced-motion: reduce`, CSS animations and transitions collapse to 0.01ms and the r counter snaps directly to its value. The Recharts line tween is driven by JavaScript, so it checks the same media query and is turned off.
+There is one authored moment, and everything else is near-instant. Toggling "Remove trend" tweens the same line paths into their residuals over **700ms ease-out**. At the same time the headline r counts to its new value over **700ms** with a quadratic ease-out, so the number and the lines settle together. When the verdict level changes, the pencil ring draws on through an animated mask (**520ms, cubic-bezier(0.16, 1, 0.3, 1)**), which keeps dashed and dotted rings intact as they draw. The double ring's second loop follows after **380ms**, over 420ms. On page load the header logo is drawn in two pencil strokes: the ring draws itself around the r (**520ms**, same curve, after a **200ms** delay), and the underline sweeps left to right under the wordmark (a clip-path wipe, **420ms**, starting at **580ms** so it overlaps the end of the ring). Both play once per visit. The share card's logo stays static. While a new pair loads, the current one dims to 60% opacity. Under `prefers-reduced-motion: reduce`, CSS animations and transitions collapse to 0.01ms and the r counter snaps directly to its value. The Recharts line tween is driven by JavaScript, so it checks the same media query and is turned off.
 
 ## Do's and Don'ts
 
@@ -306,19 +306,19 @@ There is one authored moment, and everything else is near-instant. Toggling "Rem
 - **Don't** nest a bordered container inside another, and don't turn statistics into KPI tiles or chart cards.
 - **Don't** add gradients, glows, or shadows on anything that belongs to the sheet.
 - **Don't** introduce hue outside the two series inks and three verdict inks.
-- **Don't** add motion beyond the trend toggle and the pencil ring, and never animate without honouring reduced motion.
+- **Don't** add motion beyond the trend toggle and the pencil ring (verdict and logo), and never animate without honouring reduced motion.
 - **Don't** use emoji, or claim AI, "quantum" or "cutting-edge" anything.
 
 ## Brand Mark
 
-**Two lines, one ring.** Two trends rise together on a graph-paper tile: series A is solid ink-blue and series B is dashed ochre. Their crossing is ringed in red pencil, marking the moment of doubt the product exists for. The mark is made only from the system's own materials (plate, grid, series inks, pencil), so it themes with the page.
+**The ringed r.** A lowercase *r*, the correlation coefficient and the one number every pair is judged by, is ringed in red pencil. It is the Verdict Mark made into a logo: a number that has been checked. The mark uses only the system's own materials (plate, graphite ink, pencil), so it themes with the page. It replaced "Two lines, one ring", whose diagonal line through a red circle read as a "no entry" sign at favicon size.
 
 - **Source of truth:** `src/app/logo.json`. It holds the geometry, with viewBox 0 0 64 64.
-  - `full` is for 40 px and up: a bordered tile with a 3×3 grid.
-  - `small` is for favicons: no grid or border, heavier strokes, a larger ring.
+  - `full` is for 40 px and up: a bordered tile, 6.5 r stroke and 3.2 ring.
+  - `small` is for favicons and the header: no border, heavier strokes (7.5 r, 4.4 ring) and a slightly larger loop.
 - **In the app:** `LogoMark` and `Logo` in `src/app/Logo.tsx`. They are coloured by CSS variables, so the mark follows light and dark.
-- **Wordmark:** "Correlate" in foreground ink, then "AI" in muted ink, in Atkinson Hyperlegible Next 600 at -0.02em tracking. The name keeps "AI", but the type never puts weight on it.
+- **Wordmark:** "Correlate" in foreground ink, then "AI" in muted ink, in Atkinson Hyperlegible Next 600 at -0.02em tracking. The name keeps "AI", but the type never puts weight on it. A hand-drawn pencil underline runs under the whole wordmark. It is slightly uneven with a small lift at the end, never a straight rule, and its stroke is 7% of the mark size so it matches the ring.
 - **Icons:** `npm run brand` regenerates `favicon.svg` (switches with prefers-color-scheme), the 16/32 px PNGs, `favicon.ico`, `apple-touch-icon.png`, and the 192/512 px and maskable PWA icons.
 - **Social image:** `public/og-image.png` is the real share card for the default pair, downscaled to 1200×630, not a separate illustration.
-- **Don't** recolour the mark outside the token inks, put it on gradients, or draw the ring as a perfect circle. It is a pencil loop.
+- **Don't** recolour the mark outside graphite and pencil, put it on gradients, set the r as live text, or draw the ring as a perfect circle. It is a pencil loop that overshoots its start.
 

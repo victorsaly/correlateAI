@@ -13,8 +13,8 @@ const out = (f) => path.join(root, 'public', f)
 
 // Mirrors the light/dark tokens in src/index.css.
 const THEME = {
-  light: { paper: '#f7f8f4', plate: '#fbfcf9', border: '#cbd5cf', grid: 'rgba(120,160,150,0.32)', a: '#1a62ab', b: '#b8631a', pencil: '#b8322a' },
-  dark: { paper: '#0a2a4c', plate: '#0c3057', border: '#2d5d8f', grid: 'rgba(235,245,255,0.24)', a: '#279fc6', b: '#d07f2a', pencil: '#ff8f80' },
+  light: { paper: '#f7f8f4', plate: '#fbfcf9', border: '#cbd5cf', ink: '#1d2a2e', pencil: '#b8322a' },
+  dark: { paper: '#0a2a4c', plate: '#0c3057', border: '#2d5d8f', ink: '#eef4fa', pencil: '#ff8f80' },
 }
 
 /** Mark body. With `css` set, colours come from classes so one SVG can switch theme. */
@@ -22,9 +22,7 @@ function body(g, c) {
   const t = g.tile
   return [
     `<rect x="${t.x}" y="${t.y}" width="${t.size}" height="${t.size}" rx="${t.radius}" fill="${c.plate}"${t.border ? ` stroke="${c.border}" stroke-width="${t.border}"` : ''}/>`,
-    ...g.grid.map((d) => `<path d="${d}" stroke="${c.grid}" stroke-width="1"/>`),
-    `<path d="${g.a.d}" fill="none" stroke="${c.a}" stroke-width="${g.a.width}" stroke-linecap="round" stroke-linejoin="round"/>`,
-    `<path d="${g.b.d}" fill="none" stroke="${c.b}" stroke-width="${g.b.width}" stroke-dasharray="${g.b.dash}" stroke-linejoin="round"/>`,
+    ...g.r.d.map((d) => `<path d="${d}" fill="none" stroke="${c.ink}" stroke-width="${g.r.width}" stroke-linecap="round"/>`),
     `<path d="${g.ring.d}" fill="none" stroke="${c.pencil}" stroke-width="${g.ring.width}" stroke-linecap="round"/>`,
   ].join('\n  ')
 }
@@ -42,11 +40,11 @@ const png = (s) => sharp(Buffer.from(s)).png().toBuffer()
 // favicon.svg follows the browser's colour scheme.
 const L = THEME.light
 const D = THEME.dark
-const themed = body(logo.small, { plate: 'var(--plate)', border: 'none', grid: 'none', a: 'var(--a)', b: 'var(--b)', pencil: 'var(--pencil)' })
+const themed = body(logo.small, { plate: 'var(--plate)', border: 'none', ink: 'var(--ink)', pencil: 'var(--pencil)' })
 await fs.writeFile(out('favicon.svg'), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <style>
-    svg { --plate: ${L.plate}; --a: ${L.a}; --b: ${L.b}; --pencil: ${L.pencil}; }
-    @media (prefers-color-scheme: dark) { svg { --plate: ${D.plate}; --a: ${D.a}; --b: ${D.b}; --pencil: ${D.pencil}; } }
+    svg { --plate: ${L.plate}; --ink: ${L.ink}; --pencil: ${L.pencil}; }
+    @media (prefers-color-scheme: dark) { svg { --plate: ${D.plate}; --ink: ${D.ink}; --pencil: ${D.pencil}; } }
   </style>
   ${themed}
 </svg>
