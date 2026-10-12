@@ -81,90 +81,102 @@
   },
   {
     "year": 2000,
-    "value": 164795
+    "value": 151764
   },
   {
     "year": 2001,
-    "value": 177513
+    "value": 163469
   },
   {
     "year": 2002,
-    "value": 184245
+    "value": 173208
   },
   {
     "year": 2003,
-    "value": 188941
+    "value": 182024
   },
   {
     "year": 2004,
-    "value": 189536
+    "value": 188191
   },
   {
     "year": 2005,
-    "value": 207867
+    "value": 202722
   },
   {
     "year": 2006,
-    "value": 221784
+    "value": 214672
   },
   {
     "year": 2007,
-    "value": 241347
+    "value": 232669
   },
   {
     "year": 2008,
-    "value": 231588
+    "value": 225998
   },
   {
     "year": 2009,
-    "value": 224912
+    "value": 229005
   },
   {
     "year": 2010,
-    "value": 241977
+    "value": 247844
   },
   {
     "year": 2011,
-    "value": 247750
+    "value": 254170
   },
   {
     "year": 2012,
-    "value": 268782
+    "value": 272797
   },
   {
     "year": 2013,
-    "value": 287831
+    "value": 292276
   },
   {
     "year": 2014,
-    "value": 285096
+    "value": 291275
   },
   {
     "year": 2015,
-    "value": 288335
+    "value": 295151
   },
   {
     "year": 2016,
-    "value": 295327
+    "value": 302991
   },
   {
     "year": 2017,
-    "value": 293904
+    "value": 302741
   },
   {
     "year": 2018,
-    "value": 285095
+    "value": 294738
   },
   {
     "year": 2019,
-    "value": 285113
+    "value": 302986
   },
   {
     "year": 2020,
-    "value": 269586
+    "value": 287979
   },
   {
     "year": 2021,
-    "value": 262244
+    "value": 282476
+  },
+  {
+    "year": 2022,
+    "value": 273691
+  },
+  {
+    "year": 2023,
+    "value": 278446
+  },
+  {
+    "year": 2024,
+    "value": 270295
   }
 ]

@@ -714,10 +714,10 @@
     "sourceUrl": "https://data.worldbank.org/indicator/EG.USE.ELEC.KH.PC",
     "category": "energy",
     "description": "US Electricity Use per Capita (World Bank indicator EG.USE.ELEC.KH.PC).",
-    "dataPoints": 35,
+    "dataPoints": 36,
     "dateRange": {
       "start": 1990,
-      "end": 2024
+      "end": 2025
     }
   },
   {
@@ -756,10 +756,10 @@
     "sourceUrl": "https://data.worldbank.org/indicator/AG.LND.FRST.ZS",
     "category": "environment",
     "description": "US Forest Area (World Bank indicator AG.LND.FRST.ZS).",
-    "dataPoints": 34,
+    "dataPoints": 35,
     "dateRange": {
       "start": 1990,
-      "end": 2023
+      "end": 2024
     }
   },
   {
@@ -910,10 +910,10 @@
     "sourceUrl": "https://data.worldbank.org/indicator/MS.MIL.XPND.GD.ZS",
     "category": "economics",
     "description": "US Military Expenditure (World Bank indicator MS.MIL.XPND.GD.ZS).",
-    "dataPoints": 65,
+    "dataPoints": 66,
     "dateRange": {
       "start": 1960,
-      "end": 2024
+      "end": 2025
     }
   },
   {
@@ -969,10 +969,10 @@
     "sourceUrl": "https://data.worldbank.org/indicator/IP.PAT.RESD",
     "category": "technology",
     "description": "US Resident Patent Applications (World Bank indicator IP.PAT.RESD).",
-    "dataPoints": 42,
+    "dataPoints": 45,
     "dateRange": {
       "start": 1980,
-      "end": 2021
+      "end": 2024
     }
   },
   {
