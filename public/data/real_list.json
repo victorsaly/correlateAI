@@ -189,10 +189,10 @@
     "sourceUrl": "https://ourworldindata.org/grapher/annual-co2-emissions-per-country",
     "category": "environment",
     "description": "US Annual CO₂ Emissions (Our World in Data: Annual CO₂ emissions).",
-    "dataPoints": 225,
+    "dataPoints": 226,
     "dateRange": {
       "start": 1800,
-      "end": 2024
+      "end": 2025
     }
   },
   {
@@ -203,10 +203,10 @@
     "sourceUrl": "https://ourworldindata.org/grapher/co-emissions-per-capita",
     "category": "environment",
     "description": "US CO₂ Emissions per Capita (Our World in Data: CO₂ emissions per capita).",
-    "dataPoints": 225,
+    "dataPoints": 226,
     "dateRange": {
       "start": 1800,
-      "end": 2024
+      "end": 2025
     }
   },
   {
